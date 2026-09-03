@@ -25,9 +25,9 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 2</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 2</b></a>
-          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 2</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 3</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 3</b></a>
+          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 3</b></a>
           <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ</b></a>
           <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
@@ -142,9 +142,21 @@
   <a class="icon-btn search-mobile" href="crm2__incoming.html" aria-label="Поиск по обращениям">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="dirsel" method="get" action="/direction/switch">
+    <input type="hidden" name="next" value="/crm2/incoming">
+    <select name="to" aria-label="Направление деятельности"
+            onchange="this.form.next.value=location.pathname+location.search;this.form.submit()">
+      <option value="25" selected>Ростовские окна розница</option>
+      <option value="26" >Ростовские окна опт</option>
+      <option value="27" >Росток</option>
+    </select>
+  </form>
+  <form method="post" action="/incoming/new" style="margin:0">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
+  <a class="icon-btn" href="notifications.html" title="Уведомления" aria-label="Уведомления: непрочитанных 2">
+    <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="pip">2</span>  </a>
+  <div class="avatar" title="Офис-менеджер Демо · Директор">ОФ</div>
 </header>    <div class="work">
 
 <div class="cx">
@@ -168,17 +180,28 @@
   <section class="sec">
     <div class="sec-head">
       <h2>Требует внимания</h2>
+<span class="sec-count">1</span>    </div>
+
+    <div class="cx-grid">
+      <div class="cx-c12">
+        <div class="sec-body"><div class="cx-tasks">
+<a href="crm2__contracts.html" class="cx-task"><span class="dot dot--amber"></span>
+  <span>
+    <span class="cx-task-t">Договоры не запущены</span>
+    <span class="cx-task-s">подписаны дольше 3 рабочих дней, не отправлены</span>
+  </span><span class="cx-val is-count"><span class="n">1</span><span class="u">договор</span>
+</span></a>
+</div>
+</div>
+      </div>
     </div>
-
-    <div class="note ok">Незакрытых чеков, неподтверждённых поступлений и зависших договоров нет.</div>
-
   </section>
 
   <section class="sec">
     <div class="sec-head"><h2>Деньги компании</h2></div>
     <div class="cx-grid">
       <div class="cx-c5">
-        <div class="sec-body"><p class="kpi-lab">Остаток сейчас</p><p class="kpi-val is-hero">0 ₽</p>
+        <div class="sec-body"><p class="kpi-lab">Остаток сейчас</p><p class="kpi-val is-hero">94 300 ₽</p>
           <div class="cx-legend">
             <span><i class="dot dot--green"></i>Наличные по офисам</span>
           </div>
@@ -192,9 +215,9 @@
           <div class="cx-kv">
             <div><span class="cx-kv-n">Приход</span><span class="cx-val"><span class="n money-in">0</span><span class="u">₽</span>
 </span></div>
-            <div><span class="cx-kv-n">Расход</span><span class="cx-val"><span class="n money-out">0</span><span class="u">₽</span>
+            <div><span class="cx-kv-n">Расход</span><span class="cx-val"><span class="n money-out">3 200</span><span class="u">₽</span>
 </span></div>
-            <div><span class="cx-kv-n">Нетто</span><span class="cx-val"><span class="n">0</span><span class="u">₽</span>
+            <div><span class="cx-kv-n">Нетто</span><span class="cx-val"><span class="n">-3 200</span><span class="u">₽</span>
 </span></div>
           </div>
         </div>
@@ -208,6 +231,11 @@
               <span class="cx-val"><span class="n">0</span><span class="u">₽</span>
 </span>
             </a>
+            <a href="cashbox.html">
+              <span class="cx-kv-n">Касса офиса Демо</span>
+              <span class="cx-val"><span class="n">94 300</span><span class="u">₽</span>
+</span>
+            </a>
           </div>
         </div>
       </div>
@@ -217,11 +245,13 @@
           <table class="crm-table">
             <thead><tr><th>Офис</th><th class="money col-w140">Наличные</th></tr></thead>
             <tbody>
+              <tr><td>Офис Демо</td>
+                <td class="money">94 300.00 ₽</td></tr>
               <tr><td>Без офиса</td>
                 <td class="money">0.00 ₽</td></tr>
             </tbody>
             <tfoot><tr><td>Итого наличными</td>
-              <td class="money">0.00 ₽</td></tr></tfoot>
+              <td class="money">94 300.00 ₽</td></tr></tfoot>
           </table>
         </div>
       </div>
@@ -233,11 +263,11 @@
     <div class="cx-grid">
       <div class="cx-c5">
         <div class="sec-body"><h3 class="cx-card-title">Ждём от клиентов
-            <span class="cx-card-note">107 000 ₽</span></h3>
+            <span class="cx-card-note">195 500 ₽</span></h3>
           <div class="cx-kv">
             <div>
-              <span class="cx-kv-n">По договорам без рассрочки<span class="cx-kv-m">1 договор</span></span>
-              <span class="cx-val"><span class="n">107 000</span><span class="u">₽</span>
+              <span class="cx-kv-n">По договорам без рассрочки<span class="cx-kv-m">2 договора</span></span>
+              <span class="cx-val"><span class="n">195 500</span><span class="u">₽</span>
 </span>
             </div>
           </div>
@@ -248,9 +278,9 @@
         <div class="sec-body">
           <p class="kpi-lab">Должны поставщикам</p>
           <p class="kpi-val is-hero">0 ₽</p>
-          
+          <div class="cx-bar"><i class="is-ok" style="width:100.0%"></i></div>
           <div class="cx-legend">
-            <span><i class="dot dot--green"></i>Оплачено <b>0 ₽</b></span>
+            <span><i class="dot dot--green"></i>Оплачено <b>61 000 ₽</b></span>
             <span><i class="dot dot--amber"></i>Осталось <b>0 ₽</b></span>
           </div>
         </div>
@@ -258,7 +288,7 @@
     </div><div class="cx-grid">
       <div class="cx-c8">
     <details class="ds-acc">
-      <summary>По договорам без рассрочки · 1 · 107 000 ₽</summary>
+      <summary>По договорам без рассрочки · 2 · 195 500 ₽</summary>
       <div class="sec-body sec-body--table">
         <table class="crm-table">
           <thead><tr><th>Клиент</th><th>№ договора</th><th class="money col-w140">Сумма договора</th>
@@ -267,6 +297,10 @@
             <tr><td>Демидов Демо Демидович</td><td>Д-000001</td>
               <td class="money">214 000.00 ₽</td>
               <td class="money money-out">107 000.00 ₽</td>
+              <td class="money">—</td></tr>
+            <tr><td>Задержкин Демо Олегович</td><td>Д-000003</td>
+              <td class="money">176 500.00 ₽</td>
+              <td class="money money-out">88 500.00 ₽</td>
               <td class="money">—</td></tr>
           </tbody>
         </table>
@@ -349,7 +383,7 @@
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 2</span>
+    <span>Обращения · 3</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -369,9 +403,9 @@
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 2</span><small>Продажи</small>      </a>
+        <span>Обращения · 3</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 2</span><small>Продажи</small>      </a>
+        <span>Замер · 3</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
@@ -385,7 +419,7 @@
       <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
         <span>Задачи</span>      </a>
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
-        <span>Договор · 2</span><small>Продажи</small>      </a>
+        <span>Договор · 3</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
         <span>Заказ</span><small>Продажи</small>      </a>
       <a href="warehouse.html" data-nav-prefixes="/warehouse">
@@ -430,6 +464,8 @@
         <span>Цели</span><small>Отчёты</small>      </a>
       <a href="settings.html" data-nav-prefixes="/settings|/salary">
         <span>Настройки</span>      </a>
+      <a href="#" data-screen="/account/password"><span>Пароль</span></a>
+      <a class="danger" href="#" data-screen="/logout"><span>Выйти</span></a>
     </div>
   </section>
 </div><script>

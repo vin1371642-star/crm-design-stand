@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Мои задачи · Ростовские окна</title>
+<title>Задачи · Ростовские окна</title>
 <link rel="stylesheet" href="static/design-system.css?v=1788344011">
 <link rel="stylesheet" href="static/crm2-shell.css?v=1788344011">
 <link rel="stylesheet" href="static/crm2-components.css?v=1788344011">
@@ -25,9 +25,9 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 2</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 2</b></a>
-          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 2</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 3</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 3</b></a>
+          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 3</b></a>
           <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ</b></a>
           <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
@@ -142,9 +142,21 @@
   <a class="icon-btn search-mobile" href="crm2__incoming.html" aria-label="Поиск по обращениям">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="dirsel" method="get" action="/direction/switch">
+    <input type="hidden" name="next" value="/crm2/incoming">
+    <select name="to" aria-label="Направление деятельности"
+            onchange="this.form.next.value=location.pathname+location.search;this.form.submit()">
+      <option value="25" selected>Ростовские окна розница</option>
+      <option value="26" >Ростовские окна опт</option>
+      <option value="27" >Росток</option>
+    </select>
+  </form>
+  <form method="post" action="/incoming/new" style="margin:0">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
+  <a class="icon-btn" href="notifications.html" title="Уведомления" aria-label="Уведомления: непрочитанных 2">
+    <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="pip">2</span>  </a>
+  <div class="avatar" title="Офис-менеджер Демо · Директор">ОФ</div>
 </header>    <div class="work">
 <style>
   /* Экран без своих размеров: всё — шкала Reference V2 из design-system.css. */
@@ -246,7 +258,7 @@
 </style>
 
 <div class="rhead">
-  <h1>Мои задачи</h1>  <button class="btn" type="button" onclick="var f=document.getElementById('taskAdd'); f.hidden=!f.hidden; if(!f.hidden){f.querySelector('input[name=title]').focus();}">+ Новая задача</button>
+  <h1>Задачи</h1>  <button class="btn" type="button" onclick="var f=document.getElementById('taskAdd'); f.hidden=!f.hidden; if(!f.hidden){f.querySelector('input[name=title]').focus();}">+ Новая задача</button>
 </div>
 
 <form id="taskAdd" class="mt-add" method="post" action="/tasks/add" hidden>
@@ -254,11 +266,11 @@
     <input name="title" required placeholder="Например: собрать документы по договору 21391"></label><label>По обращению
     <select name="request_id" required>
       <option value="">выберите обращение</option>
-<option value="2">№2 · Пробникова Демо Ивановна</option><option value="1">№1 · Демидов Демо Демидович</option>    </select></label>
+<option value="3">№3 · Задержкин Демо Олегович</option><option value="2">№2 · Пробникова Демо Ивановна</option><option value="1">№1 · Демидов Демо Демидович</option>    </select></label>
   <label>Кому
     <select name="assignee_id">
       <option value="">себе</option>
-<option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник 01</option><option value="2">Сотрудник 02</option><option value="3">Сотрудник 03</option><option value="4">Сотрудник 04</option><option value="5">Сотрудник 05</option><option value="6">Сотрудник 06</option><option value="7">Сотрудник 07</option><option value="8">Сотрудник 08</option><option value="15">Сотрудник ПТО Демо</option>    </select></label>
+<option value="24">Александр</option><option value="21">Андрей</option><option value="20">Вадим</option><option value="23">Валерий</option><option value="19">Данил</option><option value="22">Дима</option><option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="18">Наташа</option><option value="17">Нелли</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник 01</option><option value="15">Сотрудник ПТО Демо</option>    </select></label>
   <label>Срок<input type="date" name="due_date"></label>
   <label>Время<input type="time" name="due_time" value="09:00"></label>
   <label class="wide">Подробности<input name="note" placeholder="Необязательно"></label>
@@ -270,21 +282,27 @@
 
 
 <div class="mt-cards two">
-  <div class="mt-card"><div class="v">0</div><div class="l">Просроченные перезвоны</div></div><div class="mt-card"><div class="v">0</div><div class="l">На сегодня</div></div>
+  <div class="mt-card over"><div class="v">1</div><div class="l">Просроченные перезвоны</div></div><div class="mt-card"><div class="v">0</div><div class="l">На сегодня</div></div>
 </div>
 
 
 <section class="mt-sec">
-  <h2>Не запущено в производство <span class="cnt" style="background:var(--over);color:#fff;border-radius:var(--r2-radius-10);padding:0 var(--sp-2);font-size:var(--r2-label)">0</span></h2>
-  <div class="col-empty">Все подписанные договоры запущены</div>
+  <h2>Не запущено в производство <span class="cnt" style="background:var(--over);color:#fff;border-radius:var(--r2-radius-10);padding:0 var(--sp-2);font-size:var(--r2-label)">1</span></h2>
+  <div class="ul-list">
+    <a class="ul-row" href="#" data-screen="/incoming/3/card?tab=dog">
+      <span class="ul-num">Д-000003</span>
+      <span class="ul-fio">Задержкин Демо Олегович</span>
+      <span class="ul-date">26.08.2026</span>
+    </a>
+  </div>
 </section>
 
 <section class="mt-sec">
   <h2>Доска задач</h2><nav class="crm-tabs">
     <a href="tasks.html"
-       class="active">Все<span class="tcnt">0</span></a>
+       class="active">Все<span class="tcnt">3</span></a>
     <a href="tasks.html"
-       class="">Позвонить<span class="tcnt">0</span></a>
+       class="">Позвонить<span class="tcnt">2</span></a>
     <a href="tasks.html"
        class="">Замеры<span class="tcnt">0</span></a>
     <a href="tasks.html"
@@ -296,9 +314,139 @@
     <a href="tasks.html"
        class="">Личное<span class="tcnt">0</span></a>
     <a href="tasks.html"
-       class="">Выполненные<span class="tcnt">0</span></a>
-  </nav>
-<div class="tab-empty">Открытых задач нет. Поручить работу — кнопкой «Новая задача».</div>
+       class="">Выполненные<span class="tcnt">1</span></a>
+  </nav>  <form class="rfilters" method="get" action="/tasks">
+    <input type="hidden" name="tab" value="all">
+    <details class="colpick ffilter">
+  <summary class="fsel" title="Все сотрудники">Все сотрудники</summary>
+  <div class="colpick-pop">
+    <div class="colpick-list">
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="24"
+               onchange="this.form.submit()">
+        <span>Александр</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="21"
+               onchange="this.form.submit()">
+        <span>Андрей</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="20"
+               onchange="this.form.submit()">
+        <span>Вадим</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="23"
+               onchange="this.form.submit()">
+        <span>Валерий</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="19"
+               onchange="this.form.submit()">
+        <span>Данил</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="22"
+               onchange="this.form.submit()">
+        <span>Дима</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="16"
+               onchange="this.form.submit()">
+        <span>Директор Демо</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="11"
+               onchange="this.form.submit()">
+        <span>Замерщик Демо</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="14"
+               onchange="this.form.submit()">
+        <span>Кладовщик Демо</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="13"
+               onchange="this.form.submit()">
+        <span>Координатор Демо</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="12"
+               onchange="this.form.submit()">
+        <span>Монтажник Демо</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="18"
+               onchange="this.form.submit()">
+        <span>Наташа</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="17"
+               onchange="this.form.submit()">
+        <span>Нелли</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="9"
+               onchange="this.form.submit()">
+        <span>Оператор КЦ Демо</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="10"
+               onchange="this.form.submit()">
+        <span>Офис-менеджер Демо</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="1"
+               onchange="this.form.submit()">
+        <span>Сотрудник 01</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="15"
+               onchange="this.form.submit()">
+        <span>Сотрудник ПТО Демо</span>
+      </label>
+    </div>
+  </div>
+</details>
+
+  </form>
+
+  <div class="board">
+    <div class="col over">
+      <div class="col-head">Просроченные <span class="cnt">1</span></div>
+      <div class="col-list">
+<div class="tcard">
+    <div class="meta">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>31.08.2026 22:18 · перезвон
+    </div>
+    <div class="ttl">
+<a href="#" data-screen="/incoming/1/card">Согласовать перенос монтажа с клиентом</a>    </div><div class="tnote">Клиент просил перенести на выходные, ответа нет третий день.</div>    <form method="post" action="/tasks/4/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form>
+  </div>      </div>
+    </div>
+    <div class="col today">
+      <div class="col-head">Сегодня <span class="cnt">0</span></div>
+      <div class="col-list">
+<div class="col-empty">Нет</div>      </div>
+    </div>
+    <div class="col future">
+      <div class="col-head">Будущие <span class="cnt">2</span></div>
+      <div class="col-list">
+<div class="tcard">
+    <div class="meta">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>04.09.2026 04:18 · перезвон
+    </div>
+    <div class="ttl">
+<a href="#" data-screen="/incoming/1/card">Перезвонить и согласовать доставку</a>    </div><div class="tnote">Клиент просил после 18:00.</div>    <form method="post" action="/tasks/1/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form>
+  </div><div class="tcard">
+    <div class="meta">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>04.09.2026 22:18 · задача
+    </div>
+    <div class="ttl">
+<a href="#" data-screen="/incoming/1/card">Проверить результат замера</a>    </div><div class="tnote">Сверить проёмы с расчётом ПТО.</div>    <form method="post" action="/tasks/2/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form>
+  </div>      </div>
+    </div>
+  </div>
 </section>
     </div>
   </div>
@@ -311,7 +459,7 @@
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 2</span>
+    <span>Обращения · 3</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -331,9 +479,9 @@
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 2</span><small>Продажи</small>      </a>
+        <span>Обращения · 3</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 2</span><small>Продажи</small>      </a>
+        <span>Замер · 3</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
@@ -347,7 +495,7 @@
       <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
         <span>Задачи</span>      </a>
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
-        <span>Договор · 2</span><small>Продажи</small>      </a>
+        <span>Договор · 3</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
         <span>Заказ</span><small>Продажи</small>      </a>
       <a href="warehouse.html" data-nav-prefixes="/warehouse">
@@ -392,6 +540,8 @@
         <span>Цели</span><small>Отчёты</small>      </a>
       <a href="settings.html" data-nav-prefixes="/settings|/salary">
         <span>Настройки</span>      </a>
+      <a href="#" data-screen="/account/password"><span>Пароль</span></a>
+      <a class="danger" href="#" data-screen="/logout"><span>Выйти</span></a>
     </div>
   </section>
 </div><script>

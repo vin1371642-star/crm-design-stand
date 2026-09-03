@@ -25,9 +25,9 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 2</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 2</b></a>
-          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 2</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 3</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 3</b></a>
+          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 3</b></a>
           <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ</b></a>
           <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
@@ -142,9 +142,21 @@
   <a class="icon-btn search-mobile" href="crm2__incoming.html" aria-label="Поиск по обращениям">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="dirsel" method="get" action="/direction/switch">
+    <input type="hidden" name="next" value="/crm2/incoming">
+    <select name="to" aria-label="Направление деятельности"
+            onchange="this.form.next.value=location.pathname+location.search;this.form.submit()">
+      <option value="25" selected>Ростовские окна розница</option>
+      <option value="26" >Ростовские окна опт</option>
+      <option value="27" >Росток</option>
+    </select>
+  </form>
+  <form method="post" action="/incoming/new" style="margin:0">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
+  <a class="icon-btn" href="notifications.html" title="Уведомления" aria-label="Уведомления: непрочитанных 2">
+    <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="pip">2</span>  </a>
+  <div class="avatar" title="Офис-менеджер Демо · Директор">ОФ</div>
 </header>    <div class="work">
 <style>
   /* Область видимости: подписи слева, выбор справа — читается столбиком. */
@@ -270,6 +282,8 @@
     </div>
     <div class="st-row">
       <label class="st-lbl"><b>Логин <span class="req">*</span></b><input class="st-inp" id="stLogin" name="login" value="" required autocomplete="off"></label>
+<label class="st-lbl"><b>Сменить пароль</b><span class="st-pwd"><input class="st-inp" type="password" name="password" autocomplete="new-password" id="stPwd"><button type="button" class="st-eye" onclick="stTogglePwd('stPwd')" title="Показать пароль" aria-label="Показать пароль"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 12S5.2 5.5 12 5.5 22.5 12 22.5 12 18.8 18.5 12 18.5 1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3.2"/></svg></button></span></label>
+      <label class="st-lbl"><b>Повторите пароль</b><span class="st-pwd"><input class="st-inp" type="password" name="password2" autocomplete="new-password" id="stPwd2"><button type="button" class="st-eye" onclick="stTogglePwd('stPwd2')" title="Показать пароль" aria-label="Показать пароль"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 12S5.2 5.5 12 5.5 22.5 12 22.5 12 18.8 18.5 12 18.5 1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3.2"/></svg></button></span></label>
     </div><h2 class="st-h2">Должность и офис</h2><input type="hidden" name="employee_positions_present" value="1">
     <div class="st-row">
       <label class="st-lbl"><b>Должность</b><select class="st-inp is-narrow" name="position">
@@ -295,7 +309,618 @@
       Сотрудник видит клиентов, обращения и договоры только отмеченных направлений.
       Если не отмечено ни одного — он не увидит ничего.
       «Все направления» открывает и те, что заведут позже.</p>    <h2 class="st-h2">Доступ к кассам</h2>
-    <p class="muted st-hint">У сотрудника нет логина — доступ выдавать некому.</p>
+    <div class="st-offs">
+      <label class="st-check"><input type="checkbox" name="cbx_1" value="1" > Касса офиса</label>
+      <label class="st-check"><input type="checkbox" name="cbx_2" value="1" > Касса офиса Демо</label>
+    </div>
+    <p class="muted st-hint">
+      Кассы своего офиса доступны и без галочек. Отмечайте, только чтобы открыть
+      чужую кассу.</p>
+    <h2 class="st-h2">Права и доступы</h2>
+    <label class="st-lbl">Роль
+      <select class="st-inp is-narrow" name="access_role">
+<option value="owner" >Администратор</option><option value="director" >Директор</option><option value="rop" >РОП</option><option value="pto_director" >Руководитель ПТО</option><option value="service_head" >Руководитель сервисной службы</option><option value="call_center_senior" >Старший оператор КЦ</option><option value="senior_measurer" >Старший замерщик</option><option value="office_manager" >Офис-менеджер</option><option value="call_center_operator" >Оператор КЦ</option><option value="field_manager" >Выездной менеджер</option><option value="manager" selected>Менеджер</option><option value="measurer" >Замерщик</option><option value="pto_manager" >Менеджер ПТО</option><option value="warehouse" >Кладовщик</option><option value="coordinator" >Координатор</option><option value="installer" >Монтажник</option><option value="service_manager" >Менеджер сервисной службы</option><option value="service_technician" >Сервисный мастер</option><option value="accountant" >Бухгалтер</option><option value="marketing" >Маркетолог</option>      </select></label><input type="hidden" name="access_state_present" value="1">
+    <p class="st-base">Права берутся с должности
+      <b>не назначена — умолчания роли «Менеджер»</b>
+      <a href="settings__structure__positions.html">Права должностей</a></p>
+
+    <h3 class="st-h3">Личные отличия от должности</h3>
+    <p class="st-note">Отличий нет — у сотрудника ровно права должности.</p>
+<h3 class="st-h3">Разделы</h3>
+    <details class="st-acc" >
+      <summary>Работа с клиентом</summary>
+      <div class="st-acc-body st-states">
+        <label class="st-lbl">Обращения
+          <select class="st-inp" name="access_section_state">
+            <option value="incoming:inherit" selected>Как у должности — нет</option>
+            <option value="incoming:on" >Открыть лично</option>
+            <option value="incoming:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Замеры
+          <select class="st-inp" name="access_section_state">
+            <option value="measurements:inherit" selected>Как у должности — есть</option>
+            <option value="measurements:on" >Открыть лично</option>
+            <option value="measurements:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Задачи
+          <select class="st-inp" name="access_section_state">
+            <option value="tasks:inherit" selected>Как у должности — есть</option>
+            <option value="tasks:on" >Открыть лично</option>
+            <option value="tasks:off" >Закрыть лично</option>
+          </select></label>
+      </div>
+    </details>
+    <details class="st-acc" >
+      <summary>Договор и производство</summary>
+      <div class="st-acc-body st-states">
+        <label class="st-lbl">Договоры
+          <select class="st-inp" name="access_section_state">
+            <option value="contracts:inherit" selected>Как у должности — нет</option>
+            <option value="contracts:on" >Открыть лично</option>
+            <option value="contracts:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Заказы / ПТО
+          <select class="st-inp" name="access_section_state">
+            <option value="orders:inherit" selected>Как у должности — нет</option>
+            <option value="orders:on" >Открыть лично</option>
+            <option value="orders:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Монтажи
+          <select class="st-inp" name="access_section_state">
+            <option value="installations:inherit" selected>Как у должности — нет</option>
+            <option value="installations:on" >Открыть лично</option>
+            <option value="installations:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Рекламации
+          <select class="st-inp" name="access_section_state">
+            <option value="claims:inherit" selected>Как у должности — нет</option>
+            <option value="claims:on" >Открыть лично</option>
+            <option value="claims:off" >Закрыть лично</option>
+          </select></label>
+      </div>
+    </details>
+    <details class="st-acc" >
+      <summary>Деньги</summary>
+      <div class="st-acc-body st-states">
+        <label class="st-lbl">Касса
+          <select class="st-inp" name="access_section_state">
+            <option value="cashbox:inherit" selected>Как у должности — нет</option>
+            <option value="cashbox:on" >Открыть лично</option>
+            <option value="cashbox:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Отчёты
+          <select class="st-inp" name="access_section_state">
+            <option value="reports:inherit" selected>Как у должности — нет</option>
+            <option value="reports:on" >Открыть лично</option>
+            <option value="reports:off" >Закрыть лично</option>
+          </select></label>
+      </div>
+    </details>
+    <details class="st-acc" >
+      <summary>Администрирование</summary>
+      <div class="st-acc-body st-states">
+        <label class="st-lbl">Сотрудники
+          <select class="st-inp" name="access_section_state">
+            <option value="users:inherit" selected>Как у должности — нет</option>
+            <option value="users:on" >Открыть лично</option>
+            <option value="users:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Настройки
+          <select class="st-inp" name="access_section_state">
+            <option value="settings:inherit" selected>Как у должности — нет</option>
+            <option value="settings:on" >Открыть лично</option>
+            <option value="settings:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Обучение
+          <select class="st-inp" name="access_section_state">
+            <option value="training:inherit" selected>Как у должности — нет</option>
+            <option value="training:on" >Открыть лично</option>
+            <option value="training:off" >Закрыть лично</option>
+          </select></label>
+      </div>
+    </details>
+<details class="st-acc">
+      <summary>Модуль записей замеров (оценка визитов)</summary>
+      <div class="st-acc-body st-states">
+        <label class="st-lbl">Визиты
+          <select class="st-inp" name="access_section_state">
+            <option value="visits:inherit" selected>Как у должности — есть</option>
+            <option value="visits:on" >Открыть лично</option>
+            <option value="visits:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Договорные визиты
+          <select class="st-inp" name="access_section_state">
+            <option value="deals:inherit" selected>Как у должности — нет</option>
+            <option value="deals:on" >Открыть лично</option>
+            <option value="deals:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Очередь обработки
+          <select class="st-inp" name="access_section_state">
+            <option value="queue:inherit" selected>Как у должности — нет</option>
+            <option value="queue:on" >Открыть лично</option>
+            <option value="queue:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Рубрика оценки
+          <select class="st-inp" name="access_section_state">
+            <option value="rubric:inherit" selected>Как у должности — нет</option>
+            <option value="rubric:on" >Открыть лично</option>
+            <option value="rubric:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Эскалации
+          <select class="st-inp" name="access_section_state">
+            <option value="escalations:inherit" selected>Как у должности — нет</option>
+            <option value="escalations:on" >Открыть лично</option>
+            <option value="escalations:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Стоимость обработки
+          <select class="st-inp" name="access_section_state">
+            <option value="costs:inherit" selected>Как у должности — нет</option>
+            <option value="costs:on" >Открыть лично</option>
+            <option value="costs:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Подключение на телефон
+          <select class="st-inp" name="access_section_state">
+            <option value="install:inherit" selected>Как у должности — есть</option>
+            <option value="install:on" >Открыть лично</option>
+            <option value="install:off" >Закрыть лично</option>
+          </select></label>
+        <label class="st-lbl">Смена пароля
+          <select class="st-inp" name="access_section_state">
+            <option value="password:inherit" selected>Как у должности — есть</option>
+            <option value="password:on" >Открыть лично</option>
+            <option value="password:off" >Закрыть лично</option>
+          </select></label>
+      </div>
+    </details><h3 class="st-h3">Действия</h3>
+    <details class="st-acc" >
+      <summary>Клиент и обращение</summary>
+      <div class="st-acc-body">
+        <p class="st-note">От должности: Менять операционный статус обращения</p>
+        <div class="st-states">
+          <label class="st-lbl">Назначать ответственного
+            <select class="st-inp" name="access_action_state">
+              <option value="assign_responsible:inherit" selected>Как у должности — нет</option>
+              <option value="assign_responsible:on" >Разрешить лично</option>
+              <option value="assign_responsible:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Передавать обращение
+            <select class="st-inp" name="access_action_state">
+              <option value="transfer_request:inherit" selected>Как у должности — нет</option>
+              <option value="transfer_request:on" >Разрешить лично</option>
+              <option value="transfer_request:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Менять операционный статус обращения
+            <select class="st-inp" name="access_action_state">
+              <option value="change_status:inherit" selected>Как у должности — есть</option>
+              <option value="change_status:on" >Разрешить лично</option>
+              <option value="change_status:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Редактировать данные клиента и обращения
+            <select class="st-inp" name="access_action_state">
+              <option value="edit_customer_card:inherit" selected>Как у должности — нет</option>
+              <option value="edit_customer_card:on" >Разрешить лично</option>
+              <option value="edit_customer_card:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Просматривать звонки и записи
+            <select class="st-inp" name="access_action_state">
+              <option value="view_call_history:inherit" selected>Как у должности — нет</option>
+              <option value="view_call_history:on" >Разрешить лично</option>
+              <option value="view_call_history:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Создавать и выполнять задачи
+            <select class="st-inp" name="access_action_state">
+              <option value="manage_tasks:inherit" selected>Как у должности — нет</option>
+              <option value="manage_tasks:on" >Разрешить лично</option>
+              <option value="manage_tasks:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Добавлять файлы процесса
+            <select class="st-inp" name="access_action_state">
+              <option value="manage_files:inherit" selected>Как у должности — нет</option>
+              <option value="manage_files:on" >Разрешить лично</option>
+              <option value="manage_files:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Выгружать реестр в файл (ФИО и телефоны клиентов)
+            <select class="st-inp" name="access_action_state">
+              <option value="export_registry:inherit" selected>Как у должности — нет</option>
+              <option value="export_registry:on" >Разрешить лично</option>
+              <option value="export_registry:off" >Запретить лично</option>
+            </select></label>
+        </div>
+      </div>
+    </details>
+    <details class="st-acc" >
+      <summary>Замер</summary>
+      <div class="st-acc-body">
+        <p class="st-note">От должности: Отмечать выполнение замера</p>
+        <div class="st-states">
+          <label class="st-lbl">Записывать и переносить на замер
+            <select class="st-inp" name="access_action_state">
+              <option value="schedule_measurement:inherit" selected>Как у должности — нет</option>
+              <option value="schedule_measurement:on" >Разрешить лично</option>
+              <option value="schedule_measurement:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Фиксировать результат/снятие замера
+            <select class="st-inp" name="access_action_state">
+              <option value="manage_measurement:inherit" selected>Как у должности — нет</option>
+              <option value="manage_measurement:on" >Разрешить лично</option>
+              <option value="manage_measurement:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Отмечать выполнение замера
+            <select class="st-inp" name="access_action_state">
+              <option value="complete_measurement:inherit" selected>Как у должности — есть</option>
+              <option value="complete_measurement:on" >Разрешить лично</option>
+              <option value="complete_measurement:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Открывать календарь замеров
+            <select class="st-inp" name="access_action_state">
+              <option value="view_measurement_calendar:inherit" selected>Как у должности — нет</option>
+              <option value="view_measurement_calendar:on" >Разрешить лично</option>
+              <option value="view_measurement_calendar:off" >Запретить лично</option>
+            </select></label>
+        </div>
+      </div>
+    </details>
+    <details class="st-acc" >
+      <summary>Договор</summary>
+      <div class="st-acc-body">
+        <p class="st-note">От должности: Редактировать договор и базы поставщиков</p>
+        <div class="st-states">
+          <label class="st-lbl">Редактировать предварительные расчёты
+            <select class="st-inp" name="access_action_state">
+              <option value="edit_calculation:inherit" selected>Как у должности — нет</option>
+              <option value="edit_calculation:on" >Разрешить лично</option>
+              <option value="edit_calculation:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Создавать договор на заключении
+            <select class="st-inp" name="access_action_state">
+              <option value="create_contract:inherit" selected>Как у должности — нет</option>
+              <option value="create_contract:on" >Разрешить лично</option>
+              <option value="create_contract:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Редактировать договор и базы поставщиков
+            <select class="st-inp" name="access_action_state">
+              <option value="edit_contract:inherit" selected>Как у должности — есть</option>
+              <option value="edit_contract:on" >Разрешить лично</option>
+              <option value="edit_contract:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Подписывать договор
+            <select class="st-inp" name="access_action_state">
+              <option value="sign_contract:inherit" selected>Как у должности — нет</option>
+              <option value="sign_contract:on" >Разрешить лично</option>
+              <option value="sign_contract:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Расторгать договор до производства
+            <select class="st-inp" name="access_action_state">
+              <option value="terminate_contract:inherit" selected>Как у должности — нет</option>
+              <option value="terminate_contract:on" >Разрешить лично</option>
+              <option value="terminate_contract:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Отправлять подписанный договор в работу
+            <select class="st-inp" name="access_action_state">
+              <option value="send_order_to_work:inherit" selected>Как у должности — нет</option>
+              <option value="send_order_to_work:on" >Разрешить лично</option>
+              <option value="send_order_to_work:off" >Запретить лично</option>
+            </select></label>
+        </div>
+      </div>
+    </details>
+    <details class="st-acc" >
+      <summary>Деньги клиента</summary>
+      <div class="st-acc-body">
+        <p class="st-note">Должность прав в этой группе не даёт</p>
+        <div class="st-states">
+          <label class="st-lbl">Создавать и редактировать ожидающую оплату
+            <select class="st-inp" name="access_action_state">
+              <option value="record_contract_payment:inherit" selected>Как у должности — нет</option>
+              <option value="record_contract_payment:on" >Разрешить лично</option>
+              <option value="record_contract_payment:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Фиксировать фактическое поступление в кассе/банке
+            <select class="st-inp" name="access_action_state">
+              <option value="confirm_contract_payment:inherit" selected>Как у должности — нет</option>
+              <option value="confirm_contract_payment:on" >Разрешить лично</option>
+              <option value="confirm_contract_payment:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Управлять графиком платежей и чеками
+            <select class="st-inp" name="access_action_state">
+              <option value="manage_payment_plan:inherit" selected>Как у должности — нет</option>
+              <option value="manage_payment_plan:on" >Разрешить лично</option>
+              <option value="manage_payment_plan:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Согласовывать предоплату ниже базового порога
+            <select class="st-inp" name="access_action_state">
+              <option value="approve_low_prepayment:inherit" selected>Как у должности — нет</option>
+              <option value="approve_low_prepayment:on" >Разрешить лично</option>
+              <option value="approve_low_prepayment:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Подтверждать безналичные оплаты (QR, счёт)
+            <select class="st-inp" name="access_action_state">
+              <option value="confirm_bank_payment:inherit" selected>Как у должности — нет</option>
+              <option value="confirm_bank_payment:on" >Разрешить лично</option>
+              <option value="confirm_bank_payment:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Видеть деньги договора: оплаты, сверку с кассой и P&amp;L
+            <select class="st-inp" name="access_action_state">
+              <option value="view_financials:inherit" selected>Как у должности — нет</option>
+              <option value="view_financials:on" >Разрешить лично</option>
+              <option value="view_financials:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Редактировать ручные показатели P&amp;L
+            <select class="st-inp" name="access_action_state">
+              <option value="edit_financials:inherit" selected>Как у должности — нет</option>
+              <option value="edit_financials:on" >Разрешить лично</option>
+              <option value="edit_financials:off" >Запретить лично</option>
+            </select></label>
+        </div>
+      </div>
+    </details>
+    <details class="st-acc" >
+      <summary>Касса</summary>
+      <div class="st-acc-body">
+        <p class="st-note">Должность прав в этой группе не даёт</p>
+        <div class="st-states">
+          <label class="st-lbl">Проводить приход, расход и инкассацию по кассе
+            <select class="st-inp" name="access_action_state">
+              <option value="record_cash_movement:inherit" selected>Как у должности — нет</option>
+              <option value="record_cash_movement:on" >Разрешить лично</option>
+              <option value="record_cash_movement:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Закрывать кассовый день
+            <select class="st-inp" name="access_action_state">
+              <option value="close_cash_day:inherit" selected>Как у должности — нет</option>
+              <option value="close_cash_day:on" >Разрешить лично</option>
+              <option value="close_cash_day:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Править движения закрытого кассового дня
+            <select class="st-inp" name="access_action_state">
+              <option value="edit_closed_cash_day:inherit" selected>Как у должности — нет</option>
+              <option value="edit_closed_cash_day:on" >Разрешить лично</option>
+              <option value="edit_closed_cash_day:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Принимать инкассацию (подтверждать получение денег)
+            <select class="st-inp" name="access_action_state">
+              <option value="accept_incassation:inherit" selected>Как у должности — нет</option>
+              <option value="accept_incassation:on" >Разрешить лично</option>
+              <option value="accept_incassation:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Перемещать деньги между кассами
+            <select class="st-inp" name="access_action_state">
+              <option value="transfer_between_cashboxes:inherit" selected>Как у должности — нет</option>
+              <option value="transfer_between_cashboxes:on" >Разрешить лично</option>
+              <option value="transfer_between_cashboxes:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Видеть кассы всех офисов
+            <select class="st-inp" name="access_action_state">
+              <option value="view_all_cashboxes:inherit" selected>Как у должности — нет</option>
+              <option value="view_all_cashboxes:on" >Разрешить лично</option>
+              <option value="view_all_cashboxes:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Назначать сотрудникам доступ к кассам
+            <select class="st-inp" name="access_action_state">
+              <option value="manage_cashbox_access:inherit" selected>Как у должности — нет</option>
+              <option value="manage_cashbox_access:on" >Разрешить лично</option>
+              <option value="manage_cashbox_access:off" >Запретить лично</option>
+            </select></label>
+        </div>
+      </div>
+    </details>
+    <details class="st-acc" >
+      <summary>Производство и склад</summary>
+      <div class="st-acc-body">
+        <p class="st-note">От должности: Менять готовность и приёмку склада</p>
+        <div class="st-states">
+          <label class="st-lbl">Назначать менеджера ПТО
+            <select class="st-inp" name="access_action_state">
+              <option value="assign_pto_order:inherit" selected>Как у должности — нет</option>
+              <option value="assign_pto_order:on" >Разрешить лично</option>
+              <option value="assign_pto_order:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Формировать реестры и вносить закупку ПТО
+            <select class="st-inp" name="access_action_state">
+              <option value="edit_order_registers:inherit" selected>Как у должности — нет</option>
+              <option value="edit_order_registers:on" >Разрешить лично</option>
+              <option value="edit_order_registers:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Отправлять заказ на производство
+            <select class="st-inp" name="access_action_state">
+              <option value="launch_production:inherit" selected>Как у должности — нет</option>
+              <option value="launch_production:on" >Разрешить лично</option>
+              <option value="launch_production:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Возвращать заказ на доработку
+            <select class="st-inp" name="access_action_state">
+              <option value="return_order_to_revision:inherit" selected>Как у должности — нет</option>
+              <option value="return_order_to_revision:on" >Разрешить лично</option>
+              <option value="return_order_to_revision:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Менять готовность и приёмку склада
+            <select class="st-inp" name="access_action_state">
+              <option value="update_order_readiness:inherit" selected>Как у должности — есть</option>
+              <option value="update_order_readiness:on" >Разрешить лично</option>
+              <option value="update_order_readiness:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Исправлять ошибочную приёмку поставки
+            <select class="st-inp" name="access_action_state">
+              <option value="correct_order_receipt:inherit" selected>Как у должности — нет</option>
+              <option value="correct_order_receipt:on" >Разрешить лично</option>
+              <option value="correct_order_receipt:off" >Запретить лично</option>
+            </select></label>
+        </div>
+      </div>
+    </details>
+    <details class="st-acc" >
+      <summary>Монтаж и сервис</summary>
+      <div class="st-acc-body">
+        <p class="st-note">Должность прав в этой группе не даёт</p>
+        <div class="st-states">
+          <label class="st-lbl">Назначать и переносить монтаж
+            <select class="st-inp" name="access_action_state">
+              <option value="assign_installation:inherit" selected>Как у должности — нет</option>
+              <option value="assign_installation:on" >Разрешить лично</option>
+              <option value="assign_installation:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Фиксировать монтаж и два акта
+            <select class="st-inp" name="access_action_state">
+              <option value="record_installation_acceptance:inherit" selected>Как у должности — нет</option>
+              <option value="record_installation_acceptance:on" >Разрешить лично</option>
+              <option value="record_installation_acceptance:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Исправлять зафиксированную приёмку
+            <select class="st-inp" name="access_action_state">
+              <option value="correct_installation_acceptance:inherit" selected>Как у должности — нет</option>
+              <option value="correct_installation_acceptance:on" >Разрешить лично</option>
+              <option value="correct_installation_acceptance:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Подтверждать выплату монтажной бригаде
+            <select class="st-inp" name="access_action_state">
+              <option value="confirm_installation_payout:inherit" selected>Как у должности — нет</option>
+              <option value="confirm_installation_payout:on" >Разрешить лично</option>
+              <option value="confirm_installation_payout:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Открывать календарь монтажей
+            <select class="st-inp" name="access_action_state">
+              <option value="view_installation_calendar:inherit" selected>Как у должности — нет</option>
+              <option value="view_installation_calendar:on" >Разрешить лично</option>
+              <option value="view_installation_calendar:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Планировать сервисный выезд
+            <select class="st-inp" name="access_action_state">
+              <option value="plan_service_visit:inherit" selected>Как у должности — нет</option>
+              <option value="plan_service_visit:on" >Разрешить лично</option>
+              <option value="plan_service_visit:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Создавать и вести рекламации
+            <select class="st-inp" name="access_action_state">
+              <option value="manage_claims:inherit" selected>Как у должности — нет</option>
+              <option value="manage_claims:on" >Разрешить лично</option>
+              <option value="manage_claims:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Указывать виновного по рекламации
+            <select class="st-inp" name="access_action_state">
+              <option value="record_claim_fault:inherit" selected>Как у должности — нет</option>
+              <option value="record_claim_fault:on" >Разрешить лично</option>
+              <option value="record_claim_fault:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Закрывать договор после оценки лояльности
+            <select class="st-inp" name="access_action_state">
+              <option value="close_contract:inherit" selected>Как у должности — нет</option>
+              <option value="close_contract:on" >Разрешить лично</option>
+              <option value="close_contract:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Проводить опрос лояльности после монтажа
+            <select class="st-inp" name="access_action_state">
+              <option value="record_loyalty_survey:inherit" selected>Как у должности — нет</option>
+              <option value="record_loyalty_survey:on" >Разрешить лично</option>
+              <option value="record_loyalty_survey:off" >Запретить лично</option>
+            </select></label>
+        </div>
+      </div>
+    </details>
+    <details class="st-acc" >
+      <summary>Прочее</summary>
+      <div class="st-acc-body">
+        <p class="st-note">Должность прав в этой группе не даёт</p>
+        <div class="st-states">
+          <label class="st-lbl">Править рабочий график
+            <select class="st-inp" name="access_action_state">
+              <option value="edit_work_schedule:inherit" selected>Как у должности — нет</option>
+              <option value="edit_work_schedule:on" >Разрешить лично</option>
+              <option value="edit_work_schedule:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Настраивать схему мотивации сотрудника
+            <select class="st-inp" name="access_action_state">
+              <option value="manage_motivation_scheme:inherit" selected>Как у должности — нет</option>
+              <option value="manage_motivation_scheme:on" >Разрешить лично</option>
+              <option value="manage_motivation_scheme:off" >Запретить лично</option>
+            </select></label>
+          <label class="st-lbl">Вводить план выручки (цели)
+            <select class="st-inp" name="access_action_state">
+              <option value="manage_sales_plan:inherit" selected>Как у должности — нет</option>
+              <option value="manage_sales_plan:on" >Разрешить лично</option>
+              <option value="manage_sales_plan:off" >Запретить лично</option>
+            </select></label>
+        </div>
+      </div>
+    </details>
+<h3 class="st-h3">Область видимости</h3>
+    <div class="st-scopes">
+      <label class="st-lbl">Обращения
+        <input type="hidden" name="access_scope_section" value="incoming">
+        <select class="st-inp" name="access_scope_value">
+          <option value="" selected>Как у должности — Только свои</option>
+<option value="own" >Только свои</option><option value="all" >Все записи</option>        </select></label>
+      <label class="st-lbl">Замеры
+        <input type="hidden" name="access_scope_section" value="measurements">
+        <select class="st-inp" name="access_scope_value">
+          <option value="" selected>Как у должности — Только свои</option>
+<option value="own" >Только свои</option><option value="all" >Все записи</option>        </select></label>
+      <label class="st-lbl">Договоры
+        <input type="hidden" name="access_scope_section" value="contracts">
+        <select class="st-inp" name="access_scope_value">
+          <option value="" selected>Как у должности — Только свои</option>
+<option value="own" >Только свои</option><option value="all" >Все записи</option>        </select></label>
+      <label class="st-lbl">Заказы / ПТО
+        <input type="hidden" name="access_scope_section" value="orders">
+        <select class="st-inp" name="access_scope_value">
+          <option value="" selected>Как у должности — Только свои</option>
+<option value="own" >Только свои</option><option value="all" >Все записи</option>        </select></label>
+      <label class="st-lbl">Монтажи
+        <input type="hidden" name="access_scope_section" value="installations">
+        <select class="st-inp" name="access_scope_value">
+          <option value="" selected>Как у должности — Только свои</option>
+<option value="own" >Только свои</option><option value="all" >Все записи</option>        </select></label>
+      <label class="st-lbl">Касса
+        <input type="hidden" name="access_scope_section" value="cashbox">
+        <select class="st-inp" name="access_scope_value">
+          <option value="" selected>Как у должности — Только свои</option>
+<option value="own" >Только свои</option><option value="office" >Своего офиса</option><option value="all" >Все записи</option>        </select></label>
+      <label class="st-lbl">Рекламации
+        <input type="hidden" name="access_scope_section" value="claims">
+        <select class="st-inp" name="access_scope_value">
+          <option value="" selected>Как у должности — Только свои</option>
+<option value="own" >Только свои</option><option value="all" >Все записи</option>        </select></label>
+      <label class="st-lbl">Задачи
+        <input type="hidden" name="access_scope_section" value="tasks">
+        <select class="st-inp" name="access_scope_value">
+          <option value="" selected>Как у должности — Только свои</option>
+<option value="own" >Только свои</option><option value="all" >Все записи</option>        </select></label>
+    </div><h2 class="st-h2">Что видит этот сотрудник</h2>
+    <p class="st-note">Итог роли, должности и личных отличий — то же, что увидит сам сотрудник.
+</p>
+
+    <h3 class="st-h3">Разделы меню</h3>
+    <ul class="st-see">
+      <li><b>Моя работа</b></li>
+      <li><b>Продажи</b> <i>Замер</i></li>
+      <li><b>Координатор</b></li>
+      <li><b>Задачи</b></li>
+      <li><b>Моя мотивация</b></li>
+      <li><b>График работы</b></li>
+    </ul>
+
+    <h3 class="st-h3">Сколько записей видит</h3>
+    <ul class="st-see st-see-cols">
+      <li><b>Замеры</b> <i>Только свои</i></li>
+      <li><b>Задачи</b> <i>Только свои</i></li>
+    </ul>
+
+    <h3 class="st-h3">Что может делать</h3>
+    <ul class="st-see">
+      <li><b>Клиент и обращение</b> <i>Менять операционный статус обращения</i></li>
+      <li><b>Замер</b> <i>Отмечать выполнение замера</i></li>
+      <li><b>Договор</b> <i>Редактировать договор и базы поставщиков</i></li>
+      <li><b>Производство и склад</b> <i>Менять готовность и приёмку склада</i></li>
+    </ul>
+
+    <h3 class="st-h3">Какие статусы обращения ставит</h3>
+    <p class="st-note">closed · schedule_measurement</p>
+
+    <h3 class="st-h3">Чьих клиентов видит</h3>    <p class="st-note">Все направления — направления не заданы никому — стена ещё не поднята.</p>
+
+    <h3 class="st-h3">Офис и кассы</h3>
+    <p class="st-note">Офис: не указан.
+Кассы: Касса офиса.
+</p>
 
   </form>
 </div>
@@ -345,7 +970,7 @@
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 2</span>
+    <span>Обращения · 3</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -365,9 +990,9 @@
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 2</span><small>Продажи</small>      </a>
+        <span>Обращения · 3</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 2</span><small>Продажи</small>      </a>
+        <span>Замер · 3</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
@@ -381,7 +1006,7 @@
       <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
         <span>Задачи</span>      </a>
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
-        <span>Договор · 2</span><small>Продажи</small>      </a>
+        <span>Договор · 3</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
         <span>Заказ</span><small>Продажи</small>      </a>
       <a href="warehouse.html" data-nav-prefixes="/warehouse">
@@ -426,6 +1051,8 @@
         <span>Цели</span><small>Отчёты</small>      </a>
       <a href="settings.html" data-nav-prefixes="/settings|/salary">
         <span>Настройки</span>      </a>
+      <a href="#" data-screen="/account/password"><span>Пароль</span></a>
+      <a class="danger" href="#" data-screen="/logout"><span>Выйти</span></a>
     </div>
   </section>
 </div><script>

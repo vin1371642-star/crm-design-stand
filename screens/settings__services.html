@@ -25,9 +25,9 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 2</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 2</b></a>
-          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 2</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 3</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 3</b></a>
+          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 3</b></a>
           <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ</b></a>
           <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
@@ -142,9 +142,21 @@
   <a class="icon-btn search-mobile" href="crm2__incoming.html" aria-label="Поиск по обращениям">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="dirsel" method="get" action="/direction/switch">
+    <input type="hidden" name="next" value="/crm2/incoming">
+    <select name="to" aria-label="Направление деятельности"
+            onchange="this.form.next.value=location.pathname+location.search;this.form.submit()">
+      <option value="25" selected>Ростовские окна розница</option>
+      <option value="26" >Ростовские окна опт</option>
+      <option value="27" >Росток</option>
+    </select>
+  </form>
+  <form method="post" action="/incoming/new" style="margin:0">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
+  <a class="icon-btn" href="notifications.html" title="Уведомления" aria-label="Уведомления: непрочитанных 2">
+    <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="pip">2</span>  </a>
+  <div class="avatar" title="Офис-менеджер Демо · Директор">ОФ</div>
 </header>    <div class="work">
 <style>
   .ig-body{padding:0 0 var(--sp-6);max-width:960px}
@@ -190,7 +202,7 @@
     <div class="ig-f"><b>Ответственный за пропущенные</b>
       <select class="ig-inp" name="missed_responsible">
         <option value="">— не выбрано —</option>
-<option value="16" >Директор Демо</option><option value="11" >Замерщик Демо</option><option value="14" >Кладовщик Демо</option><option value="13" >Координатор Демо</option><option value="12" >Монтажник Демо</option><option value="9" >Оператор КЦ Демо</option><option value="10" >Офис-менеджер Демо</option><option value="1" >Сотрудник01 Демо</option><option value="2" >Сотрудник02 Демо</option><option value="3" >Сотрудник03 Демо</option><option value="4" >Сотрудник04 Демо</option><option value="5" >Сотрудник05 Демо</option><option value="6" >Сотрудник06 Демо</option><option value="7" >Сотрудник07 Демо</option><option value="8" >Сотрудник08 Демо</option><option value="15" >Сотрудник ПТО Демо</option>      </select></div>
+<option value="24" >Александр</option><option value="21" >Андрей</option><option value="20" >Вадим</option><option value="23" >Валерий</option><option value="19" >Данил</option><option value="22" >Дима</option><option value="16" >Директор Демо</option><option value="11" >Замерщик Демо</option><option value="14" >Кладовщик Демо</option><option value="13" >Координатор Демо</option><option value="12" >Монтажник Демо</option><option value="18" >Наташа</option><option value="17" >Нелли</option><option value="9" >Оператор КЦ Демо</option><option value="10" >Офис-менеджер Демо</option><option value="1" >Сотрудник01 Демо</option><option value="15" >Сотрудник ПТО Демо</option>      </select></div>
 <div class="ig-f"><b>Адрес для webhook (вставить в личном кабинете МТС)</b>
       <span class="ig-url">http://127.0.0.1:8123/api/telephony/mts/webhook?token=</span>
       <span class="ig-note">Если панель провайдера умеет заголовки, лучше передавать ключ
@@ -249,7 +261,7 @@
           <div><b class="lbl">Сотрудник</b>
             <select class="ig-inp" name="employee_id">
               <option value="">— не выбрано —</option>
-<option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник01 Демо</option><option value="2">Сотрудник02 Демо</option><option value="3">Сотрудник03 Демо</option><option value="4">Сотрудник04 Демо</option><option value="5">Сотрудник05 Демо</option><option value="6">Сотрудник06 Демо</option><option value="7">Сотрудник07 Демо</option><option value="8">Сотрудник08 Демо</option><option value="15">Сотрудник ПТО Демо</option>            </select></div>
+<option value="24">Александр</option><option value="21">Андрей</option><option value="20">Вадим</option><option value="23">Валерий</option><option value="19">Данил</option><option value="22">Дима</option><option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="18">Наташа</option><option value="17">Нелли</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник01 Демо</option><option value="15">Сотрудник ПТО Демо</option>            </select></div>
           <div><b class="lbl">Добавочный (внутренний номер АТС)</b>
             <input class="ig-inp" name="number" placeholder="напр. 201" maxlength="5"
                    title="Короткий внутренний номер сотрудника на АТС (201, 203, 700), а не мобильный телефон."></div>
@@ -275,7 +287,7 @@
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 2</span>
+    <span>Обращения · 3</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -295,9 +307,9 @@
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 2</span><small>Продажи</small>      </a>
+        <span>Обращения · 3</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 2</span><small>Продажи</small>      </a>
+        <span>Замер · 3</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
@@ -311,7 +323,7 @@
       <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
         <span>Задачи</span>      </a>
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
-        <span>Договор · 2</span><small>Продажи</small>      </a>
+        <span>Договор · 3</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
         <span>Заказ</span><small>Продажи</small>      </a>
       <a href="warehouse.html" data-nav-prefixes="/warehouse">
@@ -356,6 +368,8 @@
         <span>Цели</span><small>Отчёты</small>      </a>
       <a href="settings.html" data-nav-prefixes="/settings|/salary">
         <span>Настройки</span>      </a>
+      <a href="#" data-screen="/account/password"><span>Пароль</span></a>
+      <a class="danger" href="#" data-screen="/logout"><span>Выйти</span></a>
     </div>
   </section>
 </div><script>

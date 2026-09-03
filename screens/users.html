@@ -31,10 +31,6 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
       <span>Календарь</span>
     </a>
-    <a href="#" data-screen="/installations/waiting">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-      <span>Монтажи</span>
-    </a>
     <a href="settings.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
       <span>Настройки</span>
@@ -76,6 +72,27 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
   </span>
 
+  <span class="crm-topbar-div"></span>
+  <details class="crm-profile">
+    <summary>
+      <span class="crm-avatar">ОД</span>
+      <span class="crm-profile-id">
+        <span class="crm-profile-name">Офис-менеджер Демо</span>
+        <span class="crm-profile-role">Директор</span>
+      </span>
+      <svg class="crm-profile-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="crm-profile-menu">
+      <div class="crm-profile-menu-head">
+        <b>Офис-менеджер Демо</b>
+        <span>директор</span>
+      </div>
+      <button class="offline-btn" id="offline-sync" type="button" title="Обновить приложение и доступные страницы на этом устройстве">Обновить приложение</button>
+      <span class="offline-status" id="offline-status" aria-live="polite"></span>
+      <a href="#" data-screen="/account/password">Пароль</a>
+      <a class="logout" href="#" data-screen="/logout">Выйти</a>
+    </div>
+  </details>
 </header>      <main class="crm-page fill-pane">
 <div class="crm-page fill">
   <div class="crm-page-head">
@@ -164,38 +181,128 @@
       <tbody>
         <tr>
           <td data-label="ФИО">
-            <strong>Директор Демо</strong>
+            <strong>Директор</strong>
           </td>
           <td data-label="Должность">Директор</td>
           <td data-label="Логин">
-<span class="badge r">нет входа</span>          </td>
+director
+          </td>
           <td data-label="На сайте">
-<span class="muted">—</span>          </td>
+<span class="muted">не входил</span>
+          </td>
           <td data-label="Доступ">
 <span class="badge g">активен</span>
           </td>
           <td data-label="Просмотр" class="cell-action">
-              <form method="post" action="/users/employees/16/access" class="inline">
-                <button class="btn secondary" type="submit">Выдать логин</button>
-              </form>
+              <a class="btn secondary" href="#" data-screen="/users/2/card">Просмотр</a>
           </td>
         </tr>
         <tr>
           <td data-label="ФИО">
             <strong>Офис-менеджер Демо</strong>
-          </td>
-          <td data-label="Должность">Офис-менеджер</td>
+ <span class="muted">(вы)</span>          </td>
+          <td data-label="Должность">Директор</td>
           <td data-label="Логин">
-<span class="badge r">нет входа</span>          </td>
+stand
+          </td>
           <td data-label="На сайте">
-<span class="muted">—</span>          </td>
+<span class="badge g">● онлайн</span>
+          </td>
           <td data-label="Доступ">
 <span class="badge g">активен</span>
           </td>
           <td data-label="Просмотр" class="cell-action">
-              <form method="post" action="/users/employees/10/access" class="inline">
-                <button class="btn secondary" type="submit">Выдать логин</button>
-              </form>
+              <a class="btn secondary" href="#" data-screen="/users/1/card">Просмотр</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Александр</strong>
+          </td>
+          <td data-label="Должность">Старший замерщик</td>
+          <td data-label="Логин">
+aleksandr
+          </td>
+          <td data-label="На сайте">
+<span class="muted">не входил</span>
+          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <a class="btn secondary" href="#" data-screen="/users/18/card">Просмотр</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Вадим</strong>
+          </td>
+          <td data-label="Должность">Менеджер</td>
+          <td data-label="Логин">
+vadim
+          </td>
+          <td data-label="На сайте">
+<span class="muted">не входил</span>
+          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <a class="btn secondary" href="#" data-screen="/users/14/card">Просмотр</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Данил</strong>
+          </td>
+          <td data-label="Должность">Менеджер</td>
+          <td data-label="Логин">
+danil
+          </td>
+          <td data-label="На сайте">
+<span class="muted">не входил</span>
+          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <a class="btn secondary" href="#" data-screen="/users/13/card">Просмотр</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Наташа</strong>
+          </td>
+          <td data-label="Должность">Менеджер</td>
+          <td data-label="Логин">
+natasha
+          </td>
+          <td data-label="На сайте">
+<span class="muted">не входил</span>
+          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <a class="btn secondary" href="#" data-screen="/users/12/card">Просмотр</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Нелли</strong>
+          </td>
+          <td data-label="Должность">Менеджер</td>
+          <td data-label="Логин">
+nelli
+          </td>
+          <td data-label="На сайте">
+<span class="muted">не входил</span>
+          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <a class="btn secondary" href="#" data-screen="/users/11/card">Просмотр</a>
           </td>
         </tr>
         <tr>
@@ -204,16 +311,88 @@
           </td>
           <td data-label="Должность">Менеджер</td>
           <td data-label="Логин">
-<span class="badge r">нет входа</span>          </td>
+sotrudnik01
+          </td>
           <td data-label="На сайте">
-<span class="muted">—</span>          </td>
+<span class="muted">не входил</span>
+          </td>
           <td data-label="Доступ">
 <span class="badge g">активен</span>
           </td>
           <td data-label="Просмотр" class="cell-action">
-              <form method="post" action="/users/employees/1/access" class="inline">
-                <button class="btn secondary" type="submit">Выдать логин</button>
-              </form>
+              <a class="btn secondary" href="#" data-screen="/users/3/card">Просмотр</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Андрей</strong>
+          </td>
+          <td data-label="Должность">Замерщик</td>
+          <td data-label="Логин">
+andrey
+          </td>
+          <td data-label="На сайте">
+<span class="muted">не входил</span>
+          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <a class="btn secondary" href="#" data-screen="/users/15/card">Просмотр</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Валерий</strong>
+          </td>
+          <td data-label="Должность">Замерщик</td>
+          <td data-label="Логин">
+valeriy
+          </td>
+          <td data-label="На сайте">
+<span class="muted">не входил</span>
+          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <a class="btn secondary" href="#" data-screen="/users/17/card">Просмотр</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Дима</strong>
+          </td>
+          <td data-label="Должность">Замерщик</td>
+          <td data-label="Логин">
+dima
+          </td>
+          <td data-label="На сайте">
+<span class="muted">не входил</span>
+          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <a class="btn secondary" href="#" data-screen="/users/16/card">Просмотр</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Директор Демо</strong>
+          </td>
+          <td data-label="Должность">Замерщик</td>
+          <td data-label="Логин">
+direktordemo
+          </td>
+          <td data-label="На сайте">
+<span class="muted">не входил</span>
+          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <a class="btn secondary" href="#" data-screen="/users/10/card">Просмотр</a>
           </td>
         </tr>
         <tr>
@@ -222,16 +401,70 @@
           </td>
           <td data-label="Должность">Замерщик</td>
           <td data-label="Логин">
-<span class="badge r">нет входа</span>          </td>
+zamerschikdemo
+          </td>
           <td data-label="На сайте">
-<span class="muted">—</span>          </td>
+<span class="muted">не входил</span>
+          </td>
           <td data-label="Доступ">
 <span class="badge g">активен</span>
           </td>
           <td data-label="Просмотр" class="cell-action">
-              <form method="post" action="/users/employees/11/access" class="inline">
-                <button class="btn secondary" type="submit">Выдать логин</button>
-              </form>
+              <a class="btn secondary" href="#" data-screen="/users/5/card">Просмотр</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Кладовщик Демо</strong>
+          </td>
+          <td data-label="Должность">Замерщик</td>
+          <td data-label="Логин">
+kladovschikdemo
+          </td>
+          <td data-label="На сайте">
+<span class="muted">не входил</span>
+          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <a class="btn secondary" href="#" data-screen="/users/8/card">Просмотр</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Оператор КЦ Демо</strong>
+          </td>
+          <td data-label="Должность">Замерщик</td>
+          <td data-label="Логин">
+operatorkcdemo
+          </td>
+          <td data-label="На сайте">
+<span class="muted">не входил</span>
+          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <a class="btn secondary" href="#" data-screen="/users/4/card">Просмотр</a>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Сотрудник ПТО Демо</strong>
+          </td>
+          <td data-label="Должность">Замерщик</td>
+          <td data-label="Логин">
+sotrudnikptodemo
+          </td>
+          <td data-label="На сайте">
+<span class="muted">не входил</span>
+          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <a class="btn secondary" href="#" data-screen="/users/9/card">Просмотр</a>
           </td>
         </tr>
         <tr>
@@ -240,16 +473,16 @@
           </td>
           <td data-label="Должность">Координатор</td>
           <td data-label="Логин">
-<span class="badge r">нет входа</span>          </td>
+koordinatordemo
+          </td>
           <td data-label="На сайте">
-<span class="muted">—</span>          </td>
+<span class="muted">не входил</span>
+          </td>
           <td data-label="Доступ">
 <span class="badge g">активен</span>
           </td>
           <td data-label="Просмотр" class="cell-action">
-              <form method="post" action="/users/employees/13/access" class="inline">
-                <button class="btn secondary" type="submit">Выдать логин</button>
-              </form>
+              <a class="btn secondary" href="#" data-screen="/users/7/card">Просмотр</a>
           </td>
         </tr>
         <tr>
@@ -258,70 +491,16 @@
           </td>
           <td data-label="Должность">Монтажник</td>
           <td data-label="Логин">
-<span class="badge r">нет входа</span>          </td>
+montazhnikdemo
+          </td>
           <td data-label="На сайте">
-<span class="muted">—</span>          </td>
+<span class="muted">не входил</span>
+          </td>
           <td data-label="Доступ">
 <span class="badge g">активен</span>
           </td>
           <td data-label="Просмотр" class="cell-action">
-              <form method="post" action="/users/employees/12/access" class="inline">
-                <button class="btn secondary" type="submit">Выдать логин</button>
-              </form>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Кладовщик Демо</strong>
-          </td>
-          <td data-label="Должность">storekeeper</td>
-          <td data-label="Логин">
-<span class="badge r">нет входа</span>          </td>
-          <td data-label="На сайте">
-<span class="muted">—</span>          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <form method="post" action="/users/employees/14/access" class="inline">
-                <button class="btn secondary" type="submit">Выдать логин</button>
-              </form>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Оператор КЦ Демо</strong>
-          </td>
-          <td data-label="Должность">call_center</td>
-          <td data-label="Логин">
-<span class="badge r">нет входа</span>          </td>
-          <td data-label="На сайте">
-<span class="muted">—</span>          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <form method="post" action="/users/employees/9/access" class="inline">
-                <button class="btn secondary" type="submit">Выдать логин</button>
-              </form>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Сотрудник ПТО Демо</strong>
-          </td>
-          <td data-label="Должность">pto</td>
-          <td data-label="Логин">
-<span class="badge r">нет входа</span>          </td>
-          <td data-label="На сайте">
-<span class="muted">—</span>          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <form method="post" action="/users/employees/15/access" class="inline">
-                <button class="btn secondary" type="submit">Выдать логин</button>
-              </form>
+              <a class="btn secondary" href="#" data-screen="/users/6/card">Просмотр</a>
           </td>
         </tr>
       </tbody>
@@ -333,7 +512,7 @@
   </div>
 
 <nav class="crm-mobile-tabbar" aria-label="Мобильная навигация">
-<a class="mtab" href="#" data-screen="/incoming"><span class="mtab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></span><span>Входящие</span></a><a class="mtab" href="crm2__measurements.html"><span class="mtab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span>Замеры</span></a><a class="mtab" href="#" data-screen="/installations/waiting"><span class="mtab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span>Монтажи</span></a>  <button class="mtab" type="button" aria-label="Ещё" onclick="var s=document.getElementById('mSheet');if(s)s.classList.toggle('open');"><span class="mtab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span>Ещё</span></button>
+<a class="mtab" href="#" data-screen="/incoming"><span class="mtab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></span><span>Входящие</span></a><a class="mtab" href="crm2__measurements.html"><span class="mtab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span>Замеры</span></a>  <button class="mtab" type="button" aria-label="Ещё" onclick="var s=document.getElementById('mSheet');if(s)s.classList.toggle('open');"><span class="mtab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span><span>Ещё</span></button>
 </nav>
 
 <div class="crm-mobile-sheet" id="mSheet" onclick="if(event.target===this)this.classList.remove('open')">
@@ -342,7 +521,7 @@
       <button type="button" class="crm-mobile-sheet-x" aria-label="Закрыть" onclick="document.getElementById('mSheet').classList.remove('open')">✕</button>
     </div>
     <div class="crm-mobile-sheet-list">
-<a href="#" data-screen="/incoming">Входящие</a><a href="calendar__measurements.html">Календарь</a><a href="#" data-screen="/installations/waiting">Монтажи</a><a href="settings.html">Настройки</a>    </div>
+<a href="#" data-screen="/incoming">Входящие</a><a href="calendar__measurements.html">Календарь</a><a href="settings.html">Настройки</a><a href="#" data-screen="/account/password">Пароль</a><a class="danger" href="#" data-screen="/logout">Выйти</a>    </div>
   </div>
 </div>  <script>
   /* Подсветка активного пункта сайдбара по текущему URL (клиентская, без бэкенда). */

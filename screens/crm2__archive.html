@@ -25,9 +25,9 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 2</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 2</b></a>
-          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 2</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 3</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 3</b></a>
+          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 3</b></a>
           <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ</b></a>
           <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
@@ -142,9 +142,21 @@
   <a class="icon-btn search-mobile" href="crm2__incoming.html" aria-label="Поиск по обращениям">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="dirsel" method="get" action="/direction/switch">
+    <input type="hidden" name="next" value="/crm2/incoming">
+    <select name="to" aria-label="Направление деятельности"
+            onchange="this.form.next.value=location.pathname+location.search;this.form.submit()">
+      <option value="25" selected>Ростовские окна розница</option>
+      <option value="26" >Ростовские окна опт</option>
+      <option value="27" >Росток</option>
+    </select>
+  </form>
+  <form method="post" action="/incoming/new" style="margin:0">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
+  <a class="icon-btn" href="notifications.html" title="Уведомления" aria-label="Уведомления: непрочитанных 2">
+    <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="pip">2</span>  </a>
+  <div class="avatar" title="Офис-менеджер Демо · Директор">ОФ</div>
 </header>    <div class="work">
 
 
@@ -306,10 +318,11 @@
   </select>
   <select class="fsel" name="responsible" onchange="this.form.submit()" aria-label="Ответственный">
     <option value="">Все ответственные</option>
+    <option value="20" >Вадим</option>
+    <option value="19" >Данил</option>
+    <option value="18" >Наташа</option>
+    <option value="17" >Нелли</option>
     <option value="1" >Сотрудник 01</option>
-    <option value="2" >Сотрудник 02</option>
-    <option value="3" >Сотрудник 03</option>
-    <option value="4" >Сотрудник 04</option>
   </select>
   <input class="fdate" type="date" name="date_from" value="" aria-label="Дата с">
   <input class="fdate" type="date" name="date_to" value="" aria-label="Дата по">
@@ -334,7 +347,7 @@
 <th class="col-w120"><a class="sortlink" href="?sort=responsible&dir=asc">Ответственный</a></th>
     </tr></thead>
     <tbody>
-      <tr><td class="num"><a class="rowlink" href="#" data-screen="/incoming/3/card">3</a></td><td class="c m nowrap">25.08.26</td><td><span class="stt"><span class="sd tone-bad"></span>Отказ</span></td><td class="m2">—</td><td class="m2" title="">—</td><td class="c m nowrap">—</td><td class="m2">—</td><td class="m2">—</td><td class="cl-name">Отказов Демо Петрович</td><td class="m2 nowrap">+7 (900) 000-01-03</td><td class="c m2">Звонок</td><td class="m2">Вручную</td><td class="c m2">Офис-менеджер Демо</td></tr>
+      <tr><td class="num"><a class="rowlink" href="#" data-screen="/incoming/4/card">4</a></td><td class="c m nowrap">25.08.26</td><td><span class="stt"><span class="sd tone-bad"></span>Отказ</span></td><td class="m2">—</td><td class="m2" title="">—</td><td class="c m nowrap">—</td><td class="m2">—</td><td class="m2">—</td><td class="cl-name">Отказов Демо Петрович</td><td class="m2 nowrap">+7 (900) 000-01-03</td><td class="c m2">Звонок</td><td class="m2">Вручную</td><td class="c m2">Офис-менеджер Демо</td></tr>
     </tbody>
   </table>
 </div>
@@ -355,7 +368,7 @@
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 2</span>
+    <span>Обращения · 3</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -375,9 +388,9 @@
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 2</span><small>Продажи</small>      </a>
+        <span>Обращения · 3</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 2</span><small>Продажи</small>      </a>
+        <span>Замер · 3</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
@@ -391,7 +404,7 @@
       <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
         <span>Задачи</span>      </a>
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
-        <span>Договор · 2</span><small>Продажи</small>      </a>
+        <span>Договор · 3</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
         <span>Заказ</span><small>Продажи</small>      </a>
       <a href="warehouse.html" data-nav-prefixes="/warehouse">
@@ -436,6 +449,8 @@
         <span>Цели</span><small>Отчёты</small>      </a>
       <a href="settings.html" data-nav-prefixes="/settings|/salary">
         <span>Настройки</span>      </a>
+      <a href="#" data-screen="/account/password"><span>Пароль</span></a>
+      <a class="danger" href="#" data-screen="/logout"><span>Выйти</span></a>
     </div>
   </section>
 </div><script>
