@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Обращение #11 — Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788344011">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788344011">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788344011">
-<link rel="stylesheet" href="static/crm2-deal-card.css?v=1788344011">
+<link rel="stylesheet" href="static/design-system.css?v=1788478221">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788478221">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788478221">
+<link rel="stylesheet" href="static/crm2-deal-card.css?v=1788478221">
 </head>
 <body>
 <div class="app">
@@ -199,18 +199,18 @@
 <button type="button" class="ic-iconbtn del ic-sb-phone-del" title="Удалить телефон"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>      </div>
 <button type="button" class="ic-add-phone ic-sb-addphone">＋ Добавить</button>
       <div class="ic-sec">Адрес объекта</div>
-      <div class="ic-sb-fields">
-        <select class="ic-inp raw-field ic-sb-sync" data-sync="region_metro">
-          <option value="">— выбрать —</option>
-<option value="Анапский район" >Анапский район</option><option value="Геленджик" >Геленджик</option><option value="Грозный" >Грозный</option><option value="Красноармейский район" >Красноармейский район</option><option value="Краснодар" >Краснодар</option><option value="Крымский район" >Крымский район</option><option value="Новороссийск" >Новороссийск</option><option value="Славянский район" >Славянский район</option><option value="Темрюкский район" >Темрюкский район</option>        </select><div class="ic-addr-line">
-          <input class="ic-inp raw-field ic-sb-sync" data-sync="address" placeholder="Адрес" value="г. Демоград, ул. Стадийная, д. 8"><input class="ic-inp raw-field ic-sb-sync" data-sync="postal_index" placeholder="Индекс" value="350000" readonly title="Заполняется автоматически по адресу">
+      <div class="ic-sb-addr">
+        <div class="ic-sb-addr-line" data-mirror="region_metro">Демоградский район</div>
+        <div class="ic-sb-addr-line is-main">
+          <span data-mirror="address">г. Демоград, ул. Стадийная, д. 8</span>
+          <span class="ic-sub" data-mirror="postal_index">350000</span>
         </div>
-      </div>
-      <div class="ic-addr-grid">
-        <input class="ic-inp raw-field ic-sb-sync" data-sync="apartment" placeholder="Квартира" value="">
-        <input class="ic-inp raw-field ic-sb-sync" data-sync="entrance" placeholder="Подъезд" value="">
-        <input class="ic-inp raw-field ic-sb-sync" data-sync="floor" placeholder="Этаж" value="">
-        <input class="ic-inp raw-field ic-sb-sync" data-sync="entry_code" placeholder="Код" value="">
+        <div class="ic-sb-addr-line">
+          <span data-mirror="apartment" data-prefix="кв. "></span>
+          <span data-mirror="entrance" data-prefix="подъезд "></span>
+          <span data-mirror="floor" data-prefix="этаж "></span>
+          <span data-mirror="entry_code" data-prefix="код "></span>
+        </div>
       </div>
 
       <div class="ic-sec">Договор</div>
@@ -1767,6 +1767,22 @@ disabled aria-disabled="true" title="Сначала заполните: исто
       target.addEventListener('input', pull);
       target.addEventListener('change', pull);
     });
+    // Левая колонка ПОКАЗЫВАЕТ то, что введено в центре (владелец 04.09.2026).
+    // Односторонне: из центра в сайдбар. Обратного хода нет намеренно — иначе
+    // вернулось бы второе место ввода, из-за которого и появился выпадающий список
+    // районов слева.
+    document.querySelectorAll('.crm-col-left [data-mirror]').forEach(function (out) {
+      var src = cardForm.querySelector('[name="' + out.dataset.mirror + '"]');
+      if (!src) return;
+      var show = function () {
+        var v = (src.value || '').trim();
+        out.textContent = v ? ((out.dataset.prefix || '') + v) : '';
+      };
+      src.addEventListener('input', show);
+      src.addEventListener('change', show);
+      show();
+    });
+
     var pdel = document.querySelector('.crm-col-left .ic-sb-phone-del');
     if (pdel) pdel.addEventListener('click', function () {
       var pi = document.querySelector('.crm-col-left [data-sync="phone"]');

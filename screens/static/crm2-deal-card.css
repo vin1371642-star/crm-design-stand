@@ -48,6 +48,16 @@
   .ic-card .crm-col-left .lbl{margin-bottom:1px}
   /* Ф1.6 Клиент: столбец инпутов ФИО/email; ссылка «Перейти в карту клиента» с иконкой справа. */
   .ic-card .ic-sb-fields{display:flex;flex-direction:column;gap:var(--sp-1);margin:0 0 var(--sp-2)}
+  /* Адрес в сайдбаре — ТЕКСТ, а не поля (владелец 04.09.2026: «не должно быть выбора
+     в левой части»). Размеры и цвета — токенами: своих чисел здесь не заводим.
+     Пустая строка схлопывается (`:empty`), иначе от несуществующей квартиры остаётся
+     пустой отступ и блок выглядит сломанным. */
+  .ic-card .ic-sb-addr{display:flex;flex-direction:column;gap:var(--sp-1);margin:0 0 var(--sp-3)}
+  .ic-card .ic-sb-addr-line{display:flex;flex-wrap:wrap;gap:var(--sp-1) var(--sp-3);
+    font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink)}
+  .ic-card .ic-sb-addr-line:empty{display:none}
+  .ic-card .ic-sb-addr-line span:empty{display:none}
+  .ic-card .ic-sb-addr-line.is-main{align-items:baseline}
   .ic-card .ic-sb-tags{margin:0 0 var(--sp-2)}
   .ic-card .ic-sb-email{margin:0 0 var(--sp-1)}
   /* В-1: ветвление Физ/Юр в сайдбаре — company-поле скрыто; при data-entity=company (ставит JS
