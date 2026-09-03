@@ -25,10 +25,10 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 4</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 4</b></a>
-          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 3</b></a>
-          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 1</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 21</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 20</b></a>
+          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 13</b></a>
+          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 2</b></a>
           <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
           <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive"><b>Архив</b></a>
@@ -259,6 +259,7 @@
       <a href="settings__structure__offices.html" class="">Офисы</a>
       <a href="settings__structure__employees.html" class="on">Сотрудники</a>
       <a href="settings__structure__positions.html" class="">Должности</a>
+      <a href="settings__module.html" class="">Роли</a>
       <a href="settings__structure__brigades.html" class="">Бригады</a>
       <a href="settings__structure__vehicles.html" class="">Транспортные средства</a>
   </nav>
@@ -320,7 +321,7 @@
     <h2 class="st-h2">Права и доступы</h2>
     <label class="st-lbl">Роль
       <select class="st-inp is-narrow" name="access_role">
-<option value="owner" >Администратор</option><option value="director" >Директор</option><option value="rop" >РОП</option><option value="pto_director" >Руководитель ПТО</option><option value="service_head" >Руководитель сервисной службы</option><option value="call_center_senior" >Старший оператор КЦ</option><option value="senior_measurer" >Старший замерщик</option><option value="office_manager" >Офис-менеджер</option><option value="call_center_operator" >Оператор КЦ</option><option value="field_manager" >Выездной менеджер</option><option value="manager" selected>Менеджер</option><option value="measurer" >Замерщик</option><option value="pto_manager" >Менеджер ПТО</option><option value="warehouse" >Кладовщик</option><option value="coordinator" >Координатор</option><option value="installer" >Монтажник</option><option value="service_manager" >Менеджер сервисной службы</option><option value="service_technician" >Сервисный мастер</option><option value="accountant" >Бухгалтер</option><option value="marketing" >Маркетолог</option>      </select></label><input type="hidden" name="access_state_present" value="1">
+<option value="owner" >Администратор</option><option value="director" >Директор</option><option value="rop" >РОП</option><option value="pto_director" >Директор ПТО</option><option value="service_head" >Руководитель сервисной службы</option><option value="call_center_senior" >Старший оператор КЦ</option><option value="senior_measurer" >Старший замерщик</option><option value="office_manager" >Офис-менеджер</option><option value="call_center_operator" >Оператор КЦ</option><option value="field_manager" >Выездной менеджер</option><option value="manager" selected>Менеджер</option><option value="measurer" >Замерщик</option><option value="pto_manager" >Менеджер ПТО</option><option value="warehouse" >Кладовщик</option><option value="coordinator" >Координатор</option><option value="installer" >Монтажник</option><option value="service_manager" >Менеджер сервисной службы</option><option value="service_technician" >Сервисный мастер</option><option value="accountant" >Бухгалтер</option><option value="marketing" >Маркетолог</option>      </select></label><input type="hidden" name="access_state_present" value="1">
     <p class="st-base">Права берутся с должности
       <b>не назначена — умолчания роли «Менеджер»</b>
       <a href="settings__structure__positions.html">Права должностей</a></p>
@@ -971,7 +972,7 @@
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 4</span>
+    <span>Обращения · 21</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -991,9 +992,9 @@
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 4</span><small>Продажи</small>      </a>
+        <span>Обращения · 21</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 4</span><small>Продажи</small>      </a>
+        <span>Замер · 20</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
@@ -1007,9 +1008,9 @@
       <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
         <span>Задачи</span>      </a>
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
-        <span>Договор · 3</span><small>Продажи</small>      </a>
+        <span>Договор · 13</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
-        <span>Заказ · 1</span><small>Продажи</small>      </a>
+        <span>Заказ · 2</span><small>Продажи</small>      </a>
       <a href="warehouse.html" data-nav-prefixes="/warehouse">
         <span>Склад</span>      </a>
       <a href="crm2__clients.html" data-nav-prefixes="/crm2/clients|/crm2/client">

@@ -25,10 +25,10 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 4</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 4</b></a>
-          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 3</b></a>
-          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 1</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 21</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 20</b></a>
+          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 13</b></a>
+          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 2</b></a>
           <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
           <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive"><b>Архив</b></a>
@@ -208,6 +208,7 @@
       <a href="settings__structure__offices.html" class="">Офисы</a>
       <a href="settings__structure__employees.html" class="">Сотрудники</a>
       <a href="settings__structure__positions.html" class="on">Должности</a>
+      <a href="settings__module.html" class="">Роли</a>
       <a href="settings__structure__brigades.html" class="">Бригады</a>
       <a href="settings__structure__vehicles.html" class="">Транспортные средства</a>
   </nav>
@@ -215,9 +216,10 @@
 
 
 
+
 <div class="st-body"><div class="pc-top">
-    <p class="pc-sum">Сотрудников <b>0</b> ·
-даёт <b>1</b> · забирает <b>0</b> · область <b>0</b></p>
+    <p class="pc-sum">Сотрудников <b>1</b> · роли: <b>Замерщик</b> ·
+разрешает <b>1</b> · запрещает <b>0</b> · область <b>0</b></p>
 <button class="btn is-strong" type="submit" form="pcRights">Сохранить права</button>  </div>
 
   <form method="post" action="/settings/structure/positions/1/save" class="pc-name">
@@ -229,507 +231,507 @@
     <h2 class="pc-sec">Действия</h2>
       <details class="pc-grp" >
         <summary><span class="pc-grp-n">Клиент и обращение</span>
-          <span class="pc-grp-s ">как у роли</span></summary>
+          <span class="pc-grp-s ">ничего не меняет</span></summary>
         <div class="pc-rows">
           <div class="pc-row">
             <span class="pc-row-n">Назначать ответственного</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Назначать ответственного" >
-              <option value="assign_responsible:inherit" selected>Как у роли</option>
-              <option value="assign_responsible:on" >Даёт</option>
-              <option value="assign_responsible:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Назначать ответственного" title="Роли сотрудников этой должности: Замерщик">
+              <option value="assign_responsible:inherit" selected>По роли</option>
+              <option value="assign_responsible:on" >Всегда разрешено</option>
+              <option value="assign_responsible:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Передавать обращение</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Передавать обращение" >
-              <option value="transfer_request:inherit" selected>Как у роли</option>
-              <option value="transfer_request:on" >Даёт</option>
-              <option value="transfer_request:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Передавать обращение" title="Роли сотрудников этой должности: Замерщик">
+              <option value="transfer_request:inherit" selected>По роли</option>
+              <option value="transfer_request:on" >Всегда разрешено</option>
+              <option value="transfer_request:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Менять операционный статус обращения</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Менять операционный статус обращения" >
-              <option value="change_status:inherit" selected>Как у роли</option>
-              <option value="change_status:on" >Даёт</option>
-              <option value="change_status:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Менять операционный статус обращения" title="Роли сотрудников этой должности: Замерщик">
+              <option value="change_status:inherit" selected>По роли</option>
+              <option value="change_status:on" >Всегда разрешено</option>
+              <option value="change_status:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Редактировать данные клиента и обращения</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Редактировать данные клиента и обращения" >
-              <option value="edit_customer_card:inherit" selected>Как у роли</option>
-              <option value="edit_customer_card:on" >Даёт</option>
-              <option value="edit_customer_card:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Редактировать данные клиента и обращения" title="Роли сотрудников этой должности: Замерщик">
+              <option value="edit_customer_card:inherit" selected>По роли</option>
+              <option value="edit_customer_card:on" >Всегда разрешено</option>
+              <option value="edit_customer_card:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Просматривать звонки и записи</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Просматривать звонки и записи" >
-              <option value="view_call_history:inherit" selected>Как у роли</option>
-              <option value="view_call_history:on" >Даёт</option>
-              <option value="view_call_history:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Просматривать звонки и записи" title="Роли сотрудников этой должности: Замерщик">
+              <option value="view_call_history:inherit" selected>По роли</option>
+              <option value="view_call_history:on" >Всегда разрешено</option>
+              <option value="view_call_history:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Создавать и выполнять задачи</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Создавать и выполнять задачи" >
-              <option value="manage_tasks:inherit" selected>Как у роли</option>
-              <option value="manage_tasks:on" >Даёт</option>
-              <option value="manage_tasks:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Создавать и выполнять задачи" title="Роли сотрудников этой должности: Замерщик">
+              <option value="manage_tasks:inherit" selected>По роли</option>
+              <option value="manage_tasks:on" >Всегда разрешено</option>
+              <option value="manage_tasks:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Добавлять файлы процесса</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Добавлять файлы процесса" >
-              <option value="manage_files:inherit" selected>Как у роли</option>
-              <option value="manage_files:on" >Даёт</option>
-              <option value="manage_files:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Добавлять файлы процесса" title="Роли сотрудников этой должности: Замерщик">
+              <option value="manage_files:inherit" selected>По роли</option>
+              <option value="manage_files:on" >Всегда разрешено</option>
+              <option value="manage_files:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Выгружать реестр в файл (ФИО и телефоны клиентов)</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Выгружать реестр в файл (ФИО и телефоны клиентов)" >
-              <option value="export_registry:inherit" selected>Как у роли</option>
-              <option value="export_registry:on" >Даёт</option>
-              <option value="export_registry:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Выгружать реестр в файл (ФИО и телефоны клиентов)" title="Роли сотрудников этой должности: Замерщик">
+              <option value="export_registry:inherit" selected>По роли</option>
+              <option value="export_registry:on" >Всегда разрешено</option>
+              <option value="export_registry:off" >Всегда запрещено</option>
             </select>
           </div>
         </div>
       </details>
       <details class="pc-grp" >
         <summary><span class="pc-grp-n">Замер</span>
-          <span class="pc-grp-s ">как у роли</span></summary>
+          <span class="pc-grp-s ">ничего не меняет</span></summary>
         <div class="pc-rows">
           <div class="pc-row">
             <span class="pc-row-n">Записывать и переносить на замер</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Записывать и переносить на замер" >
-              <option value="schedule_measurement:inherit" selected>Как у роли</option>
-              <option value="schedule_measurement:on" >Даёт</option>
-              <option value="schedule_measurement:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Записывать и переносить на замер" title="Роли сотрудников этой должности: Замерщик">
+              <option value="schedule_measurement:inherit" selected>По роли</option>
+              <option value="schedule_measurement:on" >Всегда разрешено</option>
+              <option value="schedule_measurement:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Фиксировать результат/снятие замера</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Фиксировать результат/снятие замера" >
-              <option value="manage_measurement:inherit" selected>Как у роли</option>
-              <option value="manage_measurement:on" >Даёт</option>
-              <option value="manage_measurement:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Фиксировать результат/снятие замера" title="Роли сотрудников этой должности: Замерщик">
+              <option value="manage_measurement:inherit" selected>По роли</option>
+              <option value="manage_measurement:on" >Всегда разрешено</option>
+              <option value="manage_measurement:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Отмечать выполнение замера</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Отмечать выполнение замера" >
-              <option value="complete_measurement:inherit" selected>Как у роли</option>
-              <option value="complete_measurement:on" >Даёт</option>
-              <option value="complete_measurement:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Отмечать выполнение замера" title="Роли сотрудников этой должности: Замерщик">
+              <option value="complete_measurement:inherit" selected>По роли</option>
+              <option value="complete_measurement:on" >Всегда разрешено</option>
+              <option value="complete_measurement:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Открывать календарь замеров</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Открывать календарь замеров" >
-              <option value="view_measurement_calendar:inherit" selected>Как у роли</option>
-              <option value="view_measurement_calendar:on" >Даёт</option>
-              <option value="view_measurement_calendar:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Открывать календарь замеров" title="Роли сотрудников этой должности: Замерщик">
+              <option value="view_measurement_calendar:inherit" selected>По роли</option>
+              <option value="view_measurement_calendar:on" >Всегда разрешено</option>
+              <option value="view_measurement_calendar:off" >Всегда запрещено</option>
             </select>
           </div>
         </div>
       </details>
       <details class="pc-grp" >
         <summary><span class="pc-grp-n">Договор</span>
-          <span class="pc-grp-s ">как у роли</span></summary>
+          <span class="pc-grp-s ">ничего не меняет</span></summary>
         <div class="pc-rows">
           <div class="pc-row">
             <span class="pc-row-n">Редактировать предварительные расчёты</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Редактировать предварительные расчёты" >
-              <option value="edit_calculation:inherit" selected>Как у роли</option>
-              <option value="edit_calculation:on" >Даёт</option>
-              <option value="edit_calculation:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Редактировать предварительные расчёты" title="Роли сотрудников этой должности: Замерщик">
+              <option value="edit_calculation:inherit" selected>По роли</option>
+              <option value="edit_calculation:on" >Всегда разрешено</option>
+              <option value="edit_calculation:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Создавать договор на заключении</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Создавать договор на заключении" >
-              <option value="create_contract:inherit" selected>Как у роли</option>
-              <option value="create_contract:on" >Даёт</option>
-              <option value="create_contract:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Создавать договор на заключении" title="Роли сотрудников этой должности: Замерщик">
+              <option value="create_contract:inherit" selected>По роли</option>
+              <option value="create_contract:on" >Всегда разрешено</option>
+              <option value="create_contract:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Редактировать договор и базы поставщиков</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Редактировать договор и базы поставщиков" >
-              <option value="edit_contract:inherit" selected>Как у роли</option>
-              <option value="edit_contract:on" >Даёт</option>
-              <option value="edit_contract:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Редактировать договор и базы поставщиков" title="Роли сотрудников этой должности: Замерщик">
+              <option value="edit_contract:inherit" selected>По роли</option>
+              <option value="edit_contract:on" >Всегда разрешено</option>
+              <option value="edit_contract:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Подписывать договор</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Подписывать договор" >
-              <option value="sign_contract:inherit" selected>Как у роли</option>
-              <option value="sign_contract:on" >Даёт</option>
-              <option value="sign_contract:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Подписывать договор" title="Роли сотрудников этой должности: Замерщик">
+              <option value="sign_contract:inherit" selected>По роли</option>
+              <option value="sign_contract:on" >Всегда разрешено</option>
+              <option value="sign_contract:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Расторгать договор до производства</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Расторгать договор до производства" >
-              <option value="terminate_contract:inherit" selected>Как у роли</option>
-              <option value="terminate_contract:on" >Даёт</option>
-              <option value="terminate_contract:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Расторгать договор до производства" title="Роли сотрудников этой должности: Замерщик">
+              <option value="terminate_contract:inherit" selected>По роли</option>
+              <option value="terminate_contract:on" >Всегда разрешено</option>
+              <option value="terminate_contract:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Отправлять подписанный договор в работу</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Отправлять подписанный договор в работу" >
-              <option value="send_order_to_work:inherit" selected>Как у роли</option>
-              <option value="send_order_to_work:on" >Даёт</option>
-              <option value="send_order_to_work:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Отправлять подписанный договор в работу" title="Роли сотрудников этой должности: Замерщик">
+              <option value="send_order_to_work:inherit" selected>По роли</option>
+              <option value="send_order_to_work:on" >Всегда разрешено</option>
+              <option value="send_order_to_work:off" >Всегда запрещено</option>
             </select>
           </div>
         </div>
       </details>
       <details class="pc-grp" >
         <summary><span class="pc-grp-n">Деньги клиента</span>
-          <span class="pc-grp-s ">как у роли</span></summary>
+          <span class="pc-grp-s ">ничего не меняет</span></summary>
         <div class="pc-rows">
           <div class="pc-row">
             <span class="pc-row-n">Создавать и редактировать ожидающую оплату</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Создавать и редактировать ожидающую оплату" >
-              <option value="record_contract_payment:inherit" selected>Как у роли</option>
-              <option value="record_contract_payment:on" >Даёт</option>
-              <option value="record_contract_payment:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Создавать и редактировать ожидающую оплату" title="Роли сотрудников этой должности: Замерщик">
+              <option value="record_contract_payment:inherit" selected>По роли</option>
+              <option value="record_contract_payment:on" >Всегда разрешено</option>
+              <option value="record_contract_payment:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Фиксировать фактическое поступление в кассе/банке</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Фиксировать фактическое поступление в кассе/банке" >
-              <option value="confirm_contract_payment:inherit" selected>Как у роли</option>
-              <option value="confirm_contract_payment:on" >Даёт</option>
-              <option value="confirm_contract_payment:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Фиксировать фактическое поступление в кассе/банке" title="Роли сотрудников этой должности: Замерщик">
+              <option value="confirm_contract_payment:inherit" selected>По роли</option>
+              <option value="confirm_contract_payment:on" >Всегда разрешено</option>
+              <option value="confirm_contract_payment:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Управлять графиком платежей и чеками</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Управлять графиком платежей и чеками" >
-              <option value="manage_payment_plan:inherit" selected>Как у роли</option>
-              <option value="manage_payment_plan:on" >Даёт</option>
-              <option value="manage_payment_plan:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Управлять графиком платежей и чеками" title="Роли сотрудников этой должности: Замерщик">
+              <option value="manage_payment_plan:inherit" selected>По роли</option>
+              <option value="manage_payment_plan:on" >Всегда разрешено</option>
+              <option value="manage_payment_plan:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Согласовывать предоплату ниже базового порога</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Согласовывать предоплату ниже базового порога" >
-              <option value="approve_low_prepayment:inherit" selected>Как у роли</option>
-              <option value="approve_low_prepayment:on" >Даёт</option>
-              <option value="approve_low_prepayment:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Согласовывать предоплату ниже базового порога" title="Роли сотрудников этой должности: Замерщик">
+              <option value="approve_low_prepayment:inherit" selected>По роли</option>
+              <option value="approve_low_prepayment:on" >Всегда разрешено</option>
+              <option value="approve_low_prepayment:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Подтверждать безналичные оплаты (QR, счёт)</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Подтверждать безналичные оплаты (QR, счёт)" >
-              <option value="confirm_bank_payment:inherit" selected>Как у роли</option>
-              <option value="confirm_bank_payment:on" >Даёт</option>
-              <option value="confirm_bank_payment:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Подтверждать безналичные оплаты (QR, счёт)" title="Роли сотрудников этой должности: Замерщик">
+              <option value="confirm_bank_payment:inherit" selected>По роли</option>
+              <option value="confirm_bank_payment:on" >Всегда разрешено</option>
+              <option value="confirm_bank_payment:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Видеть деньги договора: оплаты, сверку с кассой и P&amp;L</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Видеть деньги договора: оплаты, сверку с кассой и P&amp;L" >
-              <option value="view_financials:inherit" selected>Как у роли</option>
-              <option value="view_financials:on" >Даёт</option>
-              <option value="view_financials:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Видеть деньги договора: оплаты, сверку с кассой и P&amp;L" title="Роли сотрудников этой должности: Замерщик">
+              <option value="view_financials:inherit" selected>По роли</option>
+              <option value="view_financials:on" >Всегда разрешено</option>
+              <option value="view_financials:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Редактировать ручные показатели P&amp;L</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Редактировать ручные показатели P&amp;L" >
-              <option value="edit_financials:inherit" selected>Как у роли</option>
-              <option value="edit_financials:on" >Даёт</option>
-              <option value="edit_financials:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Редактировать ручные показатели P&amp;L" title="Роли сотрудников этой должности: Замерщик">
+              <option value="edit_financials:inherit" selected>По роли</option>
+              <option value="edit_financials:on" >Всегда разрешено</option>
+              <option value="edit_financials:off" >Всегда запрещено</option>
             </select>
           </div>
         </div>
       </details>
       <details class="pc-grp" >
         <summary><span class="pc-grp-n">Касса</span>
-          <span class="pc-grp-s ">как у роли</span></summary>
+          <span class="pc-grp-s ">ничего не меняет</span></summary>
         <div class="pc-rows">
           <div class="pc-row">
             <span class="pc-row-n">Проводить приход, расход и инкассацию по кассе</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Проводить приход, расход и инкассацию по кассе" >
-              <option value="record_cash_movement:inherit" selected>Как у роли</option>
-              <option value="record_cash_movement:on" >Даёт</option>
-              <option value="record_cash_movement:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Проводить приход, расход и инкассацию по кассе" title="Роли сотрудников этой должности: Замерщик">
+              <option value="record_cash_movement:inherit" selected>По роли</option>
+              <option value="record_cash_movement:on" >Всегда разрешено</option>
+              <option value="record_cash_movement:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Закрывать кассовый день</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Закрывать кассовый день" >
-              <option value="close_cash_day:inherit" selected>Как у роли</option>
-              <option value="close_cash_day:on" >Даёт</option>
-              <option value="close_cash_day:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Закрывать кассовый день" title="Роли сотрудников этой должности: Замерщик">
+              <option value="close_cash_day:inherit" selected>По роли</option>
+              <option value="close_cash_day:on" >Всегда разрешено</option>
+              <option value="close_cash_day:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Править движения закрытого кассового дня</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Править движения закрытого кассового дня" >
-              <option value="edit_closed_cash_day:inherit" selected>Как у роли</option>
-              <option value="edit_closed_cash_day:on" >Даёт</option>
-              <option value="edit_closed_cash_day:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Править движения закрытого кассового дня" title="Роли сотрудников этой должности: Замерщик">
+              <option value="edit_closed_cash_day:inherit" selected>По роли</option>
+              <option value="edit_closed_cash_day:on" >Всегда разрешено</option>
+              <option value="edit_closed_cash_day:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Принимать инкассацию (подтверждать получение денег)</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Принимать инкассацию (подтверждать получение денег)" >
-              <option value="accept_incassation:inherit" selected>Как у роли</option>
-              <option value="accept_incassation:on" >Даёт</option>
-              <option value="accept_incassation:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Принимать инкассацию (подтверждать получение денег)" title="Роли сотрудников этой должности: Замерщик">
+              <option value="accept_incassation:inherit" selected>По роли</option>
+              <option value="accept_incassation:on" >Всегда разрешено</option>
+              <option value="accept_incassation:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Перемещать деньги между кассами</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Перемещать деньги между кассами" >
-              <option value="transfer_between_cashboxes:inherit" selected>Как у роли</option>
-              <option value="transfer_between_cashboxes:on" >Даёт</option>
-              <option value="transfer_between_cashboxes:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Перемещать деньги между кассами" title="Роли сотрудников этой должности: Замерщик">
+              <option value="transfer_between_cashboxes:inherit" selected>По роли</option>
+              <option value="transfer_between_cashboxes:on" >Всегда разрешено</option>
+              <option value="transfer_between_cashboxes:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Видеть кассы всех офисов</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Видеть кассы всех офисов" >
-              <option value="view_all_cashboxes:inherit" selected>Как у роли</option>
-              <option value="view_all_cashboxes:on" >Даёт</option>
-              <option value="view_all_cashboxes:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Видеть кассы всех офисов" title="Роли сотрудников этой должности: Замерщик">
+              <option value="view_all_cashboxes:inherit" selected>По роли</option>
+              <option value="view_all_cashboxes:on" >Всегда разрешено</option>
+              <option value="view_all_cashboxes:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Назначать сотрудникам доступ к кассам</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Назначать сотрудникам доступ к кассам" >
-              <option value="manage_cashbox_access:inherit" selected>Как у роли</option>
-              <option value="manage_cashbox_access:on" >Даёт</option>
-              <option value="manage_cashbox_access:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Назначать сотрудникам доступ к кассам" title="Роли сотрудников этой должности: Замерщик">
+              <option value="manage_cashbox_access:inherit" selected>По роли</option>
+              <option value="manage_cashbox_access:on" >Всегда разрешено</option>
+              <option value="manage_cashbox_access:off" >Всегда запрещено</option>
             </select>
           </div>
         </div>
       </details>
       <details class="pc-grp" >
         <summary><span class="pc-grp-n">Производство и склад</span>
-          <span class="pc-grp-s ">как у роли</span></summary>
+          <span class="pc-grp-s ">ничего не меняет</span></summary>
         <div class="pc-rows">
           <div class="pc-row">
             <span class="pc-row-n">Назначать менеджера ПТО</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Назначать менеджера ПТО" >
-              <option value="assign_pto_order:inherit" selected>Как у роли</option>
-              <option value="assign_pto_order:on" >Даёт</option>
-              <option value="assign_pto_order:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Назначать менеджера ПТО" title="Роли сотрудников этой должности: Замерщик">
+              <option value="assign_pto_order:inherit" selected>По роли</option>
+              <option value="assign_pto_order:on" >Всегда разрешено</option>
+              <option value="assign_pto_order:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Формировать реестры и вносить закупку ПТО</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Формировать реестры и вносить закупку ПТО" >
-              <option value="edit_order_registers:inherit" selected>Как у роли</option>
-              <option value="edit_order_registers:on" >Даёт</option>
-              <option value="edit_order_registers:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Формировать реестры и вносить закупку ПТО" title="Роли сотрудников этой должности: Замерщик">
+              <option value="edit_order_registers:inherit" selected>По роли</option>
+              <option value="edit_order_registers:on" >Всегда разрешено</option>
+              <option value="edit_order_registers:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Отправлять заказ на производство</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Отправлять заказ на производство" >
-              <option value="launch_production:inherit" selected>Как у роли</option>
-              <option value="launch_production:on" >Даёт</option>
-              <option value="launch_production:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Отправлять заказ на производство" title="Роли сотрудников этой должности: Замерщик">
+              <option value="launch_production:inherit" selected>По роли</option>
+              <option value="launch_production:on" >Всегда разрешено</option>
+              <option value="launch_production:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Возвращать заказ на доработку</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Возвращать заказ на доработку" >
-              <option value="return_order_to_revision:inherit" selected>Как у роли</option>
-              <option value="return_order_to_revision:on" >Даёт</option>
-              <option value="return_order_to_revision:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Возвращать заказ на доработку" title="Роли сотрудников этой должности: Замерщик">
+              <option value="return_order_to_revision:inherit" selected>По роли</option>
+              <option value="return_order_to_revision:on" >Всегда разрешено</option>
+              <option value="return_order_to_revision:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Менять готовность и приёмку склада</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Менять готовность и приёмку склада" >
-              <option value="update_order_readiness:inherit" selected>Как у роли</option>
-              <option value="update_order_readiness:on" >Даёт</option>
-              <option value="update_order_readiness:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Менять готовность и приёмку склада" title="Роли сотрудников этой должности: Замерщик">
+              <option value="update_order_readiness:inherit" selected>По роли</option>
+              <option value="update_order_readiness:on" >Всегда разрешено</option>
+              <option value="update_order_readiness:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Исправлять ошибочную приёмку поставки</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Исправлять ошибочную приёмку поставки" >
-              <option value="correct_order_receipt:inherit" selected>Как у роли</option>
-              <option value="correct_order_receipt:on" >Даёт</option>
-              <option value="correct_order_receipt:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Исправлять ошибочную приёмку поставки" title="Роли сотрудников этой должности: Замерщик">
+              <option value="correct_order_receipt:inherit" selected>По роли</option>
+              <option value="correct_order_receipt:on" >Всегда разрешено</option>
+              <option value="correct_order_receipt:off" >Всегда запрещено</option>
             </select>
           </div>
         </div>
       </details>
       <details class="pc-grp" >
         <summary><span class="pc-grp-n">Монтаж и сервис</span>
-          <span class="pc-grp-s ">как у роли</span></summary>
+          <span class="pc-grp-s ">ничего не меняет</span></summary>
         <div class="pc-rows">
           <div class="pc-row">
             <span class="pc-row-n">Назначать и переносить монтаж</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Назначать и переносить монтаж" >
-              <option value="assign_installation:inherit" selected>Как у роли</option>
-              <option value="assign_installation:on" >Даёт</option>
-              <option value="assign_installation:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Назначать и переносить монтаж" title="Роли сотрудников этой должности: Замерщик">
+              <option value="assign_installation:inherit" selected>По роли</option>
+              <option value="assign_installation:on" >Всегда разрешено</option>
+              <option value="assign_installation:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Фиксировать монтаж и два акта</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Фиксировать монтаж и два акта" >
-              <option value="record_installation_acceptance:inherit" selected>Как у роли</option>
-              <option value="record_installation_acceptance:on" >Даёт</option>
-              <option value="record_installation_acceptance:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Фиксировать монтаж и два акта" title="Роли сотрудников этой должности: Замерщик">
+              <option value="record_installation_acceptance:inherit" selected>По роли</option>
+              <option value="record_installation_acceptance:on" >Всегда разрешено</option>
+              <option value="record_installation_acceptance:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Исправлять зафиксированную приёмку</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Исправлять зафиксированную приёмку" >
-              <option value="correct_installation_acceptance:inherit" selected>Как у роли</option>
-              <option value="correct_installation_acceptance:on" >Даёт</option>
-              <option value="correct_installation_acceptance:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Исправлять зафиксированную приёмку" title="Роли сотрудников этой должности: Замерщик">
+              <option value="correct_installation_acceptance:inherit" selected>По роли</option>
+              <option value="correct_installation_acceptance:on" >Всегда разрешено</option>
+              <option value="correct_installation_acceptance:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Подтверждать выплату монтажной бригаде</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Подтверждать выплату монтажной бригаде" >
-              <option value="confirm_installation_payout:inherit" selected>Как у роли</option>
-              <option value="confirm_installation_payout:on" >Даёт</option>
-              <option value="confirm_installation_payout:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Подтверждать выплату монтажной бригаде" title="Роли сотрудников этой должности: Замерщик">
+              <option value="confirm_installation_payout:inherit" selected>По роли</option>
+              <option value="confirm_installation_payout:on" >Всегда разрешено</option>
+              <option value="confirm_installation_payout:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Открывать календарь монтажей</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Открывать календарь монтажей" >
-              <option value="view_installation_calendar:inherit" selected>Как у роли</option>
-              <option value="view_installation_calendar:on" >Даёт</option>
-              <option value="view_installation_calendar:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Открывать календарь монтажей" title="Роли сотрудников этой должности: Замерщик">
+              <option value="view_installation_calendar:inherit" selected>По роли</option>
+              <option value="view_installation_calendar:on" >Всегда разрешено</option>
+              <option value="view_installation_calendar:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Планировать сервисный выезд</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Планировать сервисный выезд" >
-              <option value="plan_service_visit:inherit" selected>Как у роли</option>
-              <option value="plan_service_visit:on" >Даёт</option>
-              <option value="plan_service_visit:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Планировать сервисный выезд" title="Роли сотрудников этой должности: Замерщик">
+              <option value="plan_service_visit:inherit" selected>По роли</option>
+              <option value="plan_service_visit:on" >Всегда разрешено</option>
+              <option value="plan_service_visit:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Создавать и вести рекламации</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Создавать и вести рекламации" >
-              <option value="manage_claims:inherit" selected>Как у роли</option>
-              <option value="manage_claims:on" >Даёт</option>
-              <option value="manage_claims:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Создавать и вести рекламации" title="Роли сотрудников этой должности: Замерщик">
+              <option value="manage_claims:inherit" selected>По роли</option>
+              <option value="manage_claims:on" >Всегда разрешено</option>
+              <option value="manage_claims:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Указывать виновного по рекламации</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Указывать виновного по рекламации" >
-              <option value="record_claim_fault:inherit" selected>Как у роли</option>
-              <option value="record_claim_fault:on" >Даёт</option>
-              <option value="record_claim_fault:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Указывать виновного по рекламации" title="Роли сотрудников этой должности: Замерщик">
+              <option value="record_claim_fault:inherit" selected>По роли</option>
+              <option value="record_claim_fault:on" >Всегда разрешено</option>
+              <option value="record_claim_fault:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Закрывать договор после оценки лояльности</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Закрывать договор после оценки лояльности" >
-              <option value="close_contract:inherit" selected>Как у роли</option>
-              <option value="close_contract:on" >Даёт</option>
-              <option value="close_contract:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Закрывать договор после оценки лояльности" title="Роли сотрудников этой должности: Замерщик">
+              <option value="close_contract:inherit" selected>По роли</option>
+              <option value="close_contract:on" >Всегда разрешено</option>
+              <option value="close_contract:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Проводить опрос лояльности после монтажа</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Проводить опрос лояльности после монтажа" >
-              <option value="record_loyalty_survey:inherit" selected>Как у роли</option>
-              <option value="record_loyalty_survey:on" >Даёт</option>
-              <option value="record_loyalty_survey:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Проводить опрос лояльности после монтажа" title="Роли сотрудников этой должности: Замерщик">
+              <option value="record_loyalty_survey:inherit" selected>По роли</option>
+              <option value="record_loyalty_survey:on" >Всегда разрешено</option>
+              <option value="record_loyalty_survey:off" >Всегда запрещено</option>
             </select>
           </div>
         </div>
       </details>
       <details class="pc-grp" open>
         <summary><span class="pc-grp-n">Прочее</span>
-          <span class="pc-grp-s is-on">даёт 1 · забирает 0</span></summary>
+          <span class="pc-grp-s is-on">разрешает 1 · запрещает 0</span></summary>
         <div class="pc-rows">
           <div class="pc-row">
             <span class="pc-row-n">Править рабочий график</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Править рабочий график" >
-              <option value="edit_work_schedule:inherit" selected>Как у роли</option>
-              <option value="edit_work_schedule:on" >Даёт</option>
-              <option value="edit_work_schedule:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Править рабочий график" title="Роли сотрудников этой должности: Замерщик">
+              <option value="edit_work_schedule:inherit" selected>По роли</option>
+              <option value="edit_work_schedule:on" >Всегда разрешено</option>
+              <option value="edit_work_schedule:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Настраивать схему мотивации сотрудника</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Настраивать схему мотивации сотрудника" >
-              <option value="manage_motivation_scheme:inherit" >Как у роли</option>
-              <option value="manage_motivation_scheme:on" selected>Даёт</option>
-              <option value="manage_motivation_scheme:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Настраивать схему мотивации сотрудника" title="Роли сотрудников этой должности: Замерщик">
+              <option value="manage_motivation_scheme:inherit" >По роли</option>
+              <option value="manage_motivation_scheme:on" selected>Всегда разрешено</option>
+              <option value="manage_motivation_scheme:off" >Всегда запрещено</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Вводить план выручки (цели)</span>
-            <span class="pc-row-d" ></span>
-            <select name="action_state" aria-label="Вводить план выручки (цели)" >
-              <option value="manage_sales_plan:inherit" selected>Как у роли</option>
-              <option value="manage_sales_plan:on" >Даёт</option>
-              <option value="manage_sales_plan:off" >Забирает</option>
+            <span class="pc-row-d"></span>
+            <select name="action_state" aria-label="Вводить план выручки (цели)" title="Роли сотрудников этой должности: Замерщик">
+              <option value="manage_sales_plan:inherit" selected>По роли</option>
+              <option value="manage_sales_plan:on" >Всегда разрешено</option>
+              <option value="manage_sales_plan:off" >Всегда запрещено</option>
             </select>
           </div>
         </div>
@@ -738,132 +740,132 @@
     <h2 class="pc-sec">Разделы</h2>
       <details class="pc-grp" >
         <summary><span class="pc-grp-n">Работа с клиентом</span>
-          <span class="pc-grp-s ">как у роли</span></summary>
+          <span class="pc-grp-s ">ничего не меняет</span></summary>
         <div class="pc-rows">
           <div class="pc-row">
             <span class="pc-row-n">Обращения</span>
-            <span class="pc-row-d" ></span>
-            <select name="section_state" aria-label="Обращения" >
-              <option value="incoming:inherit" selected>Как у роли</option>
-              <option value="incoming:on" >Открыт</option>
-              <option value="incoming:off" >Закрыт</option>
+            <span class="pc-row-d"></span>
+            <select name="section_state" aria-label="Обращения" title="Роли сотрудников этой должности: Замерщик">
+              <option value="incoming:inherit" selected>По роли</option>
+              <option value="incoming:on" >Всегда открыт</option>
+              <option value="incoming:off" >Всегда закрыт</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Замеры</span>
-            <span class="pc-row-d" ></span>
-            <select name="section_state" aria-label="Замеры" >
-              <option value="measurements:inherit" selected>Как у роли</option>
-              <option value="measurements:on" >Открыт</option>
-              <option value="measurements:off" >Закрыт</option>
+            <span class="pc-row-d"></span>
+            <select name="section_state" aria-label="Замеры" title="Роли сотрудников этой должности: Замерщик">
+              <option value="measurements:inherit" selected>По роли</option>
+              <option value="measurements:on" >Всегда открыт</option>
+              <option value="measurements:off" >Всегда закрыт</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Задачи</span>
-            <span class="pc-row-d" ></span>
-            <select name="section_state" aria-label="Задачи" >
-              <option value="tasks:inherit" selected>Как у роли</option>
-              <option value="tasks:on" >Открыт</option>
-              <option value="tasks:off" >Закрыт</option>
+            <span class="pc-row-d"></span>
+            <select name="section_state" aria-label="Задачи" title="Роли сотрудников этой должности: Замерщик">
+              <option value="tasks:inherit" selected>По роли</option>
+              <option value="tasks:on" >Всегда открыт</option>
+              <option value="tasks:off" >Всегда закрыт</option>
             </select>
           </div>
         </div>
       </details>
       <details class="pc-grp" >
         <summary><span class="pc-grp-n">Договор и производство</span>
-          <span class="pc-grp-s ">как у роли</span></summary>
+          <span class="pc-grp-s ">ничего не меняет</span></summary>
         <div class="pc-rows">
           <div class="pc-row">
             <span class="pc-row-n">Договоры</span>
-            <span class="pc-row-d" ></span>
-            <select name="section_state" aria-label="Договоры" >
-              <option value="contracts:inherit" selected>Как у роли</option>
-              <option value="contracts:on" >Открыт</option>
-              <option value="contracts:off" >Закрыт</option>
+            <span class="pc-row-d"></span>
+            <select name="section_state" aria-label="Договоры" title="Роли сотрудников этой должности: Замерщик">
+              <option value="contracts:inherit" selected>По роли</option>
+              <option value="contracts:on" >Всегда открыт</option>
+              <option value="contracts:off" >Всегда закрыт</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Заказы / ПТО</span>
-            <span class="pc-row-d" ></span>
-            <select name="section_state" aria-label="Заказы / ПТО" >
-              <option value="orders:inherit" selected>Как у роли</option>
-              <option value="orders:on" >Открыт</option>
-              <option value="orders:off" >Закрыт</option>
+            <span class="pc-row-d"></span>
+            <select name="section_state" aria-label="Заказы / ПТО" title="Роли сотрудников этой должности: Замерщик">
+              <option value="orders:inherit" selected>По роли</option>
+              <option value="orders:on" >Всегда открыт</option>
+              <option value="orders:off" >Всегда закрыт</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Монтажи</span>
-            <span class="pc-row-d" ></span>
-            <select name="section_state" aria-label="Монтажи" >
-              <option value="installations:inherit" selected>Как у роли</option>
-              <option value="installations:on" >Открыт</option>
-              <option value="installations:off" >Закрыт</option>
+            <span class="pc-row-d"></span>
+            <select name="section_state" aria-label="Монтажи" title="Роли сотрудников этой должности: Замерщик">
+              <option value="installations:inherit" selected>По роли</option>
+              <option value="installations:on" >Всегда открыт</option>
+              <option value="installations:off" >Всегда закрыт</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Рекламации</span>
-            <span class="pc-row-d" ></span>
-            <select name="section_state" aria-label="Рекламации" >
-              <option value="claims:inherit" selected>Как у роли</option>
-              <option value="claims:on" >Открыт</option>
-              <option value="claims:off" >Закрыт</option>
+            <span class="pc-row-d"></span>
+            <select name="section_state" aria-label="Рекламации" title="Роли сотрудников этой должности: Замерщик">
+              <option value="claims:inherit" selected>По роли</option>
+              <option value="claims:on" >Всегда открыт</option>
+              <option value="claims:off" >Всегда закрыт</option>
             </select>
           </div>
         </div>
       </details>
       <details class="pc-grp" >
         <summary><span class="pc-grp-n">Деньги</span>
-          <span class="pc-grp-s ">как у роли</span></summary>
+          <span class="pc-grp-s ">ничего не меняет</span></summary>
         <div class="pc-rows">
           <div class="pc-row">
             <span class="pc-row-n">Касса</span>
-            <span class="pc-row-d" ></span>
-            <select name="section_state" aria-label="Касса" >
-              <option value="cashbox:inherit" selected>Как у роли</option>
-              <option value="cashbox:on" >Открыт</option>
-              <option value="cashbox:off" >Закрыт</option>
+            <span class="pc-row-d"></span>
+            <select name="section_state" aria-label="Касса" title="Роли сотрудников этой должности: Замерщик">
+              <option value="cashbox:inherit" selected>По роли</option>
+              <option value="cashbox:on" >Всегда открыт</option>
+              <option value="cashbox:off" >Всегда закрыт</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Отчёты</span>
-            <span class="pc-row-d" ></span>
-            <select name="section_state" aria-label="Отчёты" >
-              <option value="reports:inherit" selected>Как у роли</option>
-              <option value="reports:on" >Открыт</option>
-              <option value="reports:off" >Закрыт</option>
+            <span class="pc-row-d"></span>
+            <select name="section_state" aria-label="Отчёты" title="Роли сотрудников этой должности: Замерщик">
+              <option value="reports:inherit" selected>По роли</option>
+              <option value="reports:on" >Всегда открыт</option>
+              <option value="reports:off" >Всегда закрыт</option>
             </select>
           </div>
         </div>
       </details>
       <details class="pc-grp" >
         <summary><span class="pc-grp-n">Администрирование</span>
-          <span class="pc-grp-s ">как у роли</span></summary>
+          <span class="pc-grp-s ">ничего не меняет</span></summary>
         <div class="pc-rows">
           <div class="pc-row">
             <span class="pc-row-n">Сотрудники</span>
-            <span class="pc-row-d" ></span>
-            <select name="section_state" aria-label="Сотрудники" >
-              <option value="users:inherit" selected>Как у роли</option>
-              <option value="users:on" >Открыт</option>
-              <option value="users:off" >Закрыт</option>
+            <span class="pc-row-d"></span>
+            <select name="section_state" aria-label="Сотрудники" title="Роли сотрудников этой должности: Замерщик">
+              <option value="users:inherit" selected>По роли</option>
+              <option value="users:on" >Всегда открыт</option>
+              <option value="users:off" >Всегда закрыт</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Настройки</span>
-            <span class="pc-row-d" ></span>
-            <select name="section_state" aria-label="Настройки" >
-              <option value="settings:inherit" selected>Как у роли</option>
-              <option value="settings:on" >Открыт</option>
-              <option value="settings:off" >Закрыт</option>
+            <span class="pc-row-d"></span>
+            <select name="section_state" aria-label="Настройки" title="Роли сотрудников этой должности: Замерщик">
+              <option value="settings:inherit" selected>По роли</option>
+              <option value="settings:on" >Всегда открыт</option>
+              <option value="settings:off" >Всегда закрыт</option>
             </select>
           </div>
           <div class="pc-row">
             <span class="pc-row-n">Обучение</span>
-            <span class="pc-row-d" ></span>
-            <select name="section_state" aria-label="Обучение" >
-              <option value="training:inherit" selected>Как у роли</option>
-              <option value="training:on" >Открыт</option>
-              <option value="training:off" >Закрыт</option>
+            <span class="pc-row-d"></span>
+            <select name="section_state" aria-label="Обучение" title="Роли сотрудников этой должности: Замерщик">
+              <option value="training:inherit" selected>По роли</option>
+              <option value="training:on" >Всегда открыт</option>
+              <option value="training:off" >Всегда закрыт</option>
             </select>
           </div>
         </div>
@@ -872,62 +874,54 @@
     <h2 class="pc-sec">Область видимости</h2>
     <details class="pc-grp" >
       <summary><span class="pc-grp-n">Какие записи видит</span>
-        <span class="pc-grp-s ">как у роли</span></summary>
+        <span class="pc-grp-s ">ничего не меняет</span></summary>
       <div class="pc-rows">
         <div class="pc-row">
           <span class="pc-row-n">Обращения</span>
-          <span class="pc-row-d" ></span>
-          <input type="hidden" name="scope_section" value="incoming"><select name="scope_value" aria-label="Обращения" >
-            <option value="" selected>Как у роли</option>
+          <span class="pc-row-d"></span>
+          <input type="hidden" name="scope_section" value="incoming"><select name="scope_value" aria-label="Обращения" title="Роли сотрудников этой должности: Замерщик"><option value="" selected>По роли</option>
 <option value="own" >Только свои</option><option value="all" >Все записи</option>          </select>
         </div>
         <div class="pc-row">
           <span class="pc-row-n">Замеры</span>
-          <span class="pc-row-d" ></span>
-          <input type="hidden" name="scope_section" value="measurements"><select name="scope_value" aria-label="Замеры" >
-            <option value="" selected>Как у роли</option>
+          <span class="pc-row-d"></span>
+          <input type="hidden" name="scope_section" value="measurements"><select name="scope_value" aria-label="Замеры" title="Роли сотрудников этой должности: Замерщик"><option value="" selected>По роли</option>
 <option value="own" >Только свои</option><option value="all" >Все записи</option>          </select>
         </div>
         <div class="pc-row">
           <span class="pc-row-n">Договоры</span>
-          <span class="pc-row-d" ></span>
-          <input type="hidden" name="scope_section" value="contracts"><select name="scope_value" aria-label="Договоры" >
-            <option value="" selected>Как у роли</option>
+          <span class="pc-row-d"></span>
+          <input type="hidden" name="scope_section" value="contracts"><select name="scope_value" aria-label="Договоры" title="Роли сотрудников этой должности: Замерщик"><option value="" selected>По роли</option>
 <option value="own" >Только свои</option><option value="all" >Все записи</option>          </select>
         </div>
         <div class="pc-row">
           <span class="pc-row-n">Заказы / ПТО</span>
-          <span class="pc-row-d" ></span>
-          <input type="hidden" name="scope_section" value="orders"><select name="scope_value" aria-label="Заказы / ПТО" >
-            <option value="" selected>Как у роли</option>
+          <span class="pc-row-d"></span>
+          <input type="hidden" name="scope_section" value="orders"><select name="scope_value" aria-label="Заказы / ПТО" title="Роли сотрудников этой должности: Замерщик"><option value="" selected>По роли</option>
 <option value="own" >Только свои</option><option value="all" >Все записи</option>          </select>
         </div>
         <div class="pc-row">
           <span class="pc-row-n">Монтажи</span>
-          <span class="pc-row-d" ></span>
-          <input type="hidden" name="scope_section" value="installations"><select name="scope_value" aria-label="Монтажи" >
-            <option value="" selected>Как у роли</option>
+          <span class="pc-row-d"></span>
+          <input type="hidden" name="scope_section" value="installations"><select name="scope_value" aria-label="Монтажи" title="Роли сотрудников этой должности: Замерщик"><option value="" selected>По роли</option>
 <option value="own" >Только свои</option><option value="all" >Все записи</option>          </select>
         </div>
         <div class="pc-row">
           <span class="pc-row-n">Касса</span>
-          <span class="pc-row-d" ></span>
-          <input type="hidden" name="scope_section" value="cashbox"><select name="scope_value" aria-label="Касса" >
-            <option value="" selected>Как у роли</option>
+          <span class="pc-row-d"></span>
+          <input type="hidden" name="scope_section" value="cashbox"><select name="scope_value" aria-label="Касса" title="Роли сотрудников этой должности: Замерщик"><option value="" selected>По роли</option>
 <option value="own" >Только свои</option><option value="office" >Своего офиса</option><option value="all" >Все записи</option>          </select>
         </div>
         <div class="pc-row">
           <span class="pc-row-n">Рекламации</span>
-          <span class="pc-row-d" ></span>
-          <input type="hidden" name="scope_section" value="claims"><select name="scope_value" aria-label="Рекламации" >
-            <option value="" selected>Как у роли</option>
+          <span class="pc-row-d"></span>
+          <input type="hidden" name="scope_section" value="claims"><select name="scope_value" aria-label="Рекламации" title="Роли сотрудников этой должности: Замерщик"><option value="" selected>По роли</option>
 <option value="own" >Только свои</option><option value="all" >Все записи</option>          </select>
         </div>
         <div class="pc-row">
           <span class="pc-row-n">Задачи</span>
-          <span class="pc-row-d" ></span>
-          <input type="hidden" name="scope_section" value="tasks"><select name="scope_value" aria-label="Задачи" >
-            <option value="" selected>Как у роли</option>
+          <span class="pc-row-d"></span>
+          <input type="hidden" name="scope_section" value="tasks"><select name="scope_value" aria-label="Задачи" title="Роли сотрудников этой должности: Замерщик"><option value="" selected>По роли</option>
 <option value="own" >Только свои</option><option value="all" >Все записи</option>          </select>
         </div>
       </div>
@@ -983,7 +977,7 @@
 
   <form method="post" action="/settings/structure/positions/1/delete" class="pc-del"
         data-confirm="Удалить должность «Руководитель»?">
-    <button class="btn danger" type="submit" >Удалить должность</button>
+    <button class="btn danger" type="submit" disabled title="Назначена сотрудникам — удалить нельзя">Удалить должность</button>
   </form>
 </div>
     </div>
@@ -997,7 +991,7 @@
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 4</span>
+    <span>Обращения · 21</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -1017,9 +1011,9 @@
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 4</span><small>Продажи</small>      </a>
+        <span>Обращения · 21</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 4</span><small>Продажи</small>      </a>
+        <span>Замер · 20</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
@@ -1033,9 +1027,9 @@
       <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
         <span>Задачи</span>      </a>
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
-        <span>Договор · 3</span><small>Продажи</small>      </a>
+        <span>Договор · 13</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
-        <span>Заказ · 1</span><small>Продажи</small>      </a>
+        <span>Заказ · 2</span><small>Продажи</small>      </a>
       <a href="warehouse.html" data-nav-prefixes="/warehouse">
         <span>Склад</span>      </a>
       <a href="crm2__clients.html" data-nav-prefixes="/crm2/clients|/crm2/client">

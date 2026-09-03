@@ -25,10 +25,10 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 4</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 4</b></a>
-          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 3</b></a>
-          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 1</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 21</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 20</b></a>
+          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 13</b></a>
+          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 2</b></a>
           <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
           <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive"><b>Архив</b></a>
@@ -266,7 +266,7 @@
     <input name="title" required placeholder="Например: собрать документы по договору 21391"></label><label>По обращению
     <select name="request_id" required>
       <option value="">выберите обращение</option>
-<option value="4">№4 · Сорвалов Демо Игоревич</option><option value="3">№3 · Задержкин Демо Олегович</option><option value="2">№2 · Пробникова Демо Ивановна</option><option value="1">№1 · Демидов Демо Демидович</option>    </select></label>
+<option value="21">№21 · Сорвалов Демо Игоревич</option><option value="18">№18 · Расторгов Демо Демидович</option><option value="17">№17 · Доработов Демо Демидович</option><option value="16">№16 · Отсрочев Демо Демидович</option><option value="15">№15 · Переносов Демо Демидович</option><option value="14">№14 · Закрывов Демо Демидович</option><option value="13">№13 · Готовов Демо Демидович</option><option value="12">№12 · Монтажов Демо Демидович</option><option value="11">№11 · Складов Демо Демидович</option><option value="10">№10 · Производов Демо Демидович</option><option value="9">№9 · Отправов Демо Демидович</option><option value="8">№8 · Подписов Демо Демидович</option><option value="7">№7 · Договоров Демо Демидович</option><option value="6">№6 · Обмеров Демо Демидович</option><option value="5">№5 · Замеров Демо Демидович</option><option value="4">№4 · Перезвонов Демо Демидович</option><option value="3">№3 · Задержкин Демо Олегович</option><option value="2">№2 · Пробникова Демо Ивановна</option><option value="1">№1 · Демидов Демо Демидович</option>    </select></label>
   <label>Кому
     <select name="assignee_id">
       <option value="">себе</option>
@@ -282,17 +282,17 @@
 
 
 <div class="mt-cards two">
-  <div class="mt-card over"><div class="v">1</div><div class="l">Просроченные перезвоны</div></div><div class="mt-card"><div class="v">0</div><div class="l">На сегодня</div></div>
+  <div class="mt-card over"><div class="v">1</div><div class="l">Просроченные перезвоны</div></div><div class="mt-card"><div class="v">1</div><div class="l">На сегодня</div></div>
 </div>
 
 
 <section class="mt-sec">
   <h2>Не запущено в производство <span class="cnt" style="background:var(--over);color:#fff;border-radius:var(--r2-radius-10);padding:0 var(--sp-2);font-size:var(--r2-label)">1</span></h2>
   <div class="ul-list">
-    <a class="ul-row" href="#" data-screen="/incoming/3/card?tab=dog">
+    <a class="ul-row" href="incoming__3__card.html">
       <span class="ul-num">Д-000003</span>
       <span class="ul-fio">Задержкин Демо Олегович</span>
-      <span class="ul-date">26.08.2026</span>
+      <span class="ul-date">27.08.2026</span>
     </a>
   </div>
 </section>
@@ -418,32 +418,32 @@
       <div class="col-list">
 <div class="tcard">
     <div class="meta">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>31.08.2026 22:35 · перезвон
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>01.09.2026 02:19 · перезвон
     </div>
     <div class="ttl">
-<a href="#" data-screen="/incoming/1/card">Согласовать перенос монтажа с клиентом</a>    </div><div class="tnote">Клиент просил перенести на выходные, ответа нет третий день.</div>    <form method="post" action="/tasks/4/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form>
+<a href="incoming__1__card.html">Согласовать перенос монтажа с клиентом</a>    </div><div class="tnote">Клиент просил перенести на выходные, ответа нет третий день.</div>    <form method="post" action="/tasks/4/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form>
   </div>      </div>
     </div>
     <div class="col today">
-      <div class="col-head">Сегодня <span class="cnt">0</span></div>
-      <div class="col-list">
-<div class="col-empty">Нет</div>      </div>
-    </div>
-    <div class="col future">
-      <div class="col-head">Будущие <span class="cnt">2</span></div>
+      <div class="col-head">Сегодня <span class="cnt">1</span></div>
       <div class="col-list">
 <div class="tcard">
     <div class="meta">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>04.09.2026 04:35 · перезвон
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>04.09.2026 08:19 · перезвон
     </div>
     <div class="ttl">
-<a href="#" data-screen="/incoming/1/card">Перезвонить и согласовать доставку</a>    </div><div class="tnote">Клиент просил после 18:00.</div>    <form method="post" action="/tasks/1/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form>
-  </div><div class="tcard">
+<a href="incoming__1__card.html">Перезвонить и согласовать доставку</a>    </div><div class="tnote">Клиент просил после 18:00.</div>    <form method="post" action="/tasks/1/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form>
+  </div>      </div>
+    </div>
+    <div class="col future">
+      <div class="col-head">Будущие <span class="cnt">1</span></div>
+      <div class="col-list">
+<div class="tcard">
     <div class="meta">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>04.09.2026 22:35 · задача
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>05.09.2026 02:19 · задача
     </div>
     <div class="ttl">
-<a href="#" data-screen="/incoming/1/card">Проверить результат замера</a>    </div><div class="tnote">Сверить проёмы с расчётом ПТО.</div>    <form method="post" action="/tasks/2/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form>
+<a href="incoming__1__card.html">Проверить результат замера</a>    </div><div class="tnote">Сверить проёмы с расчётом ПТО.</div>    <form method="post" action="/tasks/2/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form>
   </div>      </div>
     </div>
   </div>
@@ -459,7 +459,7 @@
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 4</span>
+    <span>Обращения · 21</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -479,9 +479,9 @@
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 4</span><small>Продажи</small>      </a>
+        <span>Обращения · 21</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 4</span><small>Продажи</small>      </a>
+        <span>Замер · 20</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
@@ -495,9 +495,9 @@
       <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
         <span>Задачи</span>      </a>
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
-        <span>Договор · 3</span><small>Продажи</small>      </a>
+        <span>Договор · 13</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
-        <span>Заказ · 1</span><small>Продажи</small>      </a>
+        <span>Заказ · 2</span><small>Продажи</small>      </a>
       <a href="warehouse.html" data-nav-prefixes="/warehouse">
         <span>Склад</span>      </a>
       <a href="crm2__clients.html" data-nav-prefixes="/crm2/clients|/crm2/client">

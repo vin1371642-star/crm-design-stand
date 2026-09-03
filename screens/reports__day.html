@@ -25,10 +25,10 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 4</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 4</b></a>
-          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 3</b></a>
-          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 1</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 21</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 20</b></a>
+          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 13</b></a>
+          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 2</b></a>
           <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
           <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive"><b>Архив</b></a>
@@ -233,7 +233,7 @@
         <path d="M12.5 4.5 7 10l5.5 5.5" stroke="currentColor" stroke-width="1.6"
               stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-    <b>3 сентября 2026</b>
+    <b>4 сентября 2026</b>
     <a href="reports__day.html" title="Следующий день"
        aria-label="Следующий день">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -244,7 +244,7 @@
 </div>
 
 <form class="rfilters" method="get">
-  <input class="day-jump" type="date" name="day" value="2026-09-03"
+  <input class="day-jump" type="date" name="day" value="2026-09-04"
          onchange="this.form.submit()" title="Перейти к дню" aria-label="Перейти к дню">
   <details class="colpick ffilter">
   <summary class="fsel" title="Все офисы">Все офисы</summary>
@@ -321,7 +321,7 @@
           </div>
           <div class="day-card">
             <span class="day-card-name">Записались на замер</span>
-            <b class="day-card-count">4</b>
+            <b class="day-card-count">0</b>
             <span class="day-card-sum"><span class="day-closed"
                       title="У этого показателя суммы нет">—</span></span>
           </div>
@@ -416,12 +416,12 @@ title="Срез накопленного, а не событие этого дн
             <span class="day-tile-sum">—</span>
           </span>
         </div>
-        <div class="day-tile"
+        <div class="day-tile is-state"
 title="Срез накопленного, а не событие этого дня">
-          <b class="day-tile-count">0</b>
+          <b class="day-tile-count">1</b>
           <span class="day-tile-body">
             <span class="day-tile-name">Договоры закрыты без доплаты</span><br>
-            <span class="day-tile-sum">0 ₽</span>
+            <span class="day-tile-sum">90 000 ₽</span>
           </span>
         </div>
         <div class="day-tile"
@@ -461,7 +461,7 @@ title="Срез накопленного, а не событие этого дн
         </tr>
         <tr class="">
           <td class="day-name">Записались на замер</td>
-          <td class="num">4</td>
+          <td class="num">0</td>
           <td class="num money"><span class="day-closed" title="У этого показателя суммы нет">—</span></td><td class="day-field" title="ScheduledMeasurement.created_at">день, когда замер записали</td>
         </tr>
         <tr class="">
@@ -541,8 +541,8 @@ title="Срез накопленного, а не событие этого дн
         </tr>
         <tr class="day-state">
           <td class="day-name">Договоры закрыты без доплаты</td>
-          <td class="num">0</td>
-          <td class="num money">0 ₽</td><td class="day-field" title="Contract.status">срез на сейчас: даты закрытия договора в модели нет</td>
+          <td class="num">1</td>
+          <td class="num money">90 000 ₽</td><td class="day-field" title="Contract.status">срез на сейчас: даты закрытия договора в модели нет</td>
         </tr>
         <tr class="day-transit">
           <td class="day-name">Выплачено монтажным бригадам</td>
@@ -565,7 +565,7 @@ title="Срез накопленного, а не событие этого дн
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 4</span>
+    <span>Обращения · 21</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -585,9 +585,9 @@ title="Срез накопленного, а не событие этого дн
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 4</span><small>Продажи</small>      </a>
+        <span>Обращения · 21</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 4</span><small>Продажи</small>      </a>
+        <span>Замер · 20</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
@@ -601,9 +601,9 @@ title="Срез накопленного, а не событие этого дн
       <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
         <span>Задачи</span>      </a>
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
-        <span>Договор · 3</span><small>Продажи</small>      </a>
+        <span>Договор · 13</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
-        <span>Заказ · 1</span><small>Продажи</small>      </a>
+        <span>Заказ · 2</span><small>Продажи</small>      </a>
       <a href="warehouse.html" data-nav-prefixes="/warehouse">
         <span>Склад</span>      </a>
       <a href="crm2__clients.html" data-nav-prefixes="/crm2/clients|/crm2/client">
