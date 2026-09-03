@@ -26,10 +26,10 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 3</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 3</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 4</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 4</b></a>
           <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 3</b></a>
-          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ</b></a>
+          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 1</b></a>
           <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
           <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive"><b>Архив</b></a>
@@ -165,13 +165,21 @@
 
   <div class="ic-work">
 
-    <aside class="crm-col-left"><div class="ic-num">#1 <span class="ic-num-stage">Договор</span></div>
+    <aside class="crm-col-left"><div class="ic-num">#1 <span class="ic-num-stage">Работы</span></div>
       <div class="ic-statusrow">
         <span class="sd tone-ok"></span>
-        Подписан · 20.08.2026      </div><div class="ic-prog"
-        title="Договор — Подписан">
-<span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span></div>      <div class="ic-attn">
+        Монтаж выполнен · 20.08.2026      </div><div class="ic-prog"
+        title="Работы — Монтаж выполнен">
+<span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>      <div class="ic-attn">
         <div class="ic-sec">Требует внимания</div>
+        <div class="ic-attn-row">
+          <div class="ic-attn-text">Не приехало: Поставщик Демо — 0 из 3</div>
+          <div class="ic-attn-src">Приёмка реестров по количеству (P7-02) · <a href="?tab=zak">перейти</a></div>
+        </div>
+        <div class="ic-attn-row">
+          <div class="ic-attn-text">Монтаж выполнен, но приёмка не подписана — гарантия не начата</div>
+          <div class="ic-attn-src">Два акта приёмки (D-036/D-037) · <a href="?tab=rab">перейти</a></div>
+        </div>
         <div class="ic-attn-row is-danger">
           <div class="ic-attn-text">Просрочено задач: 1</div>
           <div class="ic-attn-src">Срок задачи по обращению · <a href="?tab=tasks">перейти</a></div>
@@ -247,8 +255,7 @@
         <button class="crm-tab" data-tab="zak" type="button"
 >Заказ</button>
         <button class="crm-tab" data-tab="rab" type="button"
-disabled aria-disabled="true" data-gate="order-required"
-          title="Сначала сформируйте заказ">Работы</button>
+>Работы</button>
         <button class="crm-tab" data-tab="itg" type="button"
 >Итог</button>
         <button class="crm-tab" data-tab="rek" type="button"
@@ -341,14 +348,14 @@ disabled aria-disabled="true" data-gate="order-required"
             <table class="ic-calls">
               <tbody>
               <tr>
-                <td class="ic-calls-when">03.09.2026 20:18</td>
+                <td class="ic-calls-when">03.09.2026 20:35</td>
                 <td class="ic-calls-dir">Исходящий</td>
                 <td class="ic-calls-dur">1:36</td>
                 <td class="ic-calls-who">Офис-менеджер Демо</td>
                 <td class="ic-calls-rec"><audio class="ic-calls-audio" controls preload="none" src="/telephony/calls/2/recording"></audio></td>
               </tr>
               <tr>
-                <td class="ic-calls-when">03.09.2026 19:18</td>
+                <td class="ic-calls-when">03.09.2026 19:35</td>
                 <td class="ic-calls-dir">Входящий</td>
                 <td class="ic-calls-dur">3:34</td>
                 <td class="ic-calls-who">Оператор КЦ Демо</td>
@@ -502,7 +509,7 @@ disabled aria-disabled="true" data-gate="order-required"
           </details>
 
           <div class="ic-block">
-            <div class="ic-block-head">Статус обращения</div><div class="ic-kv"><span>Сквозной статус</span><b>Подписан</b></div>            <label class="ic-lbl-top">Статус<br>
+            <div class="ic-block-head">Статус обращения</div><div class="ic-kv"><span>Сквозной статус</span><b>Монтаж выполнен</b></div>            <label class="ic-lbl-top">Статус<br>
               <select name="status" id="incomingStatusSelect">
 <option value="" selected>—</option><option value="callback" >Перезвонить</option><option value="transferred_service" >Передан в сервис</option><option value="outside_territory" >Не наша территория</option><option value="transferred_rom" >Передан РОП (орг/проекты)</option><option value="transferred_addons" >Переданы допы</option><option value="transferred_wholesale" >Передано в ОПТ</option><option value="non_target" >Нецелевой</option><option value="duplicate_card" >Повторная карта</option>              </select></label>            <div class="ic-callback-panel" id="callbackPanel"
                  data-closing="duplicate_card,non_target,outside_territory">
@@ -552,7 +559,7 @@ disabled aria-disabled="true" data-gate="order-required"
         <ul class="ic-mlist">
           <li class="ic-mrow">
             <div class="ic-mrow-head">              <a class="ic-mrow-who" href="calendar__measurements.html">Замерщик Демо</a>
-              <span class="ic-mrow-when">16.08.2026 в 22:18</span><span class="ic-mrow-done">
+              <span class="ic-mrow-when">16.08.2026 в 22:35</span><span class="ic-mrow-done">
 <span class="ic-mrow-ok" title="Выезд состоялся">✓ 16.08.2026</span>
               </span>              <form method="post" action="/incoming/1/measurement/1/complete"
                     class="ic-mrow-fact">
@@ -828,17 +835,40 @@ title="База: изделия 154080 ₽ + допы 17120 ₽ = 171200 ₽; п
               <th class="act"></th>
             </tr></thead>
             <tbody>
-              <tr><td colspan="5" class="muted">Платежей по договору нет.</td></tr>
+              <tr><td class="date"><span class="dot dot--green"
+                  title="Проведена"></span>20.08.2026</td><td class="num">107 000 ₽</td>
+                <td>Наличные (касса)</td>
+                <td>
+<span class="muted" title="Фискальный чек нужен только для безналичной оплаты физлица">не нужен</span>
+                </td>
+                <td class="act"><button type="button" class="ic-iconbtn" title="Принял: direktordemo · Провёл: dima · 20.08.2026 22:35 · Способ: Наличные (касса) · Касса: Касса офиса Демо · Примечание: Движение стенда. Сумма условная." aria-label="Детали платежа"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.6"/></svg></button>
+<form class="ic-cellform" method="post" action="/incoming/1/contract/payment/1/delete" onsubmit="return icAskReason(this)"><input type="hidden" name="reason" value=""><button class="ic-iconbtn del" type="submit" title="Сторнировать оплату"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button></form>                </td>
+              </tr>
+              <tr><td class="date"><span class="dot dot--green"
+                  title="Проведена"></span>29.08.2026</td><td class="num">54 000 ₽</td>
+                <td>Наличные (касса)</td>
+                <td>
+<span class="muted" title="Фискальный чек нужен только для безналичной оплаты физлица">не нужен</span>
+                </td>
+                <td class="act"><button type="button" class="ic-iconbtn" title="Принял: direktordemo · Провёл: dima · 29.08.2026 22:35 · Способ: Наличные (касса) · Касса: Касса офиса Демо · Примечание: Движение стенда. Сумма условная." aria-label="Детали платежа"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.6"/></svg></button>
+<form class="ic-cellform" method="post" action="/incoming/1/contract/payment/2/delete" onsubmit="return icAskReason(this)"><input type="hidden" name="reason" value=""><button class="ic-iconbtn del" type="submit" title="Сторнировать оплату"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button></form>                </td>
+              </tr>
+              <tr><td class="date"><span class="dot dot--amber"
+                  title="Ждёт подтверждения"></span>02.09.2026</td><td class="num">54 000 ₽</td>
+                <td>bank</td>
+                <td>
+<span class="muted" title="Фискальный чек нужен только для безналичной оплаты физлица">не нужен</span>
+                </td>
+                <td class="act"><button type="button" class="ic-iconbtn" title="Принял: direktordemo · Не проведена кассой · Способ: bank · Касса: Счёт Демо · Примечание: Поступление стенда, ждёт подтверждения директором." aria-label="Детали платежа"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.6"/></svg></button>
+<form class="ic-cellform" method="post" action="/incoming/1/contract/payment/7/delete" onsubmit="return icAskReason(this)"><input type="hidden" name="reason" value=""><button class="ic-iconbtn del" type="submit" title="Сторнировать оплату"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button></form>                </td>
+              </tr>
             </tbody>
           </table>          <div class="ic-sum">
             <div class="ic-sum-row"><span>Итого по реестру</span>
-              <b>107 000 ₽</b></div>
-            <div class="ic-sum-row is-off" title="предоплата в договоре 107 000 ₽ не совпадает с проведённой по кассе суммой 0 ₽; предоплата меньше 80% фактической суммы договора: требуется не менее 171 200 ₽.">
+              <b>215 000 ₽</b></div>
+            <div class="ic-sum-row is-off" title="предоплата в договоре 215 000 ₽ не совпадает с проведённой по кассе суммой 161 000 ₽. Ещё 54 000 ₽ ожидает фиксации.">
               <span>Проведено кассой</span>
-              <b>0 ₽</b></div>
-            <div class="ic-sum-row is-off" title="Порог 80%; по согласованию руководителя — не ниже 50% (107 000 ₽)">
-              <span>Требуется 80%</span>
-              <b>171 200 ₽</b></div>
+              <b>161 000 ₽</b></div>
           </div>
           <details class="ds-acc ic-pay-add">
             <summary>Принять оплату</summary>
@@ -850,8 +880,9 @@ title="База: изделия 154080 ₽ + допы 17120 ₽ = 171200 ₽; п
                   <select name="purpose" id="icPayPurpose" onchange="icPayPurposeSync()">
                     <option value="">Оплата по договору</option>
                     <option value="price_lock">Фиксация цены</option>                  </select></label>
-                <label id="icPayTopup" hidden>Доплата до<br><input type="date" name="topup_date"></label><label>Счёт <span class="req">*</span><br>
-                  <span class="ic-frozen t-danger">Сначала выберите юрлицо договора</span>
+                <label id="icPayTopup" hidden>Доплата до<br><input type="date" name="topup_date"></label><label>Счёт<br>
+                  <select name="cashbox_id">
+<option value="3" selected>Счёт Демо · Демо-Банк</option>                  </select>
 </label>
                 <label class="span-2">Примечание<br><input type="text" name="note"></label>
               </div>
@@ -879,16 +910,6 @@ title="База: изделия 154080 ₽ + допы 17120 ₽ = 171200 ₽; п
               icPayPurposeSync();
             </script>
           </details>
-            <form class="ic-act ic-mt-3" method="post" action="/incoming/1/contract/prepayment-approve" onsubmit="return confirm('Согласовать предоплату ниже 80% фактической суммы договора?');">
-              <div class="ic-form-grid">
-                <label>С кем согласовано<br>
-                  <select name="approved_with_id" required>
-                    <option value="">— выберите сотрудника —</option>
-<option value="2">director</option>                  </select></label>
-                <label>Комментарий<br><input type="text" name="note"></label>
-              </div>
-              <button class="btn" type="submit">Предоплата согласована</button>
-            </form>
         </div>
 
         <div class="ic-block">
@@ -918,7 +939,74 @@ checked><i></i>
       </div>
 
       <div class="crm-tabpane" id="pane-zak">
-        <div class="ic-pane-title">Заказ</div>        <p class="ic-gate-note">Договор подписан — отправьте в работу во вкладке «Договор».</p>
+        <div class="ic-pane-title">Заказ</div>
+        <div class="ic-block">
+          <div class="ic-block-head">ПТО</div>
+          <p><b>—</b></p>
+          <form method="post" action="/incoming/1/order/assign-pto" class="ord-add">
+            <label>Менеджер<br><select name="pto_user_id" required><option value="">— выберите —</option></select></label>
+            <button class="btn" type="submit">Назначить</button>
+          </form>
+        </div>        <div class="ic-block">
+          <div class="ic-block-head">Изделия</div><div class="ic-kv"><span>Поставщик</span><b>Поставщик Демо</b></div>
+          <div class="ic-kv"><span>Профиль</span><b>Профиль А</b></div>
+          <div class="ic-kv"><span>Стеклопакет</span><b>Стеклопакет 32</b></div>
+          <div class="ic-kv"><span>База договора</span><b>61000</b></div>
+          <div class="ic-kv"><span>Количество</span><b>3</b></div>
+          <div class="ic-kv"><span>№ заказа</span><b>ЗК-000001</b></div>
+          <div class="ic-kv"><span>Запущено в работу</span><b>2026-08-25</b></div>
+          <div class="ic-kv"><span>Плановая готовность</span><b>2026-09-08</b></div>
+          <div class="ic-kv"><span>Закупка ПТО</span><b>68400</b></div>
+          <div class="ic-kv"><span>Номер реестра</span><b>Р-1</b></div>
+          <div class="ic-kv"><span>Готовность</span><b>
+<form method="post" action="/incoming/1/order/supplier/1/readiness" class="ic-cellform"><select name="ready_status" onchange="this.form.submit()"><option value="" >—</option><option value="launched" >Запущено в работу</option><option value="production" >На производстве</option><option value="ready" >Готово</option><option value="stock" >На складе</option></select></form></b></div>          <form method="post" action="/incoming/1/order/supplier/1/readiness" class="ic-cellform">
+            <input type="hidden" name="ready_status" value="stock">
+            <button class="btn secondary" type="submit">На складе</button>
+          </form>
+          <details class="reg-details">
+            <summary>Изменить реестр</summary>
+            <form method="post" action="/incoming/1/order/supplier/1/register" class="reg-form">
+              <div class="reg-no">Реестр: <b>Р-1</b></div>
+              <label>№ заказа<br><input type="text" name="order_no" value="ЗК-000001" placeholder="от поставщика"></label>
+              <label>Запуск<br><input type="date" name="launch_date" value="2026-08-25"></label>
+              <label>План готовности<br><input type="date" name="ready_plan_date" value="2026-09-08"></label>
+              <label>Закупка, ₽<br><input type="text" name="purchase_sum" value="68400"></label><label>Площадь, м²<br><input type="text" inputmode="decimal" name="area" value="8.4" placeholder="нужна для запуска"></label>
+              <button class="btn" type="submit">Сохранить реестр</button>
+            </form>
+          </details>
+        </div>
+
+        <div class="ic-block ic-block--table">
+          <details class="ds-acc">
+            <summary>Допматериалы <span class="badge">0</span></summary>
+            <table class="dtable">
+              <thead><tr>
+                <th>Поставщик</th><th class="num">База договора</th><th class="num">Закупка ПТО</th>                <th>№ заказа</th><th>№ реестра</th><th>Готовность</th><th>На складе</th><th>Реестр</th>
+              </tr></thead>
+              <tbody>
+                <tr><td colspan="8" class="muted">Нет строк.</td></tr>
+              </tbody>            </table>
+          </details>
+        </div>
+
+        <div class="ic-block">
+          <div class="ic-block-head">Этап: Отправлено в работу</div>          <div class="ord-controls">
+            <div class="note danger">
+              <b>Автоконтроль: правильность расчёта</b><br>
+              База изделий 154080 ₽ · закупка 68400 ₽ · правило закупка + 122%.
+                <div class="note-line"><b>Требуется перепроверка.</b></div>
+<div>• Для поставщика заказа нет соответствующей базы в договоре</div><div>• База изделий legacy-договора не распределена по поставщикам</div>            </div>
+            <div class="note danger">
+              <b>Автоконтроль: скидка по договору</b><br>
+              База до скидок 171200 ₽ · договор 214000 ₽.<br>
+Наличные −5% → 162640 ₽.<br>              Дополнительная скидка <b>0.00%</b> · потолок 25% (розница).<br>
+              Общая последовательная скидка 0.00%; минимум договора 121980 ₽.
+<br>Условия по договору: 0.<div>• Итоговая сумма договора выше стоимости после обязательной скидки за наличные</div>            </div>
+          </div>
+<p class="ic-gate-note">Предупреждения не блокируют запуск, но попадут в историю.</p>
+              <p class="ok">✓ Все реестры сформированы. Повторная проверка кассы не требуется.</p>          <button class="btn danger" type="button" onclick="openTerminatePanel()">Расторгнуть договор</button>
+        </div>
+
       </div>
 
       <div class="crm-tabpane" id="pane-rab">
@@ -926,6 +1014,55 @@ checked><i></i>
 <div class="ic-block">
           <div class="ic-block-head">Готовность к монтажу</div>
           <p class="muted">Ждём все изделия «На складе» и принятое количество по реестру.</p>
+        </div>        <div class="ic-block">
+          <div class="ic-block-head">Монтаж
+            <span class="badge">Выполнен</span></div>
+        <ul class="ic-list">
+          <li><b>Плановая дата монтажа:</b> 30.08.2026 22:35</li>
+          <li><b>Бригада:</b> Бригада Демо</li>
+          <li><b>ЗП бригады:</b> 12840 ₽ · <b>Оплата:</b> Касса организации</li>
+          <li><b>Монтаж выполнен:</b> <span class="ok">✓ 30.08.2026 22:35</span></li>
+          <li><b>Акт приёмки изделий:</b> Принят, акт подписан · 30.08.2026 22:35<br><span class="muted">Изделия приняты без замечаний.</span></li>
+          <li><b>Акт выполненных работ:</b> Не отмечено · 30.08.2026 22:35<br><span class="muted">Работы приняты, откос требует подкраски.</span></li>
+<li><b>Начало гарантии:</b> <span class="ok">30.08.2026</span></li>
+<li><b>Комментарий:</b> Монтаж стенда.</li>        </ul>
+        <div class="ic-visit-acts">
+        </div>        <form method="post" action="/incoming/1/installation/acceptance" class="ic-act">
+          <input type="hidden" name="act" value="works">
+          <div class="ds-row">
+            <span class="ds-row-label">Приёмка работ</span>
+            <select name="result" aria-label="Результат приёмки работ"><option value="accepted" >Принят, акт подписан</option><option value="accepted_with_remarks" >Принят с замечаниями</option><option value="not_accepted" >Не принят, акт не подписан</option></select>
+            <input type="text" name="comment" value="Работы приняты, откос требует подкраски." placeholder="комментарий" aria-label="Комментарий">
+          </div>
+          <button class="btn" type="submit">Сохранить результат приёмки работ</button>
+        </form>
+        <details class="ds-acc">
+          <summary>Исправить акт приёмки изделий</summary>
+          <form method="post" action="/incoming/1/installation/acceptance/correct" class="ic-act">
+            <input type="hidden" name="act" value="products">
+            <div class="ic-act-row">
+              <label>Верный результат<br>
+                <select name="result" required><option value="accepted" selected>Принят, акт подписан</option><option value="accepted_with_remarks" >Принят с замечаниями</option><option value="not_accepted" >Не принят, акт не подписан</option></select></label>
+              <label>Причина исправления <span class="req">*</span><br>
+                <input type="text" name="reason" required></label>
+            </div><label>Комментарий <span class="req">*</span><br><input type="text" name="comment" required value="Изделия приняты без замечаний."></label>
+            <button class="btn danger" type="submit">Исправить акт</button>
+          </form>
+        </details>
+
+</div>
+
+        <div class="ic-block">
+          <div class="ic-block-head">Монтаж — изменить назначение</div><p class="ic-gate-note">Дата и бригада выбираются в календаре: столбец — бригада, строка — время.</p>
+        <a class="btn" href="calendar__installations.html">Перенести в календаре</a>
+        <form class="ic-act ic-mt-3" method="post" action="/incoming/1/visit/comment">
+          <div class="ic-act-row">
+            <label>Бригаде, ₽<br><input type="text" value="12840" readonly></label>
+            <label>Источник<br><input type="text" value="Касса организации" readonly></label>
+          </div>
+          <label>Комментарий<br><textarea name="comment" rows="2">Монтаж стенда.</textarea></label>
+          <button class="btn secondary" type="submit">Сохранить комментарий</button>
+        </form>
         </div>
       </div>
 
@@ -937,7 +1074,7 @@ checked><i></i>
           <div class="pl-row"><span>Фактическая сумма договора после скидок</span><span class="v t-ok">214 000 ₽</span></div><div class="pl-row"><span>Выручка компании для расчёта прибыли</span><span class="v">214 000 ₽</span></div>
 
           <div class="pl-head">Себестоимость</div>
-          <div class="pl-row sub"><span>Изделия (заводская, из заказа)</span><span class="v">0</span></div>
+          <div class="pl-row sub"><span>Изделия (заводская, из заказа)</span><span class="v">68 400</span></div>
           <div class="pl-row sub"><span>Доп. материалы (из заказа)</span><span class="v">0</span></div>
           <div class="pl-row sub"><span>ЗП замерщика</span><input name="salary_measurer" value="0"></div>
           <div class="pl-row sub"><span>ЗП менеджера</span><input name="salary_manager" value="0"></div>
@@ -947,10 +1084,10 @@ checked><i></i>
           <div class="pl-row sub"><span>Штраф по обращению</span><input name="penalty" value="0"></div>
           <div class="pl-row sub"><span>Возврат клиенту</span><input name="refund" value="0"></div>
           <div class="pl-row sub"><span>Стоимость рекламации</span><input name="claim_cost" value="0"></div>
-          <div class="pl-row"><span><b>Итого себестоимость</b></span><span class="v t-danger">0 ₽</span></div>
+          <div class="pl-row"><span><b>Итого себестоимость</b></span><span class="v t-danger">68 400 ₽</span></div>
 
-          <div class="pl-row pl-last"><span class="pl-total">Прибыль компании</span><span class="v pl-total t-ok">214 000 ₽</span></div>
-          <div class="pl-row"><span>Рентабельность</span><span class="v">100.0 %</span></div>
+          <div class="pl-row pl-last"><span class="pl-total">Прибыль компании</span><span class="v pl-total t-ok">145 600 ₽</span></div>
+          <div class="pl-row"><span>Рентабельность</span><span class="v">68.0 %</span></div>
 
           <div class="pl-transit">
             <b>Монтаж — транзит вне прибыли:</b> 12 840 ₽ · источник: Касса организации
@@ -991,10 +1128,12 @@ checked><i></i>
       </div>
       </div>
       <div class="crm-actions"><span data-fortab="obr" ><button class="btn is-strong" type="submit" form="cardForm">Сохранить</button></span><span id="autosaveInd" class="ic-autosave" aria-live="polite">✓ сохранено</span><span data-fortab="dog" hidden><button class="btn is-strong" type="submit" form="contractForm">Сохранить</button></span>        <span class="spacer"></span>
-<span data-fortab="dog" hidden>        <form method="post" action="/incoming/1/order/send-to-work" onsubmit="return confirm('Отправить подписанный договор в работу?');">
-          <button class="btn secondary" type="submit" disabled aria-disabled="true" title="Проверьте точное совпадение предоплаты с кассой и порог 80% либо руководительское согласование">Отправить в работу</button>
+<span data-fortab="dog" hidden>        </span>        <span data-fortab="zak" hidden>
+        <form method="post" action="/incoming/1/order/launch-production" onsubmit="return confirm('Отправить заказ на производство?');">
+          <button class="btn secondary" type="submit">В производство</button>
         </form>
-        </span><span data-fortab="obr zam" >
+        </span>
+<span data-fortab="obr zam" >
         <button class="btn secondary" type="button" onclick="location.href='/calendar/measurements?request_id=1'"
 disabled aria-disabled="true" title="Сначала заполните: источник обращения"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" class="ic-btn-ico"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="currentColor"/></svg>Запись на замер</button>
         </span>        <details class="crm-menu crm-print">
@@ -1006,7 +1145,8 @@ disabled aria-disabled="true" title="Сначала заполните: исто
         <details class="crm-menu">
           <summary title="Ещё">…</summary>
           <div class="crm-menu-list">            <button type="button" onclick="openTransferPanel()">Передать обращение</button>
-<button type="button" onclick="showTab('rek')" class="danger">Добавить рекламацию</button>            <button type="button" class="danger" onclick="openRefuse()">Отказ</button>
+<button type="button" onclick="showTab('rek')" class="danger">Добавить рекламацию</button>            <button type="button" class="danger" onclick="openTerminatePanel()">Расторгнуть</button>
+            <button type="button" class="danger" onclick="openRefuse()">Отказ</button>
           </div>
         </details>
       </div>
@@ -1048,6 +1188,25 @@ disabled aria-disabled="true" title="Сначала заполните: исто
       </form>
     </aside>
     <div id="transferOverlay" class="rp-overlay" onclick="closeTransferPanel()"></div>
+    <aside id="terminatePanel" class="rp-panel" aria-hidden="true">
+      <form method="post" action="/incoming/1/order/terminate">
+        <div class="rp-head"><span>Отказ</span>
+          <button type="submit" class="rp-save">Сохранить</button>
+          <button type="button" class="rp-x" onclick="closeTerminatePanel()" title="Закрыть">✕</button>
+        </div>
+        <div class="rp-body">
+          <label class="rp-lbl">Причина отказа <span class="req">*</span>
+            <select name="reason" required>
+              <option value="">Выбрать</option>
+<option value="Дорого">Дорого</option><option value="Заказали у других">Заказали у других</option><option value="Не устроили сроки">Не устроили сроки</option><option value="Нет денег">Нет денег</option><option value="Нет технической возможности">Нет технической возможности</option><option value="Нецелевой клиент">Нецелевой клиент</option><option value="Отказали все банки">Отказали все банки</option>            </select>
+          </label>
+          <label class="rp-lbl">Комментарий
+            <textarea name="comment" rows="4" placeholder="комментарий к расторжению"></textarea>
+          </label>
+        </div>
+      </form>
+    </aside>
+    <div id="terminateOverlay" class="rp-overlay" onclick="closeTerminatePanel()"></div>
 
 
     <aside id="refusePanel" class="rp-panel" aria-hidden="true">
@@ -1180,26 +1339,26 @@ disabled aria-disabled="true" title="Сначала заполните: исто
             <div class="body">
               <div class="t-title">Согласовать перенос монтажа с клиентом</div><div class="t-sub">перезвон · Офис-менеджер Демо · Клиент просил перенести на выходные, ответа нет третий день.</div>
             </div>
-<div class="due">31.08.2026 22:18</div>          </div>
+<div class="due">31.08.2026 22:35</div>          </div>
           <div class="tk-grp">Будущие · 2</div>
           <div class="tk future">
             <form method="post" action="/incoming/1/task/2/done" class="ic-tk-done"><input type="hidden" name="done" value="1"><button type="submit" title="Отметить выполненной" class="ic-tk-box"></button></form>
             <div class="body">
               <div class="t-title">Проверить результат замера</div><div class="t-sub">задача · Сотрудник ПТО Демо · Сверить проёмы с расчётом ПТО.</div>
             </div>
-<div class="due">04.09.2026 22:18</div>          </div>
+<div class="due">04.09.2026 22:35</div>          </div>
           <div class="tk future">
             <form method="post" action="/incoming/1/task/1/done" class="ic-tk-done"><input type="hidden" name="done" value="1"><button type="submit" title="Отметить выполненной" class="ic-tk-box"></button></form>
             <div class="body">
               <div class="t-title">Перезвонить и согласовать доставку</div><div class="t-sub">перезвон · Офис-менеджер Демо · Клиент просил после 18:00.</div>
             </div>
-<div class="due">04.09.2026 04:18</div>          </div>
+<div class="due">04.09.2026 04:35</div>          </div>
           <div class="tk-grp">Выполненные · 1</div>
           <div class="tk done">
 <span class="t-ok">✔</span>            <div class="body">
               <div class="t-title">Отправить акт клиенту</div><div class="t-sub">задача · Координатор Демо</div>
             </div>
-<div class="due">02.09.2026 22:18</div>          </div>
+<div class="due">02.09.2026 22:35</div>          </div>
       </div>
       </div>    </aside>
 
@@ -1887,7 +2046,7 @@ disabled aria-disabled="true" title="Сначала заполните: исто
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 3</span>
+    <span>Обращения · 4</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -1907,9 +2066,9 @@ disabled aria-disabled="true" title="Сначала заполните: исто
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 3</span><small>Продажи</small>      </a>
+        <span>Обращения · 4</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 3</span><small>Продажи</small>      </a>
+        <span>Замер · 4</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
@@ -1925,7 +2084,7 @@ disabled aria-disabled="true" title="Сначала заполните: исто
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
         <span>Договор · 3</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
-        <span>Заказ</span><small>Продажи</small>      </a>
+        <span>Заказ · 1</span><small>Продажи</small>      </a>
       <a href="warehouse.html" data-nav-prefixes="/warehouse">
         <span>Склад</span>      </a>
       <a href="crm2__clients.html" data-nav-prefixes="/crm2/clients|/crm2/client">

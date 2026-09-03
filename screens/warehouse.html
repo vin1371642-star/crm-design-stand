@@ -25,10 +25,10 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 3</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 3</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 4</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 4</b></a>
           <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 3</b></a>
-          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ</b></a>
+          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 1</b></a>
           <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
           <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive"><b>Архив</b></a>
@@ -182,13 +182,13 @@
 
 <div class="rhead">
   <h1>Склад</h1>
-  <span class="rcount">0</span>
+  <span class="rcount">1</span>
 </div>
 
 
 <nav class="crm-tabs">
   <a href="warehouse.html"
-     class="active">Ждём поставку<span class="tcnt">0</span></a>
+     class="active">Ждём поставку<span class="tcnt">1</span></a>
   <a href="warehouse.html"
      class="">На складе<span class="tcnt">0</span></a>
   <a href="warehouse.html"
@@ -201,9 +201,55 @@
          placeholder="№ договора, клиент, поставщик, № реестра">
 </form>
 
-<div class="tab-empty">Ждать нечего: по всем сформированным реестрам поставка принята и отмечена «На складе».</div>
+<div class="tablewrap">
+  <table>
+    <thead><tr>
+      <th class="l col-w130">№ договора</th>
+      <th class="l col-min240">Клиент</th>
+      <th class="l col-w160">Поставщик</th>
+      <th class="l col-min260">Изделие</th>
+      <th class="l col-w130">№ реестра</th>
+      <th class="col-w140">Получено</th>
+      <th class="col-w140">План готовности</th>
+      <th class="l col-w180">Готовность</th><th class="l col-min260">Приёмка</th>    </tr></thead>
+    <tbody>
+<tr onclick="if(!event.target.closest('form')&&!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/1/card?tab=zak'">
+        <td class="cl-name"><a class="rowlink" href="#" data-screen="/incoming/1/card?tab=zak">Д-000001</a></td>
+        <td class="cl-name">Демидов Демо Демидович</td>
+        <td>Поставщик Демо</td>
+        <td class="addr">Профиль А · Стеклопакет 32</td>
+        <td class="m nowrap">Р-1</td>
+        <td class="c">
+          <span class="wh-got part">0 из 3</span><span class="wh-note">осталось 3</span>        </td>
+        <td class="c nowrap">
+<span class="m">2026-09-08</span>        </td>
+        <td>
+<form class="form-flat" method="post" action="/warehouse/line/1/readiness">
+            <input type="hidden" name="back" value="tab=wait">
+            <select name="ready_status" onchange="this.form.submit()" aria-label="Готовность позиции"><option value="" >—</option><option value="launched" >Запущено в работу</option><option value="production" >На производстве</option><option value="ready" >Готово</option><option value="stock" >На складе</option></select>
+          </form>
+        </td>
+        <td><form class="form-flat wh-take" method="post" action="/warehouse/line/1/receive">
+            <input type="hidden" name="back" value="tab=wait">
+            <input class="finp qty" type="number" name="qty" step="1"
+                   placeholder="3"
+                   aria-label="Количество">
+            <input class="finp why" type="text" name="reason" maxlength="200"
+                   placeholder="причина исправления" aria-label="Причина исправления">
+            <button class="btn" type="submit">Принять</button>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-    </div>
+<div class="pager">
+  <span class="pbtn is-off">«</span><span class="pbtn is-off">←</span>
+<span class="pbtn on">1</span>
+  <span class="pbtn is-off">→</span><span class="pbtn is-off">»</span>
+  <span class="pinfo">Показаны <b>1–1</b> из <b>1</b></span>
+</div>    </div>
   </div>
 </div>
 <nav class="crm2-mobile-nav" aria-label="Мобильная навигация">
@@ -214,7 +260,7 @@
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 3</span>
+    <span>Обращения · 4</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -234,9 +280,9 @@
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 3</span><small>Продажи</small>      </a>
+        <span>Обращения · 4</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 3</span><small>Продажи</small>      </a>
+        <span>Замер · 4</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
@@ -252,7 +298,7 @@
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
         <span>Договор · 3</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
-        <span>Заказ</span><small>Продажи</small>      </a>
+        <span>Заказ · 1</span><small>Продажи</small>      </a>
       <a href="warehouse.html" data-nav-prefixes="/warehouse">
         <span>Склад</span>      </a>
       <a href="crm2__clients.html" data-nav-prefixes="/crm2/clients|/crm2/client">
