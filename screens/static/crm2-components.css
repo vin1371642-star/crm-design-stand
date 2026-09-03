@@ -1,0 +1,729 @@
+/* ══ Библиотека компонентов CRM2 ═══════════════════════════════════════════
+   Кнопки, поля, вкладки, бейджи, таблицы, модалка, экраны кассы — один вид на
+   всё приложение. Вынесено 02.09.2026 из `<style>` партиала
+   `app/web/templates/crm2/_components.html` (партия П1 плана
+   `v0_spec/CRM2_STYLE_UNIFICATION_PLAN_2026-09-01.md`); сам партиал удалён,
+   его подключал только шелл.
+
+   Подключается ПОСЛЕ `crm2-shell.css` — как и раньше, когда партиал шёл ниже
+   шелла по разметке: правила компонентов рассчитаны на то, чтобы перекрывать
+   одноимённые правила оболочки (`.pbtn`, `.pager`, `thead th`).
+
+   Своих ТОКЕНОВ здесь нет: единственное место объявления — `design-system.css`. */
+  /* Семантические цвета статусов (`--ok-* --warn-* --info-* --danger-* --neutral-*`)
+     переехали 01.09.2026 в `/static/design-system.css` — партия П0 плана D-399.
+     Здесь их больше нет: набор один на всё приложение, второго не бывает.
+     D-264: тёмного режима нет — второго набора статусных цветов тоже. */
+
+  /* Плашка-уведомление вместо самодельных цветных <div style="background:#…">.
+     D-260: без обводки — только фон и цвет текста. */
+  .note{border:0;background:var(--neutral-bg);color:var(--muted);
+    border-radius:var(--r2-radius-10);padding:10px 14px;font-size:var(--r2-label);
+    line-height:var(--r2-label-lh);margin:0 0 .7rem}
+  .note.ok{background:var(--ok-bg);color:var(--ok-ink)}
+  .note.warn{background:var(--warn-bg);color:var(--warn-ink)}
+  .note.info{background:var(--info-bg);color:var(--info-ink)}
+  .note.danger{background:var(--danger-bg);color:var(--danger-ink)}
+  /* Семантический текст вместо инлайн-цветов у <span style="color:#…"> */
+  .t-ok,.ok{color:var(--ok-ink)}
+  .t-warn{color:var(--warn-ink)}
+  .t-danger{color:var(--danger-ink)}
+  .t-ok,.t-warn,.t-danger{font-weight:600}
+
+
+  /* ── Страница/заголовок (D-260: иерархия читается размером и паузой) ── */
+  .crm-page{display:flex;flex-direction:column;min-height:0}
+  .crm-page-head{display:flex;align-items:center;gap:var(--sp-3);margin:0 0 var(--sp-5)}
+  /* Заголовок экрана — единственный на странице и на общей шкале (--fs-screen). */
+  .crm-page-head h1{margin:0;font:var(--fw-screen) var(--fs-screen)/var(--lh-screen) var(--display);
+    color:var(--ink);}
+  /* Подпись к заголовку экрана — вторичный уровень, а не второй заголовок. */
+  .crm-page-sub{font-size:var(--fs-secondary);line-height:var(--lh-secondary);color:var(--muted);font-weight:500}
+  .crm-page-actions{display:flex;gap:var(--sp-2);align-items:center;margin-left:auto}
+
+  /* ── Вкладки: ОДИН компонент на всё приложение ────────────────────────────
+     Reference V2 / Tab (609:4530), тип Local: высота 44, padding 12/16,
+     обычная — Body Regular 400 #475467, текущая — Body medium 500 #C1121F
+     на подложке brand/subtle с красным индикатором 2 px снизу.
+
+     Исторические имена `.st-tabs` (настройки/структура), `.dc-tabs` (справочники)
+     и `.cb-tabs` (касса) — это те же вкладки: до 22.07.2026 каждый экран рисовал
+     их заново, из-за чего в приложении жили четыре несовместимых вкладки.
+     Имена сохранены, чтобы не переписывать разметку 29 экранов; вид у всех один.
+     Активное состояние в этих экранах помечается классом `.on`. */
+  .crm-tabs,.st-tabs,.dc-tabs,.cb-tabs{display:flex;gap:2px;align-items:stretch;flex-wrap:wrap;
+    margin:0 0 14px;border-bottom:1px solid var(--line)}
+  .crm-tabs a,.crm-tabs button,
+  .st-tabs a,.dc-tabs a,.cb-tabs a,.cb-tab{display:inline-flex;align-items:center;gap:6px;height:44px;
+    padding:0 var(--sp-4);border:0;background:none;cursor:pointer;text-decoration:none;
+    font:var(--r2-fw-body) var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--muted);
+    border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+  .crm-tabs a:hover,.crm-tabs button:hover,
+  .st-tabs a:hover,.dc-tabs a:hover,.cb-tabs a:hover{color:var(--ink)}
+  .crm-tabs a.active,.crm-tabs a[aria-current="page"],.crm-tabs button.active,
+  .st-tabs a.on,.dc-tabs a.on,.cb-tabs a.on,.cb-tab.on{
+    font-weight:var(--r2-fw-medium);color:var(--accent-ink);background:var(--brand-subtle);
+    border-bottom-color:var(--accent)}
+
+  /* ── Карточки/панели (D-260: без обводок — фон + пауза между блоками) ── */
+  /* D-260 §2: пауза между разделами — вертикальный ритм, а не рамка. */
+  .crm-card{background:var(--panel);border:0;border-radius:var(--r2-radius-10);padding:var(--panel-pad);margin:0 0 var(--rhythm)}
+  .crm-card:last-child{margin-bottom:0}
+  /* Подзаголовок внутри раздела: ступень между заголовком раздела (19) и текстом (13). */
+  .crm-card h3,.crm-card h4,.st-card h3,.ic-sub,.crm-subhead{
+    font:var(--fw-sub) var(--fs-sub)/var(--lh-sub) var(--display);color:var(--ink);margin:0 0 var(--sp-2)}
+  /* D-260: ступень между уровнями видна — заголовок раздела крупнее содержимого. */
+  .crm-card-head{font-family:var(--display);font-weight:var(--r2-fw-title);font-size:var(--fs-section);
+    line-height:var(--lh-section);color:var(--ink);margin:0 0 var(--rhythm-head)}
+  .incoming-panel{background:var(--panel);border:0;border-radius:var(--r2-radius-10);padding:var(--panel-pad)}
+
+  /* ── Кнопки: три уровня, D-260 §4 ────────────────────────────────────────
+     ЯРКАЯ АКЦЕНТНАЯ (красная) — ровно одна на страницу и вверху: это `.btn-primary`
+       топбара либо явно помеченная `.btn.is-cta`. Больше нигде красной заливки нет.
+     ГЛАВНОЕ ДЕЙСТВИЕ БЛОКА — `.btn.is-strong`: тёмная нейтральная заливка --ink.
+       Читается как основное, но не конкурирует с единственной акцентной кнопкой.
+     ВТОРИЧНОЕ — базовая `.btn`: поверхность + контур. Это значение ПО УМОЛЧАНИЮ,
+       поэтому забытая кнопка становится нейтральной, а не второй красной.
+     РАЗРУШАЮЩЕЕ — `.btn.danger`: без заливки, красный текст; место — в меню «…»
+       или в конце строки, не рядом с главным действием. */
+  /* Стиль Button — Inter Medium 500 14/20, padding 10/16, radius 8, высота 40
+     (Reference V2 / Button 609:4510). Hover Secondary меняет только фон: контур
+     в макете остаётся border/default. */
+  /* height=контрол 40: padding 9+9 + line 20 + border 2 = 40 (было 10/10 → 42, кнопки перерастали
+     токен и «…»-меню на 40 казалось съехавшим/ниже). Теперь .btn и «…» одной высоты. */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--r2-space-2);min-height:var(--control-h);
+    padding:9px var(--sp-4);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r2-radius-8);
+    font:var(--r2-fw-medium) var(--r2-body)/var(--r2-body-lh) var(--font);cursor:pointer;text-decoration:none;white-space:nowrap;
+    transition:background .12s ease,border-color .12s ease,color .12s ease}
+  .btn:hover{background:var(--hover);border-color:var(--line);color:var(--ink)}
+  /* Tertiary: без контура, текст вторичный, hover — только фон. */
+  .btn.tertiary{border-color:transparent;color:var(--muted)}
+  .btn.tertiary:hover{background:var(--hover);border-color:transparent;color:var(--muted)}
+  .btn:disabled,.btn[disabled]{background:var(--disabled-bg);border-color:var(--line);color:var(--muted2);cursor:not-allowed}
+  .btn.secondary{background:var(--panel);color:var(--ink);border:1px solid var(--line)}
+  .btn.secondary:hover{background:var(--hover);border-color:var(--line);color:var(--ink)}
+  .btn.is-strong{background:var(--ink);border-color:var(--ink);color:var(--panel)}
+  .btn.is-strong:hover{background:var(--muted);border-color:var(--muted);color:var(--panel)}
+  /* СОЗДАЮЩЕЕ ДЕЙСТВИЕ — `.btn.is-create`: зелёная заливка. Отдельно от `.is-strong`
+     (тёмная «главная кнопка блока») по смыслу: «Добавить клиента», «Целевой» и им
+     подобные не просто главные — после них в базе ПОЯВЛЯЕТСЯ запись. Владелец
+     02.09.2026 попросила зелёный сначала для «Целевого», затем для «Добавить
+     клиента» — цвет закреплён за смыслом, чтобы дальше не красить кнопки поштучно.
+     Наведение — тот же тон глубже, а не ярче. */
+  .btn.is-create{background:var(--ok-ink);border-color:var(--ok-ink);color:#fff}
+  .btn.is-create:hover{background:var(--ok-ink);border-color:var(--ok-ink);color:#fff;
+    box-shadow:inset 0 0 0 999px rgba(16,24,40,.10)}
+  .btn.is-cta{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.is-cta:hover,.btn.is-cta:active{background:var(--accent-press);border-color:var(--accent-press);color:#fff}
+  .btn.danger{background:var(--panel);border-color:var(--line);color:var(--accent-ink)}
+  .btn.danger:hover{background:var(--selected);border-color:var(--danger-line);color:var(--accent-ink)}
+  .btn.mini,.btn.btn-sm{min-height:var(--action);padding:0 var(--sp-3);font-size:var(--r2-label);border-radius:var(--r2-radius-8)}
+  .btn.icon{width:var(--action);min-width:var(--action);height:var(--action);min-height:var(--action);padding:0}
+
+  /* D-260: раздел — строка-аккордеон. Раскрыл, заполнил, добавил символом «+».
+     Добавление не оформляется кнопкой: это не действие уровня формы. */
+  .ds-acc{margin:var(--rhythm) 0 0}
+  .ds-acc>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:var(--sp-2);
+    font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display,inherit);color:var(--ink);
+    padding:0 0 var(--rhythm-head)}
+  .ds-acc>summary::-webkit-details-marker{display:none}
+  .ds-acc>summary::before{content:"›";display:inline-block;transition:transform .12s ease;
+    color:var(--muted2);font-weight:400}
+  .ds-acc[open]>summary::before{transform:rotate(90deg)}
+  .ds-acc-note{font:500 var(--fs-secondary)/1.2 var(--font);color:var(--muted2)}
+  .ds-plus{border:0;background:none;padding:var(--sp-1) 0;margin:var(--sp-2) 0 0;cursor:pointer;
+    font:600 var(--fs-body)/1.2 var(--font);color:var(--accent)}
+  /* D-413: текста фирменного цвета в интерфейсе нет — «текста красного цвета не
+     должно быть, это выглядит как ошибка». Наведение подчёркивает, а не красит. */
+  .ds-plus:hover{color:var(--ink);text-decoration:underline}
+
+  /* Локальные кнопки экранов (журнал кассы, настройки, реестры) приводятся к тем же
+     размерам и цветам, чтобы в приложении не было двух видов кнопок. */
+  .cb-btn,.st-add,.st-save,.st-del,.tbtn,.pbtn,.tx-btn,.pm-btn,.cb-fbtn,.salc-btn,.mini{
+    font-family:var(--font);border-radius:var(--r2-radius-8)}
+  .cb-btn,.st-add,.st-save,.tx-btn,.pm-btn,.cb-fbtn{
+    height:var(--control-h);min-height:var(--control-h);padding:0 var(--sp-4);font-weight:var(--r2-fw-medium);font-size:var(--r2-body);
+    border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;
+    display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);white-space:nowrap}
+  .cb-btn:hover,.st-add:hover,.st-save:hover,.tx-btn:hover,.pm-btn:hover,.cb-fbtn:hover{
+    background:var(--hover);border-color:var(--muted2)}
+  /* D-260 §4: главное действие блока — тёмная нейтральная заливка, не вторая красная.
+     Раньше эти классы были красными, из-за чего на «Справочниках» одновременно
+     светилось 17 акцентных кнопок. */
+  .st-add,.st-save,.tx-btn.p,.pm-btn.p,.cb-fbtn.p{
+    background:var(--ink);border-color:var(--ink);color:var(--panel)}
+  .st-add:hover,.st-save:hover,.tx-btn.p:hover,.pm-btn.p:hover,.cb-fbtn.p:hover{
+    background:var(--muted);border-color:var(--muted);color:var(--panel)}
+  /* Построчные «Сохранить» внутри таблиц — всегда вторичные: это не действие страницы. */
+  td .st-save,td .btn,tbody .st-save{background:var(--panel);border-color:var(--line);color:var(--ink)}
+  td .st-save:hover,td .btn:hover,tbody .st-save:hover{background:var(--hover);border-color:var(--muted2)}
+  td .btn.danger,tbody .btn.danger{color:var(--accent-ink)}
+  .st-del{height:var(--action);min-height:var(--action);padding:0 var(--sp-3);font-weight:var(--r2-fw-medium);font-size:var(--r2-label);
+    border:1px solid var(--line);background:var(--panel);color:var(--accent);cursor:pointer}
+  .st-del:hover{background:var(--selected);border-color:var(--danger-line)}
+  /* Пейджер: `.pbtn` работает и как <button>, и как <a> (T0.1 — рабочая пагинация). */
+  .pbtn{display:inline-flex;align-items:center;justify-content:center;height:var(--action);min-width:var(--action);
+    padding:0 var(--sp-3);font-weight:var(--r2-fw-medium);font-size:var(--r2-label);border-radius:var(--r2-radius-8);
+    border:1px solid var(--line);background:var(--panel);color:var(--muted);cursor:pointer;text-decoration:none}
+  .pbtn:hover{background:var(--hover);color:var(--ink)}
+  /* D-260 §4: активная страница/период — это состояние, а не акцентное действие.
+     Раньше «включённая» кнопка заливалась красным и становилась второй акцентной. */
+  .pbtn.on{background:var(--ink);border-color:var(--ink);color:var(--panel)}
+  .pbtn.is-off{color:var(--muted2);background:var(--panel);cursor:default;opacity:.55}
+  .pager{display:flex;align-items:center;gap:var(--sp-1);flex-wrap:wrap;margin:var(--sp-4) 0 0}
+  .pager .pinfo{margin-left:var(--sp-3);font-size:var(--r2-label);line-height:var(--r2-label-lh);color:var(--muted)}
+  .btn.mini,.mini{font-size:var(--r2-label)}
+
+  /* Строка-ссылка в реестре (T0.2): ключевая ячейка — реальная <a> (клавиатура,
+     Ctrl/средний клик, новая вкладка, фокус); строка целиком остаётся кликабельной. */
+  .rowlink{color:var(--accent-ink);text-decoration:none;font-weight:var(--r2-fw-medium)}
+  .rowlink:hover{text-decoration:underline}
+  table.crm-table tbody tr:has(.rowlink),.tablewrap tbody tr{cursor:pointer}
+  /* Эхо поиска над реестром (T0.4). */
+  .rsearch{display:flex;align-items:center;gap:var(--sp-2);font-size:var(--r2-body);line-height:var(--r2-body-lh);
+    color:var(--muted);margin:0 0 var(--sp-3)}
+  .rsearch-clear{color:var(--accent-ink);text-decoration:none;font-weight:var(--r2-fw-medium)}
+  .rsearch-clear:hover{text-decoration:underline}
+
+  /* Строка фильтров реестра (T0.3): GET-форма, авто-сабмит селектов/дат, поиск по Enter.
+     Поля наследуют общий стиль input/select (высота 40, рамка, радиус) — своих чисел нет. */
+  .rfilters{display:flex;align-items:center;gap:var(--sp-3) var(--sp-2);flex-wrap:wrap;margin:0 0 var(--sp-3)}
+  .rfilters .finp,.rfilters .fsel{width:auto;height:var(--control-h)}
+  .rfilters .fsearch{flex:1 1 260px;min-width:200px;max-width:360px}
+  .rfilters .fdate{width:150px;color:var(--muted)}
+  .rfilters .fsel{flex:1 1 150px;max-width:190px}
+  /* Мультифильтр («Все теги») — это <details><summary>, а не <select>, поэтому
+     общее правило поля его не касалось: в ряду он стоял голым текстом, без линии
+     и без стрелки, и ряд читался рваным. Здесь ему возвращён вид обычного поля
+     строки — та же высота, та же нижняя линия, тот же шрифт. */
+  .rfilters .ffilter{flex:1 1 150px;max-width:190px}
+  .rfilters .ffilter>summary.fsel{height:var(--control-h);padding:var(--sp-2) 2px;
+    border-bottom:1px solid var(--line-input);color:var(--ink);
+    justify-content:space-between;gap:var(--sp-2);white-space:nowrap;overflow:hidden;
+    font:var(--r2-fw-body) var(--r2-body)/var(--r2-body-lh) var(--font)}
+  .rfilters .ffilter[open]>summary.fsel{border-bottom-color:var(--r2-blue)}
+  /* Флажок-фильтр («Просроченные», «Только незакрытые»): та же высота, что у
+     остальных контролов строки, — иначе он выпадает из ряда и читается как чужой
+     элемент. Своих чисел нет: высота из токена контрола, отступы из шкалы. */
+  .rfilters .fchk{display:inline-flex;align-items:center;gap:var(--sp-2);height:var(--control-h);
+    padding:0 var(--sp-1);white-space:nowrap;color:var(--muted);cursor:pointer;
+    font:var(--r2-fw-body) var(--r2-body)/var(--r2-body-lh) var(--font)}
+  .rfilters .fchk:hover{color:var(--ink)}
+  .rfilters .fchk:has(input:checked){color:var(--ink);font-weight:var(--r2-fw-medium)}
+  .rfilters-reset{margin-left:auto;color:var(--muted);text-decoration:none;font-size:var(--r2-body);
+    line-height:var(--r2-body-lh);white-space:nowrap}
+  .rfilters-reset:hover{color:var(--accent-ink);text-decoration:underline}
+  /* Сортировка по заголовку (T0.3): вся ячейка — ссылка, активная колонка со стрелкой. */
+  .tablewrap thead th .sortlink{display:inline-flex;align-items:center;gap:var(--sp-1);color:inherit;
+    text-decoration:none;cursor:pointer}
+  .tablewrap thead th .sortlink:hover{color:var(--ink)}
+  .tablewrap thead th.sorted{color:var(--ink)}
+  .tablewrap thead th .sarr{font-size:var(--r2-label);line-height:1;color:var(--accent-ink)}
+
+  /* ── Счётчик у вкладки и пустая строка таблицы ──
+     Оба компонента были скопированы на три экрана под разными именами
+     (`co-tab-badge` / `dlv-tab-badge` / `inst-tab-badge`, `co-empty` / `dlv-empty` /
+     `inst-empty`) — и уже начали расходиться: где-то пустое состояние стояло по
+     центру, где-то слева. Имя одно на всех, чтобы расходиться было нечему.
+     Вес подписи 600, а не 700: семисотки нет в шкале Reference V2. */
+  .tab-badge{display:inline-flex;align-items:center;justify-content:center;
+    min-width:var(--r2-space-5);height:var(--r2-space-4);margin-left:var(--sp-2);
+    padding:0 var(--sp-1);border-radius:var(--r2-radius-8);color:#FFFFFF;
+    background:var(--ok-dot);
+    font:600 var(--r2-nav-label)/var(--r2-nav-label-lh) var(--display)}
+  .list-empty{padding:var(--sp-6) var(--sp-4);text-align:center;color:var(--muted2)}
+  .list-empty b{display:block;margin-bottom:var(--sp-1);color:var(--ink)}
+
+  /* ── Каркас простого экрана: шапка · заголовок · тело ──
+     Тридцать пять шаблонов носили эти три правила в своём `<style>`: `.st-title`
+     повторялся байт в байт 33 раза, а `.st-head` и `.st-body` успели разойтись
+     по отступам (три варианта у одного, три у другого) — от экрана к экрану
+     менялся воздух вокруг заголовка, и это было заметно при переходе.
+
+     Канон взят по большинству: у шапки перенос строки (иначе длинный набор
+     кнопок наезжает на заголовок), у заголовка `min-width:0` (без него длинное
+     название не сжимается и выталкивает кнопки за край), у тела нижний отступ
+     больше верхнего — под пейджер и итоги. Экраны, где раньше стояли другие
+     значения, приходят к общему виду: ради этого вынос и делался. */
+  .st-head{padding:var(--sp-3) var(--r2-space-5) 0;display:flex;align-items:flex-start;
+    gap:var(--sp-2);flex-wrap:wrap}
+  .st-title{font:var(--fw-screen) var(--fs-screen)/var(--lh-screen) var(--display);
+    color:var(--ink);margin:0;flex:1;min-width:0}
+  .st-body{padding:var(--sp-5) var(--r2-space-5) var(--sp-6)}
+
+  /* ── Поля ввода: одна высота с кнопками, одинаковые рамки ── */
+  /* `.raw-field` — осознанный отказ от общего поля (плотные сетки вроде графика работы):
+     элемент выпадает из правила, а не борется с ним !important-ами. */
+  input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=file]):not(.raw-field),
+  select:not(.raw-field),textarea:not(.raw-field){
+    /* Поля-ПОЛОСЫ (underline) вместо боксов — весь интерфейс как Ramex (решение владельца 2026-07-23,
+       факт-съём эталона getComputedStyle). Контрол borderless/прозрачный, снизу линия --line-input.
+       padding 8/2 + line-height 24 ≈ 40px → сохраняем прежнюю высоту control-h, вёрстка не съезжает.
+       Body Regular 400, текст --ink. raw-field (плотные сетки) остаются вне правила. */
+    font:var(--r2-fw-body) var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--ink);background:transparent;
+    border:0;border-bottom:1px solid var(--line-input);border-radius:0;padding:var(--sp-2) 2px;height:auto;
+    outline:none;transition:border-color .12s ease}
+  /* Стрелка выпадающего списка — своя, одна на всё приложение. Нативную стрелку
+     Chrome нельзя ни перекрасить, ни уменьшить, а рядом с ней в одной строке фильтров
+     стоят мультифильтры на <summary>, которым нативная недоступна в принципе, — и ряд
+     рябил двумя разными значками (владелец 02.09.2026: «нет единого стандарта»).
+     Цвет обводки повторяет `--muted2` (#667085): в data:URI переменная CSS не
+     подставляется, поэтому это единственное место, где значение токена продублировано
+     — при смене палитры править и здесь. */
+  select:not(.raw-field),.rfilters .ffilter>summary.fsel{
+    appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'><path d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%23667085' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 2px center;
+    background-size:var(--sp-3) var(--sp-2);padding-right:var(--sp-5)}
+  /* Значок календаря у поля даты Chrome рисует сам и красит в чёрный — рядом с
+     серой стрелкой списка он выглядел ярче всей строки и перетягивал взгляд на
+     фильтр по датам. Приглушён до веса подписи; форма остаётся нативной, потому
+     что это не список, а дата, и открывать её должен родной календарь. */
+  input[type=date]:not(.raw-field)::-webkit-calendar-picker-indicator{opacity:.5;cursor:pointer}
+  input[type=date]:not(.raw-field)::-webkit-calendar-picker-indicator:hover{opacity:1}
+  input::placeholder,textarea::placeholder{color:var(--muted2)}
+  textarea{height:auto;padding:var(--sp-2) 2px;line-height:1.45;min-height:64px}
+  input[type=checkbox],input[type=radio]{height:auto;accent-color:var(--accent)}
+  /* Состояния Reference V2 / Field (609:4519): focus — контур бренда и тень
+     0 0 3px 2px rgba(193,18,31,.12); error — контур danger; disabled — фон #EAECF0. */
+  /* Специфичность фокуса должна совпадать с базовым правилом поля выше,
+     иначе контур остаётся серым и виден только слабый ореол тени. */
+  input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=file]):not(.raw-field):focus,
+  select:not(.raw-field):focus,textarea:not(.raw-field):focus{
+    border-bottom-color:var(--r2-blue);box-shadow:none}
+  /* Ошибка и disabled — та же оговорка о специфичности, что и у фокуса. */
+  input:not(.raw-field)[aria-invalid="true"],select:not(.raw-field)[aria-invalid="true"],
+  textarea:not(.raw-field)[aria-invalid="true"],
+  input:not(.raw-field).is-error,select:not(.raw-field).is-error,textarea:not(.raw-field).is-error{
+    border-color:var(--danger-ink)}
+  input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=file]):not(.raw-field):disabled,
+  select:not(.raw-field):disabled,textarea:not(.raw-field):disabled,
+  input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=file]):not(.raw-field)[readonly]{
+    background:transparent;color:var(--muted);border-bottom-color:var(--line)}
+  /* Поиск в топбаре — часть шелла, а не поле формы: сохраняем его сброс из crm2/base.html. */
+  .top .search input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=file]){
+    height:auto;border:0;padding:0;background:transparent;border-radius:0;box-shadow:none;
+    font:500 12.5px var(--font);color:var(--ink)}
+  label{font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted)}
+
+  /* ── Бейджи/статусы ── */
+  /* Reference V2 / Status badge (609:4551): 28 px, padding 6/10, radius 6, gap 6,
+     точка 6 px, текст Label 12/16 Medium. Обводки у бейджа в макете нет —
+     фон и текст берутся из одной статусной пары. */
+  /* Исторические имена одного и того же бейджа: `.st-badge` (настройки касс),
+     `.ov-pill` (сводная касса), `.pill` (расчёт ЗП). До 22.07.2026 каждое имело
+     свой вид — pill-радиус, 11 px, вес 600, а у `.st-badge.warn` ещё и обводку,
+     которой в макете нет. Имена сохранены, вид один. */
+  .badge,.crm-badge,.st-badge,.ov-pill,.pill{display:inline-flex;align-items:center;gap:var(--r2-space-2);height:28px;
+    padding:6px 10px;border-radius:var(--r2-radius-6);background:var(--neutral-bg);border:0;
+    color:var(--neutral-ink);font-weight:var(--r2-fw-medium);font-size:var(--r2-label);
+    line-height:var(--r2-label-lh)}
+  .badge .dot,.crm-badge .dot{width:6px;height:6px;margin-right:0}
+  /* Модификаторы тона едины для всех имён бейджа: `.crm-badge` (рекламации,
+     календарь замеров) раньше их не получал и рисовался серым при любом статусе.
+     Селектор `[class*="badge"]` покрывает `.badge` и `.crm-badge`; `.st-badge`,
+     `.ov-pill`, `.pill` перечислены явно. */
+  [class*="badge"].r,[class*="badge"].is-danger,.pill.is-danger{background:var(--danger-bg);color:var(--danger-ink)}
+  [class*="badge"].g,[class*="badge"].is-ok,.st-badge.ok,.ov-pill.ok,.pill.is-ok{background:var(--ok-bg);color:var(--ok-ink)}
+  [class*="badge"].is-new,.pill.is-new{background:var(--info-bg);color:var(--info-ink)}
+  [class*="badge"].is-warn,[class*="badge"].y,.st-badge.warn,.ov-pill.warn,.pill.is-warn{background:var(--warn-bg);color:var(--warn-ink)}
+  [class*="badge"].is-done,.pill.is-done{background:var(--neutral-bg);color:var(--neutral-ink)}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--neutral-dot);margin-right:6px;flex:none}
+  .dot--gray{background:var(--muted2)}.dot--green{background:var(--ok-dot)}.dot--red{background:var(--danger-dot)}
+  .dot--amber{background:var(--warn-dot)}.dot--blue{background:var(--info-dot)}.dot--violet{background:var(--violet-dot)}
+  .st{display:inline-flex;align-items:center;white-space:nowrap}
+
+  /* ── Формы ── */
+  .crm-card label,.incoming-edit-form label,.cl-field{display:block;font-size:var(--r2-label);line-height:var(--r2-label-lh);color:var(--ink);margin:0 0 10px}
+  input,select,textarea{box-sizing:border-box;max-width:100%}
+  textarea{resize:vertical}
+  .lbl{display:block;font-size:var(--r2-label);line-height:var(--r2-label-lh);letter-spacing:0;color:var(--muted2);margin-bottom:var(--r2-space-1);font-weight:var(--r2-fw-medium)}
+  .cl-inp,.ic-inp{width:100%;box-sizing:border-box;border:1px solid var(--line-input);background:var(--panel);
+    padding:0 var(--sp-3);font-size:var(--r2-body);line-height:var(--r2-body-lh);color:var(--muted);
+    height:var(--control-h);border-radius:var(--r2-radius-8)}
+  .cl-inp:focus,.ic-inp:focus{outline:none;border-color:var(--accent)}
+  .cl-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-1) var(--sp-3)}
+  .incoming-edit-form{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+  .incoming-actions{margin-top:10px}
+  .span-2{grid-column:span 2}.span-3{grid-column:span 3}
+
+  /* ── Таблицы ─────────────────────────────────────────────────────────────
+     Шапка ЛЮБОЙ таблицы экрана: 48 px, фон #F9FAFB, Label 12/16 Medium
+     (снято с реестра 612:4559). Селектор намеренно самый слабый — экран может
+     задать свою раскладку (выравнивание, ширину, sticky), но не свой вид. */
+  thead th{height:var(--r2-table-row);padding:0 var(--sp-3);background:var(--th);
+    color:var(--muted2);font-weight:var(--r2-fw-medium);font-size:var(--r2-label);
+    line-height:var(--r2-label-lh);text-align:left}
+
+  /* ── Таблицы (mobile-cards / generic) ── */
+  table.mobile-cards,table.crm-table{width:100%;border-collapse:collapse;font-size:var(--r2-body);line-height:var(--r2-body-lh)}
+  /* Шапка реестра из макета (612:4559): 48 px, фон #F9FAFB, Label 12/16 Medium
+     цветом text/tertiary; данные строки — Body Regular 400, строка 48 px. */
+  table.mobile-cards thead th,table.crm-table thead th{position:sticky;top:0;background:var(--th);
+    height:var(--r2-table-row);border-bottom:1px solid var(--line);color:var(--muted2);
+    font-weight:var(--r2-fw-medium);font-size:var(--r2-label);
+    line-height:var(--r2-label-lh);text-align:left;padding:0 10px}
+  /* Денежная шапка выключается ВПРАВО, над своими числами. Общее правило выше
+     перебивало `.money` по специфичности, и подписи «Приход», «Расход»,
+     «Остаток» стояли левее столбцов на 90-130 px во всех таблицах. */
+  table.mobile-cards thead th.money,table.crm-table thead th.money{text-align:right}
+  table.mobile-cards tbody td,table.crm-table tbody td{border-bottom:1px solid var(--line-soft);padding:0 10px;
+    height:var(--r2-table-row);color:var(--ink)}
+  table.mobile-cards tbody tr:hover,table.crm-table tbody tr:hover{background:var(--hover)}
+  /* tfoot итогов (напр. «Итого за день» в кассе): те же padding/высота, что и тело,
+     иначе суммы итога сдвинуты вправо и строка короче 48px. Вес/фон задаёт экран. */
+  table.crm-table tfoot td{padding:0 10px;height:var(--r2-table-row)}
+
+  /* Компактная таблица данных внутри карточек/вкладок (вместо инлайн-стилей в разметке). */
+  table.dtable{width:100%;border-collapse:collapse;font-size:var(--r2-body);line-height:var(--r2-body-lh);margin:0 0 .6rem}
+  /* Шапка таблицы имеет собственный фон — она не сливается с данными. */
+  table.dtable thead th{text-align:left;padding:var(--sp-2) var(--sp-3);background:var(--th);
+    border-bottom:1px solid var(--line);
+    color:var(--muted2);font-weight:var(--r2-fw-medium);font-size:var(--r2-label);line-height:var(--r2-label-lh)}
+  table.dtable tbody td{padding:6px var(--sp-2);border-bottom:1px solid var(--line-soft);vertical-align:middle}
+  table.dtable tfoot td{padding:6px var(--sp-2);font-weight:600}
+  table.dtable .num,table.dtable th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  table.dtable .act{text-align:right;white-space:nowrap}
+
+  /* ── Модалка: ОДИН компонент на всё приложение (план §8 T1.5) ─────────────
+     Нативный <dialog> + showModal(): Escape, focus-trap, scroll-lock и возврат
+     фокуса даёт браузер — своего JS-каркаса нет. Композиция снята с оригинала
+     Ramex (модалка события календаря 25.07.2026): шапка с заголовком и «×»,
+     вкладки, тело с прокруткой, нижняя панель (второстепенное слева, главное
+     справа). Вид — наш: белая карточка, радиус 10, поля-полосы, токены. */
+  /* Каркасные величины окна (`--dlg-w --dlg-label-col --dlg-list-h --dlg-scrim`)
+     живут в `/static/design-system.css` (сведено 01.09.2026, П0). */
+  dialog.dlg{width:var(--dlg-w);max-width:calc(100vw - var(--sp-6));max-height:calc(100vh - var(--sp-6));
+    padding:0;border:0;border-radius:var(--r2-radius-10);background:var(--panel);color:var(--ink);
+    font:var(--r2-fw-body) var(--r2-body)/var(--r2-body-lh) var(--font)}
+  dialog.dlg::backdrop{background:var(--dlg-scrim)}
+  dialog.dlg > form,.dlg-inner{display:flex;flex-direction:column;max-height:calc(100vh - var(--sp-6))}
+  .dlg-head{display:flex;align-items:center;gap:var(--sp-2);padding:var(--sp-4) var(--sp-5) 0}
+  .dlg-title{margin:0;font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display);color:var(--ink)}
+  .dlg-x{margin-left:auto;width:var(--action);min-width:var(--action);height:var(--action);min-height:var(--action);
+    padding:0;border-color:transparent;background:none;color:var(--muted2);font-size:var(--r2-section-title)}
+  .dlg-x:hover{background:var(--hover);color:var(--ink)}
+  .dlg-tabs{margin:var(--sp-3) var(--sp-5) 0}
+  .dlg-body{padding:var(--sp-4) var(--sp-5);overflow:auto}
+  /* flex-wrap обязателен: без него на узком экране кнопки не переносятся, и главная
+     («Сохранить»/«Добавить») физически уезжает за границу окна — мобильный сценарий ломался. */
+  .dlg-foot{display:flex;align-items:center;flex-wrap:wrap;gap:var(--sp-2);
+    padding:var(--sp-3) var(--sp-5) var(--sp-4);border-top:1px solid var(--line)}
+  .dlg-foot .dlg-main{margin-left:auto}
+  /* Строки «подпись — значение»: подпись слева фиксированной колонкой (Label 12/16),
+     значение справа (Body 14/20). Поля-полосы наследуются от общего input/select. */
+  .dlg-rows{display:grid;grid-template-columns:var(--dlg-label-col) 1fr;gap:var(--sp-2) var(--sp-3);align-items:center}
+  /* Подпись поля в окне одна на все вкладки: `dt` и `.dlg-lbl` — один уровень и один цвет
+     (раньше вкладка «Комментарии» брала общий `.lbl` другого тона). */
+  .dlg-rows > dt,.dlg-rows > .dlg-k,.dlg-lbl{margin:0;font-size:var(--r2-label);line-height:var(--r2-label-lh);
+    font-weight:var(--r2-fw-medium);color:var(--muted)}
+  .dlg-lbl{display:block;margin:0 0 var(--sp-1)}
+  .dlg-rows > dd,.dlg-rows > .dlg-v{margin:0;font-size:var(--r2-body);line-height:var(--r2-body-lh);color:var(--ink);
+    min-width:0;overflow-wrap:anywhere}
+  /* Ссылка на сущность внутри окна — синий акцент дизайн-системы, а не браузерный #00E. */
+  .dlg-body a{color:var(--r2-blue);text-decoration:none}
+  .dlg-body a:hover{text-decoration:underline}
+  /* Пустое состояние и производная величина рядом с полем. */
+  .dlg-empty{margin:0 0 var(--sp-4);font-size:var(--r2-label);line-height:var(--r2-label-lh);color:var(--muted2)}
+  .dlg-hint{display:block;margin-top:var(--sp-1);font-size:var(--r2-label);line-height:var(--r2-label-lh);color:var(--muted2)}
+  .dlg-rows input,.dlg-rows select,.dlg-rows textarea,
+  .dlg-body > input,.dlg-body > select,.dlg-body > textarea{width:100%}
+  .dlg-pair{display:flex;gap:var(--sp-3)}
+  .dlg-pair > *{flex:1;min-width:0}
+  /* Лента комментариев: строки делятся линией и отступом, без рамок и подложек. */
+  .dlg-cmts{list-style:none;margin:0 0 var(--sp-4);padding:0;max-height:var(--dlg-list-h);overflow:auto}
+  .dlg-cmts > li{padding:var(--sp-2) 0;border-bottom:1px solid var(--line-soft);
+    font-size:var(--r2-body);line-height:var(--r2-body-lh);color:var(--ink);overflow-wrap:anywhere}
+  .dlg-cmts > li:last-child{border-bottom:0}
+  .dlg-cmt-meta{display:block;font-size:var(--r2-label);line-height:var(--r2-label-lh);color:var(--muted2)}
+  @media (max-width:560px){
+    .dlg-rows{grid-template-columns:1fr;gap:var(--sp-1) 0}
+    .dlg-rows > dt,.dlg-rows > .dlg-k{margin-top:var(--sp-2)}
+    /* Узкий экран: окно во всю ширину, кнопки подвала — в столбик и на всю ширину
+       (кнопка 40 + перенос строки, ничего не выходит за границу окна). */
+    .dlg-head,.dlg-tabs,.dlg-body,.dlg-foot{padding-left:var(--sp-4);padding-right:var(--sp-4)}
+    .dlg-tabs{margin-left:0;margin-right:0}
+    .dlg-foot{flex-direction:column;align-items:stretch}
+    .dlg-foot .btn{width:100%}
+    .dlg-foot .dlg-main{margin-left:0}
+  }
+
+  /* ── Утилиты/флеши ── */
+  .muted{color:var(--muted2)}
+  /* Подпись под основным значением ячейки (12/16 по стандарту): напоминание о звонке
+     рядом со статусом, срок рядом с датой. Второй строкой, основное значение не
+     вытесняет. */
+  .cell-note{display:block;font-size:var(--r2-label);line-height:var(--r2-label-lh);
+    color:var(--muted2);margin-top:var(--sp-1)}
+  /* В реестре подпись обязана уместиться в строку 48: `20 + 4 + 16 = 40`. Стоило ей
+     перенестись на два ряда — и строка вырастала до 58, причём только у тех записей,
+     где напоминание есть, отчего таблица шла ступеньками. Поэтому здесь она в одну
+     строку, а колонке под неё дана ширина (`CLS.status`). */
+  .tablewrap .cell-note{white-space:nowrap;margin-top:0}
+  .nowrap{white-space:nowrap}
+  .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  /* ── Раздел экрана: заголовок НАД белой карточкой ────────────────────────
+     Уровни различаются РАЗМЕРОМ, а не только цветом. До этого заголовки блоков
+     кассы были 12px серым при тексте 14px чёрным — заголовок был мельче
+     собственного содержимого, и иерархия читалась перевёрнутой. */
+  .sec{margin:0 0 var(--rhythm)}
+  .sec:last-child{margin-bottom:0}
+  .sec-head{display:flex;align-items:baseline;gap:var(--sp-2);margin:0 0 var(--rhythm-head)}
+  .sec-head h2{margin:0;font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display);color:var(--ink)}
+  .sec-count{font-size:var(--fs-body);line-height:var(--lh-body);color:var(--muted2)}
+  .sec-head .sec-act{margin-left:auto}
+  /* Поверхность раздела. Тень (а не обводка) — ответ на «карточки не выглядят
+     карточками» при запрете рамок D-260 §1. ЕДИНСТВЕННАЯ поверхность в системе:
+     заводить рядом вторую (`.cx-surface`) было бы повторением истории `.num`. */
+  .sec-body{background:var(--panel);border-radius:var(--r2-radius-10);
+    padding:var(--sp-5);box-shadow:var(--shadow-card)}
+  /* Таблица внутри поверхности: свой горизонтальный скролл, иначе широкая
+     таблица тянет в скролл всю страницу вместе с шапкой. */
+  .sec-body--table{padding:0;overflow-x:auto}
+  /* Вторая строка ячейки вместо ещё одной колонки. */
+  .sec-note{display:block;font-size:var(--fs-caption);line-height:var(--lh-caption);color:var(--muted2)}
+
+  /* ── Число-показатель ────────────────────────────────────────────────────
+     Счётчик и деньги — РАЗНЫЕ уровни: одинаковый кегль заставлял читать
+     «2» как сумму. Ведущее число крупнее подчинённых. */
+  /* `--kpi-min` — в `/static/design-system.css` (сведено 01.09.2026, П0). */
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(var(--kpi-min),1fr));
+    gap:var(--sp-3);margin:0 0 var(--rhythm)}
+  .kpi{background:var(--panel);border-radius:var(--r2-radius-8);padding:var(--sp-4)}
+  .kpi-lab{margin:0 0 var(--sp-1);font-size:var(--fs-secondary);line-height:var(--lh-secondary);
+    font-weight:var(--r2-fw-medium);color:var(--muted2)}
+  .kpi-val{margin:0;font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display);
+    color:var(--ink);font-variant-numeric:tabular-nums}
+  .kpi.is-lead .kpi-val{font:var(--fw-screen) var(--fs-screen)/var(--lh-screen) var(--display)}
+  /* Герой-число экрана — верхняя ступень шкалы. Отдельного семейства `.cx-metric`
+     для этого не заводим: отличие от `.kpi-val` только в кегле. */
+  .kpi-val.is-hero{font-family:var(--display);font-weight:var(--fw-screen);
+    font-size:var(--r2-metric);line-height:var(--r2-metric-lh)}
+  .kpi-val.is-warn{color:var(--warn-ink)}
+  .kpi.is-count .kpi-val{font:var(--fw-sub) var(--fs-sub)/var(--lh-sub) var(--display)}
+  .kpi-sub{margin:var(--sp-1) 0 0;font-size:var(--fs-caption);line-height:var(--lh-caption);color:var(--muted2)}
+  .kpi.is-warn{background:var(--warn-bg)}
+  .kpi.is-warn .kpi-lab,.kpi.is-warn .kpi-val{color:var(--warn-ink)}
+
+  /* ── Деньги: ОДНО правило на приложение ──────────────────────────────────
+     Заменяет пять локальных копий (.cb-num/.cb-exp-num/.ov-num/.oc-num/.st-num);
+     в пятой копии правило потеряли, и суммы в настройках касс шли влево и серым. */
+  .money,td.money,th.money{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .money-strong{font-weight:var(--r2-fw-title)}
+  .money-in{color:var(--ok-ink)}
+  .money-out{color:var(--danger-ink)}
+
+  /* Приглушённый текст должен оставаться приглушённым и внутри таблицы.
+     `table.crm-table tbody td{color:var(--ink)}` (специфичность 0-2-2) перебивал
+     `.muted` (0-1-0), поэтому пустые состояния, прочерки и второстепенные ячейки
+     рисовались как основные данные — иерархия в таблицах пропадала. */
+  table.crm-table tbody td.muted,table.mobile-cards tbody td.muted,
+  .tablewrap tbody td.muted{color:var(--muted2)}
+
+  /* Тёмная кнопка внутри строки таблицы: правило ниже по специфичности, чем
+     `.btn.is-strong`, поэтому заливка в строках оставалась. Действие в строке
+     всегда вторичное. */
+  td .btn.is-strong,tbody .btn.is-strong{background:var(--panel);border-color:var(--line);color:var(--ink)}
+  .line{border:0;border-top:1px solid var(--line);margin:var(--sp-3) 0}
+  .fill{flex:1;min-height:0}
+  .fill-scroll{flex:1;min-height:0;overflow:auto}
+  .login-ok{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) 14px;border-radius:var(--r2-radius-8);font-weight:600;font-size:13px;margin:0 0 var(--sp-3)}
+  .login-error{background:var(--danger-bg);color:var(--danger-ink);padding:var(--sp-2) 14px;border-radius:var(--r2-radius-8);font-weight:600;font-size:13px;margin:0 0 var(--sp-3)}
+
+  /* ══ Экраны кассы v3 — ОБЩИЙ слой ════════════════════════════════════════
+     Четыре экрана (сводная, журнал, касса офиса, настройки) говорят на одном
+     языке, поэтому классы живут ЗДЕСЬ, а не копией в каждом шаблоне. Это же
+     правило уже нарушалось пять раз с `.num`/`.money` — шестой копии не будет.
+
+     Шкала кеглей экрана — шесть ступеней, все из набора Reference V2 плюс
+     единственная метрика 32/40:
+       32/40 600  — герой-число (`.kpi-val.is-hero`)
+       24/32 600  — заголовок экрана (`.rhead h1`)
+       18/24 600  — заголовок раздела (`.sec-head h2`)
+       16/24 600  — заголовок карточки (`.cx-card-title`)
+       14/20 400/500/600 — данные, строки, значения
+       12/16 400/500 — подписи, единицы, вторые строки                        */
+  /* `--content-max`, `--shadow-card`, `--cx-line`, `--cx-unit-w` — в
+     `/static/design-system.css` (сведено 01.09.2026, П0). */
+
+  .cx{max-width:var(--content-max)}
+  /* Явные доли вместо auto-fit/minmax: строка не рассыпается и не растягивает
+     одинокую карточку на всю ширину. */
+  /* Между сеткой блоков и тем, что идёт следом, — та же пауза, что между
+     секциями (`--rhythm`). Без неё заголовок следующего раздела («Операции дня»
+     в кассе) вставал вплотную к нижнему краю белой карточки и читался как её
+     часть. Внутри блока строки идут плотно, между блоками — пауза. */
+  .cx-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--sp-4);margin:0 0 var(--rhythm)}
+  .cx-grid:last-child{margin-bottom:0}
+  /* Карточки одного ряда кончаются на одной отметке: разная высота соседей
+     читалась как неаккуратность. */
+  .cx-grid > [class*="cx-c"] > .sec-body{height:100%}
+  .cx-c3{grid-column:span 3}.cx-c4{grid-column:span 4}.cx-c5{grid-column:span 5}
+  .cx-c6{grid-column:span 6}.cx-c7{grid-column:span 7}.cx-c8{grid-column:span 8}
+  .cx-c12{grid-column:span 12}
+  @media (max-width:1200px){
+    .cx-c3,.cx-c4,.cx-c5,.cx-c6,.cx-c7,.cx-c8{grid-column:span 12}
+  }
+
+  /* Заголовок КАРТОЧКИ — 16/24. Ступень появилась потому, что раньше карточку
+     возглавляла подпись 12 px при содержимом 14 px: заголовок был мельче
+     собственного содержимого, и иерархия читалась перевёрнутой. */
+  .cx-card-title{margin:0 0 var(--sp-3);font-family:var(--display);
+    font-weight:var(--fw-sub);font-size:var(--fs-sub);line-height:var(--lh-sub);color:var(--ink)}
+  .cx-card-title .cx-card-note{font-weight:var(--r2-fw-body);font-size:var(--fs-secondary);
+    line-height:var(--lh-secondary);color:var(--muted)}
+
+  /* Ранжированный список задач: список ранжирует порядком, сетка — нет. */
+  .cx-tasks{display:flex;flex-direction:column}
+  .cx-task{display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+    gap:var(--sp-3);min-height:var(--r2-table-row);padding:var(--sp-2) 0;
+    border-radius:var(--r2-radius-8);text-decoration:none;color:var(--ink)}
+  /* Пункт без ссылки: раздел закрыт сотруднику, курсор не обещает переход. */
+  .cx-task.is-flat{cursor:default}
+  .cx-task.is-flat:hover{background:transparent}
+  .cx-task+.cx-task{box-shadow:inset 0 1px 0 var(--cx-line)}
+  .cx-task:hover{background:var(--hover)}
+  .cx-task-t{display:block;font-size:var(--fs-body);line-height:var(--lh-body);
+    font-weight:var(--r2-fw-medium);color:var(--ink)}
+  .cx-task-s{display:block;font-size:var(--fs-secondary);line-height:var(--lh-secondary);
+    font-weight:var(--r2-fw-body);color:var(--muted)}
+
+  /* ── Значение справа: ОДИН класс на все экраны и все блоки ────────────────
+     Две колонки: число выровнено по правому краю своей колонки, единица —
+     отдельным хвостом фиксированной ширины. Поэтому сумма в рублях и счётчик
+     договоров встают числами в одну вертикаль. Рубли и штуки различаются
+     словом единицы и весом числа, а НЕ кеглем. */
+  .cx-val{display:grid;grid-template-columns:1fr var(--cx-unit-w);gap:var(--sp-1);
+    align-items:baseline;font-size:var(--fs-body);line-height:var(--lh-body);
+    font-variant-numeric:tabular-nums;white-space:nowrap}
+  .cx-val .n{text-align:right;font-weight:var(--r2-fw-title);color:var(--ink)}
+  .cx-val .u{text-align:left;font-weight:var(--r2-fw-body);color:var(--muted)}
+  /* Счётчик легче рублей по весу, но того же кегля: он не менее важен — он другой. */
+  .cx-val.is-count .n{font-weight:var(--r2-fw-medium)}
+  /* Тон приход/расход берётся из общих `.money-in`/`.money-out` — своих цветовых
+     модификаторов у значения нет, иначе в системе было бы две цветовые пары. */
+  /* Свёртка «ещё N»: блок обязан читаться целиком, дальше пятой строки глаз
+     переключается со «схватить» на «читать». */
+  .cx-task-more{display:block;padding:var(--sp-2) 0 0;font-size:var(--fs-body);
+    line-height:var(--lh-body);font-weight:var(--r2-fw-medium);color:var(--r2-blue);
+    text-decoration:none;cursor:pointer;list-style:none}
+  .cx-task-more::-webkit-details-marker{display:none}
+
+  /* Полоса долей: заменяет таблицу из двух-трёх строк там, где величины —
+     части целого. Отрицательные доли не рисуются (см. макрос `bar`). */
+  .cx-bar{display:flex;height:var(--sp-2);border-radius:var(--r2-radius-6);
+    overflow:hidden;background:var(--neutral-line);margin:var(--sp-3) 0 0}
+  /* Цвет сегмента — КЛАССОМ, а не именем CSS-переменной, собранным из данных:
+     подстановка имени токена из шаблона при неизвестном значении молча давала
+     прозрачный сегмент вместо ошибки. */
+  .cx-bar>i{display:block;height:100%;min-width:var(--sp-1)}
+  .cx-bar>i.is-ok{background:var(--ok-dot)}
+  .cx-bar>i.is-info{background:var(--info-dot)}
+  .cx-bar>i.is-warn{background:var(--warn-dot)}
+  .cx-bar>i.is-danger{background:var(--danger-dot)}
+  .cx-legend{display:flex;flex-wrap:wrap;gap:var(--sp-2) var(--sp-4);margin:var(--sp-2) 0 0}
+  .cx-legend>span{display:inline-flex;align-items:center;gap:var(--sp-2);
+    font-size:var(--fs-secondary);line-height:var(--lh-secondary);
+    font-weight:var(--r2-fw-body);color:var(--muted)}
+  .cx-legend b{color:var(--ink);font-weight:var(--r2-fw-medium);font-variant-numeric:tabular-nums}
+
+  /* Строки «имя — значение»: заменяют таблицу там, где колонок всего две.
+     Строй ТОТ ЖЕ, что у списка задач: та же высота, тот же разделитель, то же
+     выравнивание значения. Раньше «Требует внимания» шёл с разделителями, а
+     «Оборот» и «Кассы» — сплошным полотном; на одном экране три списка одного
+     типа были оформлены двумя разными способами. */
+  .cx-kv{display:flex;flex-direction:column}
+  .cx-kv>a,.cx-kv>div{display:grid;grid-template-columns:1fr auto;align-items:center;
+    gap:var(--sp-3);min-height:var(--r2-table-row);padding:var(--sp-2) 0;
+    font-size:var(--fs-body);line-height:var(--lh-body);text-decoration:none;color:var(--ink)}
+  .cx-kv>a+a,.cx-kv>div+div,.cx-kv>a+div,.cx-kv>div+a{box-shadow:inset 0 1px 0 var(--cx-line)}
+  .cx-kv>a:hover{background:var(--hover)}
+  .cx-kv-n{color:var(--ink)}
+  /* Расшифровка чужой суммы: строка объясняет, из чего состоит соседняя, и в
+     итог не входит. Отступ и приглушённый цвет — чтобы её не читали как ещё
+     одни деньги. */
+  .cx-kv>.cx-kv-sub{padding-left:var(--sp-4)}
+  .cx-kv>.cx-kv-sub .cx-kv-n,.cx-kv>.cx-kv-sub .money{color:var(--muted)}
+  .cx-kv-m{display:block;font-size:var(--fs-secondary);line-height:var(--lh-secondary);
+    font-weight:var(--r2-fw-body);color:var(--muted)}
+
+  /* Шапка экрана: действия справа, период — состояние (`.pbtn.on`). */
+  .cx-head-act{display:flex;align-items:center;gap:var(--sp-2);margin-left:auto;flex-wrap:wrap}
+  /* Ряд контролов БЕЗ прижатия вправо. Раньше `.cx-head-act` использовался и
+     здесь, и его `margin-left:auto` отменялся инлайном в пяти местах. */
+  .cx-row{display:flex;align-items:center;gap:var(--sp-2);flex-wrap:wrap}
+  /* В шапке экрана все контролы одной высоты: `.pbtn` — 32, `.btn` — 40,
+     и рядом они читались как съехавшие. */
+  .cx-head-act .pbtn{height:var(--control-h)}
+  /* Выбор кассы/офиса стоит в одной строке с кнопками — и обязан быть той же
+     высоты, иначе шапка читается как съехавшая. */
+  .rhead select{height:var(--control-h)}
+  /* Поле внутри колонки сетки занимает колонку целиком: без этого поля стоят
+     рваным краем, и приходилось подпирать их min-width в разметке. */
+  .cx-grid label > input,.cx-grid label > select,.cx-grid label > textarea{width:100%}
+  /* Выбор файла — вторичный контрол строки, не должен распирать ячейку. */
+  /* Выбор файла: браузерная кнопка «Файл не выбран» рисуется серым UA-боксом и
+     обрезается в узкой ячейке. Прячем её и оставляем только подпись-ссылку —
+     тот же приём, что уже применён к вложениям в карточке. */
+  .cx-file{font-size:var(--fs-secondary);line-height:var(--lh-secondary);
+           color:var(--accent);cursor:pointer;white-space:nowrap}
+  .cx-file input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+  .cx-file:hover{text-decoration:underline}
+  /* Ширина номера ФД — классом, а не инлайном: инлайновые ширины уже дали разнобой. */
+  .cx-fd{width:100px}
+  /* Ширины колонок реестров. Инлайновые `style="width:"` дали разнобой и
+     пробили сторожевой лимит встроенных стилей — набор фиксированных ширин
+     держим здесь одним местом. Ширина колонки — раскладка конкретной таблицы,
+     в шкале Reference V2 её нет; поэтому набор ЗАКРЫТЫЙ: новая колонка берёт
+     ближайшую ступень, а не заводит свою. */
+  .col-w80{width:80px} .col-w90{width:90px} .col-w110{width:110px}
+  .col-w120{width:120px} .col-w130{width:130px} .col-w140{width:140px}
+  .col-w150{width:150px} .col-w160{width:160px} .col-w170{width:170px}
+  .col-w180{width:180px} .col-w220{width:220px} .col-w230{width:230px}
+  .col-w260{width:260px} .col-full{width:100%}
+  /* Растяжимые колонки: ширина — нижняя граница, остаток забирает текст. */
+  .col-min240{min-width:240px} .col-min260{min-width:260px}
+  /* Форма-обёртка вокруг ОДНОЙ кнопки (переключатель в ячейке, «Добавить» над
+     таблицей): это контрол строки, собственной внешней отбивки у него нет. */
+  .form-flat{margin:0}
+  /* Горизонтальная прокрутка широкой таблицы — свойство таблицы, а не места. */
+  .table-scroll{overflow-x:auto}
+  /* Точка статуса внутри рядов уже разделена gap — свой margin её удваивал. */
+  .cx-legend .dot,.cx-task .dot{margin-right:0}
+
+  /* Полоса дня журнала: было → приход → расход → стало, одной строкой. */
+  /* Раскладка полосы дня. Поверхность берётся из `.sec-body` — второй
+     реализации фона и тени в системе нет. */
+  .cx-day{display:flex;align-items:center;flex-wrap:wrap;gap:var(--sp-5);margin:0 0 var(--sp-6)}
+  .cx-day-i{display:flex;flex-direction:column;gap:var(--sp-1)}
+  .cx-day-v{font-family:var(--display);font-weight:var(--fw-sub);font-size:var(--fs-sub);
+    line-height:var(--lh-sub);color:var(--ink);font-variant-numeric:tabular-nums}
+  /* Закрывающий остаток — единственное крупное число полосы; ступень берётся
+     из `.kpi-val.is-hero`, а не задаётся здесь второй раз. */
+  .cx-day-sep{font-size:var(--fs-sub);line-height:var(--lh-sub);color:var(--muted2)}
+  .cx-nav{display:inline-flex;align-items:center;gap:var(--sp-2)}
+  .cx-nav a{display:inline-flex;align-items:center;justify-content:center;
+    width:var(--action);height:var(--action);border-radius:var(--r2-radius-6);
+    color:var(--muted);text-decoration:none;font-size:var(--fs-sub);line-height:var(--lh-sub)}
+  .cx-nav a:hover{background:var(--hover);color:var(--ink)}
+  /* Выбор даты календарём: до дня месячной давности стрелками не дощёлкать.
+     Поле-полоса, как остальные поля системы. */
+  .cx-daypick{display:inline-flex;margin:0}
+  .cx-daypick input{height:var(--control-h);border:0;border-bottom:1px solid var(--line-input);
+    border-radius:0;background:transparent;color:var(--ink);padding:0 var(--sp-1);
+    font:600 var(--r2-card-title)/var(--r2-card-title-lh) var(--display)}
+  .cx-today{font:var(--fs-secondary)/var(--lh-secondary) var(--font);color:var(--muted)}
+  .cx-nav b{font-family:var(--display);font-weight:var(--fw-sub);font-size:var(--fs-sub);
+    line-height:var(--lh-sub);color:var(--ink)}
+
+  /* Вторая строка ячейки таблицы вместо ещё одной колонки. */
+  .cx-sub{display:block;font-size:var(--fs-secondary);line-height:var(--lh-secondary);
+    font-weight:var(--r2-fw-body);color:var(--muted)}
+
+  /* Таблица внутри экранов кассы говорит тем же голосом, что списки: та же
+     линия строки, тот же тон шапки. Иначе таблица «подчёркнута», а списки рядом
+     выглядят полотном — разнобой, на который указал владелец. */
+  .cx table.crm-table tbody td{border-bottom-color:var(--cx-line)}
+  .cx table.crm-table thead th{border-bottom-color:var(--cx-line);color:var(--muted)}
+  .cx table.crm-table tbody tr:last-child td{border-bottom:0}

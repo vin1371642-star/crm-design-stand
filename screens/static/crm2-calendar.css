@@ -1,0 +1,194 @@
+/* КАЛЕНДАРИ CRM2 — сетка «часы × колонки», общая для замеров, монтажей и доставок.
+
+   Один файл на три экрана (D-411, владелец 02.09.2026: «все календари делаются по
+   образцу календаря замеров»). Разметку рисует партиал
+   `templates/_calendar_grid.html`, стили лежат ЗДЕСЬ: свой <style> в шаблоне
+   заводить нельзя — так же вынесены оболочка (crm2-shell.css, crm2-components.css)
+   и карточка обращения (crm2-deal-card.css).
+
+   Своих чисел и цветов файл не заводит: только токены из design-system.css.
+   Устройство снято с живого Ramex — v0_spec/CRM2_RAMEX_UI_SNAPSHOT_2026-09-02.md. */
+.cal-m.crm-page{ padding:0; }
+.cal-empty{ padding:var(--sp-6) var(--sp-4); text-align:center; color:var(--muted2); }
+/* Заголовки разделов левой колонки — «Статус», «Расписание» (снято с Ramex 02.09.2026). */
+.cal-side-h{ margin:var(--sp-4) 0 var(--sp-2); font:600 var(--r2-body)/var(--r2-body-lh) var(--display); color:var(--ink); }
+
+/* Раскладка: слева мини-календарь + фильтры, справа сетка «День». Сетка занимает
+   всю высоту экрана без прокрутки страницы (реш. владельца, как в Ramex): скроллится
+   только сама сетка. */
+.cal-layout{ display:flex; gap:var(--sp-4); align-items:stretch; min-height:0; }
+.cal-side{ flex:none; width:236px; overflow:auto; }
+.cal-main{ flex:1; min-width:0; display:flex; flex-direction:column; min-height:0; }
+
+/* Переключатель календарей (Замеры / Монтажи / Доставки) — как в сайдбаре Ramex. */
+.cal-nav{ display:flex; gap:var(--sp-1); margin:0 0 var(--sp-3); }
+.cal-nav a, .cal-nav span{ flex:1; text-align:center; padding:6px var(--sp-1); border-radius:var(--r2-radius-6);
+  font-size:var(--r2-label); line-height:var(--r2-label-lh); color:var(--muted); text-decoration:none; background:var(--field); }
+.cal-nav a:hover{ background:var(--neutral-line); color:var(--ink); }
+.cal-nav a.is-active{ background:var(--accent); color:#fff; }
+.cal-nav span.is-disabled{ color:var(--muted2); cursor:default; opacity:.6; }
+
+/* Боковой мини-календарь (реш. владельца: Недели/Месяца нет — выбор любого дня). */
+.mini-cal{ background:var(--panel); border-radius:var(--r2-radius-8); padding:var(--sp-3); margin:0 0 var(--sp-4); }
+.mini-cal-head{ display:flex; align-items:center; justify-content:space-between; margin:0 0 var(--sp-2); }
+.mini-cal-head b{ font-size:var(--r2-body); color:var(--ink); }
+.mini-cal-nav{ display:block; text-decoration:none; color:var(--muted); font-size:var(--r2-body); padding:0 var(--sp-2); }
+.mini-cal-nav:hover{ color:var(--ink); }
+.mini-cal table{ width:100%; border-collapse:collapse; }
+.mini-cal th{ font:var(--r2-fw-body) var(--r2-nav-label)/var(--r2-nav-label-lh) var(--font); color:var(--muted2); padding:var(--sp-1) 0; text-align:center; }
+.mini-cal td{ text-align:center; padding:1px; }
+.mini-cal a{ display:block; width:26px; height:26px; line-height:26px; margin:0 auto; border-radius:var(--r2-radius-8);
+  font-size:var(--r2-label); color:var(--ink); text-decoration:none; position:relative; }
+.mini-cal a.out{ color:var(--muted2); }
+.mini-cal a:hover{ background:var(--field); }
+.mini-cal a.today{ color:var(--accent); font-weight:600; }
+.mini-cal a.sel{ background:var(--accent); color:#fff; }
+/* Вся текущая неделя подсвечена (Ramex, снято 02.09.2026): показанный день читается
+   в контексте недели, а не одиноким кружком посреди месяца. */
+.mini-cal tr.wk-sel td{ background:var(--field); }
+.mini-cal tr.wk-sel td:first-child{ border-radius:var(--r2-radius-8) 0 0 var(--r2-radius-8); }
+.mini-cal tr.wk-sel td:last-child{ border-radius:0 var(--r2-radius-8) var(--r2-radius-8) 0; }
+.mini-cal a.has::after{ content:""; position:absolute; left:50%; bottom:3px; transform:translateX(-50%);
+  width:4px; height:4px; border-radius:50%; background:var(--ok-dot); }
+.mini-cal a.sel.has::after{ background:#fff; }
+
+.cal-side-filters label{ display:block; font-size:var(--r2-label); line-height:var(--r2-label-lh); color:var(--muted); margin:0 0 var(--sp-3); }
+/* Поле — под подписью и на всю ширину панели: иначе селект мерится по самой длинной
+   опции (списки офисов/исполнителей разные), и подпись то переносится, то встаёт с ним
+   в строку. */
+.cal-side-filters select, .cal-side-filters input{ width:100%; }
+
+/* ── Сетка «День»: столбцы = исполнители, строки = получасовые слоты ── */
+/* flex-wrap: на узком экране легенда статусов иначе обрезается (переноса нет). */
+.cal-daybar{ display:flex; align-items:center; flex-wrap:wrap; gap:var(--sp-2); margin:0 0 var(--sp-2); flex:none; }
+.cal-dayhead{ margin:0; font:600 var(--r2-card-title)/var(--r2-card-title-lh) var(--display); color:var(--ink); }
+.cal-count{ font:500 var(--r2-label)/var(--r2-label-lh) var(--font); color:var(--muted2); }
+
+/* Постраничный проход по колонкам (D-411): «‹ Сотрудники 1–8 из 14 ›». Без него
+   календарь либо сжимается до нечитаемости, либо часть исполнителей не видна вовсе. */
+.cal-pager{ display:inline-flex; align-items:center; gap:var(--sp-1); margin:0 0 0 auto; }
+.cal-pager .cal-pg{ display:inline-flex; align-items:center; justify-content:center;
+  min-width:var(--sp-6); height:var(--sp-6); padding:0 var(--sp-1); border-radius:var(--r2-radius-6);
+  background:var(--field); color:var(--muted); text-decoration:none;
+  font-size:var(--r2-body); line-height:var(--r2-body-lh); }
+.cal-pager a.cal-pg:hover{ background:var(--neutral-line); color:var(--ink); }
+.cal-pager .cal-pg.is-off{ opacity:.4; cursor:default; }
+.cal-pager .cal-pg-t{ font-size:var(--r2-label); line-height:var(--r2-label-lh); color:var(--muted); white-space:nowrap; }
+/* Выпадающий список групп колонок — тот самый `Сотрудники ▾` из Ramex. Ширину
+   ограничиваем: иначе select мерится по самой длинной подписи группы и уезжает за край. */
+.cal-pager .cal-pg-sel{ max-width:220px; font-size:var(--r2-label); }
+/* Легенда стоит после пейджера — оба прижаты вправо, поэтому auto-отступ только у первого. */
+.cal-pager + .cal-legend{ margin-left:var(--sp-3); }
+
+.mgrid-scroll{ overflow:auto; flex:1; min-height:0; }
+/* table-layout:fixed + width:100% — колонки делят ширину РОВНО и заполняют её,
+   как в Ramex (FullCalendar): колонка времени 56px, остальное поровну. */
+.mgrid{ border-collapse:collapse; table-layout:fixed; width:100%; }
+.mgrid th{ background:var(--field); color:var(--muted); font:500 var(--r2-label)/var(--r2-label-lh) var(--font);
+  padding:var(--sp-1) var(--sp-2); text-align:center; border-bottom:1px solid var(--line); border-left:1px solid var(--line);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; position:sticky; top:0; z-index:2; }
+.mgrid th.mgrid-th-time{ width:56px; border-left:0; left:0; z-index:3; }
+.mgrid td{ border-left:1px solid var(--line); border-bottom:1px dashed var(--line); vertical-align:top; padding:1px; }
+.mgrid tr.mgrid-hour td{ border-bottom:1px solid var(--line); }
+.mgrid tr.mgrid-now td{ border-top:2px solid var(--ok-dot); }
+/* Полоса «Без времени / вне графика»: события без времени (00:00) или за пределами 07:00–22:30. */
+.mgrid tr.mgrid-offgrid td{ border-bottom:1px solid var(--line); background:var(--field); }
+.mgrid tr.mgrid-offgrid td.mgrid-time{ font-size:var(--r2-nav-label); line-height:var(--r2-nav-label-lh); color:var(--muted); white-space:normal; background:var(--field); }
+/* Получасовая клетка: высота задаётся ЗДЕСЬ, а не атрибутом style= в шаблоне:
+   час = две клетки, часовая сетка читается как в Ramex. */
+.mgrid tr td.mgrid-time{ height:19px; }
+.mgrid td.mgrid-time{ border-left:0; text-align:right; color:var(--muted2); font-size:var(--r2-label);
+  padding:0 var(--sp-2); white-space:nowrap; position:sticky; left:0; background:var(--r2-canvas); z-index:1; }
+.mgrid td.mgrid-cell{ position:relative; }
+/* Ячейка с rowspan (событие 2 ч = 4 клетки): обёртка позиционируется абсолютно (inset),
+   чтобы НЕ растягивать строки таблицы по содержимому — высоту задаёт rowspan, а лишние
+   события скроллятся внутри. */
+.mgrid-cellwrap{ position:absolute; inset:1px; overflow-y:auto; display:flex; flex-direction:column; gap:2px; }
+/* Полоса «Без времени»: обёртка в потоке (строка не rowspan), с ограничением и скроллом. */
+.mgrid-offwrap{ max-height:104px; overflow-y:auto; display:flex; flex-direction:column; gap:2px; }
+/* Слот-событие: белая карточка, окрашена ТОЛЬКО НИЖНЯЯ часть (тело) мягким тоном статуса
+   (реш. владельца — не вся карточка). Шапка нейтральная: время + исполнитель. */
+.mgrid-ev{ display:flex; flex-direction:column; flex:1 0 auto; overflow:hidden; text-decoration:none;
+  background:var(--panel); border:1px solid var(--line); border-radius:var(--r2-radius-6);
+  color:var(--ink); font-size:var(--r2-nav-label); line-height:1.3; }
+.mgrid-ev:hover{ border-color:var(--muted2); }
+.mgrid-ev .hd{ flex:none; display:flex; align-items:baseline; gap:3px; padding:1px var(--sp-1);
+  white-space:nowrap; overflow:hidden; color:var(--ink); }
+.mgrid-ev .hd .t{ font-weight:var(--r2-fw-title); flex:none; }
+.mgrid-ev .hd .mgr{ color:var(--muted); overflow:hidden; text-overflow:ellipsis; }
+/* Значки шапки ($ — оплата, ключ — вид работ, ! — внимание), прижаты вправо (Ramex). */
+.mgrid-ev .hd .ico{ margin-left:auto; flex:none; display:inline-flex; gap:2px; color:var(--muted2); }
+.mgrid-ev .hd .ico .ev-warn{ color:var(--danger-dot); font-weight:var(--r2-fw-title); }
+/* Тело — единственная окрашенная часть: светлый тинт статуса + читаемый тёмный текст +
+   тонкий цветной «корешок» слева (3px, насыщенный --*-dot) как код статуса-закладки. */
+.mgrid-ev .bd{ flex:1; min-height:0; padding:2px var(--sp-1); overflow:hidden;
+  border-top:1px solid var(--line); border-left:3px solid var(--neutral-dot);
+  background:var(--neutral-bg); color:var(--neutral-ink);
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; word-break:break-word; }
+.mgrid-ev .bd .fio{ display:block; }
+.mgrid-ev .bd .adr{ display:block; font-weight:400; }
+/* Строка-предупреждение внутри плитки: конфликт исполнителя, требуемая доплата. */
+.mgrid-ev .bd .ev-warn{ color:var(--danger-ink); font-weight:var(--r2-fw-title); }
+/* Свободная клетка в режиме назначения — кнопка на всю клетку, без своей рамки:
+   кликается вся площадь, а не точка посередине. */
+.mgrid-cell .slot{ display:block; width:100%; height:100%; min-height:18px; border:0;
+  background:transparent; color:var(--muted2); cursor:pointer; border-radius:var(--r2-radius-6); }
+.mgrid-cell .slot:hover{ background:var(--selected); box-shadow:inset 0 0 0 1px var(--accent); }
+/* Легенда в левой колонке (Ramex) стоит столбиком, а не строкой. */
+.cal-side .cal-legend{ flex-direction:column; gap:var(--sp-1); margin:0; }
+/* Тон тела по статусу. Ключи — статусы замеров (done/rescheduled/overdue) и цвета
+   монтажей/доставок (green/amber/red/blue/violet/gray): один набор правил на три
+   календаря, чтобы «Выполнен» везде был одного цвета. */
+.mgrid-ev.ev-done .bd, .mgrid-ev.ev-green .bd{ background:var(--ok-bg); color:var(--ok-ink); border-top-color:var(--ok-line); border-left-color:var(--ok-dot); }
+.mgrid-ev.ev-rescheduled .bd, .mgrid-ev.ev-amber .bd{ background:var(--warn-bg); color:var(--warn-ink); border-top-color:var(--warn-line); border-left-color:var(--warn-dot); }
+.mgrid-ev.ev-overdue .bd, .mgrid-ev.ev-red .bd{ background:var(--danger-bg); color:var(--danger-ink); border-top-color:var(--danger-line); border-left-color:var(--danger-dot); }
+.mgrid-ev.ev-signed .bd, .mgrid-ev.ev-blue .bd{ border-left-color:var(--info-dot); }
+.mgrid-ev.ev-refused .bd, .mgrid-ev.ev-violet .bd{ border-left-color:var(--violet-dot); }
+
+/* Свободная клетка в режиме записи: подсветка при наведении, курсор-указатель. */
+.mgrid-free{ cursor:pointer; }
+.mgrid-free:hover{ background:var(--selected); box-shadow:inset 0 0 0 1px var(--accent); }
+/* Закрытое время (в 2-часовом окне соседнего события) обязано ЧИТАТЬСЯ как закрытое:
+   с фоном --field оно выходило светлее свободной клетки, и пользователь узнавал о
+   запрете только по ошибке сервера. Штриховка + курсор запрета. */
+.mgrid-busy{ background:repeating-linear-gradient(135deg, var(--neutral-line) 0 4px,
+  var(--field) 4px 8px); cursor:not-allowed; }
+/* Перенос мышью: цель подсвечивается, перетаскиваемое событие бледнеет. */
+.mgrid-drop{ background:var(--selected); box-shadow:inset 0 0 0 2px var(--accent); }
+.mgrid-ev.is-dragging{ opacity:.45; }
+.mgrid-ev[draggable="true"]{ cursor:grab; }
+
+/* Легенда статусов (цвета совпадают с левой полосой слота); переиспользует общий .dot. */
+.cal-legend{ display:flex; flex-wrap:wrap; gap:var(--sp-1) var(--sp-3); margin:0 0 0 auto; }
+.cal-leg{ display:inline-flex; align-items:center; gap:var(--sp-2); white-space:nowrap;
+  font-size:var(--r2-label); line-height:var(--r2-label-lh); color:var(--muted); }
+.cal-leg .dot.ev-assigned{ background:var(--neutral-ink); }
+.cal-leg .dot.ev-done{ background:var(--ok-dot); }
+.cal-leg .dot.ev-rescheduled{ background:var(--warn-dot); }
+.cal-leg .dot.ev-overdue{ background:var(--r2-overdue); }
+.cal-leg .dot.ev-signed{ background:var(--info-dot); }
+.cal-leg .dot.ev-refused{ background:var(--violet-dot); }
+
+/* Режим записи замера (?request_id): полоса-контекст над сеткой. */
+.cal-rec{ display:flex; align-items:center; flex-wrap:wrap; gap:var(--sp-2) var(--sp-3);
+  background:var(--panel); border-radius:var(--r2-radius-8); padding:var(--sp-2) var(--sp-3);
+  margin:0 0 var(--sp-3); }
+.cal-rec-t{ font:600 var(--r2-card-title)/var(--r2-card-title-lh) var(--display); color:var(--ink); }
+.cal-rec-who{ font-size:var(--r2-body); line-height:var(--r2-body-lh); color:var(--ink); }
+.cal-rec-hint{ font-size:var(--r2-label); line-height:var(--r2-label-lh); color:var(--muted2); }
+.cal-rec .btn{ margin-left:auto; }
+/* Режим записи без JS (noscript): белая карточка на сером, поля-полосы. */
+.cal-assign{ background:var(--panel); border-radius:var(--r2-radius-8); padding:var(--sp-4); margin:0 0 var(--rhythm); max-width:640px; }
+.cal-assign h2{ margin:0 0 var(--rhythm-head); font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display); color:var(--ink); }
+.cal-assign-who{ color:var(--muted2); font-size:var(--r2-label); margin:0 0 var(--sp-3); }
+.cal-assign-row{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:var(--sp-2) var(--sp-4); margin:0 0 var(--sp-3); }
+.cal-assign label{ display:block; font-size:var(--r2-label); line-height:var(--r2-label-lh); color:var(--muted); }
+
+/* Мобильная раскладка: боковая панель встаёт над сеткой, поля записи — в столбик. */
+@media (max-width:720px){
+  .cal-layout{ flex-direction:column; align-items:stretch; }
+  .cal-side{ width:100%; flex:none; overflow:visible; }
+  .cal-main{ min-height:60vh; }
+  .cal-assign-row{ grid-template-columns:1fr; }
+  .cal-legend, .cal-pager{ margin:0; }
+}

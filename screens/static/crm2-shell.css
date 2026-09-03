@@ -1,0 +1,327 @@
+/* ══ Оболочка CRM2 (шелл): рельс, топбар, рабочая зона, реестр, мобильная панель ══
+   Вынесено 02.09.2026 из `<style>` шаблона `app/web/templates/crm2/base.html`
+   (партия П1 плана `v0_spec/CRM2_STYLE_UNIFICATION_PLAN_2026-09-01.md`).
+
+   Зачем файлом, а не тегом в шаблоне: шелл БРАЛ токены статусов (`--warn-dot`,
+   `--ok-dot`, `--danger-line`) из `crm2/_components.html`, который подключался
+   ПОЗЖЕ него — внутри `<body>`. Порядок держался на случайности разметки.
+   Теперь порядок задан ссылками в `<head>`: design-system → shell → components.
+
+   Своих ТОКЕНОВ здесь нет и не будет: единственное место объявления —
+   `static/design-system.css`. Числа берутся из шкалы (отступы 4/8/12/16/20/24/32,
+   радиусы 6/8/10, контрол 40, строка 48, действие 32, иконка 20, шелл 64).
+   Значения вне шкалы оставлены как были и перечислены в отчёте П1 — молча
+   подгонять их под ближайшую ступень нельзя, это видимое изменение макета. */
+  /* Своих токенов у шелла нет: вся палитра, размеры и шрифты живут в
+     `/static/design-system.css` (сведено 01.09.2026, П0 плана D-399). Раньше
+     здесь стоял второй `:root` на 38 объявлений, а третий — в style.css, и они
+     уже разошлись по цвету линии. Новый цвет = сначала Figma, потом токен там. */
+
+  *{box-sizing:border-box}
+  /* D-260: базовый размер текста задаётся шкалой, иначе неоформленные абзацы
+     наследуют браузерные 16px и ломают ступень «текст → подзаголовок». */
+  body{margin:0;background:var(--page);color:var(--ink);font-family:var(--font);
+    font-size:var(--fs-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased}
+  .app{display:grid;grid-template-columns:var(--shell) 1fr;height:100vh;overflow:hidden}
+
+  /* ── Узкий сайдбар-rail (клон Ramex, наши цвета) ── */
+  .side{width:var(--shell);display:flex;flex-direction:column;height:100vh;background:var(--rail);flex:none}
+  .side-head{height:var(--shell);display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(255,255,255,.08);flex:none}
+  .logo-badge{width:36px;height:36px;border-radius:var(--r2-radius-8);background:linear-gradient(135deg,#C1121F,#A80F1A);display:flex;align-items:center;justify-content:center}
+  .logo-badge svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:1.8}
+  .rail{flex:1;min-height:0;overflow-y:auto;padding:var(--sp-1) 0 14px}
+  .rail::-webkit-scrollbar{width:6px}.rail::-webkit-scrollbar-thumb{background:var(--rail-3);border-radius:var(--r2-radius-6)}
+  .ri{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--sp-1);min-height:var(--row-h);padding:5px 1px;color:var(--rail-ink);text-decoration:none;cursor:pointer}
+  .ri svg{width:var(--r2-icon);height:var(--r2-icon);flex:none;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  /* Nav label 10/12: Regular 400, у текущего маршрута — Medium 500 (Figma 644:305). */
+  /* Ширина подписи — по самому рельсу, а не 66px: рельс 64, и подпись была ШИРЕ
+     собственного меню. Длинное слово («Допматериалы», «Координатор») переносить
+     было негде, и оно уезжало за край. `overflow-wrap:anywhere` разрешает разрыв
+     внутри слова — лучше перенос, чем обрезанное слово. */
+  /* Подпись пункта переносится ТОЛЬКО по словам. `overflow-wrap:anywhere` рвал её
+     посреди слова, и в меню стояло «Координат / ор», «Допматери / алы» — читается
+     как поломка вёрстки. Слово, которое не влезает в 64 px целиком, лучше слегка
+     ужать по букве, чем разорвать. */
+  .ri span{font-size:var(--r2-nav-label);font-weight:var(--r2-fw-body);line-height:var(--r2-nav-label-lh);text-align:center;letter-spacing:0;max-width:100%;overflow-wrap:normal;word-break:keep-all}
+  .ri.active span{font-weight:var(--r2-fw-medium)}
+    .ri:hover{background:var(--rail-2);color:#FFFFFF}
+  /* Активный пункт: светло-серая плитка из той же палитры, что выделение строк,
+     и красное подчёркивание снизу. */
+  .ri.active{background:var(--nav-active-bg);color:var(--nav-active);
+    box-shadow:inset 0 -2px 0 var(--accent)}
+  button.ri{width:100%;border:0;font-family:var(--font);background:transparent}
+  button.ri.active{background:var(--nav-active-bg);color:var(--nav-active);
+    box-shadow:inset 0 -2px 0 var(--accent)}
+  .nav-wrap{position:relative}
+  .ri .bdg{position:absolute;top:5px;right:11px;min-width:15px;height:15px;padding:0 var(--sp-1);border-radius:var(--r2-radius-8);background:var(--accent);color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1}
+  .ri .dotm{position:absolute;top:9px;right:var(--sp-4);width:7px;height:7px;border-radius:50%;background:var(--accent)}
+
+  /* Флайаут стадий на «Продажи» (fixed — не режется скроллом) */
+  .fly{position:fixed;left:var(--shell);top:112px;z-index:60;min-width:196px;background:var(--rail-2);border:1px solid var(--rail-3);border-radius:var(--r2-radius-10);padding:6px;box-shadow:0 12px 34px rgba(16,24,40,.45);display:none;flex-direction:column;gap:1px}
+  .fly.open{display:flex}
+  .fly a{display:flex;align-items:center;gap:var(--sp-2);height:var(--action);padding:0 11px;border-radius:var(--r2-radius-6);color:var(--rail-ink-2);font-weight:500;font-size:12.5px;text-decoration:none;white-space:nowrap}
+  .fly a:hover{background:var(--rail-3);color:#FFFFFF}
+  .fly a.on{background:var(--rail-3);color:#FFFFFF;font-weight:600;box-shadow:inset 3px 0 0 var(--accent)}
+  .fly a b{flex:1;font-weight:inherit}
+  .fly .fn{min-width:20px;height:17px;padding:0 6px;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--r2-radius-8);background:var(--rail-3);color:var(--rail-ink-2);font-weight:600;font-size:10.5px}
+  .fly a.on .fn{background:var(--accent);color:#fff}
+  /* ── Двухуровневый флайаут «Настройки» (клон Ramex: наведение → разделы → подпункты) ── */
+  .nav-wrap.has-set{position:relative}
+  .nav-wrap.has-set .set-fly{position:fixed;left:70px;top:56px;z-index:70;min-width:212px;background:var(--rail-2);
+    border:1px solid var(--rail-3);border-radius:var(--r2-radius-10);padding:6px;box-shadow:0 12px 34px rgba(16,24,40,.45);
+    display:none;flex-direction:column;gap:1px}
+  .nav-wrap.has-set:hover .set-fly, .set-fly.open{display:flex}
+  .set-fly .sg{position:relative;display:flex;align-items:center;gap:var(--sp-2);height:var(--action);padding:0 11px;border-radius:var(--r2-radius-6);
+    color:var(--rail-ink-2);font-size:12.5px;text-decoration:none;white-space:nowrap;cursor:pointer}
+  .set-fly .sg:hover, .set-fly .sg.open{background:var(--rail-3);color:#FFFFFF}
+  .set-fly .sg b{flex:1;font-weight:500}
+  .set-fly .sg .sg-arw{color:var(--rail-ink);font-style:normal;font-size:15px}
+  /* Невидимый «мостик» через зазор к подменю. Владелец 02.09.2026: «меню не
+     фиксируется, перейти невозможно — оно пропадает при наведении». Причина была
+     в диагонали: курсор с пункта к подменю проходил мимо узкого мостика высотой в
+     один пункт, наведение терялось, и подменю исчезало. Мостик теперь во всю
+     высоту раскрытого списка, а сам список примыкает к пункту вплотную (зазор
+     убран) — терять наведение больше негде. */
+  .set-fly .sg::after{content:'';position:absolute;left:100%;top:calc(var(--sp-5) * -1);width:var(--sp-4);height:calc(100% + var(--sp-6) * 2);display:none}
+  .set-fly .sg:hover::after, .set-fly .sg.open::after{display:block}
+  .set-fly2{display:none;position:absolute;left:100%;top:calc(var(--sp-2) * -1);min-width:224px;background:var(--rail-2);
+    border:1px solid var(--rail-3);border-radius:var(--r2-radius-10);padding:6px;box-shadow:0 12px 34px rgba(16,24,40,.45);flex-direction:column;gap:1px;z-index:2}
+  .set-fly .sg:hover > .set-fly2, .set-fly .sg.open > .set-fly2{display:flex}
+  .set-fly2 a{display:flex;align-items:center;height:var(--action);padding:0 11px;border-radius:var(--r2-radius-6);color:var(--rail-ink-2);
+    font-size:12.5px;text-decoration:none;white-space:nowrap}
+  .set-fly2 a:hover{background:var(--rail-3);color:#FFFFFF}
+
+  /* ── Топбар ── */
+  .main{display:flex;flex-direction:column;min-width:0;height:100vh}
+  .top{flex:none;height:var(--shell);background:var(--panel);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:0 var(--sp-4)}
+  /* Селектор направления деятельности (D-404) — режим работы, один на всё
+     приложение, стоит слева от главного действия, как офис в шапке Ramex. Вид
+     наследуется от общего поля-полосы, здесь только ширина и вес подписи: это
+     не фильтр экрана, а состояние, в котором человек работает. */
+  .top .dirsel{flex:none;margin:0}
+  .top .dirsel select{height:var(--control-h);max-width:220px;font-weight:var(--r2-fw-medium)}
+  .brand{font-family:var(--display);font-weight:600;font-size:var(--r2-card-title);line-height:var(--r2-card-title-lh);letter-spacing:0;color:var(--accent-ink);white-space:nowrap}
+  .search{flex:1;max-width:440px;height:var(--control-h);display:flex;align-items:center;gap:var(--sp-2);padding:0 var(--sp-3);background:var(--field);border:1px solid var(--line);border-radius:var(--r2-radius-8);color:var(--muted);font-size:13px}
+  .search svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.8;fill:none}
+  .search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--ink);font:500 12.5px var(--font)}
+  .search input::placeholder{color:var(--muted2)}
+  /* Иконка поиска показывается только на узком экране (см. медиазапрос ниже).
+     Селектор с `.top` обязателен: `.icon-btn{display:flex}` описан ниже по файлу и
+     при равной силе перебивал это правило — на десктопе в шапке стояли ОБА поиска,
+     поле и лупа рядом. */
+  .top .search-mobile{display:none}
+  .search-mobile svg{width:var(--r2-icon);height:var(--r2-icon);stroke:var(--muted);stroke-width:1.8;fill:none}
+  .spacer{flex:1}
+  .chip-moto{display:flex;flex-direction:column;align-items:center;gap:1px;padding:3px var(--sp-3);background:var(--field);border:1px solid var(--line);border-radius:var(--r2-radius-8)}
+  .chip-moto .lbl{color:var(--muted);font-weight:600;font-size:var(--r2-nav-label);line-height:var(--r2-nav-label-lh);letter-spacing:0}
+  .chip-moto b{color:var(--accent-ink);font-weight:700;font-size:12.5px}
+  .office{display:flex;align-items:center;gap:7px;height:var(--control-h);padding:0 11px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r2-radius-8);font-size:12.5px;font-weight:600;cursor:pointer}
+  .office svg{width:14px;height:14px;stroke:var(--muted);stroke-width:2;fill:none}
+  .btn-primary{display:flex;align-items:center;gap:var(--sp-2);height:var(--control-h);padding:0 14px;background:var(--accent);color:#fff;border:none;border-radius:var(--r2-radius-8);font-family:var(--font);font-weight:var(--r2-fw-medium);font-size:var(--r2-body);line-height:var(--r2-body-lh);cursor:pointer}
+  .btn-primary:hover{background:var(--accent-press)}
+  .btn-primary:active{background:var(--accent-press)}
+  .btn-primary:focus-visible,.tbtn:focus-visible,.pbtn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(193,18,31,.28)}
+  .btn-primary svg{width:15px;height:15px;stroke:#fff;stroke-width:2.2;fill:none}
+  .icon-btn{width:var(--control-h);height:var(--control-h);border-radius:var(--r2-radius-8);border:1px solid var(--line);background:var(--panel);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+  .icon-btn svg{width:16px;height:16px;stroke:var(--muted);stroke-width:1.8;fill:none}
+  .icon-btn .pip{position:absolute;top:-5px;right:-5px;min-width:17px;height:16px;padding:0 var(--sp-1);border-radius:var(--r2-radius-8);background:var(--warn-dot);color:#FFFFFF;font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid var(--panel)}
+  .avatar{width:var(--control-h);height:var(--control-h);border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-press));color:#fff;font-weight:700;font-size:12.5px;display:flex;align-items:center;justify-content:center;flex:none}
+
+  /* ── Рабочая зона ── */
+  .work{flex:1;min-height:0;display:flex;flex-direction:column;padding:var(--sp-4);min-width:0;overflow:auto}
+  /* D-260 §3: заголовок экрана крупный, но компактный — одна строка 26/1.15 (≈30 px)
+     и отбивка 16 px, а не шапка в пол-экрана. Размеры — только токенами шкалы. */
+  .rhead{flex:none;display:flex;align-items:center;gap:var(--sp-3);margin-bottom:var(--sp-4);min-height:var(--control-h)}
+  .rhead h1{margin:0;font-family:var(--display);font-weight:var(--fw-screen);font-size:var(--fs-screen);
+    line-height:var(--lh-screen);color:var(--ink);}
+
+  /* ── Общий CSS реестров crm2 (тулбар + широкая таблица + пагинация) ──
+     Аддитивно: используется страницами-реестрами (crm2/incoming.html …).
+     Каркас (.app/.side/.rail/.top/.work/.rhead) не изменён. */
+  /* Кнопка тулбара реестра — вторичная кнопка системы: 40/8, текст 14/20, читаемый контур.
+
+     Селектор НЕ привязан к `.rhead`: тем же классом размечены кнопки в строке
+     отбора архива («Найти», «Сбросить») и тулбары доставок, ожидания монтажа и
+     рекламаций, которые лежат вне шапки. Пока правило жило только внутри `.rhead`,
+     эти кнопки оставались системными — 22 px, `border:2px outset black`, — а
+     иконка «Колонки» разъезжалась до 73×73 вместо 20. То же и с `.colpick`. */
+  .tbtn{display:inline-flex;align-items:center;gap:var(--sp-2);height:var(--control-h);padding:0 var(--sp-4);background:var(--panel);border:1px solid var(--line-input);border-radius:var(--r2-radius-8);color:var(--ink);cursor:pointer;text-decoration:none;font:var(--r2-fw-medium) var(--r2-body)/var(--r2-body-lh) var(--font)}
+  .tbtn:hover{background:var(--hover);border-color:var(--muted2);color:var(--ink)}
+  .tbtn svg{width:var(--r2-space-4);height:var(--r2-space-4);stroke:currentColor;stroke-width:1.9;fill:none}
+  .tbtn.f{color:var(--accent-ink);border-color:var(--danger-line)}
+  .rhead .rcount{color:var(--muted2);font-weight:600;font-size:var(--r2-body);line-height:var(--r2-body-lh)}
+
+  /* D-344 §6: настройка колонок реестра. Свёрнута в одну вторичную кнопку — пока
+     её не открыли, места на экране она не занимает. Панель всплывает над
+     таблицей, поэтому реестр не «прыгает» при открытии. */
+  .colpick{position:relative}
+  .colpick>summary{list-style:none;cursor:pointer}
+  .colpick>summary::-webkit-details-marker{display:none}
+  .colpick[open]>summary{background:var(--hover);border-color:var(--muted2)}
+  /* Окно настройки колонок. Прокручивается ТОЛЬКО список, кнопки закреплены внизу:
+     колонок в реестре обращений четырнадцать, список упирался в 60vh, и «Применить»
+     уезжала под прокрутку. Владелец 02.09.2026: «колонки не настраиваются, снимаю
+     галочку — ничего не происходит» — галочка снималась, но нажать было нечего. */
+  .colpick-pop{position:absolute;right:0;top:calc(var(--control-h) + var(--sp-2));z-index:30;
+    min-width:260px;max-height:60vh;display:flex;flex-direction:column;background:var(--panel);
+    border:1px solid var(--line);border-radius:var(--r2-radius-10);padding:var(--sp-4);
+    box-shadow:0 12px 34px rgba(16,24,40,.18)}
+  .colpick-list{display:flex;flex-direction:column;gap:var(--sp-2);overflow:auto;min-height:0}
+  .colpick-item{display:flex;align-items:center;gap:var(--sp-2);min-height:var(--action);
+    color:var(--ink);font-size:var(--r2-body);line-height:var(--r2-body-lh);cursor:pointer;
+    white-space:nowrap}
+  .colpick-item input{width:var(--sp-4);height:var(--sp-4);accent-color:var(--accent);cursor:pointer}
+  /* Перетаскивание порядка колонок (D-387 п.8) — «делай сразу как в Ramex». */
+  .colpick-grip{color:var(--muted2);cursor:grab;user-select:none;line-height:1}
+  .colpick-item.is-dragging{opacity:.5}
+  /* Фильтр с множественным выбором (D-387 п.13): тот же контрол 40, что у
+     обычного списка, и та же всплывающая панель, что у настройки колонок. */
+  .ffilter{position:relative}
+  .ffilter>summary{list-style:none;cursor:pointer;display:flex;align-items:center}
+  .ffilter>summary::-webkit-details-marker{display:none}
+  .ffilter[open]>summary{border-color:var(--muted2)}
+  .ffilter .colpick-pop{left:0;right:auto;min-width:220px}
+  /* Кнопки закреплены у нижнего края окна и не уезжают вместе со списком. */
+  .colpick-act{position:sticky;bottom:0;flex:none;display:flex;gap:var(--sp-2);
+    margin-top:var(--sp-4);padding-top:var(--sp-3);background:var(--panel);
+    border-top:1px solid var(--line-soft)}
+
+  /* D-260: реестр — блок без обводки, отделён фоном панели от фона страницы. */
+  /* Таблица реестра — панель на сером фоне страницы, поэтому у неё та же тень
+     карточки, что у прочих панелей (`--shadow-card`). Без неё белое поле сливалось
+     с фоном по краям и экран выглядел плоской простынёй текста. */
+  .tablewrap{flex:1;min-height:0;overflow:auto;background:var(--panel);border:0;border-radius:var(--r2-radius-10);box-shadow:var(--shadow-card)}
+  .tablewrap table{width:100%;border-collapse:collapse;min-width:1500px}
+  /* Шапка реестра — те же метрики, что у компонента: 48 px, Label 12/16 Medium.
+     Раньше здесь стояли 600 и padding 12/8, из-за чего высота уезжала до 56 px
+     и в приложении было два разных вида шапки.
+
+     Выравнивание по левому краю и `nowrap` — не вкусовое. Шапка стояла по центру,
+     а ячейки идут слева, поэтому подпись и значения колонки НЕ СОВПАДАЛИ по
+     вертикали («нет соблюдения колонок», владелец 02.09.2026); центр остаётся
+     только там, где его просит сама колонка классом `.c`/`.money` — он действует
+     и на th, и на td, то есть подпись не может разойтись со значением.
+     `normal` рвал длинные подписи на две строки («Дата обр.», «Менеджер
+     обращения»), из-за чего соседние заголовки вставали на разной высоте и текст
+     выглядел пляшущим.
+
+     Горизонтальный отступ ОБЯЗАН совпадать с ячейкой (`--sp-3`). Пока у шапки
+     стояло 8 px, а у ячеек 12, подпись начиналась на четыре пикселя левее своего
+     значения — в каждой колонке. Владелец 02.09.2026 показала это линиями на
+     снимке: «названия колонок должны совпадать с началом текста ниже». */
+  .tablewrap thead th{position:sticky;top:0;z-index:1;background:var(--th);border-bottom:1px solid var(--line);color:var(--muted2);font-weight:var(--r2-fw-medium);font-size:var(--r2-label);line-height:var(--r2-label-lh);text-align:left;height:var(--r2-table-row);padding:0 var(--sp-3);white-space:nowrap;vertical-align:middle}
+  .tablewrap tbody td{border-bottom:1px solid var(--line-soft);padding:0 var(--sp-3);vertical-align:middle;font-size:var(--r2-body);line-height:var(--r2-body-lh);color:var(--ink);height:var(--r2-table-row)}
+  .tablewrap tbody tr{cursor:pointer}
+  .tablewrap tbody tr:hover{background:var(--hover)}
+  .tablewrap tbody tr.selected{background:var(--selected)}
+  /* `.l` перебивает и общий `.num{text-align:right}`: номер обращения — не сумма,
+     он читается слева и стоит под своим заголовком. Специфичность одинаковая,
+     поэтому правило идёт ПОСЛЕ — иначе побеждает то, что объявлено ниже. */
+  .tablewrap .c{text-align:center}
+  .tablewrap .l,.tablewrap td.num.l{text-align:left}
+  .tablewrap .m{color:var(--muted);font-weight:500}.tablewrap .m2{color:var(--muted2)}
+  .tablewrap .num{color:var(--muted2);font-weight:600}
+  .tablewrap .nowrap{white-space:nowrap}
+  .tablewrap .addr{color:var(--muted);font-weight:500;font-size:var(--r2-label);line-height:var(--r2-label-lh)}
+  .cell-ico{display:inline-flex;align-items:center;gap:var(--sp-2)}
+  /* `.cell-ico` вешают и на <span> внутри ячейки, и на сам <td> (реестры обращений,
+     клиентов, договоров, замеров). На ячейке `inline-flex` вырывал её из табличной
+     строки: колонка теряла заданную ширину, а на её границе оставалась вертикальная
+     черта во всю высоту таблицы — это и читалось как «не соблюдены колонки»
+     (владелец 02.09.2026). Ячейка обязана остаться table-cell; иконку с текстом
+     выравнивает `vertical-align`, а не флекс. */
+  .tablewrap td.cell-ico{display:table-cell}
+  .tablewrap td.cell-ico svg{vertical-align:middle;margin-right:var(--sp-2)}
+  .tablewrap .c .cell-ico{justify-content:center}
+  .cell-ico svg{width:13px;height:13px;stroke:var(--muted2);stroke-width:1.8;fill:none;flex:none}
+  .stt{display:inline-flex;align-items:center;gap:var(--sp-2);white-space:nowrap}
+  .sd{width:8px;height:8px;border-radius:50%;flex:none;background:var(--neutral-dot)}
+  .sd.over{background:var(--over)}
+  .sd.done{background:var(--ok-dot)}
+  /* D-345: тон сквозного статуса приходит из request_status.status_tone — подпись и
+     цвет из одной функции. Значения только токенами (`design-system.css`). */
+  .sd.tone-ok{background:var(--ok-dot)}
+  .sd.tone-warn{background:var(--warn-dot)}
+  .sd.tone-info{background:var(--info-dot)}
+  .sd.tone-danger{background:var(--danger-dot)}
+  .sd.tone-neutral{background:var(--neutral-dot)}
+  /* Имя клиента — обычный вес строки. Полужирный здесь делал колонку «Клиент»
+     тяжелее всех соседних и ломал единый вид строки: в реестре не должно быть
+     ячейки, которая кричит громче остальных. Выделение ключевой ячейки уже несёт
+     `.rowlink` в колонке «#». */
+  .cl-name{font-weight:var(--r2-fw-body)}
+  .nc{color:var(--muted2);font-weight:700;font-size:var(--r2-nav-label);line-height:var(--r2-nav-label-lh);margin-right:var(--sp-1)}
+  .tsk{color:var(--muted2);font-weight:600}
+  .tag{display:inline-flex;align-items:center;height:var(--r2-space-5);padding:0 var(--sp-2);border-radius:var(--r2-radius-8);background:var(--field);border:1px solid var(--line);color:var(--muted);font-weight:600;font-size:var(--r2-label);line-height:var(--r2-label-lh)}
+  .tablewrap .money{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tablewrap tfoot td{position:sticky;bottom:0;z-index:1;background:var(--th);border-top:1px solid var(--line);font-weight:700;font-size:var(--r2-body);line-height:var(--r2-body-lh);color:var(--ink);padding:var(--sp-2) var(--sp-3)}
+  /* `.tlabel` (подпись «ИТОГО по фильтру») удалён вместе с итогами реестров
+     23.08.2026 — правило осталось бы без единого носителя. `tfoot` выше нужен
+     отчётам (/reports/revenue, /reports/flow), где итог — смысл самой страницы. */
+
+  .pager{flex:none;display:flex;align-items:center;gap:var(--sp-2);padding:var(--sp-3) 0}
+  .pbtn{height:var(--action);min-width:var(--action);padding:0 var(--sp-3);background:var(--panel);border:1px solid var(--line-input);border-radius:var(--r2-radius-6);color:var(--ink);cursor:pointer;font:600 var(--r2-label)/var(--r2-label-lh) var(--font)}
+  .pbtn:hover{background:var(--hover);border-color:var(--muted2)}
+  /* Текущая страница — состояние, а не вторая акцентная кнопка (D-260 §4). */
+  .pbtn.on{background:var(--ink);border-color:var(--ink);color:var(--panel)}
+  .pbtn:disabled{background:var(--disabled-bg);border-color:var(--line);color:var(--muted2);cursor:not-allowed}
+  .pinfo{margin-left:auto;color:var(--muted2);font-weight:500;font-size:var(--r2-label);line-height:var(--r2-label-lh)}
+  .pinfo b{color:var(--ink);font-weight:600}
+
+  /* Mobile is a projection of the same server navigation as the desktop rail. */
+  .crm2-mobile-nav,.crm2-mobile-sheet{display:none}
+  @media (max-width:760px){
+    .app{display:block;height:100dvh}
+    .side{display:none}
+    .main{height:100dvh}
+    .top{height:var(--shell);padding:0 10px;gap:var(--sp-2)}
+    .top .brand,.top .chip-moto,.top .office{display:none}
+    .top .dirsel select{max-width:140px}
+    /* Макет 617:4585: на мобильном поиск — иконка 40×40, поля в шапке нет.
+       Кнопка создания остаётся действием, но без подписи — те же 40×40. */
+    .top .search{display:none}
+    .top .search-mobile{display:flex}
+    .top .btn-primary{width:var(--control-h);padding:0;justify-content:center}
+    .top .btn-primary span{display:none}
+    .work{padding:9px 10px 80px}
+    .rhead{align-items:flex-start;flex-wrap:wrap}
+    .rhead h1{font-size:var(--r2-mobile-title);line-height:var(--r2-mobile-title-lh)}
+    .crm2-mobile-nav{position:fixed;z-index:80;left:0;right:0;bottom:0;height:var(--shell);display:flex;align-items:stretch;background:var(--rail);border-top:1px solid var(--rail-3);padding-bottom:env(safe-area-inset-bottom)}
+    .crm2-mobile-nav a,.crm2-mobile-nav button{flex:1;min-width:0;border:0;background:transparent;color:var(--rail-ink);text-decoration:none;font:600 var(--r2-nav-label) var(--font);display:flex;align-items:center;justify-content:center;padding:7px var(--sp-1);cursor:pointer}
+    .crm2-mobile-nav a.active{color:#FFFFFF;box-shadow:inset 0 3px 0 var(--accent)}
+    .crm2-mobile-sheet{position:fixed;z-index:100;inset:0;display:none}
+    .crm2-mobile-sheet.open{display:block}
+    .crm2-mobile-backdrop{position:absolute;inset:0;border:0;background:rgba(16,24,40,.48)}
+    .crm2-mobile-panel{position:absolute;left:0;right:0;bottom:0;max-height:min(78dvh,620px);overflow:auto;background:var(--panel);border-radius:var(--r2-radius-10) var(--sp-4) 0 0;padding:var(--sp-2) 14px calc(18px + env(safe-area-inset-bottom));box-shadow:0 -14px 40px rgba(16,24,40,.28)}
+    .crm2-mobile-head{height:var(--control-h);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .crm2-mobile-head button{width:var(--action);height:var(--action);border:0;border-radius:var(--r2-radius-8);background:var(--field);color:var(--ink);font-size:22px}
+    .crm2-mobile-links{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2);padding-top:var(--sp-3)}
+    .crm2-mobile-links a{min-height:var(--row-h);padding:9px 11px;border:1px solid var(--line);border-radius:var(--r2-radius-8);color:var(--ink);text-decoration:none;display:flex;flex-direction:column;justify-content:center;gap:3px;font-size:13px;font-weight:600}
+    .crm2-mobile-links a.active{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
+    .crm2-mobile-links small{color:var(--muted);font-size:var(--r2-nav-label);font-weight:500}
+    .crm2-mobile-links a.danger{color:var(--accent-ink)}
+  }
+
+/* ── Карточка входящего звонка (D-368 п.1) — часть шелла, а не экрана ────────
+   Разметка и опрос живут в `crm2/_call_popup.html`; вид — здесь, чтобы шелл
+   не держал третий `<style>` в разметке. */
+  .call-popup{position:fixed;right:var(--sp-4);bottom:var(--sp-4);z-index:60;width:320px;
+    background:var(--panel);border-radius:var(--r2-radius-10);padding:var(--sp-4);
+    box-shadow:0 18px 48px rgba(16,24,40,.28)}
+  .call-popup[hidden]{display:none}
+  .call-popup-head{display:flex;align-items:center;justify-content:space-between;
+    margin:0 0 var(--sp-2)}
+  .call-popup-tag{color:var(--muted2);font-size:var(--r2-label);line-height:var(--r2-label-lh)}
+  /* Размер крестика — тот же токен, что у «×» модалки в `crm2-components.css`:
+     закрывающее действие обязано выглядеть одинаково во всей CRM. */
+  .call-popup-x{border:0;background:transparent;color:var(--muted2);
+    font-size:var(--r2-section-title);line-height:1;cursor:pointer;padding:0 var(--sp-1)}
+  .call-popup-name{color:var(--ink);font-size:var(--r2-card-title);
+    line-height:var(--r2-card-title-lh);font-weight:var(--r2-fw-medium)}
+  .call-popup-phone{color:var(--muted);font-size:var(--r2-body);line-height:var(--r2-body-lh)}
+  .call-popup-addr{color:var(--muted2);font-size:var(--r2-label);line-height:var(--r2-label-lh);
+    margin-top:var(--sp-1)}
+  .call-popup-actions{display:flex;gap:var(--sp-2);margin-top:var(--sp-3);flex-wrap:wrap}
+  @media (max-width:560px){
+    .call-popup{left:var(--sp-3);right:var(--sp-3);width:auto}
+  }

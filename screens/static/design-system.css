@@ -1,0 +1,311 @@
+/* Дизайн-система P1-01 · типографика Inter (D-052).
+   Отдельный файл: подключается и новым шеллом crm2/base.html, и legacy base.html,
+   поэтому шрифт есть на всех экранах без исключения. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/static/fonts/inter-400-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/static/fonts/inter-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/static/fonts/inter-500-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/static/fonts/inter-500-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/static/fonts/inter-600-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/static/fonts/inter-600-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/static/fonts/inter-700-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/static/fonts/inter-700-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215;
+}
+
+/* ══ Reference V2 · шкала перенесена из Figma 21.07.2026 ═════════════════════
+   Источник: файл 4IrtsLJUkslAbUd02w12vN, набор text styles `Reference V2`
+   и коллекция переменных `CRM2 / Reference V2 Dimensions`.
+   Снятые значения зафиксированы в v0_spec/CRM2_DESIGN_TOKENS_FROM_FIGMA.md.
+   Своих размеров здесь нет: новый размер = сначала стиль в Figma, потом токен.
+
+   22.07.2026 через Figma MCP дочитаны начертания ВСЕХ стилей (раздел 8 закрыт):
+
+   Стиль Reference V2   размер / интерлиньяж   начертание
+   ───────────────────────────────────────────────────────────────────────────
+   Page title           24 / 32                Semi Bold 600
+   Section title        18 / 24                Semi Bold 600
+   Card title           16 / 24                Semi Bold 600
+   Body                 14 / 20                Regular 400
+   Body medium          14 / 20                Medium 500
+   Button               14 / 20                Medium 500
+   Label                12 / 16                Medium 500
+   Caption              12 / 16                Regular 400
+   Mobile title         18 / 24                Semi Bold 600
+   Mobile body          16 / 24                Regular 400
+   Nav label            10 / 12                Regular 400
+   Nav label medium     10 / 12                Medium 500
+   letter-spacing у всех стилей ровно 0, капсы нет ни в одном.                 */
+:root{
+  /* Текстовые стили Reference V2 — «как есть» из Figma. */
+  --r2-page-title:24px;   --r2-page-title-lh:32px;
+  --r2-section-title:18px;--r2-section-title-lh:24px;
+  --r2-card-title:16px;   --r2-card-title-lh:24px;
+  --r2-body:14px;         --r2-body-lh:20px;
+  --r2-label:12px;        --r2-label-lh:16px;
+  /* ⚠ ЕДИНСТВЕННАЯ ступень вне набора Reference V2. Нужна герой-числу сводной:
+     на 27" 24 px для главного показателя мало, а без верхней ступени экран
+     сваливается в «всё одного веса». ДОЛГ: завести в Figma text style `Metric`
+     32/40 Semi Bold и снять сюда, как остальные. До этого — единственное место
+     во всём приложении, где размер введён кодом, а не макетом. */
+  --r2-metric:32px;       --r2-metric-lh:40px;
+  --r2-nav-label:10px;    --r2-nav-label-lh:12px;
+  --r2-mobile-title:18px; --r2-mobile-title-lh:24px;
+  /* 01.09.2026 (П0): `--r2-mobile-body` 16/24 снят — ни один экран его не брал,
+     мобильный текст идёт тем же Body 14/20. Вернуть можно из таблицы стилей выше. */
+
+  /* Начертания стилей Reference V2 — снято из Figma, своих весов нет. */
+  --r2-fw-title:600;   /* Page/Section/Card title, Mobile title */
+  --r2-fw-body:400;    /* Body, Caption, Mobile body, Nav label */
+  --r2-fw-medium:500;  /* Body medium, Button, Label, Nav label medium */
+
+  /* Прежние имена уровней сохранены, чтобы шаблоны не переписывались,
+     но значения теперь ровно фигмовские. */
+  --fs-screen:var(--r2-page-title);      --lh-screen:1.3333; --fw-screen:600;
+  --fs-section:var(--r2-section-title);  --lh-section:1.3333; --fw-section:600;
+  --fs-sub:var(--r2-card-title);         --lh-sub:1.5;        --fw-sub:600;
+  /* Заголовок рабочей области карточки — тот же Page title (в макете отдельного нет). */
+  --fs-title-pane:var(--r2-page-title);
+  --fs-body:var(--r2-body);              --lh-body:1.4286;
+  --fs-secondary:var(--r2-label);        --lh-secondary:1.3333;
+  --fs-caption:var(--r2-label);          --lh-caption:1.3333;
+
+  /* Шкала отступов Reference V2: 4/8/12/16/20/24/32 — других значений нет.
+     Ступени 12 и 32 разметка берёт именами `--sp-3` / `--sp-6`; синонимы
+     `--r2-space-3` и `--r2-space-8` не брал никто и сняты 01.09.2026 (П0). */
+  --r2-space-1:4px; --r2-space-2:8px; --r2-space-4:16px;
+  --r2-space-5:20px; --r2-space-6:24px;
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px;
+  /* Вертикальный ритм берётся из той же шкалы (24 и 8), 36/14 в Figma нет. */
+  --rhythm:var(--r2-space-6); --rhythm-head:var(--r2-space-2);
+  /* Плотность внутри блока: строки данных идут тесно, между блоками — воздух. */
+  --dense-gap:var(--r2-space-1);
+  /* Длина строки текста: читаемая мера, дальше — перенос (D-261 §5). */
+  --measure:68ch;
+
+  /* Радиусы Reference V2 — только 6/8/10. */
+  --r2-radius-6:6px; --r2-radius-8:8px; --r2-radius-10:10px;
+  /* Размеры Reference V2. Высота шелла (и мобильной панели — она та же 64)
+     живёт именем `--shell` ниже; синонимы `--r2-sidebar`, `--r2-topbar`,
+     `--r2-mobile-control`, `--r2-mobile-nav` не брал никто и сняты 01.09.2026 (П0). */
+  --r2-control:40px; --r2-table-row:48px; --r2-action:32px; --r2-icon:20px;
+  --r2-panel-padding:24px;
+  /* Минимальная ширина поля в строке формы: ниже неё строка переносится, а не
+     сжимает поля в нечитаемые полоски (мобильная ширина 390). Значение —
+     токеном, чтобы одна и та же граница работала на всех формах. */
+  --field-min:220px;
+
+  /* ══ ЦВЕТ · палитра Reference V2 ═══════════════════════════════════════════
+     Перенесена 01.09.2026 (П0, D-399) из `<style>` шаблона crm2/base.html —
+     ЗНАЧЕНИЯ БЕЗ ИЗМЕНЕНИЙ. До переноса файл-источник дизайн-системы не знал
+     ни одного цвета, а палитра жила в двух крышах порознь и уже разошлась.
+
+     Коллекции Figma `CRM2 / Reference V2 Semantic` и `… Dimensions`, сняты
+     21.07.2026 (см. v0_spec/CRM2_DESIGN_TOKENS_FROM_FIGMA.md):
+     text primary #101828 · secondary #475467 · tertiary #667085 · bg/app #F5F7FA ·
+     bg/surface #FFFFFF · bg/hover #F9FAFB · bg/selected #FFF8F9 · bg/disabled #EAECF0 ·
+     border/default #EAECF0 · border/input #D0D5DD · brand #C1121F / hover #A80F1A /
+     subtle #FFF1F2 · nav bg #1D2939 / hover #344054 / icon #EAECF0.
+
+     D-264: тёмной темы нет. В Figma набор `Reference V2` описывает один режим,
+     и второй набор цветов в коде существовал только как самодельный. Палитра
+     одна — эта. Возвращать тёмный режим можно только после макета. */
+  --page:#F5F7FA; --panel:#FFFFFF; --ink:#101828; --muted:#475467; --muted2:#667085;
+  /* Reference V2 знает одну линию (border/default #EAECF0); шапка таблицы —
+     color/bg/hover #F9FAFB (снято из `Заголовок таблицы` 612:4559). */
+  --line:#EAECF0; --line-input:#D0D5DD; --line-soft:#EAECF0; --th:#F9FAFB; --field:#F9FAFB;
+  /* Активный пункт навигации и выделенная строка — одна светло-серая палитра. */
+  --nav-active-bg:#F2F4F7; --nav-active:#101828;
+  --disabled-bg:#EAECF0;
+  /* D-413 (владелец 02.09.2026): «вместо яркого красного нужно сделать более светлый,
+     чтобы не было ядовитого цвета много, и текста красного цвета не должно быть — это
+     выглядит как ошибка».
+     · `--accent` — ЗАЛИВКА фирменных кнопок: тон приглушён с #C1121F до #A63A40;
+     · `--accent-ink` — ЦВЕТ ТЕКСТА и ссылок: больше не красный, а чернильный #344054.
+       Ссылку в строке отличает не цвет, а вес и подчёркивание при наведении.
+       Красным остаётся то, что действительно означает беду: `--danger-ink`, `--over`. */
+  --accent:#A63A40;
+  --accent-ink:#344054; --accent-press:#8C2E33; --selected:#FDF6F6; --brand-subtle:#FBEFF0;
+  /* Синий акцент Ramex (снят getComputedStyle #1D84C5) — второстепенные ссылки/действия/
+     активная вкладка/фокус. Красный оставляем бренду и семантике (destructive).
+     02.09.2026: слово «прогресс» из этого перечня убрано — полоса стадий показывает
+     состояние САМОГО обращения, а не второстепенное действие, и красится `--accent`
+     (замечено глазами владельца: «брендовый акцент красный, синего тут быть не должно»).
+     Тот же синий стоит в календаре — источник один, этот токен. */
+  --r2-blue:#1D84C5;
+  /* Канва-гуттер под белые карточки-блоки (серый фон центра карточки, ~Ramex #F3F3F4). */
+  --r2-canvas:#F1F3F5;
+  /* Семантический «просрочен» для статус-цветов (не бренд-красный --accent). */
+  --r2-overdue:#E5484D;
+  --hover:#F9FAFB; --over:#B42B31;
+  /* size/sidebar 64 · size/control 40 · size/table-row 48 · size/action 32 · size/icon 20. */
+  --shell:64px; --control-h:40px; --row-h:48px; --action:32px;
+  --panel-pad:24px;
+  /* Навигация: color/nav/bg, color/nav/hover, color/nav/icon. */
+  --rail:#1D2939; --rail-2:#344054; --rail-3:#475467; --rail-ink:#98A2B3; --rail-ink-2:#EAECF0;
+  --font:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+  --display:'Inter','Segoe UI',system-ui,sans-serif;
+
+  /* ══ Семантика статусов ════════════════════════════════════════════════════
+     Перенесено 01.09.2026 (П0) из crm2/_components.html без изменения значений.
+     Палитра D-206 не содержит успех/предупреждение/инфо, поэтому они заданы
+     здесь один раз. Любой экран обязан брать их отсюда: второго набора нет. */
+  /* D-413: цвета состояний приглушены — «убери ядовитые цвета, должны быть
+     приглушённые». Тон каждого сохранён (зелёный остался зелёным), убрана только
+     резкость: точки статусов стоят в таблице десятками, и на ярких глаз не находит
+     нужную строку, а видит рябь. */
+  --ok-bg:#EDF7F1; --ok-line:#BFE0CD; --ok-ink:#1B7A4B; --ok-dot:#2E9E63;
+  --warn-bg:#FDF6EC; --warn-line:#EFD9B0; --warn-ink:#9A5B1E; --warn-dot:#D2891F;
+  --info-bg:#EEF3F9; --info-line:#C2D6E9; --info-ink:#2A5C8F; --info-dot:#4A7FB0;
+  --danger-bg:#FDF2F2; --danger-line:#EEC4C7; --danger-ink:#B42B31; --danger-dot:#B42B31;
+  --neutral-bg:#F5F7FA; --neutral-line:#EAECF0; --neutral-ink:#475467; --neutral-dot:#98A2B3;
+  --violet-dot:#7A5AF8;
+
+  /* ══ Каркасные величины компонентов ════════════════════════════════════════
+     Перенесено 01.09.2026 (П0) из crm2/_components.html без изменения значений.
+     Своего числа в разметке нет; когда стиль появится в Figma — правится строка. */
+  --dlg-w:560px; --dlg-label-col:150px; --dlg-list-h:280px; --dlg-scrim:rgba(16,24,40,.45);
+  --kpi-min:200px;
+  /* Мера страницы: на 27" контент не растягивается во всю ширину — это и была
+     причина «огромных пустых областей». */
+  --content-max:1440px;
+  /* Карточка читается карточкой без обводки (D-260 §1): тень вместо рамки. */
+  --shadow-card:0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.10);
+  /* ОДИН разделитель строки на все экраны кассы. Берём тон подчёркивания поля
+     (`--line-input` #D0D5DD), а не `--line` #EAECF0: строчный разделитель
+     #EAECF0 читался как «слишком светлый», а его отсутствие — как «полотно».
+     Теперь строка списка, строка таблицы и подчёркнутое поле — одна линия. */
+  --cx-line:var(--line-input);
+  /* Ширина колонки единицы. Числа выстраиваются по одной вертикали, единица
+     идёт отдельным хвостом — иначе сумма в рублях и счётчик договоров не
+     встают в столбец, потому что единицы разной длины. */
+  --cx-unit-w:80px;
+
+  /* ══ Алиасы легаси-крыши (style.css, 29 старых экранов) ════════════════════
+     Раньше style.css:148-183 держал ПОЛНЫЙ ДУБЛЬ палитры под своими именами —
+     и уже разошёлся с новой крышей: `--line` там был #E4E7EC, которого в
+     наборе Reference V2 нет вовсе. Дубль снят 01.09.2026 (П0): старые имена
+     остались, но теперь это ссылки на единственную палитру, а не второй набор.
+     Уходят целиком вместе со style.css в партии П6. */
+  --red:var(--accent);
+  --red-dark:var(--accent-press);
+  --ink-soft:var(--muted);
+  --surface:var(--th);
+  --card:var(--panel);
+  /* `--line` своего значения в легаси больше не имеет — берёт общее #EAECF0.
+     Это ЕДИНСТВЕННАЯ содержательная правка значения во всей партии П0. */
+  --muted-soft:var(--muted2);
+  --ok:var(--ok-ink);
+  --warn:var(--warn-ink);
+  --info:var(--info-ink);
+  --info-border:var(--info-line);
+  --radius:var(--r2-radius-8);
+  --sans:var(--font);
+  --head:var(--display);
+  --warm:var(--panel);
+  --text-2:var(--muted);
+  /* Легаси-значения вне набора Reference V2: своей ступени в палитре у них нет,
+     поэтому до сноса style.css (П6) они остаются числами, а не токенами. */
+  --line-strong:#E4E7EC;
+  --line-card:#E4E7EC;
+  --radius-card:12px;   /* карточки легаси-крыши */
+  --radius-pill:20px;   /* пилюли / бейджи легаси-крыши */
+  --shadow-actions:0 -6px 18px rgba(16, 24, 40, .05);
+  --shadow-dropdown:0 12px 30px rgba(16, 24, 40, .16);
+  --focus-ring:0 0 0 3px rgba(181, 9, 0, .10);
+}
+
+/* Строка действий карточки: единственная контрастная кнопка страницы стоит ВВЕРХУ
+   (стандарт интерфейса, ответ владельца 21.08.2026), подвкладки — справа в той же
+   строке. Кнопка живёт ВНЕ формы и связана с ней атрибутом form="id": порядок
+   разметки перестаёт диктовать порядок действий, а форма на странице остаётся одна. */
+.card-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-3);margin:0 0 var(--sp-4)}
+.card-actions>nav{margin-left:auto}
+
+/* Уровни как классы — для разметки, которой нужен уровень без своего селектора. */
+.ds-screen-title{font:var(--fw-screen) var(--fs-screen)/var(--lh-screen) var(--display,inherit);
+  color:var(--ink);letter-spacing:0;margin:0}
+.ds-section-title{font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display,inherit);
+  color:var(--ink);margin:var(--rhythm) 0 var(--rhythm-head)}
+.ds-section-title:first-child{margin-top:0}
+.ds-sub{font:var(--fw-sub) var(--fs-sub)/var(--lh-sub) inherit;color:var(--ink);margin:0 0 var(--sp-2)}
+.ds-body{font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink)}
+/* Label 12/16 Medium 500 — подпись поля, шапка колонки. */
+.ds-secondary{font-size:var(--fs-secondary);line-height:var(--lh-secondary);color:var(--muted);
+  font-weight:var(--r2-fw-medium)}
+/* Caption 12/16 Regular 400. Ни капса, ни трекинга в стиле Figma нет — убраны. */
+.ds-caption{font-size:var(--fs-caption);line-height:var(--lh-caption);color:var(--muted2);
+  font-weight:var(--r2-fw-body);letter-spacing:0}
+
+/* ══ D-261 §5 · Компактность текста ══════════════════════════════════════════
+   Правило: подпись поля не повторяет заголовок раздела. Если раздел состоит из
+   одной-двух величин — он собирается в ОДНУ строку: имя раздела слева, поля
+   справа. Отдельного заголовка над такой строкой не ставится.
+       <div class="ds-row"><span class="ds-row-label">Монтаж</span>
+            <input …><select …></div>                                        */
+.ds-row{display:flex;align-items:center;flex-wrap:wrap;gap:var(--sp-3);
+  margin:var(--rhythm) 0 0;max-width:var(--measure)}
+.ds-row > .ds-row-label{flex:none;min-width:150px;
+  font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display,inherit);color:var(--ink)}
+.ds-row > input,.ds-row > select,.ds-row > label{flex:1 1 150px;min-width:0;max-width:260px;margin:0}
+@media (max-width:640px){
+  .ds-row{gap:var(--sp-2)}
+  .ds-row > .ds-row-label{min-width:100%}
+  .ds-row > input,.ds-row > select,.ds-row > label{max-width:none;flex:1 1 100%}
+}
+/* Пояснительная строка: только по существу и только в одну строку. */
+.ds-note{font-size:var(--fs-secondary);line-height:var(--lh-secondary);color:var(--muted);
+  margin:var(--sp-2) 0 0;max-width:var(--measure)}

@@ -1,0 +1,2177 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Обращение #1 — Ростовские окна</title>
+<link rel="stylesheet" href="static/design-system.css?v=1788344011">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788344011">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788344011">
+<link rel="stylesheet" href="static/crm2-deal-card.css?v=1788344011">
+</head>
+<body>
+<div class="app">
+<nav class="side" aria-label="Основная навигация">
+  <div class="side-head" title="Ростовские окна">
+    <div class="logo-badge"><svg viewBox="0 0 24 24"><path d="M3 21h18M4 21V9l8-5 8 5v12M9 21v-6h6v6"/></svg></div>
+  </div>
+  <div class="rail">
+      <a href="workspace.html" class="ri" data-nav-prefixes="/workspace">
+        <svg viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/></svg><span>Моя работа</span>
+      </a>
+      <div class="nav-wrap" data-nav-menu>
+        <button class="ri nav-toggle" type="button" aria-expanded="false"
+                data-nav-prefixes="/calls/unsorted|/crm2/incoming|/incoming|/crm2/measurements|/measurements|/crm2/contracts|/crm2/orders|/deliveries|/installations|/crm2/archive|/claims">
+          <svg viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg><span>Продажи</span>
+        </button>
+        <div class="fly" aria-label="Продажи">
+          <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 2</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 2</b></a>
+          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 2</b></a>
+          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ</b></a>
+          <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
+          <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
+          <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive"><b>Архив</b></a>
+          <a href="claims.html" data-nav-prefixes="/claims"><b>Рекламация · 1</b></a>
+        </div>
+      </div>
+      <a href="crm2__clients.html" class="ri" data-nav-prefixes="/crm2/clients|/crm2/client">
+        <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Клиенты</span>
+      </a>
+      <a href="warehouse.html" class="ri" data-nav-prefixes="/warehouse">
+        <svg viewBox="0 0 24 24"><path d="M3 21V9l9-5 9 5v12"/><path d="M3 21h18"/><path d="M9 21v-6h6v6"/></svg><span>Склад</span>
+      </a>
+      <a href="coordinator.html" class="ri" data-nav-prefixes="/coordinator">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg><span>Координатор</span>
+      </a>
+      <div class="nav-wrap" data-nav-menu>
+        <button class="ri nav-toggle" type="button" aria-expanded="false"
+                data-nav-prefixes="/crm2/order-materials">
+          <svg viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></svg><span>ПТО</span>
+        </button>
+        <div class="fly" aria-label="ПТО">
+          <a href="crm2__order-materials.html" data-nav-prefixes="/crm2/order-materials"><b>Допматериалы</b></a>
+        </div>
+      </div>
+      <div class="nav-wrap" data-nav-menu>
+        <button class="ri nav-toggle" type="button" aria-expanded="false"
+                data-nav-prefixes="/reports/summary|/reports/conversion|/reports/revenue|/reports/requests|/reports/day|/reports/flow|/reports/cost|/reports/cash-flow|/reports/payables|/reports/liabilities|/reports/goals">
+          <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6" rx="1"/><rect x="12" y="8" width="3" height="10" rx="1"/><rect x="17" y="4" width="3" height="14" rx="1"/></svg><span>Отчёты</span>
+        </button>
+        <div class="fly" aria-label="Отчёты">
+          <a href="reports__summary.html" data-nav-prefixes="/reports/summary"><b>Сводный</b></a>
+          <a href="reports__conversion.html" data-nav-prefixes="/reports/conversion"><b>Конверсия</b></a>
+          <a href="reports__revenue.html" data-nav-prefixes="/reports/revenue"><b>Выручка</b></a>
+          <a href="reports__requests.html" data-nav-prefixes="/reports/requests"><b>Обращения</b></a>
+          <a href="reports__day.html" data-nav-prefixes="/reports/day"><b>За день</b></a>
+          <a href="reports__flow.html" data-nav-prefixes="/reports/flow"><b>Доходы и расходы</b></a>
+          <a href="reports__cost.html" data-nav-prefixes="/reports/cost"><b>Себестоимость</b></a>
+          <a href="reports__cash-flow.html" data-nav-prefixes="/reports/cash-flow"><b>Анализ РКО</b></a>
+          <a href="reports__payables.html" data-nav-prefixes="/reports/payables"><b>Анализ платежей</b></a>
+          <a href="reports__liabilities.html" data-nav-prefixes="/reports/liabilities"><b>Анализ расходов</b></a>
+          <a href="reports__goals.html" data-nav-prefixes="/reports/goals"><b>Цели</b></a>
+        </div>
+      </div>
+      <a href="tasks.html" class="ri" data-nav-prefixes="/tasks|/me/tasks">
+        <svg viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/></svg><span>Задачи</span>
+      </a>
+      <div class="nav-wrap" data-nav-menu>
+        <button class="ri nav-toggle" type="button" aria-expanded="false"
+                data-nav-prefixes="/calendar/measurements|/calendar/installations|/calendar/deliveries">
+          <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg><span>Календарь</span>
+        </button>
+        <div class="fly" aria-label="Календарь">
+          <a href="calendar__measurements.html" data-nav-prefixes="/calendar/measurements"><b>Календарь замеров</b></a>
+          <a href="calendar__installations.html" data-nav-prefixes="/calendar/installations"><b>Календарь монтажей</b></a>
+          <a href="calendar__deliveries.html" data-nav-prefixes="/calendar/deliveries"><b>Календарь доставок</b></a>
+        </div>
+      </div>
+      <a href="cashbox.html" class="ri" data-nav-prefixes="/cashbox|/me/cashbox">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><circle cx="12" cy="12" r="2.2"/><path d="M6 12h.01M18 12h.01"/></svg><span>Касса</span>
+      </a>
+      <a href="me__motivation.html" class="ri" data-nav-prefixes="/me/motivation">
+        <svg viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/></svg><span>Моя мотивация</span>
+      </a>
+      <a href="settings__schedule.html" class="ri" data-nav-prefixes="/settings/schedule">
+        <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg><span>График работы</span>
+      </a>
+      <div class="nav-wrap has-set" data-nav-menu>
+        <button class="ri nav-toggle" type="button" aria-expanded="false"
+                data-nav-prefixes="/settings|/salary">
+          <svg viewBox="0 0 24 24"><path d="M12.2 2h-.4a2 2 0 0 0-2 2v.2a2 2 0 0 1-1 1.73l-.4.25a2 2 0 0 1-2 0l-.2-.08a2 2 0 0 0-2.73.73l-.2.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.2.38a2 2 0 0 0 2.73.73l.2-.08a2 2 0 0 1 2 0l.4.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.4a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.4-.25a2 2 0 0 1 2 0l.2.08a2 2 0 0 0 2.73-.73l.2-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.2-.38a2 2 0 0 0-2.73-.73l-.2.08a2 2 0 0 1-2 0l-.4-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg><span>Настройки</span>
+        </button>
+        <div class="set-fly" aria-label="Настройки">
+          <div class="sg"><b>Компания</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="settings__structure__company.html">Компания</a><a href="settings__structure__offices.html">Офисы</a><a href="settings__structure__warehouses.html">Склады</a><a href="settings__structure__vehicles.html">Транспортные средства</a>            </div>
+          </div>
+          <div class="sg"><b>Люди</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="settings__structure__employees.html">Сотрудники</a><a href="settings__structure__positions.html">Должности</a><a href="settings__structure__brigades.html">Бригады</a>            </div>
+          </div>
+          <div class="sg"><b>Справочники</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="#" data-screen="/settings/dictionaries/questionnaire">Опросник</a><a href="#" data-screen="/settings/dictionaries/product">Блок изделий</a><a href="#" data-screen="/settings/dictionaries/district_metro">Районы/Метро</a><a href="#" data-screen="/settings/dictionaries/contract_category">Категории договора</a><a href="#" data-screen="/settings/dictionaries/product_variant">Срок изготовления изделий</a><a href="#" data-screen="/settings/dictionaries/guarantee">Гарантийный период</a><a href="#" data-screen="/settings/dictionaries/discount">Скидки</a><a href="#" data-screen="/settings/dictionaries/reclamation_type">Тип рекламаций</a><a href="#" data-screen="/settings/dictionaries/document">Шаблоны документов</a><a href="#" data-screen="/settings/dictionaries/additional_work">Дополнительные работы</a><a href="#" data-screen="/settings/dictionaries/sales_direction">Направления деятельности</a><a href="#" data-screen="/settings/dictionaries/tags">Теги</a>            </div>
+          </div>
+          <div class="sg"><b>Обращение и договор</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="settings__handling.html">Статусы обращения</a><a href="#" data-screen="/settings/dictionaries/failure_reason">Причина отказа</a><a href="settings__incoming.html">Обращения и договоры</a><a href="settings__fine.html">Тонкие настройки</a>            </div>
+          </div>
+          <div class="sg"><b>Деньги и мотивация</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="settings__motivation.html">Мотивация и ЗП</a><a href="settings__plans.html">Планы продаж</a><a href="settings__contests.html">Конкурсы</a><a href="salary__payroll.html">Сводная ЗП</a><a href="salary__calc.html">Калькулятор ЗП</a><a href="salary__attribution.html">Замеры по сотрудникам</a>            </div>
+          </div>
+          <div class="sg"><b>Контрагенты</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="settings__suppliers.html">Поставщики изделий</a><a href="settings__suppliers.html">Поставщики доп. материалов</a><a href="settings__suppliers.html">Прочие поставщики</a><a href="settings__suppliers.html">Реклама</a><a href="settings__suppliers.html">Аренда</a><a href="settings__suppliers.html">Банки</a>            </div>
+          </div>
+          <div class="sg"><b>Интеграции</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="#" data-screen="/settings/services/mts">МТС</a><a href="settings__services__megafon.html">МегаФон</a>            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</nav>  <div class="main">
+<header class="top">
+  <span class="brand">РОСТОВСКИЕ ОКНА</span>
+  <form class="search" method="get" action="/crm2/incoming" role="search">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input type="search" name="q" aria-label="Поиск по обращениям" placeholder="№ обращения, клиент, телефон">
+  </form>
+  <a class="icon-btn search-mobile" href="crm2__incoming.html" aria-label="Поиск по обращениям">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+  </a>
+  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+    <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
+  </form>
+</header>    <div class="work">
+
+
+<div class="crm-page ic-card">
+
+  <div class="ic-work">
+
+    <aside class="crm-col-left"><div class="ic-num">#1 <span class="ic-num-stage">Договор</span></div>
+      <div class="ic-statusrow">
+        <span class="sd tone-ok"></span>
+        Подписан · 20.08.2026      </div><div class="ic-prog"
+        title="Договор — Подписан">
+<span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span></div>
+
+      <div class="ic-sb-tagbox" id="tagsBox">
+        <div class="ic-tags" id="tagsChips"></div>
+        <input class="ic-inp raw-field ic-sb-tags" id="tagNew" type="text" autocomplete="off"
+               list="tagBook" placeholder="Добавьте теги" aria-label="Добавьте теги">
+        <datalist id="tagBook">
+<option value="ЧС"></option><option value="рассрочка 1"></option><option value="рассрочка 2"></option><option value="рассрочка 3"></option><option value="фиксация"></option>        </datalist>
+<input type="hidden" name="request_tags_present" value="1" form="cardForm">
+        <input type="hidden" name="tags" id="tagsValue" value="рассрочка,повторный" form="cardForm">
+      </div>
+
+<div class="ic-sec">Клиент</div>
+      <div class="ic-sb-fields ic-sb-person">
+        <input class="ic-inp raw-field ic-sb-sync" data-sync="last_name" placeholder="Фамилия" value="Демидов">
+        <input class="ic-inp raw-field ic-sb-sync" data-sync="first_name" placeholder="Имя" value="Демо">
+        <input class="ic-inp raw-field ic-sb-sync" data-sync="middle_name" placeholder="Отчество" value="Демидович">
+      </div>
+      <div class="ic-sb-fields ic-sb-company">
+        <input class="ic-inp raw-field ic-sb-sync" data-sync="company_name" placeholder="Наименование организации" value="">
+      </div>
+      <input class="ic-inp raw-field ic-sb-sync ic-sb-email" data-sync="email" type="email" placeholder="Email" value="client@example.test">
+      <a class="ic-cl-cardlink" href="crm2__client__1.html">Перейти в карту клиента<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+      <div class="ic-sec-min">Телефон</div>
+      <div class="ic-phone-row ic-sb-phrow">
+        <input class="ic-inp raw-field ic-phone-inp ic-sb-sync" data-sync="phone" type="tel" placeholder="+7 (___) ___-__-__" value="79000000101">
+        <a class="ic-iconbtn call" href="tel:79000000101" title="Позвонить"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg></a>
+<button type="button" class="ic-iconbtn del ic-sb-phone-del" title="Удалить телефон"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>      </div>
+<button type="button" class="ic-add-phone ic-sb-addphone">＋ Добавить</button>
+      <div class="ic-sec">Адрес объекта</div>
+      <div class="ic-sb-fields">
+        <select class="ic-inp raw-field ic-sb-sync" data-sync="region_metro">
+          <option value="">— выбрать —</option>
+<option value="Анапский район" >Анапский район</option><option value="Геленджик" >Геленджик</option><option value="Грозный" >Грозный</option><option value="Красноармейский район" >Красноармейский район</option><option value="Краснодар" >Краснодар</option><option value="Крымский район" >Крымский район</option><option value="Новороссийск" >Новороссийск</option><option value="Славянский район" >Славянский район</option><option value="Темрюкский район" >Темрюкский район</option>        </select><div class="ic-addr-line">
+          <input class="ic-inp raw-field ic-sb-sync" data-sync="address" placeholder="Адрес" value="г. Демоград, ул. Образцовая, д. 12, кв. 34"><input class="ic-inp raw-field ic-sb-sync" data-sync="postal_index" placeholder="Индекс" value="350000" readonly title="Заполняется автоматически по адресу">
+        </div>
+      </div>
+      <div class="ic-addr-grid">
+        <input class="ic-inp raw-field ic-sb-sync" data-sync="apartment" placeholder="Квартира" value="">
+        <input class="ic-inp raw-field ic-sb-sync" data-sync="entrance" placeholder="Подъезд" value="">
+        <input class="ic-inp raw-field ic-sb-sync" data-sync="floor" placeholder="Этаж" value="">
+        <input class="ic-inp raw-field ic-sb-sync" data-sync="entry_code" placeholder="Код" value="">
+      </div>
+
+      <div class="ic-sec">Договор</div>
+      <div class="ic-kv"><span>Номер</span><b>Д-000001</b></div>
+      <div class="ic-kv"><span>Дата</span><b>20.08.2026</b></div>
+      <div class="ic-kv"><span>Дедлайн</span><b>—</b></div>
+      <div class="ic-kv"><span>Срок изготовления</span><b>21</b></div>
+      <div class="ic-kv"><span>Гарантия</span><b>60</b></div>
+      <div class="ic-kv"><span>Категория</span><b>Окна</b></div>      <div class="ic-kv"><span>Итоговая стоимость</span><b>214000</b></div>
+      <div class="ic-kv"><span>Предоплата</span><b>107000</b></div><div class="ic-kv"><span>Остаток за изделия</span><b>107 000 ₽</b></div>
+      <div class="ic-kv"><span>Подписан</span><b class="ok">✓ 20.08.2026</b></div>
+    </aside>
+
+    <nav class="ic-mseg" role="tablist" aria-label="Раздел карточки">
+      <button type="button" data-mseg="stage" class="active">Этап</button>
+      <button type="button" data-mseg="hist">История</button><button type="button" data-mseg="msg">Сообщения</button>
+      <button type="button" data-mseg="files">Файлы</button>
+      <button type="button" data-mseg="tasks">Задачи</button>
+    </nav>
+
+    <section class="crm-col-center">
+      <div class="crm-tabs" role="tablist">
+        <button class="crm-tab active" data-tab="obr" type="button">Обращение</button><button class="crm-tab" data-tab="zam" type="button">Замер</button>
+        <button class="crm-tab" data-tab="dog" type="button"
+>Договор</button>
+        <button class="crm-tab" data-tab="zak" type="button"
+>Заказ</button>
+        <button class="crm-tab" data-tab="rab" type="button"
+disabled aria-disabled="true" data-gate="order-required"
+          title="Сначала сформируйте заказ">Работы</button>
+        <button class="crm-tab" data-tab="itg" type="button"
+>Итог</button>
+        <button class="crm-tab" data-tab="rek" type="button"
+>Рекламации</button>
+      </div>
+      <div class="ic-center-body">
+
+      <div class="crm-tabpane active" id="pane-obr">
+        <form id="cardForm" method="post" action="/incoming/1/card">
+        <fieldset class="ic-fieldset" >
+
+          <div class="ic-block">
+            <div class="ic-block-head">Обращение</div>
+            <div class="ic-form-grid">
+              <div class="ic-kv"><span>Тип обращения</span><b>Звонок</b></div>
+              <div class="ic-kv"><span>Источник</span><b>—</b></div>
+            </div>
+          </div>
+
+          <div class="ic-block" id="clientBlock" data-entity="person">
+            <div class="ic-block-head">Клиент</div>
+            <div class="ic-seg">
+              <label class="on">
+                <input type="radio" name="entity_type" value="person" checked>Физическое лицо</label>
+              <label class="">
+                <input type="radio" name="entity_type" value="company" >Юридическое лицо</label>
+            </div>
+            <div class="ent-person">
+              <label class="ic-lbl-top">Фамилия<br><input name="last_name" value="Демидов"></label>
+              <label class="ic-lbl-top">Имя<br><input name="first_name" value="Демо"></label>
+              <label class="ic-lbl-top">Отчество<br><input name="middle_name" value="Демидович"></label>
+            </div>
+            <div class="ent-company">
+              <label class="ic-lbl-top">Наименование организации<br><input name="company_name" value=""></label>
+            </div>
+            <label class="ic-lbl-top">Email<br><input name="email" type="email" value="client@example.test"></label>
+            <div class="ic-sec-min">Телефон *</div>
+            <div id="phoneList">
+              <div class="ic-phone-row">
+                <input name="phone" type="tel" class="ic-phone-inp" value="79000000101" placeholder="+7 (___) ___-__-__" autocomplete="off" required>
+              </div>
+            </div>
+            <button type="button" class="ic-add-phone" id="addPhone">＋ Добавить</button>
+
+            <div class="ent-company">
+              <div id="contactList">
+              </div>
+              <button type="button" class="ic-add-phone" id="addContact">＋ Добавить контактное лицо</button>
+            </div>
+          </div>
+
+          <div class="ic-block">
+            <div class="ic-block-head">Адрес объекта</div>
+            <div class="ic-form-grid ic-addr-stack">
+              <label>Район / Метро<br>
+                <select name="region_metro">
+                  <option value="">— выбрать —</option>
+<option value="Анапский район" >Анапский район</option><option value="Геленджик" >Геленджик</option><option value="Грозный" >Грозный</option><option value="Красноармейский район" >Красноармейский район</option><option value="Краснодар" >Краснодар</option><option value="Крымский район" >Крымский район</option><option value="Новороссийск" >Новороссийск</option><option value="Славянский район" >Славянский район</option><option value="Темрюкский район" >Темрюкский район</option>                </select></label>
+              <label>Адрес<br>
+                <span class="ic-addr-typeahead">
+                  <input id="addrInput" name="address" value="г. Демоград, ул. Образцовая, д. 12, кв. 34" placeholder="Введите: город, улица, дом…" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list">
+                  <ul class="ic-suggest" id="addrSuggest" role="listbox" hidden></ul>
+                </span>
+                <small id="addrState" class="ic-sub">не подтверждён</small>
+              </label>
+            </div>
+            <input type="hidden" id="addrUnrestricted" name="address_unrestricted" value="">
+            <input type="hidden" id="addrRegion" name="address_region" value="">
+            <input type="hidden" id="addrCity" name="address_city" value="">
+            <input type="hidden" id="addrSettlement" name="address_settlement" value="">
+            <input type="hidden" id="addrFiasId" name="address_fias_id" value="">
+            <input type="hidden" id="addrFiasLevel" name="address_fias_level" value="">
+            <input type="hidden" id="addrSelectionSource" name="address_selection_source" value="">
+            <div class="ic-form-grid ic-addr5"><label>Индекс<br><input id="postalInput" name="postal_index" value="350000" readonly title="Заполняется автоматически по адресу"></label>
+              <label>Квартира<br><input name="apartment" value=""></label>
+              <label>Подъезд<br><input name="entrance" value=""></label>
+              <label>Этаж<br><input name="floor" value=""></label>
+              <label>Код<br><input name="entry_code" value=""></label>
+            </div>
+          </div>
+
+          <div id="calcSection">
+          <div class="ic-block ic-block--action">
+            <button type="submit" form="cardForm" formmethod="post" formnovalidate
+                    formaction="/incoming/1/calc/add" class="ic-block-add ic-calc-add">＋ Добавить расчёт</button>
+          </div>
+          </div>
+          <div class="ic-block">
+            <div class="ic-block-head">Звонки</div>
+            <table class="ic-calls">
+              <tbody>
+              <tr>
+                <td class="ic-calls-when">03.09.2026 19:00</td>
+                <td class="ic-calls-dir">Исходящий</td>
+                <td class="ic-calls-dur">1:36</td>
+                <td class="ic-calls-who">Офис-менеджер Демо</td>
+                <td class="ic-calls-rec"><audio class="ic-calls-audio" controls preload="none" src="/telephony/calls/2/recording"></audio></td>
+              </tr>
+              <tr>
+                <td class="ic-calls-when">03.09.2026 18:00</td>
+                <td class="ic-calls-dir">Входящий</td>
+                <td class="ic-calls-dur">3:34</td>
+                <td class="ic-calls-who">Оператор КЦ Демо</td>
+                <td class="ic-calls-rec"><audio class="ic-calls-audio" controls preload="none" src="/telephony/calls/1/recording"></audio></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <details class="ic-qty-acc">
+            <summary class="ic-qty-head">Количество изделий
+              <span class="ic-qty-total" id="qtyTotal">0</span>
+              <span class="ic-qty-cap">Кол-во</span></summary>
+            <div class="ic-qty-body">
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Окна</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_1"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Балконы</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_2"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Балконные блоки</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_3"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Двери</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_4"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Межкомнатные двери</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_5"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Стальные двери</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_6"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Ворота</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_7"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Роллеты</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_8"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Жалюзи</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_9"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Плиссе</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_10"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Потолок</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_11"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Безрамное остекление</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_12"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Раздвижные конструкции</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_13"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Конструкции из дерева</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_14"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+              <div class="ic-qty-row">
+                <span class="ic-qty-name">Стоечно-ригельная система</span>
+                <div class="ic-qty-step">
+                  <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                  <input type="text" inputmode="numeric" class="ic-qty-input" name="qty_pt_15"
+                         value="0" autocomplete="off">
+                  <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <div class="ic-block">
+            <div class="ic-block-head">Статус обращения</div><div class="ic-kv"><span>Сквозной статус</span><b>Подписан</b></div>            <label class="ic-lbl-top">Статус<br>
+              <select name="status" id="incomingStatusSelect">
+<option value="" selected>—</option><option value="callback" >Перезвонить</option><option value="transferred_service" >Передан в сервис</option><option value="outside_territory" >Не наша территория</option><option value="transferred_rom" >Передан РОП (орг/проекты)</option><option value="transferred_addons" >Переданы допы</option><option value="transferred_wholesale" >Передано в ОПТ</option><option value="non_target" >Нецелевой</option><option value="duplicate_card" >Повторная карта</option>              </select></label>            <div class="ic-callback-panel" id="callbackPanel"
+                 data-closing="duplicate_card,non_target,outside_territory">
+              <div class="ic-callback-box">
+                <label class="ic-lbl-top">Дата перезвона<br><input type="date" name="callback_due_date" id="callbackDate" value=""></label>
+                <label class="ic-lbl-top">Время перезвона<br><input type="time" name="callback_due_time" id="callbackTime" value=""></label>
+                <label class="ic-check" title="Перезвонить в этот день, без конкретного часа">
+                  <input type="checkbox" name="callback_all_day" id="callbackAllDay" value="1"> Весь день</label>
+                <div class="ic-callback-clear">
+                  <button type="button" class="btn mini secondary" id="callbackClear"
+                          title="Очистить дату и время; изменение сохранится с карточкой">Снять напоминание</button>
+                </div>
+              </div>
+            </div>
+          </div>          <input type="hidden" name="responsible_id" value="10">
+          <input type="hidden" name="need" value="">
+          <input type="hidden" name="comment" value="Карта стенда. Данные вымышленные.">
+        </fieldset>
+        </form>
+
+      </div>
+
+      <div class="crm-tabpane" id="pane-zam">
+        <div class="ic-pane-title">Замер</div><div class="ic-block">
+          <div class="ic-block-head">Адрес объекта</div><div class="ic-form-grid ic-addr-stack">
+            <label>Район / метро<br>
+              <select class="ic-zam-sync" data-sync="region_metro">
+                <option value="">—</option>
+<option value="Анапский район" >Анапский район</option><option value="Геленджик" >Геленджик</option><option value="Грозный" >Грозный</option><option value="Красноармейский район" >Красноармейский район</option><option value="Краснодар" >Краснодар</option><option value="Крымский район" >Крымский район</option><option value="Новороссийск" >Новороссийск</option><option value="Славянский район" >Славянский район</option><option value="Темрюкский район" >Темрюкский район</option>              </select></label>
+            <label>Адрес<br>
+              <input class="ic-zam-sync" data-sync="address" value="г. Демоград, ул. Образцовая, д. 12, кв. 34"></label>
+          </div>
+          <div class="ic-form-grid ic-addr5">
+            <label>Индекс<br>
+              <input class="ic-zam-sync" data-sync="postal_index" value="350000" readonly title="Заполняется автоматически по адресу"></label>
+            <label>Квартира<br>
+              <input class="ic-zam-sync" data-sync="apartment" value=""></label>
+            <label>Подъезд<br>
+              <input class="ic-zam-sync" data-sync="entrance" value=""></label>
+            <label>Этаж<br>
+              <input class="ic-zam-sync" data-sync="floor" value=""></label>
+            <label>Код<br>
+              <input class="ic-zam-sync" data-sync="entry_code" value=""></label>
+          </div>
+        </div><div class="ic-block">
+          <div class="ic-block-head">Замер</div>
+        <ul class="ic-mlist">
+          <li class="ic-mrow">
+            <div class="ic-mrow-head">              <a class="ic-mrow-who" href="calendar__measurements.html">Замерщик Демо</a>
+              <span class="ic-mrow-when">16.08.2026 в 21:00</span><span class="ic-mrow-done">
+<span class="ic-mrow-ok" title="Выезд состоялся">✓ 16.08.2026</span>
+              </span>              <form method="post" action="/incoming/1/measurement/1/complete"
+                    class="ic-mrow-fact">
+                <input type="hidden" name="done" value="0">
+                <label class="ic-chk" title="Снять отметку о выполнении">
+                  <input type="checkbox" checked onchange="this.form.submit()"> Выполнен
+                </label>
+              </form>
+            </div>
+            <div class="ic-mrow-note">
+              Замерщик: Замерщик Демо ·
+              Офис-менеджер: Офис-менеджер Демо ·
+              Выездной: из календаря
+            </div>
+            <div class="ic-mrow-act">
+              <form method="post" action="/incoming/1/measurement/1/remove"
+                    class="ic-mrow-remove">
+                <label class="ic-chk">
+                  <input type="checkbox" onchange="toggleRemove(this)"> Снять замер
+                </label>
+                <span class="ic-mrow-remove-body" hidden>
+                  <input name="note" class="ic-inp raw-field" required
+                         placeholder="за что снимается замер">
+                  <button type="submit" class="btn mini danger">Снять</button>
+                </span>
+              </form>
+            </div>
+          </li>
+        </ul>
+
+<p class="ic-gate-note" data-gate="missing-required-fields">Для записи заполните: источник обращения.</p>
+        </div>
+      </div>
+
+      <div class="crm-tabpane" id="pane-dog"
+           data-prepayment="107000.00">
+        <form id="contractForm" method="post" action="/incoming/1/contract/save" hidden></form>        <button type="submit" form="contractForm" class="ic-default-submit" tabindex="-1" aria-hidden="true"></button>
+
+        <div class="ic-block">
+          <div class="ic-block-head">Договор</div>
+          <div class="ic-form-grid">
+            <label>Номер<br><input type="text" value="Д-000001" readonly></label><label>Дата договора<br>
+<span class="ic-frozen">20.08.2026</span>
+</label><label>Категория<br>
+<span class="ic-frozen">Окна</span>
+</label>
+            <label>Гарантия<br>
+<span class="ic-frozen">60</span>
+</label>
+            <label>Срок изготовления изделий<br>
+<span class="ic-frozen">21</span>
+</label>
+            <label>Дедлайн<br>
+<span class="ic-frozen">—</span>
+</label>
+            <label>Юрлицо<br>
+<span class="ic-frozen">—</span>
+</label>
+          </div>
+        </div>
+
+        <div class="ic-block">          <details class="ds-acc">
+            <summary>Паспорт</summary>
+            <div class="ic-form-grid">
+              <label>Дата рождения<br>
+                <input type="date" name="passport_birth_date" form="contractForm"
+                       value=""></label>
+              <label>Серия и номер<br>
+                <input type="text" name="passport_series_number" form="contractForm"
+                       value=""></label>
+              <label>Дата выдачи<br>
+                <input type="date" name="passport_issue_date" form="contractForm"
+                       value=""></label>
+              <label>Кем выдан<br>
+                <input type="text" name="passport_issuer" form="contractForm"
+                       value=""></label>
+              <label>Прописка<br>
+                <input type="text" name="passport_reg_address" form="contractForm"
+                       value=""></label>
+              <label>Индекс<br>
+                <input type="text" name="passport_reg_index" form="contractForm"
+                       value=""></label>
+            </div>
+          </details>
+        </div>
+
+        <div class="ic-block">
+          <details class="ds-acc" >
+            <summary>Расчет<span class="ic-acc-sum" data-live="products">154080 ₽<i>сумма расчёта</i></span></summary>
+<p class="ic-gate-note">База 154080 ₽ не распределена по поставщикам.</p>
+<button class="ic-block-add" type="submit" form="contractForm" name="add_line" value="product" formnovalidate>＋ Добавить поставщика</button>          </details>
+        </div>
+
+        <div class="ic-block">
+          <details class="ds-acc">
+            <summary>Количество изделий<span class="ic-acc-sum" data-live="qty">0<i>кол-во</i></span></summary>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Окна</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_1" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Балконы</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_2" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Балконные блоки</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_3" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Двери</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_4" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Межкомнатные двери</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_5" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Стальные двери</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_6" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Ворота</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_7" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Роллеты</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_8" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Жалюзи</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_9" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Плиссе</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_10" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Потолок</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_11" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Безрамное остекление</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_12" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Раздвижные конструкции</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_13" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Конструкции из дерева</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_14" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+            <div class="ic-qty-row">
+              <span class="ic-qty-name">Стоечно-ригельная система</span>
+              <div class="ic-qty-step">
+                <button type="button" class="ic-qty-btn" data-step="-1" tabindex="-1" aria-label="минус">−</button>
+                <input type="text" inputmode="numeric" class="ic-qty-input raw-field" name="qty_pt_15" form="contractForm"
+                       value="0" autocomplete="off">
+                <button type="button" class="ic-qty-btn" data-step="1" tabindex="-1" aria-label="плюс">＋</button>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="ic-block">
+          <details class="ds-acc" >
+            <summary>Дополнительные материалы<span class="ic-acc-sum" data-live="materials">17120 ₽<i>сумма</i></span></summary>
+<p class="ic-gate-note">База 17120 ₽ не распределена по поставщикам.</p>
+<button class="ic-block-add" type="submit" form="contractForm" name="add_line" value="material" formnovalidate>＋ Добавить позицию</button>          </details>
+        </div>
+
+        <div class="ic-block">
+          <div class="ic-block-head">Поступления от клиента</div>
+          <div class="ic-kvrow">
+            <span>Итоговая стоимость</span><b>214000 ₽</b>
+          </div>
+          <div class="ic-kvrow"><span>Предоплата</span><b>107 000 ₽</b></div><div class="ic-kvrow"><span>Остаток за изделия</span><b>107 000 ₽</b></div><label class="ic-lbl-top">Форма расчёта<br>
+<span class="ic-frozen">Наличные</span>
+</label><div class="ic-kvrow">
+            <span>Скидка</span>
+            <b data-live="discount" class="t-danger"
+title="База: изделия 154080 ₽ + допы 17120 ₽ = 171200 ₽; потолок 25% (розница); минимум 121980 ₽">0.00%</b>
+          </div>
+
+          <div class="ic-subpanel" id="installmentPanel" hidden>
+            <div class="ic-sub-head">График рассрочки</div>            <p class="ds-caption">Взносы не разнесены.</p>
+<form class="ic-inst-form" method="post" action="/incoming/1/contract/installment/add">
+              <label class="ic-inst-date">Дата взноса<br><input type="date" name="due_date" required></label>
+              <label class="ic-inst-sum">Сумма<br><input class="num" type="number" step="0.01" min="0" name="amount" required></label>
+              <button class="btn mini" type="submit">Добавить взнос</button>
+            </form>
+          </div>
+
+          <div class="ic-sub-head ic-mt-4">История оплат</div><table class="dtable is-fixed">
+            <colgroup>
+              <col class="c-date"><col class="c-money"><col><col><col class="c-act">
+            </colgroup>
+            <thead><tr>
+              <th class="date">Дата</th>
+              <th class="num">Сумма</th>
+              <th>Способ</th>
+              <th>Чек</th>
+              <th class="act"></th>
+            </tr></thead>
+            <tbody>
+              <tr><td colspan="5" class="muted">Платежей по договору нет.</td></tr>
+            </tbody>
+          </table>          <div class="ic-sum">
+            <div class="ic-sum-row"><span>Итого по реестру</span>
+              <b>107 000 ₽</b></div>
+            <div class="ic-sum-row is-off" title="предоплата в договоре 107 000 ₽ не совпадает с проведённой по кассе суммой 0 ₽; предоплата меньше 80% фактической суммы договора: требуется не менее 171 200 ₽.">
+              <span>Проведено кассой</span>
+              <b>0 ₽</b></div>
+            <div class="ic-sum-row is-off" title="Порог 80%; по согласованию руководителя — не ниже 50% (107 000 ₽)">
+              <span>Требуется 80%</span>
+              <b>171 200 ₽</b></div>
+          </div>
+          <details class="ds-acc ic-pay-add">
+            <summary>Принять оплату</summary>
+            <form class="ic-act" method="post" action="/incoming/1/contract/payment">
+              <div class="ic-form-grid">
+                <label>Сумма<br><input class="num" type="text" inputmode="decimal" name="amount" value="0"></label>
+                <label>Способ<br><select name="method"><option value="cash">Наличные (касса)</option><option value="qr">QR</option><option value="invoice">Счёт (безнал)</option></select></label>
+                <label>Дата<br><input type="date" name="pay_date"></label><label>Назначение<br>
+                  <select name="purpose" id="icPayPurpose" onchange="icPayPurposeSync()">
+                    <option value="">Оплата по договору</option>
+                    <option value="price_lock">Фиксация цены</option>                  </select></label>
+                <label id="icPayTopup" hidden>Доплата до<br><input type="date" name="topup_date"></label><label>Счёт <span class="req">*</span><br>
+                  <span class="ic-frozen t-danger">Сначала выберите юрлицо договора</span>
+</label>
+                <label class="span-2">Примечание<br><input type="text" name="note"></label>
+              </div>
+              <button class="btn" type="submit">Принять оплату</button>
+            </form>
+            <script>
+              /* Оплата не удаляется, а СТОРНИРУЕТСЯ, и причина обязательна: без
+                 неё колонка аудита пуста, и снятие денег объяснить нечем. */
+              function icAskReason(form){
+                var r = window.prompt('Причина сторно оплаты:');
+                if(r === null){ return false; }
+                r = r.trim();
+                if(!r){ alert('Без причины сторно не проводится.'); return false; }
+                form.querySelector('input[name=reason]').value = r;
+                return true;
+              }
+              function icPayPurposeSync(){
+                var sel=document.getElementById('icPayPurpose'), box=document.getElementById('icPayTopup');
+                if(!sel||!box){ return; }
+                var lock = sel.value==='price_lock';
+                box.hidden = !lock;
+                var inp = box.querySelector('input');
+                if(inp){ inp.required = lock; if(!lock){ inp.value=''; } }
+              }
+              icPayPurposeSync();
+            </script>
+          </details>
+            <form class="ic-act ic-mt-3" method="post" action="/incoming/1/contract/prepayment-approve" onsubmit="return confirm('Согласовать предоплату ниже 80% фактической суммы договора?');">
+              <div class="ic-form-grid">
+                <label>С кем согласовано<br>
+                  <select name="approved_with_id" required>
+                    <option value="">— выберите сотрудника —</option>
+                  </select></label>
+                <label>Комментарий<br><input type="text" name="note"></label>
+              </div>
+              <button class="btn" type="submit">Предоплата согласована</button>
+            </form>
+        </div>
+
+        <div class="ic-block">
+          <div class="ic-block-head">Работы</div><div class="ic-switch">
+            <label class="ic-switch-ctl" title="Доставка без монтажа">
+              <input type="checkbox" name="delivery_enabled" form="contractForm" value="1"
+                     data-works-toggle="delivery" onchange="worksToggle(this)"
+checked><i></i>
+            </label>
+            <span>Доставка</span>
+          </div>
+          <div class="ic-switch">
+            <label class="ic-switch-ctl" title="Монтаж (доставка входит в него)"><input type="hidden" name="works_state_present" value="1" form="contractForm">
+              <input type="checkbox" name="installation_enabled" form="contractForm" value="1"
+                     data-works-toggle="installation" onchange="worksToggle(this)"
+checked><i></i>
+            </label>
+            <span>Монтаж</span>
+          </div>
+          <div class="ic-form-grid ic-mt-3">
+            <label>Сумма монтажа, ₽<br><input class="num" type="text" inputmode="decimal" name="extra_works" form="contractForm" value="12840"></label>
+            <label>Расчёт с бригадой<br>
+              <select name="installation_payment_source" form="contractForm" required>
+<option value="" >—</option><option value="cashbox" >Касса организации</option><option value="object" >На объекте (клиент)</option>              </select></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="crm-tabpane" id="pane-zak">
+        <div class="ic-pane-title">Заказ</div>        <p class="ic-gate-note">Договор подписан — отправьте в работу во вкладке «Договор».</p>
+      </div>
+
+      <div class="crm-tabpane" id="pane-rab">
+        <div class="ic-pane-title">Работы</div>
+<div class="ic-block">
+          <div class="ic-block-head">Готовность к монтажу</div>
+          <p class="muted">Ждём все изделия «На складе» и принятое количество по реестру.</p>
+        </div>
+      </div>
+
+      <div class="crm-tabpane" id="pane-itg">
+        <div class="ic-pane-title">Итог (P&L обращения)</div><div class="ic-block">
+          <div class="ic-block-head">Итог по договору</div>
+        <form method="post" action="/incoming/1/financials/save" class="pl">
+          <div class="pl-head">Выручка</div>
+          <div class="pl-row"><span>Фактическая сумма договора после скидок</span><span class="v t-ok">214 000 ₽</span></div><div class="pl-row"><span>Выручка компании для расчёта прибыли</span><span class="v">214 000 ₽</span></div>
+
+          <div class="pl-head">Себестоимость</div>
+          <div class="pl-row sub"><span>Изделия (заводская, из заказа)</span><span class="v">0</span></div>
+          <div class="pl-row sub"><span>Доп. материалы (из заказа)</span><span class="v">0</span></div>
+          <div class="pl-row sub"><span>ЗП замерщика</span><input name="salary_measurer" value="0"></div>
+          <div class="pl-row sub"><span>ЗП менеджера</span><input name="salary_manager" value="0"></div>
+          <div class="pl-row sub"><span>ЗП доставки</span><input name="salary_delivery" value="0"></div>
+          <div class="pl-row sub"><span>Эквайринг</span><input name="acquiring" value="0"></div>
+          <div class="pl-row sub"><span>Комиссия по кредиту</span><input name="credit_commission" value="0"></div>
+          <div class="pl-row sub"><span>Штраф по обращению</span><input name="penalty" value="0"></div>
+          <div class="pl-row sub"><span>Возврат клиенту</span><input name="refund" value="0"></div>
+          <div class="pl-row sub"><span>Стоимость рекламации</span><input name="claim_cost" value="0"></div>
+          <div class="pl-row"><span><b>Итого себестоимость</b></span><span class="v t-danger">0 ₽</span></div>
+
+          <div class="pl-row pl-last"><span class="pl-total">Прибыль компании</span><span class="v pl-total t-ok">214 000 ₽</span></div>
+          <div class="pl-row"><span>Рентабельность</span><span class="v">100.0 %</span></div>
+
+          <div class="pl-transit">
+            <b>Монтаж — транзит вне прибыли:</b> 12 840 ₽ · источник: Касса организации
+          </div>
+
+<button class="btn" type="submit">Сохранить итог</button>        </form>
+        </div>
+      </div>
+
+      <div class="crm-tabpane" id="pane-rek">
+        <div class="ic-pane-title">Рекламации</div>        <div class="ic-block">
+          <div class="ic-block-head">Рекламации по договору</div>
+        <ul class="ic-list">
+          <li>
+            <div class="crm-tl-head">
+              <b><a class="ic-link" href="claims__1.html">Рекламация Р-1</a></b>
+              <span class="badge">Новая</span>
+            </div>
+            <div class="ic-sub">2026-08-31 · Регулировка</div>
+<div class="crm-tl-note">Створка задевает раму после холодов. Нужна регулировка петель.</div>          </li>
+        </ul>
+        </div>
+
+        <div class="ic-block">
+          <div class="ic-block-head">Новая рекламация</div>
+        <form class="ic-act" method="post" action="/claims/new">
+          <input type="hidden" name="request_id" value="1">
+<input type="hidden" name="contract_id" value="1">          <div class="ic-act-row">
+            <label>Тип<br>
+              <select name="claim_type">
+<option value="">Не выбрано</option><option value="defect">Брак изделия</option><option value="installation">Дефект монтажа</option><option value="fittings">Фурнитура</option><option value="glass">Стеклопакет</option><option value="adjustment">Регулировка</option><option value="seal">Уплотнитель / продувание</option><option value="other">Другое</option>              </select></label>
+            <label>Дата<br><input type="date" name="date"></label>
+          </div>
+          <label>Описание<br><textarea name="description" rows="2"></textarea></label>
+          <button class="btn" type="submit">Добавить рекламацию</button>
+        </form>
+        </div>
+      </div>
+      </div>
+      <div class="crm-actions"><span data-fortab="obr" ><button class="btn is-strong" type="submit" form="cardForm">Сохранить</button></span><span id="autosaveInd" class="ic-autosave" aria-live="polite">✓ сохранено</span><span data-fortab="dog" hidden><button class="btn is-strong" type="submit" form="contractForm">Сохранить</button></span>        <span class="spacer"></span>
+<span data-fortab="dog" hidden>        <form method="post" action="/incoming/1/order/send-to-work" onsubmit="return confirm('Отправить подписанный договор в работу?');">
+          <button class="btn secondary" type="submit" disabled aria-disabled="true" title="Проверьте точное совпадение предоплаты с кассой и порог 80% либо руководительское согласование">Отправить в работу</button>
+        </form>
+        </span><span data-fortab="obr zam" >
+        <button class="btn secondary" type="button" onclick="location.href='/calendar/measurements?request_id=1'"
+disabled aria-disabled="true" title="Сначала заполните: источник обращения"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" class="ic-btn-ico"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="currentColor"/></svg>Запись на замер</button>
+        </span>        <details class="crm-menu crm-print">
+          <summary title="Печать документов"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg></summary>
+          <div class="crm-menu-list">
+            <a href="#" data-screen="/incoming/1/contract/print/1" target="_blank" rel="noopener">Накладная</a>
+          </div>
+        </details>
+        <details class="crm-menu">
+          <summary title="Ещё">…</summary>
+          <div class="crm-menu-list">            <button type="button" onclick="openTransferPanel()">Передать обращение</button>
+<button type="button" onclick="showTab('rek')" class="danger">Добавить рекламацию</button>            <button type="button" class="danger" onclick="openRefuse()">Отказ</button>
+          </div>
+        </details>
+      </div>
+    </section>
+
+<div id="refuseOverlay" class="rp-overlay" onclick="closeRefuse()"></div>
+    <aside id="transferPanel" class="rp-panel" aria-hidden="true">
+      <form method="post" action="/incoming/1/action/transfer">
+        <div class="rp-head"><span>Передача обращения</span>
+          <button type="submit" class="rp-save">Сохранить</button>
+          <button type="button" class="rp-x" onclick="closeTransferPanel()" title="Закрыть">✕</button>
+        </div>
+        <div class="rp-body">
+          <label class="rp-lbl">Кому <span class="req">*</span>
+            <select name="assigned_to_id" required>
+              <option value="">— выберите сотрудника —</option>
+              <option value="16">Директор Демо · директор</option>
+              <option value="11">Замерщик Демо · замерщик</option>
+              <option value="14">Кладовщик Демо · storekeeper</option>
+              <option value="13">Координатор Демо · координатор</option>
+              <option value="12">Монтажник Демо · монтажник</option>
+              <option value="9">Оператор КЦ Демо · call_center</option>
+              <option value="1">Сотрудник 01 · менеджер</option>
+              <option value="2">Сотрудник 02 · менеджер</option>
+              <option value="3">Сотрудник 03 · менеджер</option>
+              <option value="4">Сотрудник 04 · менеджер</option>
+              <option value="5">Сотрудник 05 · замерщик</option>
+              <option value="6">Сотрудник 06 · замерщик</option>
+              <option value="7">Сотрудник 07 · замерщик</option>
+              <option value="8">Сотрудник 08 · старший замерщик</option>
+              <option value="15">Сотрудник ПТО Демо · pto</option>
+            </select>
+          </label>
+          <label class="rp-lbl">Комментарий
+            <textarea name="note" rows="4" placeholder="почему передаётся"></textarea>
+          </label>
+        </div>
+      </form>
+    </aside>
+    <div id="transferOverlay" class="rp-overlay" onclick="closeTransferPanel()"></div>
+
+
+    <aside id="refusePanel" class="rp-panel" aria-hidden="true">
+      <form method="post" action="/incoming/1/action/close">
+        <div class="rp-head"><span>Отказ</span>
+          <button type="submit" class="rp-save">Сохранить</button>
+          <button type="button" class="rp-x" onclick="closeRefuse()" title="Закрыть">✕</button>
+        </div>
+        <div class="rp-body">
+          <label class="rp-lbl">Причина отказа <span class="req">*</span>
+            <select name="close_reason" required>
+              <option value="">— выберите —</option>
+<option value="Дорого">Дорого</option><option value="Заказали у других">Заказали у других</option><option value="Не устроили сроки">Не устроили сроки</option><option value="Нет денег">Нет денег</option><option value="Нет технической возможности">Нет технической возможности</option><option value="Нецелевой клиент">Нецелевой клиент</option><option value="Отказали все банки">Отказали все банки</option>            </select>
+          </label>
+          <label class="rp-lbl">Комментарий
+            <textarea name="comment" rows="4" placeholder="комментарий к отказу"></textarea>
+          </label>
+        </div>
+      </form>
+    </aside>
+        <script>
+      function icPanel(name, on){
+        var p = document.getElementById(name + 'Panel'), o = document.getElementById(name + 'Overlay');
+        if (p) { p.classList.toggle('open', on); p.setAttribute('aria-hidden', on ? 'false' : 'true'); }
+        if (o) { o.classList.toggle('open', on); }
+      }
+      function openTransferPanel(){icPanel('transfer', true);}
+      function closeTransferPanel(){icPanel('transfer', false);}
+      function openRefuse(){icPanel('refuse', true);}
+      function openTerminatePanel(){document.getElementById('terminatePanel').classList.add('open');document.getElementById('terminateOverlay').classList.add('open');}
+      function closeTerminatePanel(){document.getElementById('terminatePanel').classList.remove('open');document.getElementById('terminateOverlay').classList.remove('open');}
+      function openRevisionPanel(){document.getElementById('revisionPanel').classList.add('open');document.getElementById('revisionOverlay').classList.add('open');}
+      function closeRevisionPanel(){document.getElementById('revisionPanel').classList.remove('open');document.getElementById('revisionOverlay').classList.remove('open');}
+      function openClosePanel(){document.getElementById('closePanel').classList.add('open');document.getElementById('closeOverlay').classList.add('open');}
+      function closeClosePanel(){document.getElementById('closePanel').classList.remove('open');document.getElementById('closeOverlay').classList.remove('open');}
+      // Работы: монтаж и доставка взаимоисключающие. Доставка при монтаже избыточна —
+    // её везёт монтажная бригада, и отдельный выезд по тому же договору не нужен.
+    function worksToggle(box){
+      if (!box.checked) { return; }
+      var other = box.dataset.worksToggle === 'delivery' ? 'installation' : 'delivery';
+      var el = document.querySelector('[data-works-toggle="' + other + '"]');
+      if (el) { el.checked = false; }
+    }
+    // Галочка снятия замера: раскрывает обязательный комментарий. Поле `required`
+    // работает только когда видимо, поэтому скрываем его вместе с блоком.
+    function toggleRemove(box){
+      var body = box.closest('form').querySelector('.ic-mrow-remove-body');
+      body.hidden = !box.checked;
+      if (box.checked) { body.querySelector('input[name=note]').focus(); }
+    }
+    function closeRefuse(){icPanel('refuse', false);}
+    </script>
+
+    <aside class="crm-col-right">
+      <div class="crm-tabs crm-rtabs" role="tablist">
+        <button class="crm-tab active" data-rtab="hist" type="button">История</button><button class="crm-tab" data-rtab="msg" type="button">Сообщения</button>
+        <button class="crm-tab" data-rtab="files" type="button">Файлы</button>
+        <button class="crm-tab" data-rtab="tasks" type="button">Задачи</button>
+      </div>
+      <div class="ic-right-body">
+
+      <div class="crm-rtabpane active" id="rpane-hist">
+        <form method="post" action="/incoming/1/comment" class="ic-comment-row">
+          <textarea name="text" rows="2" placeholder="Добавить комментарий…"></textarea>
+          <button class="btn" type="submit">Добавить</button>
+        </form><details class="ic-hfilter" id="histFilter">
+          <summary title="Фильтр по видам событий">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18l-7 8v5l-4 2v-7z"/></svg>
+            <span class="ic-hfilter-cap">Все события</span>
+          </summary>
+          <div class="ic-hfilter-list">
+            <label class="ic-check"><input type="checkbox" id="histAll" checked> Выбрать / убрать все</label>
+            <label class="ic-check"><input type="checkbox" class="ic-hf-box" value="comment" checked> Комментарий</label>
+            <label class="ic-check"><input type="checkbox" class="ic-hf-box" value="call" checked> Звонки</label>
+            <label class="ic-check"><input type="checkbox" class="ic-hf-box" value="status" checked> Изменение статуса</label>
+            <label class="ic-check"><input type="checkbox" class="ic-hf-box" value="task" checked> Задачи</label>
+            <label class="ic-check"><input type="checkbox" class="ic-hf-box" value="measurement" checked> Замер</label>
+            <label class="ic-check"><input type="checkbox" class="ic-hf-box" value="contract" checked> Договор и заказ</label>
+            <label class="ic-check"><input type="checkbox" class="ic-hf-box" value="installation" checked> Монтаж и доставка</label>
+            <label class="ic-check"><input type="checkbox" class="ic-hf-box" value="file" checked> Файлы</label>
+            <label class="ic-check"><input type="checkbox" class="ic-hf-box" value="transfer" checked> Передача</label>
+            <label class="ic-check"><input type="checkbox" class="ic-hf-box" value="card" checked> Правки карточки</label>
+            <label class="ic-check"><input type="checkbox" class="ic-hf-box" value="other" checked> Прочее</label>
+          </div>
+        </details>
+<svg class="tl-sprite" aria-hidden="true" hidden>
+  <symbol id="tli-comment" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="tli-call" viewBox="0 0 24 24"><path d="M7 3l3 4-2 2a12 12 0 0 0 5 5l2-2 4 3-2 3c-7 0-13-6-13-13z"/></symbol>
+  <symbol id="tli-status" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.6"/></symbol>
+  <symbol id="tli-task" viewBox="0 0 24 24"><path d="M5 5h14v14H5z"/><path d="M8.5 12l2.5 2.5L16 9"/></symbol>
+  <symbol id="tli-measurement" viewBox="0 0 24 24"><path d="M3 14L14 3l7 7L10 21z"/><path d="M8 9l2 2M11 6l2 2"/></symbol>
+  <symbol id="tli-contract" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 12h6M9 16h6"/></symbol>
+  <symbol id="tli-installation" viewBox="0 0 24 24"><path d="M15 4a4 4 0 0 0-5 5l-6 6 3 3 6-6a4 4 0 0 0 5-5l-2.5 2.5-2.5-2.5z"/></symbol>
+  <symbol id="tli-file" viewBox="0 0 24 24"><path d="M17 8l-6.5 6.5a2.5 2.5 0 0 0 3.5 3.5L20 11a4.5 4.5 0 0 0-6.5-6.5L6 12"/></symbol>
+  <symbol id="tli-transfer" viewBox="0 0 24 24"><path d="M4 12h14M13 7l5 5-5 5"/></symbol>
+  <symbol id="tli-card" viewBox="0 0 24 24"><path d="M4 20h4L18 10l-4-4L4 16z"/></symbol>
+  <symbol id="tli-other" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></symbol>
+</svg>
+<div class="crm-timeline">
+    <p class="muted">Событий пока нет.</p>
+</div>      </div><div class="crm-rtabpane" id="rpane-msg">        <p class="muted">Сообщений пока нет.</p>
+      </div>
+
+      <div class="crm-rtabpane" id="rpane-files">
+<form method="post" action="/incoming/1/file/upload" enctype="multipart/form-data" class="fl-add">
+          <input type="file" name="file" accept=".aac,.amr,.bmp,.csv,.doc,.docx,.gif,.heic,.heif,.jpeg,.jpg,.m4a,.mp3,.odp,.ods,.odt,.ogg,.opus,.pdf,.png,.ppt,.pptx,.rtf,.svg,.tif,.tiff,.wav,.webp,.xls,.xlsm,.xlsx" title="До 20 МБ. Изображения, PDF, документы Office и аудиозаписи" required>
+          <button class="btn" type="submit">↑ Загрузить</button>
+        </form>
+        <p class="muted">Файлов пока нет.</p>
+      </div>
+
+      <div class="crm-rtabpane" id="rpane-tasks">
+        <form method="post" action="/incoming/1/task/add" class="tk-add">
+          <textarea name="title" placeholder="Текст задачи…" rows="2" required></textarea>
+          <div class="row"><select name="task_type" title="Тип задачи">
+<option value="callback">Позвонить</option><option value="personal">Личное</option>            </select>
+            <input type="date" name="due_date" title="Срок — дата">
+            <input type="time" name="due_time" title="Срок — время">
+            <select name="assignee_id" class="ic-tk-assignee" required><option value="" selected>— исполнитель —</option><option value="16" >Директор Демо</option><option value="11" >Замерщик Демо</option><option value="14" >Кладовщик Демо</option><option value="13" >Координатор Демо</option><option value="12" >Монтажник Демо</option><option value="9" >Оператор КЦ Демо</option><option value="10" >Офис-менеджер Демо</option><option value="1" >Сотрудник 01</option><option value="2" >Сотрудник 02</option><option value="3" >Сотрудник 03</option><option value="4" >Сотрудник 04</option><option value="5" >Сотрудник 05</option><option value="6" >Сотрудник 06</option><option value="7" >Сотрудник 07</option><option value="8" >Сотрудник 08</option><option value="15" >Сотрудник ПТО Демо</option></select>
+            <button class="btn" type="submit">＋ Добавить</button>
+          </div>
+        </form>
+          <div class="tk-grp">Будущие · 2</div>
+          <div class="tk future">
+            <form method="post" action="/incoming/1/task/2/done" class="ic-tk-done"><input type="hidden" name="done" value="1"><button type="submit" title="Отметить выполненной" class="ic-tk-box"></button></form>
+            <div class="body">
+              <div class="t-title">Проверить результат замера</div><div class="t-sub">задача · Сотрудник ПТО Демо · Сверить проёмы с расчётом ПТО.</div>
+            </div>
+<div class="due">04.09.2026 21:00</div>          </div>
+          <div class="tk future">
+            <form method="post" action="/incoming/1/task/1/done" class="ic-tk-done"><input type="hidden" name="done" value="1"><button type="submit" title="Отметить выполненной" class="ic-tk-box"></button></form>
+            <div class="body">
+              <div class="t-title">Перезвонить и согласовать доставку</div><div class="t-sub">перезвон · Офис-менеджер Демо · Клиент просил после 18:00.</div>
+            </div>
+<div class="due">04.09.2026 03:00</div>          </div>
+          <div class="tk-grp">Выполненные · 1</div>
+          <div class="tk done">
+<span class="t-ok">✔</span>            <div class="body">
+              <div class="t-title">Отправить акт клиенту</div><div class="t-sub">задача · Координатор Демо</div>
+            </div>
+<div class="due">02.09.2026 21:00</div>          </div>
+      </div>
+      </div>    </aside>
+
+  </div></div>
+
+<script>
+(function () {
+  // Сохранение позиции прокрутки центра при любых действиях (сохранить/добавить/удалить/
+  // основной и т.д.) — после POST→redirect страница НЕ прыгает вверх, остаётся на месте.
+  (function () {
+    var body = document.querySelector('.ic-center-body');
+    if (!body) return;
+    var key = 'icScroll:' + location.pathname;
+    var saved = sessionStorage.getItem(key);
+    if (saved !== null) { body.scrollTop = parseInt(saved, 10) || 0; sessionStorage.removeItem(key); }
+    document.addEventListener('submit', function () {
+      try { sessionStorage.setItem(key, body.scrollTop); } catch (e) {}
+    }, true);
+  })();
+
+  // Меню «…» (Ещё) закрывается при клике в любом свободном месте, не только по «…».
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('details.crm-menu[open]').forEach(function (d) {
+      if (!d.contains(e.target)) d.removeAttribute('open');
+    });
+  });
+
+  // Расчёт: Профиль + Стеклопакет (с/п) показываются после выбора Поставщика.
+  document.addEventListener('change', function (e) {
+    if (!e.target.classList || !e.target.classList.contains('ic-calc-supplier')) return;
+    var body = e.target.closest('.ic-calc-body');
+    var sp = body ? body.querySelector('.ic-calc-sp') : null;
+    if (sp) sp.hidden = !e.target.value;
+  });
+
+  // «Добавить расчёт» / удаление / «основной» — INLINE через fetch, БЕЗ перезагрузки страницы
+  // (аккордеон как в Ramex, страница не прыгает). Подменяем только #calcSection из ответа;
+  // остальные несохранённые поля формы остаются нетронутыми. JS Поставщик→Профиль делегирован
+  // на document, поэтому в подменённой секции работает сам.
+  (function () {
+    var cardForm = document.getElementById('cardForm');
+    if (!cardForm) return;
+    function swap(html) {
+      try {
+        var fresh = new DOMParser().parseFromString(html, 'text/html').getElementById('calcSection');
+        var cur = document.getElementById('calcSection');
+        if (fresh && cur) { cur.innerHTML = fresh.innerHTML; return true; }
+      } catch (e) {}
+      return false;
+    }
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('#calcSection button[formaction*="/calc/"]');
+      if (!btn) return;
+      e.preventDefault();
+      var action = btn.getAttribute('formaction');
+      btn.disabled = true;
+      fetch(action, { method: 'POST', body: new FormData(cardForm), headers: { 'X-Requested-With': 'fetch' } })
+        .then(function (r) { return r.text(); })
+        .then(function (html) { if (!swap(html)) { cardForm.action = action; cardForm.submit(); } })
+        .catch(function () { cardForm.action = action; cardForm.submit(); });
+    });
+  })();
+
+  // Вкладка «Договор»: живой счёт. Итоги разделов, остаток и процент скидки считаются
+  // ПРЯМО ПРИ ВВОДЕ — иначе после правки суммы ничего не меняется до сохранения, и
+  // выглядит, будто суммы не считаются. Источник истины остаётся серверным: при
+  // сохранении значения пересчитываются заново.
+  (function () {
+    var pane = document.getElementById('pane-dog');
+    if (!pane) return;
+    function num(v) {
+      var n = parseFloat(String(v == null ? '' : v).replace(/\s/g, '').replace(',', '.'));
+      return isFinite(n) ? n : 0;
+    }
+    function sum(name) {
+      var t = 0;
+      pane.querySelectorAll('[name="' + name + '"]').forEach(function (el) { t += num(el.value); });
+      return t;
+    }
+    function money(v) { return Math.round(v).toLocaleString('ru-RU') + ' ₽'; }
+    function recalc() {
+      var products = sum('product_base_sum');
+      var materials = sum('material_base_sum');
+      var totalEl = pane.querySelector('[name="sum_total"]');
+      var total = num(totalEl && totalEl.value);
+      // Адресуем агрегаты по имени, а не по порядку: вставка нового блока между
+      // разделами сдвигала индексы и суммы уезжали в чужой заголовок.
+      function setAcc(name, text) {
+        var el = pane.querySelector('.ic-acc-sum[data-live="' + name + '"]');
+        if (el && el.childNodes[0]) el.childNodes[0].nodeValue = text;
+      }
+      setAcc('products', money(products));
+      setAcc('materials', money(materials));
+      var qty = 0;
+      pane.querySelectorAll('.ic-qty-input').forEach(function (el) { qty += num(el.value); });
+      setAcc('qty', String(qty));
+      var base = products + materials;
+      var pct = base > 0 ? (base - total) / base * 100 : 0;
+      var d = pane.querySelector('[data-live="discount"]');
+      if (d) d.textContent = (base > 0 ? pct.toFixed(2) : '0.00') + '%';
+      /* Остаток НЕ пересчитывается на клиенте: его считает сервер с учётом
+         разделения денег за изделия и за монтаж (D-341). Клиентская формула
+         «сумма − предоплата» этого не знает и давала второе число на том же экране. */
+    }
+    pane.addEventListener('input', function (e) {
+      if (e.target.matches('[name="product_base_sum"],[name="material_base_sum"],[name="sum_total"],.ic-qty-input')) recalc();
+    });
+    pane.addEventListener('change', recalc);
+    recalc();
+  })();
+
+  // График платежей появляется сразу при выборе «Рассрочка предприятия» (Ramex),
+  // а не после сохранения.
+  (function () {
+    var pane = document.getElementById('pane-dog');
+    if (!pane) return;
+    pane.addEventListener('change', function (e) {
+      if (!e.target.matches('#paymentTypeSel')) return;
+      var panel = document.getElementById('installmentPanel');
+      if (panel) panel.hidden = e.target.value !== 'installment';
+    });
+  })();
+
+  // Вкладка «Договор»: добавление и удаление строк (поставщик, позиция допов) — INLINE
+  // через fetch, без перезагрузки: страница не дёргается и не теряет место прокрутки.
+  // Кнопки несут флаги add_line/del_line, поэтому сервер сначала СОХРАНЯЕТ введённое
+  // и только потом меняет состав строк.
+  (function () {
+    var pane = document.getElementById('pane-dog');
+    if (!pane || !document.getElementById('contractForm')) return;
+    // Форма живёт ВНУТРИ панели, поэтому после подмены разметки прежняя ссылка
+    // указывает на оторванный узел: у него нет полей, связанных через form=.
+    // Берём форму заново на каждом нажатии.
+    function currentForm() { return document.getElementById('contractForm'); }
+    function swap(html) {
+      try {
+        var fresh = new DOMParser().parseFromString(html, 'text/html').getElementById('pane-dog');
+        if (fresh) {
+          // Раскрытые разделы после подмены остаются раскрытыми.
+          var open = {};
+          pane.querySelectorAll('details').forEach(function (d, i) { open[i] = d.open; });
+          pane.innerHTML = fresh.innerHTML;
+          pane.querySelectorAll('details').forEach(function (d, i) {
+            if (open[i] !== undefined) d.open = open[i];
+          });
+          return true;
+        }
+      } catch (e) {}
+      return false;
+    }
+    pane.addEventListener('click', function (e) {
+      var btn = e.target.closest('button[name="add_line"], button[name="del_line"]');
+      if (!btn) return;
+      var form = currentForm();
+      if (!form) return;
+      e.preventDefault();
+      var data = new FormData(form);
+      data.append(btn.getAttribute('name'), btn.value);
+      btn.disabled = true;
+      fetch(form.getAttribute('action'), {
+        method: 'POST', body: data, headers: { 'X-Requested-With': 'fetch' }
+      })
+        .then(function (r) { return r.text(); })
+        .then(function (html) { if (!swap(html)) currentForm().submit(); })
+        .catch(function () { var f = currentForm(); if (f) f.submit(); });
+    });
+  })();
+
+  // Автосохранение обычных полей (Клиент/Адрес/Обращение/Расчёт) БЕЗ кнопки «Сохранить»:
+  // по выходу из поля/через паузу шлём fetch на /card/autosave (204, без перезагрузки, без
+  // истории). Деньги (платежи/договор/запуск) и СТАТУС сюда не входят — они по своим кнопкам/
+  // гейтам (бэкенд их не сохраняет автосейвом). Кнопка «Сохранить» остаётся запасной.
+  (function () {
+    var cardForm = document.getElementById('cardForm');
+    if (!cardForm || !true) return;
+    var url = cardForm.getAttribute('action').replace(/\/card$/, '/card/autosave');
+    var ind = document.getElementById('autosaveInd');
+    var t = null, inflight = false, again = false, retries = 0;
+    // ok=true → «✓ сохранено» и гаснет; ok=false → «⚠ не сохранено» и держится, пока не сохранится
+    // (code-review #2: тихий сбой недопустим — пользователь должен видеть, что не сохранилось).
+    function flash(ok) {
+      if (!ind) return;
+      ind.textContent = ok ? '✓ сохранено' : '⚠ не сохранено';
+      ind.classList.toggle('err', !ok);
+      ind.classList.add('show');
+      clearTimeout(ind._t);
+      if (ok) ind._t = setTimeout(function () { ind.classList.remove('show'); }, 1600);
+    }
+    function save() {
+      if (inflight) { again = true; return; }
+      inflight = true;
+      fetch(url, { method: 'POST', body: new FormData(cardForm), headers: { 'X-Requested-With': 'fetch' } })
+        .then(function (r) { if (!r.ok) throw new Error('http ' + r.status); retries = 0; flash(true); })
+        .catch(function () { flash(false); if (retries < 3) { retries++; again = true; } })  // повтор до 3 раз
+        .then(function () { inflight = false; if (again) { again = false; schedule(retries ? 2000 : 0); } });
+    }
+    function schedule(ms) { clearTimeout(t); t = setTimeout(save, ms == null ? 700 : ms); }
+    // Статус не автосейвим (переходы) — только на «Сохранить».
+    cardForm.addEventListener('input', function (e) { if (e.target && e.target.name === 'status') return; schedule(700); });
+    cardForm.addEventListener('change', function (e) { if (e.target && e.target.name === 'status') return; schedule(200); });
+  })();
+
+  // вкладки (центр + правая колонка): каждая группа независима
+  // Группы кнопок нижней панели помечены вкладкой, которой принадлежат.
+  function syncActionBar(tab) {
+    document.querySelectorAll('.crm-actions [data-fortab]').forEach(function (el) {
+      el.hidden = el.getAttribute('data-fortab').split(' ').indexOf(tab) === -1;
+    });
+  }
+
+  function wireTabs(container, attr, paneClass, prefix) {
+    if (!container) return;
+    var tabs = container.querySelectorAll('.crm-tab');
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        if (t.disabled || t.getAttribute('aria-disabled') === 'true') return;
+        tabs.forEach(function (x) { x.classList.remove('active'); });
+        t.classList.add('active');
+        // переключаем только панели своей группы
+        var group = document.querySelectorAll('.' + paneClass);
+        group.forEach(function (p) { p.classList.remove('active'); });
+        var pane = document.getElementById(prefix + t.getAttribute(attr));
+        if (pane) pane.classList.add('active');
+        // Нижняя панель действий обязана следовать за вкладкой: она рисуется
+        // серверной вкладкой, а переключение — клиентское. Иначе на вкладке,
+        // открытой кликом, не было кнопки «Сохранить» и правки терялись молча.
+        if (attr === 'data-tab') syncActionBar(t.getAttribute(attr));
+      });
+    });
+  }
+  wireTabs(document.querySelector('.crm-tabs:not(.crm-rtabs)'), 'data-tab', 'crm-tabpane', 'pane-');
+  wireTabs(document.querySelector('.crm-rtabs'), 'data-rtab', 'crm-rtabpane', 'rpane-');
+
+  // Программное переключение центральной вкладки (кнопки действий + ?tab=…).
+  // Переключение панелей сбивает scrollTop центра — сохраняем и восстанавливаем его синхронно
+  // в том же кадре (иначе после «Добавить расчёт» позиция прыгает/дрожит).
+  window.showTab = function (name) {
+    var t = document.querySelector('.crm-tabs:not(.crm-rtabs) .crm-tab[data-tab="' + name + '"]');
+    if (!t) return;
+    var body = document.querySelector('.ic-center-body');
+    var sc = body ? body.scrollTop : 0;
+    t.click();
+    if (body) body.scrollTop = sc;
+  };
+
+  // Данные клиента: переключатель Физ/Юр меняет форму (Фамилия/Имя/Отчество ↔ Наименование).
+  (function () {
+    var block = document.getElementById('clientBlock');
+    if (!block) return;
+    var card = document.querySelector('.ic-card');
+    var radios = block.querySelectorAll('input[name="entity_type"]');
+    var seg = block.querySelector('.ic-seg');
+    // В-1: сайдбар «Клиент» ветвит Физ/Юр вместе с центром — data-entity на .ic-card.
+    if (card) card.setAttribute('data-entity', block.getAttribute('data-entity') || 'person');
+    radios.forEach(function (r) {
+      r.addEventListener('change', function () {
+        block.setAttribute('data-entity', r.value);
+        if (card) card.setAttribute('data-entity', r.value);
+        if (seg) seg.querySelectorAll('label').forEach(function (l) {
+          l.classList.toggle('on', l.contains(l.querySelector('input:checked')) || l.querySelector('input:checked') !== null);
+        });
+      });
+    });
+  })();
+
+  // Мультителефон (+7 маска, ×) + контактные лица юрлица (Добавить/Удалить).
+  (function () {
+    var block = document.getElementById('clientBlock');
+    if (!block) return;
+    function maskPhone(el) {
+      var d = (el.value || '').replace(/\D/g, '');
+      if (d && d[0] === '8') d = '7' + d.slice(1);
+      if (d && d[0] !== '7') d = '7' + d;
+      d = d.slice(0, 11);
+      if (!d) { el.value = ''; return; }
+      var out = '+7';
+      if (d.length > 1) out += ' (' + d.slice(1, 4);
+      if (d.length >= 4) out += ') ' + d.slice(4, 7);
+      if (d.length >= 7) out += '-' + d.slice(7, 9);
+      if (d.length >= 9) out += '-' + d.slice(9, 11);
+      el.value = out;
+    }
+    // Маска работает по ВСЕЙ карточке, а не только по блоку «Данные клиента»:
+    // поле телефона в левой колонке лежит вне `#clientBlock`, и один и тот же номер
+    // показывался на экране дважды в разном виде — сырым «79881371642» слева и
+    // «+7 (988) 137-16-42» в центре.
+    var phoneScope = document.querySelector('.ic-card') || block;
+    phoneScope.addEventListener('blur', function (e) {
+      if (e.target.classList && e.target.classList.contains('ic-phone-inp')) maskPhone(e.target);
+    }, true);
+    phoneScope.querySelectorAll('.ic-phone-inp').forEach(function (i) { if (i.value) maskPhone(i); });
+
+    var phoneList = document.getElementById('phoneList');
+    var addPhone = document.getElementById('addPhone');
+    if (addPhone && phoneList) addPhone.addEventListener('click', function () {
+      var row = document.createElement('div');
+      row.className = 'ic-phone-row';
+      row.innerHTML = '<input name="phone" type="tel" class="ic-phone-inp" placeholder="+7 (___) ___-__-__" autocomplete="off">';
+      phoneList.appendChild(row);
+      row.querySelector('input').focus();
+    });
+    if (phoneList) phoneList.addEventListener('click', function (e) {
+      if (!e.target.classList.contains('ic-phone-del')) return;
+      var rows = phoneList.querySelectorAll('.ic-phone-row');
+      if (rows.length > 1) e.target.closest('.ic-phone-row').remove();
+      else rows[0].querySelector('input').value = '';
+    });
+
+    var contactList = document.getElementById('contactList');
+    var addContact = document.getElementById('addContact');
+    function renumber() {
+      if (contactList) contactList.querySelectorAll('.ic-contact-num').forEach(function (s, i) { s.textContent = i + 1; });
+    }
+    if (addContact && contactList) addContact.addEventListener('click', function () {
+      var n = contactList.querySelectorAll('.ic-contact').length + 1;
+      var box = document.createElement('div');
+      box.className = 'ic-contact';
+      box.innerHTML = '<div class="ic-contact-head">Контактное лицо #<span class="ic-contact-num">' + n + '</span></div>' +
+        '<label class="ic-lbl-top">ФИО<br><input name="contact_fio"></label>' +
+        '<label class="ic-lbl-top">Должность<br><input name="contact_position"></label>' +
+        '<label class="ic-lbl-top">Телефон<br><input name="contact_phone" type="tel" class="ic-phone-inp" placeholder="+7 (___) ___-__-__"></label>' +
+        '<button type="button" class="ic-contact-del">× Удалить контактное лицо</button>';
+      contactList.appendChild(box);
+    });
+    if (contactList) contactList.addEventListener('click', function (e) {
+      if (!e.target.classList.contains('ic-contact-del')) return;
+      e.target.closest('.ic-contact').remove();
+      renumber();
+    });
+  })();
+
+  // Адрес: typeahead-подсказка ПОД полем (город → улица → дом), как в Ramex.
+  // Источник — /incoming/address/suggest (DaData при наличии токена, иначе локальный справочник).
+  (function () {
+    var addr = document.getElementById('addrInput');
+    var box = document.getElementById('addrSuggest');
+    var postal = document.getElementById('postalInput');
+    var region = document.querySelector('select[name="region_metro"]');
+    var state = document.getElementById('addrState');
+    var unrestricted = document.getElementById('addrUnrestricted');
+    var selectedRegion = document.getElementById('addrRegion');
+    var selectedCity = document.getElementById('addrCity');
+    var selectedSettlement = document.getElementById('addrSettlement');
+    var fiasId = document.getElementById('addrFiasId');
+    var fiasLevel = document.getElementById('addrFiasLevel');
+    var selectionSource = document.getElementById('addrSelectionSource');
+    if (!addr || !box) return;
+    var items = [], active = -1, timer = null, lastReq = 0;
+
+    function close() { box.hidden = true; box.innerHTML = ''; active = -1; addr.setAttribute('aria-expanded', 'false'); }
+    function render() {
+      if (!items.length) { close(); return; }
+      box.innerHTML = items.map(function (it, i) {
+        return '<li class="ic-suggest-item' + (i === active ? ' on' : '') + '" role="option" data-i="' + i + '">' +
+          it.value.replace(/</g, '&lt;') + '</li>';
+      }).join('');
+      box.hidden = false;
+      addr.setAttribute('aria-expanded', 'true');
+    }
+    function choose(i) {
+      var it = items[i]; if (!it) return;
+      addr.value = it.value;
+      if (unrestricted) unrestricted.value = it.unrestricted_value || '';
+      if (selectedRegion) selectedRegion.value = it.region || '';
+      if (selectedCity) selectedCity.value = it.city || '';
+      if (selectedSettlement) selectedSettlement.value = it.settlement || '';
+      if (fiasId) fiasId.value = it.fias_id || '';
+      if (fiasLevel) fiasLevel.value = it.fias_level || '';
+      if (selectionSource) selectionSource.value = it.source || '';
+      if (state) state.textContent = '✓ подтверждён';
+      // D-398: индекс приходит из подсказки адреса. Событие нужно обязательно —
+      // без него зеркала в сайдбаре и на вкладке «Замер» остаются со старым значением.
+      if (it.postal_index && postal) {
+        postal.value = it.postal_index;
+        postal.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+      if (it.region && region) {
+        for (var o = 0; o < region.options.length; o++) {
+          if (region.options[o].value && it.region.indexOf(region.options[o].value) >= 0) { region.selectedIndex = o; break; }
+        }
+      }
+      close();
+    }
+    function fetchSuggest(q) {
+      var reqId = ++lastReq;
+      fetch('/incoming/address/suggest?confirmed=1&q=' + encodeURIComponent(q), { headers: { 'Accept': 'application/json' } })
+        .then(function (r) { return r.ok ? r.json() : []; })
+        .then(function (data) {
+          if (reqId !== lastReq) return;
+          items = (data || []).filter(function (it) { return it.source === 'dadata'; });
+          active = -1;
+          if (!items.length && state) state.textContent = 'подсказки недоступны';
+          render();
+        })
+        .catch(function () { if (state) state.textContent = 'ошибка подсказки'; });
+    }
+    addr.addEventListener('input', function () {
+      var q = addr.value.trim();
+      [unrestricted, selectedRegion, selectedCity, selectedSettlement, fiasId, fiasLevel, selectionSource].forEach(function (el) { if (el) el.value = ''; });
+      if (state) state.textContent = 'не подтверждён';
+      clearTimeout(timer);
+      if (q.length < 2) { items = []; close(); return; }
+      timer = setTimeout(function () { fetchSuggest(q); }, 200);
+    });
+    addr.addEventListener('keydown', function (e) {
+      if (box.hidden) return;
+      if (e.key === 'ArrowDown') { e.preventDefault(); active = Math.min(active + 1, items.length - 1); render(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); active = Math.max(active - 1, 0); render(); }
+      else if (e.key === 'Enter' && active >= 0) { e.preventDefault(); choose(active); }
+      else if (e.key === 'Escape') { close(); }
+    });
+    box.addEventListener('mousedown', function (e) {
+      var li = e.target.closest('[data-i]'); if (!li) return;
+      e.preventDefault(); choose(parseInt(li.getAttribute('data-i'), 10));
+    });
+    document.addEventListener('click', function (e) { if (!e.target.closest('.ic-addr-typeahead')) close(); });
+  })();
+
+  // «Количество изделий»: счётчики −/＋ + живой итог в заголовке (как в Ramex).
+  (function () {
+    var acc = document.querySelector('.ic-qty-acc');
+    var total = document.getElementById('qtyTotal');
+    if (!acc) return;
+    var inputs = acc.querySelectorAll('.ic-qty-input');
+    function recount() {
+      var sum = 0;
+      inputs.forEach(function (i) { sum += parseInt(i.value, 10) || 0; });
+      if (total) total.textContent = sum;
+    }
+    acc.querySelectorAll('.ic-qty-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var inp = btn.parentNode.querySelector('.ic-qty-input');
+        var n = (parseInt(inp.value, 10) || 0) + parseInt(btn.getAttribute('data-step'), 10);
+        inp.value = Math.max(0, n);
+        recount();
+      });
+    });
+    inputs.forEach(function (i) {
+      i.addEventListener('input', function () {
+        i.value = i.value.replace(/[^0-9]/g, '');
+        recount();
+      });
+    });
+  })();
+
+  // копирование телефона
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var el = document.querySelector(b.getAttribute('data-copy'));
+      if (!el) return;
+      if (navigator.clipboard) { navigator.clipboard.writeText(el.value || el.textContent || ''); }
+      else { el.select(); document.execCommand('copy'); }
+      var old = b.textContent; b.textContent = '✓';
+      setTimeout(function () { b.textContent = old; }, 1200);
+    });
+  });
+
+  /* Фильтр истории по видам событий (D-398 п.2). Заголовок дня прячется вместе с
+     последней своей записью: прежний фильтр этого не делал, и при отборе на экране
+     оставались пустые даты. */
+  (function () {
+    var wrap = document.getElementById('histFilter');
+    if (!wrap) return;
+    var boxes = Array.prototype.slice.call(wrap.querySelectorAll('.ic-hf-box'));
+    var all = document.getElementById('histAll');
+    var cap = wrap.querySelector('.ic-hfilter-cap');
+    if (!boxes.length) return;
+
+    function apply() {
+      var on = {};
+      var chosen = 0;
+      boxes.forEach(function (b) { if (b.checked) { on[b.value] = true; chosen++; } });
+      var days = {};
+      document.querySelectorAll('#rpane-hist .crm-tl-item').forEach(function (it) {
+        var show = !!on[it.dataset.egroup || 'other'];
+        it.hidden = !show;
+        if (show) days[it.dataset.day || ''] = true;
+      });
+      document.querySelectorAll('#rpane-hist .crm-tl-day').forEach(function (d) {
+        d.hidden = !days[d.dataset.day || ''];
+      });
+      if (all) { all.checked = chosen === boxes.length; }
+      if (cap) {
+        cap.textContent = chosen === boxes.length ? 'Все события'
+          : (chosen === 0 ? 'Ничего не выбрано' : 'Видов: ' + chosen);
+      }
+    }
+
+    boxes.forEach(function (b) { b.addEventListener('change', apply); });
+    if (all) {
+      all.addEventListener('change', function () {
+        boxes.forEach(function (b) { b.checked = all.checked; });
+        apply();
+      });
+    }
+    apply();
+  })();
+
+  /* Панелей, зависящих от выбора статуса, больше нет: статус не выбирается — его
+     присваивает действие (владелец 19.08.2026). Скрипт, который показывал поля под
+     выбранное значение, вместе с выпадающим списком удалён. */
+
+  // «Весь день» — при отметке отключаем поле «Время перезвона».
+  var allDay = document.getElementById('callbackAllDay');
+  var cbTime = document.getElementById('callbackTime');
+  function syncAllDay() { if (cbTime) cbTime.disabled = allDay ? allDay.checked : false; }
+  if (allDay) { allDay.addEventListener('change', syncAllDay); syncAllDay(); }
+
+  /* D-398 п.7: подпанель перезвона показывается при любом ПРОДОЛЖАЮЩЕМСЯ статусе —
+     «Передан в сервис» плюс «вернуться 25-го» штатное сочетание. Прячет её только
+     ЗАКРЫВАЮЩИЙ статус, и тогда поля ЧИСТЯТСЯ: спрятанное поле продолжает отправляться
+     формой, и напоминание осталось бы жить невидимым.
+     Перечень закрывающих статусов приходит с сервера (настройка `closes_request`) —
+     своего списка в скрипте нет, он разошёлся бы с настройкой владельца. */
+  (function () {
+    var sel = document.getElementById('incomingStatusSelect');
+    var panel = document.getElementById('callbackPanel');
+    var cbDate = document.getElementById('callbackDate');
+    if (!sel || !panel) return;
+    var closing = (panel.dataset.closing || '').split(',').filter(Boolean);
+    sel.addEventListener('change', function () {
+      var closes = closing.indexOf(sel.value) >= 0;
+      panel.hidden = closes;
+      if (closes) {
+        if (cbDate) { cbDate.value = ''; cbDate.dispatchEvent(new Event('change', { bubbles: true })); }
+        if (cbTime) { cbTime.value = ''; cbTime.dispatchEvent(new Event('change', { bubbles: true })); }
+        if (allDay) { allDay.checked = false; syncAllDay(); }
+      }
+    });
+  })();
+
+  /* «Снять напоминание»: чистит дату и время, дальше их сохраняет обычная кнопка
+     карточки. Пустые поля сервер трактует как снятое напоминание — отдельного
+     маршрута для этого не нужно. */
+  var cbClear = document.getElementById('callbackClear');
+  if (cbClear) {
+    cbClear.addEventListener('click', function () {
+      var form = document.getElementById('cardForm') || document;
+      var d = form.querySelector('[name="callback_due_date"]');
+      var t = form.querySelector('[name="callback_due_time"]');
+      if (d) { d.value = ''; d.dispatchEvent(new Event('change', { bubbles: true })); }
+      if (t) { t.value = ''; t.dispatchEvent(new Event('change', { bubbles: true })); }
+      // Флажок «Весь день» снимаем вместе с полями и возвращаем время в рабочее
+      // состояние: иначе после «Снять напоминание» галочка стоит при пустой дате,
+      // а поле времени остаётся заблокированным — поставить напоминание заново нечем.
+      if (allDay) { allDay.checked = false; syncAllDay(); }
+    });
+  }
+
+  // Ф1.6: синхронизация редактируемого сайдбара «Клиент» ↔ центральная форма «Данные
+  // клиента» (#cardForm — источник сохранения). Инпуты сайдбара без name сами не сабмятся;
+  // их значение зеркалится в соответствующее поле центра по data-sync, центр и сохраняет.
+  (function () {
+    var cardForm = document.getElementById('cardForm');
+    if (!cardForm) return;
+    document.querySelectorAll('.crm-col-left .ic-sb-sync, .ic-zam-sync').forEach(function (el) {
+      var target = cardForm.querySelector('[name="' + el.dataset.sync + '"]');
+      if (!target) return;
+      var push = function () {
+        if (target.value !== el.value) { target.value = el.value; target.dispatchEvent(new Event('input', { bubbles: true })); target.dispatchEvent(new Event('change', { bubbles: true })); }
+      };
+      el.addEventListener('input', push);
+      el.addEventListener('change', push);  // select (Район/Метро) шлёт change
+      var pull = function () { if (el.value !== target.value) el.value = target.value; };
+      target.addEventListener('input', pull);
+      target.addEventListener('change', pull);
+    });
+    var pdel = document.querySelector('.crm-col-left .ic-sb-phone-del');
+    if (pdel) pdel.addEventListener('click', function () {
+      var pi = document.querySelector('.crm-col-left [data-sync="phone"]');
+      if (pi) { pi.value = ''; pi.dispatchEvent(new Event('input', { bubbles: true })); }
+    });
+    var padd = document.querySelector('.crm-col-left .ic-sb-addphone');
+    var cadd = document.getElementById('addPhone');
+    if (padd && cadd) padd.addEventListener('click', function () { cadd.click(); });
+  })();
+
+  // Теги обращения — полоса вверху сайдбара (как в Ramex). Значение живёт в ОДНОМ
+  // скрытом поле `tags` (строка через запятую), чипы — только его отображение: карточку
+  // сохраняет форма, и то, чего нет в полях, до сервера не доедет.
+  //
+  // Набор в поле НЕ уходит в значение: тег добавляется явным действием — Enter или
+  // выбор из списка книги (`<datalist>`). Иначе автосохранение через 700 мс паузы
+  // заводило в справочник обрывки набора («р», «рас», «рассро»).
+  (function () {
+    var box = document.getElementById('tagsBox');
+    var hidden = document.getElementById('tagsValue');
+    if (!box || !hidden) return;
+    var chips = document.getElementById('tagsChips');
+    var fresh = document.getElementById('tagNew');
+    var editable = !!fresh;
+    var same = function (a, b) { return a.toLowerCase() === b.toLowerCase(); };
+    var list = function () {
+      var out = [];
+      hidden.value.split(',').forEach(function (raw) {
+        var name = raw.replace(/\s+/g, ' ').trim();
+        // Повтор снимается БЕЗ учёта регистра — тем же правилом, что и на сервере,
+        // иначе «Рассрочка» и «рассрочка» встали бы двумя чипами на одно слово.
+        if (name && !out.some(function (x) { return same(x, name); })) out.push(name);
+      });
+      return out;
+    };
+    var draw = function () {
+      var names = list();
+      chips.textContent = '';
+      names.forEach(function (name) {
+        var chip = document.createElement('span');
+        chip.className = 'ic-tag';
+        var text = document.createElement('span');
+        text.textContent = name;   // textContent, а не innerHTML: название пишет человек
+        chip.appendChild(text);
+        if (editable) {
+          var del = document.createElement('button');
+          del.type = 'button';
+          del.className = 'ic-tag-del';
+          del.setAttribute('aria-label', 'Убрать тег ' + name);
+          del.textContent = '×';
+          del.addEventListener('click', function () {
+            write(list().filter(function (x) { return !same(x, name); }));
+          });
+          chip.appendChild(del);
+        }
+        chips.appendChild(chip);
+      });
+    };
+    var write = function (names) {
+      hidden.value = names.join(',');
+      // События нужны автосохранению карточки: значение изменилось по-настоящему.
+      hidden.dispatchEvent(new Event('input', { bubbles: true }));
+      hidden.dispatchEvent(new Event('change', { bubbles: true }));
+      draw();
+    };
+    var push = function (raw) {
+      // Запятая в названии разорвала бы строку хранения на два тега — режем сразу.
+      (raw || '').split(',').forEach(function (part) {
+        var name = part.replace(/\s+/g, ' ').trim();
+        if (!name) return;
+        var names = list();
+        if (names.some(function (x) { return same(x, name); })) return;
+        names.push(name);
+        write(names);
+      });
+    };
+    if (editable) {
+      fresh.addEventListener('keydown', function (e) {
+        // Enter в поле тега добавляет тег, а не отправляет всю карточку.
+        if (e.key === 'Enter') { e.preventDefault(); push(fresh.value); fresh.value = ''; }
+      });
+      // Выбор мышью из списка книги: браузер шлёт `change`, набор с клавиатуры — нет.
+      fresh.addEventListener('change', function () { push(fresh.value); fresh.value = ''; });
+      fresh.addEventListener('blur', function () { push(fresh.value); fresh.value = ''; });
+    }
+    draw();
+  })();
+
+  // Мобильный сегмент карточки: Этап / История / Файлы / Задачи (M4).
+  var mseg = document.querySelector('.ic-mseg');
+  var card = document.querySelector('.ic-card');
+  if (mseg && card) {
+    mseg.querySelectorAll('[data-mseg]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var seg = b.getAttribute('data-mseg');
+        mseg.querySelectorAll('[data-mseg]').forEach(function (x) { x.classList.remove('active'); });
+        b.classList.add('active');
+        card.setAttribute('data-mseg', seg);
+        if (seg !== 'stage') {
+          var map = { hist: 'rpane-hist', msg: 'rpane-msg', files: 'rpane-files', tasks: 'rpane-tasks' };
+          document.querySelectorAll('.crm-rtabpane').forEach(function (p) { p.classList.remove('active'); });
+          var pane = document.getElementById(map[seg]);
+          if (pane) pane.classList.add('active');
+        }
+      });
+    });
+  }
+})();
+
+</script>    </div>
+  </div>
+</div>
+<nav class="crm2-mobile-nav" aria-label="Мобильная навигация">
+  <a href="workspace.html" data-nav-prefixes="/workspace">
+    <span>Моя работа</span>
+  </a>
+  <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
+    <span>Касса</span>
+  </a>
+  <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
+    <span>Обращения · 2</span>
+  </a>
+  <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
+    <span>Ещё</span>
+  </button>
+</nav>
+
+<div class="crm2-mobile-sheet" id="crm2MobileSheet" aria-hidden="true">
+  <button class="crm2-mobile-backdrop" type="button" data-mobile-menu-close aria-label="Закрыть меню"></button>
+  <section class="crm2-mobile-panel" aria-label="Все разделы">
+    <div class="crm2-mobile-head">
+      <b>Разделы</b>
+      <button type="button" data-mobile-menu-close aria-label="Закрыть">×</button>
+    </div>
+    <div class="crm2-mobile-links">
+      <a href="workspace.html" data-nav-prefixes="/workspace">
+        <span>Моя работа</span>      </a>
+      <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
+        <span>Касса</span>      </a>
+      <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
+        <span>Обращения · 2</span><small>Продажи</small>      </a>
+      <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
+        <span>Замер · 2</span><small>Продажи</small>      </a>
+      <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
+        <span>Монтаж</span><small>Продажи</small>      </a>
+      <a href="deliveries.html" data-nav-prefixes="/deliveries">
+        <span>Доставка</span><small>Продажи</small>      </a>
+      <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted">
+        <span>Неразобранные · 2</span><small>Продажи</small>      </a>
+      <a href="claims.html" data-nav-prefixes="/claims">
+        <span>Рекламация · 1</span><small>Продажи</small>      </a>
+      <a href="coordinator.html" data-nav-prefixes="/coordinator">
+        <span>Координатор</span>      </a>
+      <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
+        <span>Задачи</span>      </a>
+      <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
+        <span>Договор · 2</span><small>Продажи</small>      </a>
+      <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
+        <span>Заказ</span><small>Продажи</small>      </a>
+      <a href="warehouse.html" data-nav-prefixes="/warehouse">
+        <span>Склад</span>      </a>
+      <a href="crm2__clients.html" data-nav-prefixes="/crm2/clients|/crm2/client">
+        <span>Клиенты</span>      </a>
+      <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive">
+        <span>Архив</span><small>Продажи</small>      </a>
+      <a href="crm2__order-materials.html" data-nav-prefixes="/crm2/order-materials">
+        <span>Допматериалы</span><small>ПТО</small>      </a>
+      <a href="calendar__measurements.html" data-nav-prefixes="/calendar/measurements">
+        <span>Календарь замеров</span><small>Календарь</small>      </a>
+      <a href="calendar__installations.html" data-nav-prefixes="/calendar/installations">
+        <span>Календарь монтажей</span><small>Календарь</small>      </a>
+      <a href="calendar__deliveries.html" data-nav-prefixes="/calendar/deliveries">
+        <span>Календарь доставок</span><small>Календарь</small>      </a>
+      <a href="me__motivation.html" data-nav-prefixes="/me/motivation">
+        <span>Моя мотивация</span>      </a>
+      <a href="settings__schedule.html" data-nav-prefixes="/settings/schedule">
+        <span>График работы</span>      </a>
+      <a href="reports__summary.html" data-nav-prefixes="/reports/summary">
+        <span>Сводный</span><small>Отчёты</small>      </a>
+      <a href="reports__conversion.html" data-nav-prefixes="/reports/conversion">
+        <span>Конверсия</span><small>Отчёты</small>      </a>
+      <a href="reports__revenue.html" data-nav-prefixes="/reports/revenue">
+        <span>Выручка</span><small>Отчёты</small>      </a>
+      <a href="reports__requests.html" data-nav-prefixes="/reports/requests">
+        <span>Обращения</span><small>Отчёты</small>      </a>
+      <a href="reports__day.html" data-nav-prefixes="/reports/day">
+        <span>За день</span><small>Отчёты</small>      </a>
+      <a href="reports__flow.html" data-nav-prefixes="/reports/flow">
+        <span>Доходы и расходы</span><small>Отчёты</small>      </a>
+      <a href="reports__cost.html" data-nav-prefixes="/reports/cost">
+        <span>Себестоимость</span><small>Отчёты</small>      </a>
+      <a href="reports__cash-flow.html" data-nav-prefixes="/reports/cash-flow">
+        <span>Анализ РКО</span><small>Отчёты</small>      </a>
+      <a href="reports__payables.html" data-nav-prefixes="/reports/payables">
+        <span>Анализ платежей</span><small>Отчёты</small>      </a>
+      <a href="reports__liabilities.html" data-nav-prefixes="/reports/liabilities">
+        <span>Анализ расходов</span><small>Отчёты</small>      </a>
+      <a href="reports__goals.html" data-nav-prefixes="/reports/goals">
+        <span>Цели</span><small>Отчёты</small>      </a>
+      <a href="settings.html" data-nav-prefixes="/settings|/salary">
+        <span>Настройки</span>      </a>
+    </div>
+  </section>
+</div><script>
+  /* Groups are real menu controls; every leaf is a working route. */
+  (function(){
+    document.querySelectorAll('[data-nav-menu]').forEach(function(wrap){
+      var button = wrap.querySelector('.nav-toggle');
+      var fly = wrap.querySelector('.fly,.set-fly');
+      if(!button || !fly){ return; }
+      var timer = null;
+      function place(){
+        fly.classList.add('open');
+        var r = button.getBoundingClientRect();
+        var top = Math.min(Math.max(8, r.top - 2), Math.max(8, window.innerHeight - fly.offsetHeight - 8));
+        fly.style.top = top + 'px';
+      }
+      function open(){ clearTimeout(timer); place(); button.setAttribute('aria-expanded','true'); }
+      function close(){ clearTimeout(timer); fly.classList.remove('open'); button.setAttribute('aria-expanded','false'); }
+      function scheduleClose(){ clearTimeout(timer); timer = setTimeout(close, 240); }
+      wrap.addEventListener('mouseenter', open);
+      wrap.addEventListener('mouseleave', scheduleClose);
+      button.addEventListener('click', function(e){ e.stopPropagation(); fly.classList.contains('open') ? close() : open(); });
+      button.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ close(); button.focus(); } });
+      fly.addEventListener('mouseenter', function(){ clearTimeout(timer); });
+      fly.addEventListener('mouseleave', scheduleClose);
+      fly.addEventListener('click', function(e){ if(e.target.closest('a')){ close(); } });
+      document.addEventListener('click', function(e){ if(!wrap.contains(e.target)){ close(); } });
+      /* Второй уровень «Настроек» фиксируется кликом: наведение — быстро, но
+         сорваться может (владелец 02.09.2026: «перейти невозможно, пропадает при
+         наведении»). Клик по группе оставляет её раскрытой, пока не выбрали пункт
+         или не открыли соседнюю. */
+      fly.querySelectorAll('.sg').forEach(function(group){
+        group.addEventListener('click', function(e){
+          if(e.target.closest('a')){ return; }   // клик по пункту — это переход
+          e.stopPropagation();
+          var was = group.classList.contains('open');
+          fly.querySelectorAll('.sg.open').forEach(function(other){ other.classList.remove('open'); });
+          if(!was){ group.classList.add('open'); }
+        });
+      });
+    });
+  })();
+
+  /* Активен ОДИН пункт — тот, чей префикс длиннее (самый точный).
+
+     «График работы» живёт на /settings/schedule, а группа «Настройки» ловит /settings —
+     подходили оба, и подсвечивались оба сразу (жалоба владельца 19.08.2026). Побеждает
+     самое длинное совпадение: /settings/schedule точнее, чем /settings. */
+  (function(){
+    var path = (window.location.pathname || '/').replace(/\/$/, '') || '/';
+    function best(raw){
+      var score = -1;
+      (raw || '').split('|').forEach(function(value){
+        var prefix = (value || '/').replace(/\/$/, '') || '/';
+        var hit = prefix === '/' ? path === '/' : (path === prefix || path.indexOf(prefix + '/') === 0);
+        if(hit && prefix.length > score){ score = prefix.length; }
+      });
+      return score;
+    }
+    var winner = null, winnerScore = -1;
+    var nodes = document.querySelectorAll('[data-nav-prefixes]');
+    nodes.forEach(function(node){
+      var score = best(node.getAttribute('data-nav-prefixes'));
+      if(score > winnerScore){ winnerScore = score; winner = node; }
+    });
+    if(!winner){ return; }
+    /* Подсвечиваем победителя и его группу в раскрытом меню: дочерний пункт внутри
+       группы должен помечать и саму группу, иначе в мобильном листе теряется место. */
+    nodes.forEach(function(node){
+      var score = best(node.getAttribute('data-nav-prefixes'));
+      var inGroup = node !== winner && node.contains && node.contains(winner);
+      if(node === winner || (inGroup && score >= 0)){
+        node.classList.add('active');
+        if(node.tagName === 'A'){ node.setAttribute('aria-current','page'); }
+      }
+    });
+  })();
+
+  (function(){
+    var sheet = document.getElementById('crm2MobileSheet');
+    var toggle = document.querySelector('[data-mobile-menu-toggle]');
+    if(!sheet || !toggle){ return; }
+    function setOpen(open){
+      sheet.classList.toggle('open', open);
+      sheet.setAttribute('aria-hidden', open ? 'false' : 'true');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    toggle.addEventListener('click', function(){ setOpen(!sheet.classList.contains('open')); });
+    sheet.querySelectorAll('[data-mobile-menu-close]').forEach(function(button){ button.addEventListener('click', function(){ setOpen(false); }); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ setOpen(false); } });
+  })();
+</script>
+<script>
+/* Позиция прокрутки переживает отправку формы: раньше любое действие
+   возвращало пользователя в начало страницы, и место работы терялось. */
+(function () {
+  var KEY = 'crm2:scroll:' + location.pathname + location.search;
+  /* Каждая рабочая область может прокручиваться внутри себя, а не страницей:
+     реестр в `.work`, карточка обращения — внутри `.ic-center-body` и
+     `.ic-right-body`, длинные списки — в `.fill-scroll`. Раньше запоминалась
+     только `.work`, поэтому после действия карточка возвращалась в начало
+     вкладки — тот самый «прыжок». Теперь запоминаем прокрутку всех областей. */
+  var SELECTORS = ['.work', '.ic-center-body', '.ic-right-body', '.fill-scroll', '.fill-scroll2'];
+  function areas() {
+    var list = [];
+    SELECTORS.forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (el, i) { list.push([sel + '#' + i, el]); });
+    });
+    return list;
+  }
+  function remember() {
+    var pos = {};
+    areas().forEach(function (pair) { pos[pair[0]] = pair[1].scrollTop || 0; });
+    try {
+      sessionStorage.setItem(KEY, JSON.stringify({
+        page: window.scrollY || 0,
+        areas: pos,
+        at: Date.now()
+      }));
+    } catch (e) { /* приватный режим — просто не запоминаем */ }
+  }
+  document.addEventListener('submit', remember, true);
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('button, input[type=submit], a');
+    if (el) { remember(); }
+  }, true);
+  window.addEventListener('pagehide', remember);
+
+  try {
+    var saved = JSON.parse(sessionStorage.getItem(KEY) || 'null');
+    /* Возвращаем позицию только сразу после действия, а не при заходе спустя время. */
+    if (saved && Date.now() - saved.at < 60000) {
+      var apply = function () {
+        areas().forEach(function (pair) {
+          var v = saved.areas && saved.areas[pair[0]];
+          if (v) { pair[1].scrollTop = v; }
+        });
+        if (saved.page) { window.scrollTo(0, saved.page); }
+      };
+      /* Дважды: сразу после разметки и после того, как шрифты/аккордеоны
+         досчитают высоту — иначе восстановление ляжет не туда и «дёрнет». */
+      requestAnimationFrame(apply);
+      window.addEventListener('load', function () { requestAnimationFrame(apply); });
+    }
+  } catch (e) { /* нет сохранённой позиции — оставляем как есть */ }
+})();
+</script>
+
+<script>
+/* Подтверждение удаления берёт текст из data-атрибута, а не собирает JS-строку
+   в onsubmit. В названиях справочников встречается апостроф: браузер раскрывает
+   `&#39;` в атрибуте ДО разбора JS, строка рвётся — форма переставала работать,
+   а подобранное название выполняло чужой код в сессии того, кто нажал «Удалить».
+   Экранирование Jinja от этого не спасает, спасает только отказ от JS-строки. */
+document.addEventListener('submit', function (ev) {
+  var f = ev.target;
+  if (!f || !f.dataset || !f.dataset.confirm) { return; }
+  if (!window.confirm(f.dataset.confirm)) { ev.preventDefault(); }
+}, true);
+</script><div id="call-popup" class="call-popup" hidden aria-live="polite">
+  <div class="call-popup-head">
+    <span class="call-popup-tag">Входящий звонок</span>
+    <button type="button" class="call-popup-x" data-call-dismiss aria-label="Скрыть">×</button>
+  </div>
+  <div class="call-popup-name" data-call-name></div>
+  <div class="call-popup-phone" data-call-phone></div>
+  <div class="call-popup-addr" data-call-addr hidden></div>
+  <div class="call-popup-actions">
+    <a class="btn is-strong" data-call-request hidden>Открыть обращение</a>
+    <a class="btn" data-call-card hidden>Карта клиента</a>
+  </div>
+</div><script>
+(function () {
+  var box = document.getElementById('call-popup');
+  if (!box) { return; }
+  var BASE = 3000, MAX = 60000, wait = BASE, current = null, timer = null;
+
+  function el(name) { return box.querySelector('[data-call-' + name + ']'); }
+
+  function show(call) {
+    if (current && current.call_id === call.call_id) { return; }
+    current = call;
+    el('name').textContent = call.name || '';
+    el('phone').textContent = call.phone || '';
+    var addr = el('addr');
+    addr.textContent = call.address || '';
+    addr.hidden = !call.address;
+    var req = el('request');
+    if (call.request_link) { req.href = call.request_link; req.hidden = false; }
+    else { req.hidden = true; }
+    var card = el('card');
+    if (call.card_link) { card.href = call.card_link; card.hidden = false; }
+    else { card.hidden = true; }
+    box.hidden = false;
+  }
+
+  function hide() { box.hidden = true; current = null; }
+
+  el('dismiss').addEventListener('click', function () {
+    var id = current && current.call_id;
+    hide();
+    if (!id) { return; }
+    /* Скрытие пишется на сервер: иначе та же карточка всплывала бы снова через
+       три секунды, и закрыть её было бы нельзя. Маршрут вне `/api/` — на него
+       действует проверка источника запроса. */
+    fetch('/telephony/calls/' + id + '/dismiss', {
+      method: 'POST', credentials: 'same-origin'
+    }).catch(function () {});
+  });
+
+  function poll() {
+    if (document.hidden) { return schedule(BASE); }
+    fetch('/api/telephony/popup', { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : { call: null }; })
+      .then(function (data) {
+        wait = BASE;
+        if (data && data.call) { show(data.call); } else { hide(); }
+        schedule(wait);
+      })
+      .catch(function () {
+        /* Сервер недоступен — отходим, а не долбим его каждые три секунды. */
+        wait = Math.min(wait * 2, MAX);
+        schedule(wait);
+      });
+  }
+
+  function schedule(ms) {
+    clearTimeout(timer);
+    timer = setTimeout(poll, ms);
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) { schedule(200); }
+  });
+  schedule(BASE);
+})();
+</script></body>
+</html>

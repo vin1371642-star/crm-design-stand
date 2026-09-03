@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Доставка — Ростовские окна</title>
+<link rel="stylesheet" href="static/design-system.css?v=1788344011">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788344011">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788344011">
+</head>
+<body>
+<div class="app">
+<nav class="side" aria-label="Основная навигация">
+  <div class="side-head" title="Ростовские окна">
+    <div class="logo-badge"><svg viewBox="0 0 24 24"><path d="M3 21h18M4 21V9l8-5 8 5v12M9 21v-6h6v6"/></svg></div>
+  </div>
+  <div class="rail">
+      <a href="workspace.html" class="ri" data-nav-prefixes="/workspace">
+        <svg viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/></svg><span>Моя работа</span>
+      </a>
+      <div class="nav-wrap" data-nav-menu>
+        <button class="ri nav-toggle" type="button" aria-expanded="false"
+                data-nav-prefixes="/calls/unsorted|/crm2/incoming|/incoming|/crm2/measurements|/measurements|/crm2/contracts|/crm2/orders|/deliveries|/installations|/crm2/archive|/claims">
+          <svg viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg><span>Продажи</span>
+        </button>
+        <div class="fly" aria-label="Продажи">
+          <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 2</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 2</b></a>
+          <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 2</b></a>
+          <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ</b></a>
+          <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
+          <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
+          <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive"><b>Архив</b></a>
+          <a href="claims.html" data-nav-prefixes="/claims"><b>Рекламация · 1</b></a>
+        </div>
+      </div>
+      <a href="crm2__clients.html" class="ri" data-nav-prefixes="/crm2/clients|/crm2/client">
+        <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Клиенты</span>
+      </a>
+      <a href="warehouse.html" class="ri" data-nav-prefixes="/warehouse">
+        <svg viewBox="0 0 24 24"><path d="M3 21V9l9-5 9 5v12"/><path d="M3 21h18"/><path d="M9 21v-6h6v6"/></svg><span>Склад</span>
+      </a>
+      <a href="coordinator.html" class="ri" data-nav-prefixes="/coordinator">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg><span>Координатор</span>
+      </a>
+      <div class="nav-wrap" data-nav-menu>
+        <button class="ri nav-toggle" type="button" aria-expanded="false"
+                data-nav-prefixes="/crm2/order-materials">
+          <svg viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></svg><span>ПТО</span>
+        </button>
+        <div class="fly" aria-label="ПТО">
+          <a href="crm2__order-materials.html" data-nav-prefixes="/crm2/order-materials"><b>Допматериалы</b></a>
+        </div>
+      </div>
+      <div class="nav-wrap" data-nav-menu>
+        <button class="ri nav-toggle" type="button" aria-expanded="false"
+                data-nav-prefixes="/reports/summary|/reports/conversion|/reports/revenue|/reports/requests|/reports/day|/reports/flow|/reports/cost|/reports/cash-flow|/reports/payables|/reports/liabilities|/reports/goals">
+          <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6" rx="1"/><rect x="12" y="8" width="3" height="10" rx="1"/><rect x="17" y="4" width="3" height="14" rx="1"/></svg><span>Отчёты</span>
+        </button>
+        <div class="fly" aria-label="Отчёты">
+          <a href="reports__summary.html" data-nav-prefixes="/reports/summary"><b>Сводный</b></a>
+          <a href="reports__conversion.html" data-nav-prefixes="/reports/conversion"><b>Конверсия</b></a>
+          <a href="reports__revenue.html" data-nav-prefixes="/reports/revenue"><b>Выручка</b></a>
+          <a href="reports__requests.html" data-nav-prefixes="/reports/requests"><b>Обращения</b></a>
+          <a href="reports__day.html" data-nav-prefixes="/reports/day"><b>За день</b></a>
+          <a href="reports__flow.html" data-nav-prefixes="/reports/flow"><b>Доходы и расходы</b></a>
+          <a href="reports__cost.html" data-nav-prefixes="/reports/cost"><b>Себестоимость</b></a>
+          <a href="reports__cash-flow.html" data-nav-prefixes="/reports/cash-flow"><b>Анализ РКО</b></a>
+          <a href="reports__payables.html" data-nav-prefixes="/reports/payables"><b>Анализ платежей</b></a>
+          <a href="reports__liabilities.html" data-nav-prefixes="/reports/liabilities"><b>Анализ расходов</b></a>
+          <a href="reports__goals.html" data-nav-prefixes="/reports/goals"><b>Цели</b></a>
+        </div>
+      </div>
+      <a href="tasks.html" class="ri" data-nav-prefixes="/tasks|/me/tasks">
+        <svg viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/></svg><span>Задачи</span>
+      </a>
+      <div class="nav-wrap" data-nav-menu>
+        <button class="ri nav-toggle" type="button" aria-expanded="false"
+                data-nav-prefixes="/calendar/measurements|/calendar/installations|/calendar/deliveries">
+          <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg><span>Календарь</span>
+        </button>
+        <div class="fly" aria-label="Календарь">
+          <a href="calendar__measurements.html" data-nav-prefixes="/calendar/measurements"><b>Календарь замеров</b></a>
+          <a href="calendar__installations.html" data-nav-prefixes="/calendar/installations"><b>Календарь монтажей</b></a>
+          <a href="calendar__deliveries.html" data-nav-prefixes="/calendar/deliveries"><b>Календарь доставок</b></a>
+        </div>
+      </div>
+      <a href="cashbox.html" class="ri" data-nav-prefixes="/cashbox|/me/cashbox">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><circle cx="12" cy="12" r="2.2"/><path d="M6 12h.01M18 12h.01"/></svg><span>Касса</span>
+      </a>
+      <a href="me__motivation.html" class="ri" data-nav-prefixes="/me/motivation">
+        <svg viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/></svg><span>Моя мотивация</span>
+      </a>
+      <a href="settings__schedule.html" class="ri" data-nav-prefixes="/settings/schedule">
+        <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg><span>График работы</span>
+      </a>
+      <div class="nav-wrap has-set" data-nav-menu>
+        <button class="ri nav-toggle" type="button" aria-expanded="false"
+                data-nav-prefixes="/settings|/salary">
+          <svg viewBox="0 0 24 24"><path d="M12.2 2h-.4a2 2 0 0 0-2 2v.2a2 2 0 0 1-1 1.73l-.4.25a2 2 0 0 1-2 0l-.2-.08a2 2 0 0 0-2.73.73l-.2.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.2.38a2 2 0 0 0 2.73.73l.2-.08a2 2 0 0 1 2 0l.4.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.4a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.4-.25a2 2 0 0 1 2 0l.2.08a2 2 0 0 0 2.73-.73l.2-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.2-.38a2 2 0 0 0-2.73-.73l-.2.08a2 2 0 0 1-2 0l-.4-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg><span>Настройки</span>
+        </button>
+        <div class="set-fly" aria-label="Настройки">
+          <div class="sg"><b>Компания</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="settings__structure__company.html">Компания</a><a href="settings__structure__offices.html">Офисы</a><a href="settings__structure__warehouses.html">Склады</a><a href="settings__structure__vehicles.html">Транспортные средства</a>            </div>
+          </div>
+          <div class="sg"><b>Люди</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="settings__structure__employees.html">Сотрудники</a><a href="settings__structure__positions.html">Должности</a><a href="settings__structure__brigades.html">Бригады</a>            </div>
+          </div>
+          <div class="sg"><b>Справочники</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="#" data-screen="/settings/dictionaries/questionnaire">Опросник</a><a href="#" data-screen="/settings/dictionaries/product">Блок изделий</a><a href="#" data-screen="/settings/dictionaries/district_metro">Районы/Метро</a><a href="#" data-screen="/settings/dictionaries/contract_category">Категории договора</a><a href="#" data-screen="/settings/dictionaries/product_variant">Срок изготовления изделий</a><a href="#" data-screen="/settings/dictionaries/guarantee">Гарантийный период</a><a href="#" data-screen="/settings/dictionaries/discount">Скидки</a><a href="#" data-screen="/settings/dictionaries/reclamation_type">Тип рекламаций</a><a href="#" data-screen="/settings/dictionaries/document">Шаблоны документов</a><a href="#" data-screen="/settings/dictionaries/additional_work">Дополнительные работы</a><a href="#" data-screen="/settings/dictionaries/sales_direction">Направления деятельности</a><a href="#" data-screen="/settings/dictionaries/tags">Теги</a>            </div>
+          </div>
+          <div class="sg"><b>Обращение и договор</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="settings__handling.html">Статусы обращения</a><a href="#" data-screen="/settings/dictionaries/failure_reason">Причина отказа</a><a href="settings__incoming.html">Обращения и договоры</a><a href="settings__fine.html">Тонкие настройки</a>            </div>
+          </div>
+          <div class="sg"><b>Деньги и мотивация</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="settings__motivation.html">Мотивация и ЗП</a><a href="settings__plans.html">Планы продаж</a><a href="settings__contests.html">Конкурсы</a><a href="salary__payroll.html">Сводная ЗП</a><a href="salary__calc.html">Калькулятор ЗП</a><a href="salary__attribution.html">Замеры по сотрудникам</a>            </div>
+          </div>
+          <div class="sg"><b>Контрагенты</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="settings__suppliers.html">Поставщики изделий</a><a href="settings__suppliers.html">Поставщики доп. материалов</a><a href="settings__suppliers.html">Прочие поставщики</a><a href="settings__suppliers.html">Реклама</a><a href="settings__suppliers.html">Аренда</a><a href="settings__suppliers.html">Банки</a>            </div>
+          </div>
+          <div class="sg"><b>Интеграции</b><i class="sg-arw">›</i>
+            <div class="set-fly2">
+<a href="#" data-screen="/settings/services/mts">МТС</a><a href="settings__services__megafon.html">МегаФон</a>            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</nav>  <div class="main">
+<header class="top">
+  <span class="brand">РОСТОВСКИЕ ОКНА</span>
+  <form class="search" method="get" action="/crm2/incoming" role="search">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input type="search" name="q" aria-label="Поиск по обращениям" placeholder="№ обращения, клиент, телефон">
+  </form>
+  <a class="icon-btn search-mobile" href="crm2__incoming.html" aria-label="Поиск по обращениям">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+  </a>
+  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+    <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
+  </form>
+</header>    <div class="work">
+<style>
+/* Экран использует токены дизайн-системы: своей палитры и своих высот нет. */
+.dlv-table-scroll{ overflow-x:auto; }
+.dlv-table-scroll table{ min-width:1100px; }
+.dlv td{ height:var(--row-h); }
+.dlv td.num{ color:var(--muted2); white-space:nowrap; }
+.dlv td.nowrap{ white-space:nowrap; }
+.dlv td.addr{ max-width:260px; }
+.dlv td.center{ text-align:center; }
+.dlv-table-card{ padding:0; }
+.dlv .tel{ color:inherit; white-space:nowrap; }
+
+/* иконка-комментарий с всплывающей подсказкой (без открытия карточки) */
+.dlv .cmt{ position:relative; display:inline-block; cursor:default; }
+.dlv .cmt .eye{ font-size:var(--r2-card-title); line-height:var(--r2-card-title-lh); opacity:.7; }
+.dlv .cmt.empty .eye{ opacity:.25; }
+.dlv .cmt .pop{ display:none; position:absolute; right:0; top:100%; z-index:20; min-width:220px; max-width:320px;
+  padding:var(--sp-3) var(--sp-4); background:var(--panel); border:1px solid var(--line); border-radius:var(--r2-radius-8);
+  box-shadow:0 6px 24px rgba(16,24,40,.18); font-size:var(--r2-label); line-height:var(--r2-label-lh);
+  text-align:left; white-space:normal; }
+.dlv .cmt:hover .pop{ display:block; }
+.dlv .cmt .pop b{ display:block; margin-bottom:var(--sp-1); color:var(--accent); }
+
+/* Страница — колонка на всю высоту (.fill): строка фильтров и пейджер не сжимаются. */
+.dlv > .rfilters, .dlv > .pager{ flex:none; }
+/* Сортировка по заголовку — те же правила, что в реестрах crm2. */
+.dlv thead th .sortlink{ display:inline-flex; align-items:center; gap:var(--sp-1); color:inherit;
+  text-decoration:none; cursor:pointer; }
+.dlv thead th .sortlink:hover{ color:var(--ink); }
+.dlv thead th.sorted{ color:var(--ink); }
+.dlv thead th .sarr{ font-size:var(--r2-label); line-height:1; color:var(--accent-ink); }
+</style>
+
+
+
+<div class="crm-page dlv fill">
+  <div class="crm-page-head">
+    <h1>Доставка</h1>
+    <div class="crm-page-actions"><a class="btn" href="calendar__deliveries.html">Календарь доставок</a>
+      <details class="colpick">
+  <summary class="tbtn" title="Какие колонки показывать">
+    <svg viewBox="0 0 24 24"><path d="M3 5h18M3 12h18M3 19h18"/></svg>Колонки
+  </summary>
+  <form class="colpick-pop" method="post" action="/crm2/registry/columns">
+    <input type="hidden" name="registry" value="deliveries">
+    <input type="hidden" name="back" value="/deliveries"><div class="colpick-list" data-colsort>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="scheduled_at" checked>
+        <span>Дата и время</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="status" checked>
+        <span>Статус</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="client" checked>
+        <span>Клиент</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="phone" checked>
+        <span>Телефон</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="address" checked>
+        <span>Адрес</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="performer" checked>
+        <span>Кто везёт</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="office" checked>
+        <span>Офис</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="contract_number" checked>
+        <span>№ договора</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="items_count" checked>
+        <span>Изделий</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="products_acceptance" checked>
+        <span>Накладная</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="comment" checked>
+        <span>Коммент.</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="request_no">
+        <span>№ обращения</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="order_no">
+        <span>№ заказа</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="area">
+        <span>Площадь, м²</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="stock_arrival_date">
+        <span>Изделия на складе</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="completed_at">
+        <span>Доставлено</span>
+      </label>
+    </div>
+    <div class="colpick-act">
+      <button class="pbtn on" type="submit">Применить</button>
+      <button class="pbtn" type="submit" name="reset" value="1">По умолчанию</button>
+    </div>
+  </form>
+</details>
+<script>
+/* Перетаскивание строк настройки колонок. Своей библиотеки не заводим: нативный
+   drag-and-drop делает ровно то, что нужно, и не тянет ни килобайта. Порядок
+   отправляется сам — галочки уходят в порядке DOM. */
+(function () {
+  document.querySelectorAll('[data-colsort]').forEach(function (list) {
+    if (list.dataset.colsortReady) { return; }
+    list.dataset.colsortReady = '1';
+    var dragged = null;
+    list.addEventListener('dragstart', function (e) {
+      dragged = e.target.closest('.colpick-item');
+      if (dragged) { dragged.classList.add('is-dragging'); }
+    });
+    list.addEventListener('dragend', function () {
+      if (dragged) { dragged.classList.remove('is-dragging'); }
+      dragged = null;
+    });
+    list.addEventListener('dragover', function (e) {
+      if (!dragged) { return; }
+      e.preventDefault();
+      var over = e.target.closest('.colpick-item');
+      if (!over || over === dragged) { return; }
+      var rect = over.getBoundingClientRect();
+      var after = (e.clientY - rect.top) > rect.height / 2;
+      list.insertBefore(dragged, after ? over.nextSibling : over);
+    });
+  });
+})();
+</script>
+
+      <details class="colpick">
+  <summary class="tbtn" title="Выгрузить то, что отобрано на экране">
+    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Экспорт
+  </summary>
+  <div class="colpick-pop">
+    <div class="colpick-list">
+      <a class="colpick-item" href="#" data-screen="/deliveries/export.csv?tab=planned&amp;amp;fmt=xlsx">Excel (.xlsx)</a>
+      <a class="colpick-item" href="#" data-screen="/deliveries/export.csv?tab=planned&amp;amp;fmt=csv">CSV</a>
+    </div>
+  </div>
+</details>
+
+    </div>
+  </div>
+
+  <nav class="crm-tabs">
+    <a href="deliveries.html" class="active" aria-current="page">
+      Запланированы<span class="tab-badge">0</span>
+    </a>
+    <a href="deliveries.html" >
+      Без даты<span class="tab-badge">0</span>
+    </a>
+    <a href="deliveries.html" >
+      Доставлены<span class="tab-badge">0</span>
+    </a>
+  </nav>
+
+  <form class="rfilters" method="get" action="/deliveries">
+    <input type="hidden" name="tab" value="planned">
+    <input class="finp fsearch" type="search" name="q" value="" placeholder="Клиент, телефон, адрес, № договора"><select class="fsel" name="status" onchange="this.form.submit()" aria-label="Статус доставки">
+      <option value="">Все статусы</option>
+<option value="scheduled" >Назначен</option><option value="postponed" >Перенесён</option><option value="overdue" >Просрочен</option><option value="signed" >Подписан</option>    </select>
+    <select class="fsel" name="direction" onchange="this.form.submit()" aria-label="Направление">
+      <option value="">Все направления</option>
+<option value="25" >Ростовские окна розница</option><option value="26" >Ростовские окна опт</option><option value="27" >Росток</option>    </select>
+    <input class="finp fdate" type="date" name="date_from" value="" onchange="this.form.submit()" title="Дата доставки с" aria-label="Дата доставки с">
+    <input class="finp fdate" type="date" name="date_to" value="" onchange="this.form.submit()" title="Дата доставки по" aria-label="Дата доставки по">
+<input type="hidden" name="sort" value="scheduled_at"><input type="hidden" name="dir" value="asc">  </form>
+
+  <div class="crm-card fill-card dlv-table-card">
+  <div class="dlv-table-scroll fill-scroll hscroll-sync">
+  <table class="crm-table">
+    <thead>
+      <tr>
+<th class=" sorted"><a class="sortlink" href="?sort=scheduled_at&dir=desc&amp;tab=planned">Дата и время<span class="sarr">↑</span></a></th>
+<th class=""><a class="sortlink" href="?sort=status&dir=asc&amp;tab=planned">Статус</a></th>
+<th class=""><a class="sortlink" href="?sort=client&dir=asc&amp;tab=planned">Клиент</a></th>
+<th class=""><a class="sortlink" href="?sort=phone&dir=asc&amp;tab=planned">Телефон</a></th>
+<th class=""><a class="sortlink" href="?sort=address&dir=asc&amp;tab=planned">Адрес</a></th>
+<th class=""><a class="sortlink" href="?sort=performer&dir=asc&amp;tab=planned">Кто везёт</a></th>
+<th class=""><a class="sortlink" href="?sort=office&dir=asc&amp;tab=planned">Офис</a></th>
+<th class=""><a class="sortlink" href="?sort=contract_number&dir=asc&amp;tab=planned">№ договора</a></th>
+<th class="">Изделий</th>
+<th class="">Накладная</th>
+<th class="">Коммент.</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr><td colspan="11" class="list-empty">Доставок нет</td></tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+
+<div class="pager">
+  <span class="pbtn is-off">«</span><span class="pbtn is-off">←</span>
+<span class="pbtn on">1</span>
+  <span class="pbtn is-off">→</span><span class="pbtn is-off">»</span>
+  <span class="pinfo">Показаны <b>0–0</b> из <b>0</b></span>
+</div></div>
+    </div>
+  </div>
+</div>
+<nav class="crm2-mobile-nav" aria-label="Мобильная навигация">
+  <a href="workspace.html" data-nav-prefixes="/workspace">
+    <span>Моя работа</span>
+  </a>
+  <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
+    <span>Касса</span>
+  </a>
+  <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
+    <span>Обращения · 2</span>
+  </a>
+  <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
+    <span>Ещё</span>
+  </button>
+</nav>
+
+<div class="crm2-mobile-sheet" id="crm2MobileSheet" aria-hidden="true">
+  <button class="crm2-mobile-backdrop" type="button" data-mobile-menu-close aria-label="Закрыть меню"></button>
+  <section class="crm2-mobile-panel" aria-label="Все разделы">
+    <div class="crm2-mobile-head">
+      <b>Разделы</b>
+      <button type="button" data-mobile-menu-close aria-label="Закрыть">×</button>
+    </div>
+    <div class="crm2-mobile-links">
+      <a href="workspace.html" data-nav-prefixes="/workspace">
+        <span>Моя работа</span>      </a>
+      <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
+        <span>Касса</span>      </a>
+      <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
+        <span>Обращения · 2</span><small>Продажи</small>      </a>
+      <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
+        <span>Замер · 2</span><small>Продажи</small>      </a>
+      <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
+        <span>Монтаж</span><small>Продажи</small>      </a>
+      <a href="deliveries.html" data-nav-prefixes="/deliveries">
+        <span>Доставка</span><small>Продажи</small>      </a>
+      <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted">
+        <span>Неразобранные · 2</span><small>Продажи</small>      </a>
+      <a href="claims.html" data-nav-prefixes="/claims">
+        <span>Рекламация · 1</span><small>Продажи</small>      </a>
+      <a href="coordinator.html" data-nav-prefixes="/coordinator">
+        <span>Координатор</span>      </a>
+      <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
+        <span>Задачи</span>      </a>
+      <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
+        <span>Договор · 2</span><small>Продажи</small>      </a>
+      <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
+        <span>Заказ</span><small>Продажи</small>      </a>
+      <a href="warehouse.html" data-nav-prefixes="/warehouse">
+        <span>Склад</span>      </a>
+      <a href="crm2__clients.html" data-nav-prefixes="/crm2/clients|/crm2/client">
+        <span>Клиенты</span>      </a>
+      <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive">
+        <span>Архив</span><small>Продажи</small>      </a>
+      <a href="crm2__order-materials.html" data-nav-prefixes="/crm2/order-materials">
+        <span>Допматериалы</span><small>ПТО</small>      </a>
+      <a href="calendar__measurements.html" data-nav-prefixes="/calendar/measurements">
+        <span>Календарь замеров</span><small>Календарь</small>      </a>
+      <a href="calendar__installations.html" data-nav-prefixes="/calendar/installations">
+        <span>Календарь монтажей</span><small>Календарь</small>      </a>
+      <a href="calendar__deliveries.html" data-nav-prefixes="/calendar/deliveries">
+        <span>Календарь доставок</span><small>Календарь</small>      </a>
+      <a href="me__motivation.html" data-nav-prefixes="/me/motivation">
+        <span>Моя мотивация</span>      </a>
+      <a href="settings__schedule.html" data-nav-prefixes="/settings/schedule">
+        <span>График работы</span>      </a>
+      <a href="reports__summary.html" data-nav-prefixes="/reports/summary">
+        <span>Сводный</span><small>Отчёты</small>      </a>
+      <a href="reports__conversion.html" data-nav-prefixes="/reports/conversion">
+        <span>Конверсия</span><small>Отчёты</small>      </a>
+      <a href="reports__revenue.html" data-nav-prefixes="/reports/revenue">
+        <span>Выручка</span><small>Отчёты</small>      </a>
+      <a href="reports__requests.html" data-nav-prefixes="/reports/requests">
+        <span>Обращения</span><small>Отчёты</small>      </a>
+      <a href="reports__day.html" data-nav-prefixes="/reports/day">
+        <span>За день</span><small>Отчёты</small>      </a>
+      <a href="reports__flow.html" data-nav-prefixes="/reports/flow">
+        <span>Доходы и расходы</span><small>Отчёты</small>      </a>
+      <a href="reports__cost.html" data-nav-prefixes="/reports/cost">
+        <span>Себестоимость</span><small>Отчёты</small>      </a>
+      <a href="reports__cash-flow.html" data-nav-prefixes="/reports/cash-flow">
+        <span>Анализ РКО</span><small>Отчёты</small>      </a>
+      <a href="reports__payables.html" data-nav-prefixes="/reports/payables">
+        <span>Анализ платежей</span><small>Отчёты</small>      </a>
+      <a href="reports__liabilities.html" data-nav-prefixes="/reports/liabilities">
+        <span>Анализ расходов</span><small>Отчёты</small>      </a>
+      <a href="reports__goals.html" data-nav-prefixes="/reports/goals">
+        <span>Цели</span><small>Отчёты</small>      </a>
+      <a href="settings.html" data-nav-prefixes="/settings|/salary">
+        <span>Настройки</span>      </a>
+    </div>
+  </section>
+</div><script>
+  /* Groups are real menu controls; every leaf is a working route. */
+  (function(){
+    document.querySelectorAll('[data-nav-menu]').forEach(function(wrap){
+      var button = wrap.querySelector('.nav-toggle');
+      var fly = wrap.querySelector('.fly,.set-fly');
+      if(!button || !fly){ return; }
+      var timer = null;
+      function place(){
+        fly.classList.add('open');
+        var r = button.getBoundingClientRect();
+        var top = Math.min(Math.max(8, r.top - 2), Math.max(8, window.innerHeight - fly.offsetHeight - 8));
+        fly.style.top = top + 'px';
+      }
+      function open(){ clearTimeout(timer); place(); button.setAttribute('aria-expanded','true'); }
+      function close(){ clearTimeout(timer); fly.classList.remove('open'); button.setAttribute('aria-expanded','false'); }
+      function scheduleClose(){ clearTimeout(timer); timer = setTimeout(close, 240); }
+      wrap.addEventListener('mouseenter', open);
+      wrap.addEventListener('mouseleave', scheduleClose);
+      button.addEventListener('click', function(e){ e.stopPropagation(); fly.classList.contains('open') ? close() : open(); });
+      button.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ close(); button.focus(); } });
+      fly.addEventListener('mouseenter', function(){ clearTimeout(timer); });
+      fly.addEventListener('mouseleave', scheduleClose);
+      fly.addEventListener('click', function(e){ if(e.target.closest('a')){ close(); } });
+      document.addEventListener('click', function(e){ if(!wrap.contains(e.target)){ close(); } });
+      /* Второй уровень «Настроек» фиксируется кликом: наведение — быстро, но
+         сорваться может (владелец 02.09.2026: «перейти невозможно, пропадает при
+         наведении»). Клик по группе оставляет её раскрытой, пока не выбрали пункт
+         или не открыли соседнюю. */
+      fly.querySelectorAll('.sg').forEach(function(group){
+        group.addEventListener('click', function(e){
+          if(e.target.closest('a')){ return; }   // клик по пункту — это переход
+          e.stopPropagation();
+          var was = group.classList.contains('open');
+          fly.querySelectorAll('.sg.open').forEach(function(other){ other.classList.remove('open'); });
+          if(!was){ group.classList.add('open'); }
+        });
+      });
+    });
+  })();
+
+  /* Активен ОДИН пункт — тот, чей префикс длиннее (самый точный).
+
+     «График работы» живёт на /settings/schedule, а группа «Настройки» ловит /settings —
+     подходили оба, и подсвечивались оба сразу (жалоба владельца 19.08.2026). Побеждает
+     самое длинное совпадение: /settings/schedule точнее, чем /settings. */
+  (function(){
+    var path = (window.location.pathname || '/').replace(/\/$/, '') || '/';
+    function best(raw){
+      var score = -1;
+      (raw || '').split('|').forEach(function(value){
+        var prefix = (value || '/').replace(/\/$/, '') || '/';
+        var hit = prefix === '/' ? path === '/' : (path === prefix || path.indexOf(prefix + '/') === 0);
+        if(hit && prefix.length > score){ score = prefix.length; }
+      });
+      return score;
+    }
+    var winner = null, winnerScore = -1;
+    var nodes = document.querySelectorAll('[data-nav-prefixes]');
+    nodes.forEach(function(node){
+      var score = best(node.getAttribute('data-nav-prefixes'));
+      if(score > winnerScore){ winnerScore = score; winner = node; }
+    });
+    if(!winner){ return; }
+    /* Подсвечиваем победителя и его группу в раскрытом меню: дочерний пункт внутри
+       группы должен помечать и саму группу, иначе в мобильном листе теряется место. */
+    nodes.forEach(function(node){
+      var score = best(node.getAttribute('data-nav-prefixes'));
+      var inGroup = node !== winner && node.contains && node.contains(winner);
+      if(node === winner || (inGroup && score >= 0)){
+        node.classList.add('active');
+        if(node.tagName === 'A'){ node.setAttribute('aria-current','page'); }
+      }
+    });
+  })();
+
+  (function(){
+    var sheet = document.getElementById('crm2MobileSheet');
+    var toggle = document.querySelector('[data-mobile-menu-toggle]');
+    if(!sheet || !toggle){ return; }
+    function setOpen(open){
+      sheet.classList.toggle('open', open);
+      sheet.setAttribute('aria-hidden', open ? 'false' : 'true');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    toggle.addEventListener('click', function(){ setOpen(!sheet.classList.contains('open')); });
+    sheet.querySelectorAll('[data-mobile-menu-close]').forEach(function(button){ button.addEventListener('click', function(){ setOpen(false); }); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ setOpen(false); } });
+  })();
+</script>
+<script>
+/* Позиция прокрутки переживает отправку формы: раньше любое действие
+   возвращало пользователя в начало страницы, и место работы терялось. */
+(function () {
+  var KEY = 'crm2:scroll:' + location.pathname + location.search;
+  /* Каждая рабочая область может прокручиваться внутри себя, а не страницей:
+     реестр в `.work`, карточка обращения — внутри `.ic-center-body` и
+     `.ic-right-body`, длинные списки — в `.fill-scroll`. Раньше запоминалась
+     только `.work`, поэтому после действия карточка возвращалась в начало
+     вкладки — тот самый «прыжок». Теперь запоминаем прокрутку всех областей. */
+  var SELECTORS = ['.work', '.ic-center-body', '.ic-right-body', '.fill-scroll', '.fill-scroll2'];
+  function areas() {
+    var list = [];
+    SELECTORS.forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (el, i) { list.push([sel + '#' + i, el]); });
+    });
+    return list;
+  }
+  function remember() {
+    var pos = {};
+    areas().forEach(function (pair) { pos[pair[0]] = pair[1].scrollTop || 0; });
+    try {
+      sessionStorage.setItem(KEY, JSON.stringify({
+        page: window.scrollY || 0,
+        areas: pos,
+        at: Date.now()
+      }));
+    } catch (e) { /* приватный режим — просто не запоминаем */ }
+  }
+  document.addEventListener('submit', remember, true);
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('button, input[type=submit], a');
+    if (el) { remember(); }
+  }, true);
+  window.addEventListener('pagehide', remember);
+
+  try {
+    var saved = JSON.parse(sessionStorage.getItem(KEY) || 'null');
+    /* Возвращаем позицию только сразу после действия, а не при заходе спустя время. */
+    if (saved && Date.now() - saved.at < 60000) {
+      var apply = function () {
+        areas().forEach(function (pair) {
+          var v = saved.areas && saved.areas[pair[0]];
+          if (v) { pair[1].scrollTop = v; }
+        });
+        if (saved.page) { window.scrollTo(0, saved.page); }
+      };
+      /* Дважды: сразу после разметки и после того, как шрифты/аккордеоны
+         досчитают высоту — иначе восстановление ляжет не туда и «дёрнет». */
+      requestAnimationFrame(apply);
+      window.addEventListener('load', function () { requestAnimationFrame(apply); });
+    }
+  } catch (e) { /* нет сохранённой позиции — оставляем как есть */ }
+})();
+</script>
+
+<script>
+/* Подтверждение удаления берёт текст из data-атрибута, а не собирает JS-строку
+   в onsubmit. В названиях справочников встречается апостроф: браузер раскрывает
+   `&#39;` в атрибуте ДО разбора JS, строка рвётся — форма переставала работать,
+   а подобранное название выполняло чужой код в сессии того, кто нажал «Удалить».
+   Экранирование Jinja от этого не спасает, спасает только отказ от JS-строки. */
+document.addEventListener('submit', function (ev) {
+  var f = ev.target;
+  if (!f || !f.dataset || !f.dataset.confirm) { return; }
+  if (!window.confirm(f.dataset.confirm)) { ev.preventDefault(); }
+}, true);
+</script><div id="call-popup" class="call-popup" hidden aria-live="polite">
+  <div class="call-popup-head">
+    <span class="call-popup-tag">Входящий звонок</span>
+    <button type="button" class="call-popup-x" data-call-dismiss aria-label="Скрыть">×</button>
+  </div>
+  <div class="call-popup-name" data-call-name></div>
+  <div class="call-popup-phone" data-call-phone></div>
+  <div class="call-popup-addr" data-call-addr hidden></div>
+  <div class="call-popup-actions">
+    <a class="btn is-strong" data-call-request hidden>Открыть обращение</a>
+    <a class="btn" data-call-card hidden>Карта клиента</a>
+  </div>
+</div><script>
+(function () {
+  var box = document.getElementById('call-popup');
+  if (!box) { return; }
+  var BASE = 3000, MAX = 60000, wait = BASE, current = null, timer = null;
+
+  function el(name) { return box.querySelector('[data-call-' + name + ']'); }
+
+  function show(call) {
+    if (current && current.call_id === call.call_id) { return; }
+    current = call;
+    el('name').textContent = call.name || '';
+    el('phone').textContent = call.phone || '';
+    var addr = el('addr');
+    addr.textContent = call.address || '';
+    addr.hidden = !call.address;
+    var req = el('request');
+    if (call.request_link) { req.href = call.request_link; req.hidden = false; }
+    else { req.hidden = true; }
+    var card = el('card');
+    if (call.card_link) { card.href = call.card_link; card.hidden = false; }
+    else { card.hidden = true; }
+    box.hidden = false;
+  }
+
+  function hide() { box.hidden = true; current = null; }
+
+  el('dismiss').addEventListener('click', function () {
+    var id = current && current.call_id;
+    hide();
+    if (!id) { return; }
+    /* Скрытие пишется на сервер: иначе та же карточка всплывала бы снова через
+       три секунды, и закрыть её было бы нельзя. Маршрут вне `/api/` — на него
+       действует проверка источника запроса. */
+    fetch('/telephony/calls/' + id + '/dismiss', {
+      method: 'POST', credentials: 'same-origin'
+    }).catch(function () {});
+  });
+
+  function poll() {
+    if (document.hidden) { return schedule(BASE); }
+    fetch('/api/telephony/popup', { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : { call: null }; })
+      .then(function (data) {
+        wait = BASE;
+        if (data && data.call) { show(data.call); } else { hide(); }
+        schedule(wait);
+      })
+      .catch(function () {
+        /* Сервер недоступен — отходим, а не долбим его каждые три секунды. */
+        wait = Math.min(wait * 2, MAX);
+        schedule(wait);
+      });
+  }
+
+  function schedule(ms) {
+    clearTimeout(timer);
+    timer = setTimeout(poll, ms);
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) { schedule(200); }
+  });
+  schedule(BASE);
+})();
+</script></body>
+</html>
