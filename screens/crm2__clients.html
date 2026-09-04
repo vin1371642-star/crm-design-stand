@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Клиенты — Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788478221">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788478221">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788478221">
+<link rel="stylesheet" href="static/design-system.css?v=1788563571">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788563571">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788563571">
 </head>
 <body>
 <div class="app">
@@ -25,11 +25,11 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 21</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 20</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 24</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 23</b></a>
           <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 13</b></a>
           <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 2</b></a>
-          <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
+          <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка · 1</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
           <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive"><b>Архив</b></a>
           <a href="claims.html" data-nav-prefixes="/claims"><b>Рекламация · 1</b></a>
@@ -74,6 +74,9 @@
       </div>
       <a href="tasks.html" class="ri" data-nav-prefixes="/tasks|/me/tasks">
         <svg viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/></svg><span>Задачи</span>
+      </a>
+      <a href="#" data-screen="/messenger" class="ri" data-nav-prefixes="/messenger">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.8L3 21l1.9-5.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg><span>Мессенджер</span>
       </a>
       <div class="nav-wrap" data-nav-menu>
         <button class="ri nav-toggle" type="button" aria-expanded="false"
@@ -134,12 +137,12 @@
   </div>
 </nav>  <div class="main">
 <header class="top">
-  <span class="brand">РОСТОВСКИЕ ОКНА</span>
-  <form class="search" method="get" action="/crm2/incoming" role="search">
-    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <input type="search" name="q" aria-label="Поиск по обращениям" placeholder="№ обращения, клиент, телефон">
+  <span class="brand">РОСТОВСКИЕ ОКНА</span><form class="search" method="get" action="/crm2/search" role="search">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="search" name="q" value=""
+           aria-label="Поиск по системе"
+           placeholder="Клиент, телефон, адрес, № обращения или договора">
   </form>
-  <a class="icon-btn search-mobile" href="crm2__incoming.html" aria-label="Поиск по обращениям">
+  <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
   <div class="spacer"></div>  <form class="dirsel" method="get" action="/direction/switch">
@@ -164,7 +167,7 @@
 
 <div class="rhead">
   <h1>Клиенты</h1>
-  <span class="rcount">22</span>
+  <span class="rcount">25</span>
   <div class="spacer"></div>  <button type="button" class="btn is-create" onclick="clDlg('clNew', true)">Добавить клиента</button>
   <details class="colpick">
   <summary class="tbtn" title="Какие колонки показывать">
@@ -289,15 +292,54 @@
 <th class="l col-w160">Действия</th>
     </tr></thead>
     <tbody>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/crm2/client/23'">
+        <td class="c" onclick="event.stopPropagation()"><input type="checkbox" class="cl-pick" name="card_id" form="clMergeForm"
+                 value="23" data-requests="1"
+                 aria-label="Отметить клиента для объединения">
+        </td>
+<td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/23">Вечеров Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-03-03
+</td><td class="addr">г. Демоград, ул. Дневная, д. 3</td><td class="c tsk">1</td><td class="c m nowrap">02.09.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+<form method="post" action="/crm2/client/23/request" style="margin:0"
+        onclick="event.stopPropagation()">
+    <button class="btn mini" type="submit">Добавить обращение</button>
+  </form>
+</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/crm2/client/22'">
+        <td class="c" onclick="event.stopPropagation()"><input type="checkbox" class="cl-pick" name="card_id" form="clMergeForm"
+                 value="22" data-requests="1"
+                 aria-label="Отметить клиента для объединения">
+        </td>
+<td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/22">Полуднев Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-03-02
+</td><td class="addr">г. Демоград, ул. Дневная, д. 2</td><td class="c tsk">1</td><td class="c m nowrap">02.09.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+<form method="post" action="/crm2/client/22/request" style="margin:0"
+        onclick="event.stopPropagation()">
+    <button class="btn mini" type="submit">Добавить обращение</button>
+  </form>
+</td>      </tr>
       <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/crm2/client/21'">
         <td class="c" onclick="event.stopPropagation()"><input type="checkbox" class="cl-pick" name="card_id" form="clMergeForm"
                  value="21" data-requests="1"
                  aria-label="Отметить клиента для объединения">
         </td>
-<td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/21">Сорвалов Демо Игоревич</a></td><td class="cell-ico nowrap cl-phone">
-  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-01-05
-</td><td class="addr">г. Демоград, ул. Отменённая, д. 2</td><td class="c tsk">1</td><td class="c m nowrap">29.08.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+<td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/21">Селиванов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-03-01
+</td><td class="addr">г. Демоград, ул. Дневная, д. 1</td><td class="c tsk">1</td><td class="c m nowrap">02.09.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/21/request" style="margin:0"
+        onclick="event.stopPropagation()">
+    <button class="btn mini" type="submit">Добавить обращение</button>
+  </form>
+</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/crm2/client/24'">
+        <td class="c" onclick="event.stopPropagation()"><input type="checkbox" class="cl-pick" name="card_id" form="clMergeForm"
+                 value="24" data-requests="1"
+                 aria-label="Отметить клиента для объединения">
+        </td>
+<td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/24">Сорвалов Демо Игоревич</a></td><td class="cell-ico nowrap cl-phone">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-01-05
+</td><td class="addr">г. Демоград, ул. Отменённая, д. 2</td><td class="c tsk">1</td><td class="c m nowrap">30.08.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+<form method="post" action="/crm2/client/24/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
   </form>
@@ -309,21 +351,21 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/2">Пробникова Демо Ивановна</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-01-02
-</td><td class="addr">г. Демоград, пр. Примерный, д. 5, кв. 2</td><td class="c tsk">1</td><td class="c m nowrap">29.08.26</td><td class="money">138 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, пр. Примерный, д. 5, кв. 2</td><td class="c tsk">1</td><td class="c m nowrap">30.08.26</td><td class="money">138 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/2/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
   </form>
 </td>      </tr>
-      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/crm2/client/22'">
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/crm2/client/25'">
         <td class="c" onclick="event.stopPropagation()"><input type="checkbox" class="cl-pick" name="card_id" form="clMergeForm"
-                 value="22" data-requests="1"
+                 value="25" data-requests="1"
                  aria-label="Отметить клиента для объединения">
         </td>
-<td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/22">Отказов Демо Петрович</a></td><td class="cell-ico nowrap cl-phone">
+<td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/25">Отказов Демо Петрович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-01-03
-</td><td class="addr">г. Демоград, ул. Тестовая, д. 3</td><td class="c tsk">1</td><td class="c m nowrap">26.08.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
-<form method="post" action="/crm2/client/22/request" style="margin:0"
+</td><td class="addr">г. Демоград, ул. Тестовая, д. 3</td><td class="c tsk">1</td><td class="c m nowrap">27.08.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+<form method="post" action="/crm2/client/25/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
   </form>
@@ -335,7 +377,7 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/3">Задержкин Демо Олегович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-01-04
-</td><td class="addr">г. Демоград, ул. Слободская, д. 7</td><td class="c tsk">1</td><td class="c m nowrap">24.08.26</td><td class="money">176 500</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Слободская, д. 7</td><td class="c tsk">1</td><td class="c m nowrap">25.08.26</td><td class="money">176 500</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/3/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
@@ -348,7 +390,7 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/20">Оптовов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-17
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 17</td><td class="c tsk">1</td><td class="c m nowrap">22.08.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Стадийная, д. 17</td><td class="c tsk">1</td><td class="c m nowrap">23.08.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/20/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
@@ -361,7 +403,7 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/19">Отказов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-16
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 16</td><td class="c tsk">1</td><td class="c m nowrap">21.08.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Стадийная, д. 16</td><td class="c tsk">1</td><td class="c m nowrap">22.08.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/19/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
@@ -374,7 +416,7 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/18">Расторгов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-15
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 15</td><td class="c tsk">1</td><td class="c m nowrap">20.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Стадийная, д. 15</td><td class="c tsk">1</td><td class="c m nowrap">21.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/18/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
@@ -387,7 +429,7 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/17">Доработов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-14
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 14</td><td class="c tsk">1</td><td class="c m nowrap">19.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Стадийная, д. 14</td><td class="c tsk">1</td><td class="c m nowrap">20.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/17/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
@@ -400,7 +442,7 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/16">Отсрочев Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-13
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 13</td><td class="c tsk">1</td><td class="c m nowrap">18.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Стадийная, д. 13</td><td class="c tsk">1</td><td class="c m nowrap">19.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/16/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
@@ -413,7 +455,7 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/15">Переносов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-12
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 12</td><td class="c tsk">1</td><td class="c m nowrap">17.08.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Стадийная, д. 12</td><td class="c tsk">1</td><td class="c m nowrap">18.08.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/15/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
@@ -426,7 +468,7 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/14">Закрывов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-11
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 11</td><td class="c tsk">1</td><td class="c m nowrap">16.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Стадийная, д. 11</td><td class="c tsk">1</td><td class="c m nowrap">17.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/14/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
@@ -439,7 +481,7 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/13">Готовов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-10
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 10</td><td class="c tsk">1</td><td class="c m nowrap">15.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Стадийная, д. 10</td><td class="c tsk">1</td><td class="c m nowrap">16.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/13/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
@@ -452,7 +494,7 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/12">Монтажов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-09
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 9</td><td class="c tsk">1</td><td class="c m nowrap">14.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Стадийная, д. 9</td><td class="c tsk">1</td><td class="c m nowrap">15.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/12/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
@@ -465,7 +507,7 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="crm2__client__1.html">Демидов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-01-01
-</td><td class="addr">г. Демоград, ул. Образцовая, д. 12, кв. 34</td><td class="c tsk">1</td><td class="c m nowrap">14.08.26</td><td class="money">214 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Образцовая, д. 12, кв. 34</td><td class="c tsk">1</td><td class="c m nowrap">15.08.26</td><td class="money">214 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/1/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
@@ -478,7 +520,7 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/11">Складов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-08
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 8</td><td class="c tsk">1</td><td class="c m nowrap">13.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Стадийная, д. 8</td><td class="c tsk">1</td><td class="c m nowrap">14.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/11/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
@@ -491,7 +533,7 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/10">Производов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-07
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 7</td><td class="c tsk">1</td><td class="c m nowrap">12.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Стадийная, д. 7</td><td class="c tsk">1</td><td class="c m nowrap">13.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/10/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
@@ -504,47 +546,8 @@
         </td>
 <td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/9">Отправов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
   <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-06
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 6</td><td class="c tsk">1</td><td class="c m nowrap">11.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
+</td><td class="addr">г. Демоград, ул. Стадийная, д. 6</td><td class="c tsk">1</td><td class="c m nowrap">12.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
 <form method="post" action="/crm2/client/9/request" style="margin:0"
-        onclick="event.stopPropagation()">
-    <button class="btn mini" type="submit">Добавить обращение</button>
-  </form>
-</td>      </tr>
-      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/crm2/client/8'">
-        <td class="c" onclick="event.stopPropagation()"><input type="checkbox" class="cl-pick" name="card_id" form="clMergeForm"
-                 value="8" data-requests="1"
-                 aria-label="Отметить клиента для объединения">
-        </td>
-<td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/8">Подписов Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
-  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-05
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 5</td><td class="c tsk">1</td><td class="c m nowrap">10.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
-<form method="post" action="/crm2/client/8/request" style="margin:0"
-        onclick="event.stopPropagation()">
-    <button class="btn mini" type="submit">Добавить обращение</button>
-  </form>
-</td>      </tr>
-      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/crm2/client/7'">
-        <td class="c" onclick="event.stopPropagation()"><input type="checkbox" class="cl-pick" name="card_id" form="clMergeForm"
-                 value="7" data-requests="1"
-                 aria-label="Отметить клиента для объединения">
-        </td>
-<td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/7">Договоров Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
-  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-04
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 4</td><td class="c tsk">1</td><td class="c m nowrap">09.08.26</td><td class="money">180 000</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
-<form method="post" action="/crm2/client/7/request" style="margin:0"
-        onclick="event.stopPropagation()">
-    <button class="btn mini" type="submit">Добавить обращение</button>
-  </form>
-</td>      </tr>
-      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/crm2/client/6'">
-        <td class="c" onclick="event.stopPropagation()"><input type="checkbox" class="cl-pick" name="card_id" form="clMergeForm"
-                 value="6" data-requests="1"
-                 aria-label="Отметить клиента для объединения">
-        </td>
-<td class="cl-name"><a class="rowlink" href="#" data-screen="/crm2/client/6">Обмеров Демо Демидович</a></td><td class="cell-ico nowrap cl-phone">
-  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-03
-</td><td class="addr">г. Демоград, ул. Стадийная, д. 3</td><td class="c tsk">1</td><td class="c m nowrap">08.08.26</td><td class="money">—</td><td class="m nowrap">Офис-менеджер Демо</td><td class="c">
-<form method="post" action="/crm2/client/6/request" style="margin:0"
         onclick="event.stopPropagation()">
     <button class="btn mini" type="submit">Добавить обращение</button>
   </form>
@@ -558,7 +561,7 @@
 <span class="pbtn on">1</span>
 <a class="pbtn" href="?page=2">2</a>  <a class="pbtn" href="?page=2" title="Следующая">→</a>
   <a class="pbtn" href="?page=2" title="В конец">»</a>
-  <span class="pinfo">Показаны <b>1–20</b> из <b>22</b> · стр. 1 из 2</span>
+  <span class="pinfo">Показаны <b>1–20</b> из <b>25</b> · стр. 1 из 2</span>
 </div>
 <dialog class="dlg" id="clNew">
   <form method="post" action="/crm2/clients/new">
@@ -724,7 +727,7 @@
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 21</span>
+    <span>Обращения · 24</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -744,13 +747,13 @@
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 21</span><small>Продажи</small>      </a>
+        <span>Обращения · 24</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 20</span><small>Продажи</small>      </a>
+        <span>Замер · 23</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
-        <span>Доставка</span><small>Продажи</small>      </a>
+        <span>Доставка · 1</span><small>Продажи</small>      </a>
       <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted">
         <span>Неразобранные · 2</span><small>Продажи</small>      </a>
       <a href="claims.html" data-nav-prefixes="/claims">
@@ -759,6 +762,8 @@
         <span>Координатор</span>      </a>
       <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
         <span>Задачи</span>      </a>
+      <a href="#" data-screen="/messenger" data-nav-prefixes="/messenger">
+        <span>Мессенджер</span>      </a>
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
         <span>Договор · 13</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
@@ -810,6 +815,26 @@
     </div>
   </section>
 </div><script>
+  /* Глобальный поиск с клавиатуры (P2-02): Ctrl/Cmd+K ставит курсор в поле шапки
+     с любого экрана, Esc из поля возвращает к работе. Своего оверлея у поиска нет
+     — фокус уходит в существующее поле, поэтому вести себя одинаково на всех
+     страницах ничего дополнительно не требует.
+     `preventDefault` обязателен: в Firefox Ctrl+K — поиск браузера. */
+  (function(){
+    var field = document.querySelector('.top .search input[name="q"]');
+    if(!field){ return; }
+    document.addEventListener('keydown', function(e){
+      if((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){
+        e.preventDefault();
+        field.focus();
+        field.select();
+      }
+    });
+    field.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ field.blur(); }
+    });
+  })();
+
   /* Groups are real menu controls; every leaf is a working route. */
   (function(){
     document.querySelectorAll('[data-nav-menu]').forEach(function(wrap){

@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Календарь доставок</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788478221">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788478221">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788478221">
-<link rel="stylesheet" href="static/crm2-calendar.css?v=1788478221"></head>
+<link rel="stylesheet" href="static/design-system.css?v=1788563571">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788563571">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788563571">
+<link rel="stylesheet" href="static/crm2-calendar.css?v=1788563571"></head>
 <body>
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
@@ -25,11 +25,11 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 21</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 20</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 24</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 23</b></a>
           <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 13</b></a>
           <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 2</b></a>
-          <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
+          <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка · 1</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
           <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive"><b>Архив</b></a>
           <a href="claims.html" data-nav-prefixes="/claims"><b>Рекламация · 1</b></a>
@@ -74,6 +74,9 @@
       </div>
       <a href="tasks.html" class="ri" data-nav-prefixes="/tasks|/me/tasks">
         <svg viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/></svg><span>Задачи</span>
+      </a>
+      <a href="#" data-screen="/messenger" class="ri" data-nav-prefixes="/messenger">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.8L3 21l1.9-5.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg><span>Мессенджер</span>
       </a>
       <div class="nav-wrap" data-nav-menu>
         <button class="ri nav-toggle" type="button" aria-expanded="false"
@@ -134,12 +137,12 @@
   </div>
 </nav>  <div class="main">
 <header class="top">
-  <span class="brand">РОСТОВСКИЕ ОКНА</span>
-  <form class="search" method="get" action="/crm2/incoming" role="search">
-    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <input type="search" name="q" aria-label="Поиск по обращениям" placeholder="№ обращения, клиент, телефон">
+  <span class="brand">РОСТОВСКИЕ ОКНА</span><form class="search" method="get" action="/crm2/search" role="search">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="search" name="q" value=""
+           aria-label="Поиск по системе"
+           placeholder="Клиент, телефон, адрес, № обращения или договора">
   </form>
-  <a class="icon-btn search-mobile" href="crm2__incoming.html" aria-label="Поиск по обращениям">
+  <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
   <div class="spacer"></div>  <form class="dirsel" method="get" action="/direction/switch">
@@ -178,8 +181,8 @@
         <td><a href="calendar__deliveries.html" class="">1</a></td>
         <td><a href="calendar__deliveries.html" class="">2</a></td>
         <td><a href="calendar__deliveries.html" class="">3</a></td>
-        <td><a href="calendar__deliveries.html" class=" today sel">4</a></td>
-        <td><a href="calendar__deliveries.html" class="">5</a></td>
+        <td><a href="calendar__deliveries.html" class="">4</a></td>
+        <td><a href="calendar__deliveries.html" class=" today sel has">5</a></td>
         <td><a href="calendar__deliveries.html" class="">6</a></td>
 </tr>
 <tr class="">        <td><a href="calendar__deliveries.html" class="">7</a></td>
@@ -223,7 +226,15 @@
 
       <h3 class="cal-side-h">Расписание</h3>
       <form class="cal-side-filters" method="get" action="/calendar/deliveries">
-        <input type="hidden" name="date" value="2026-09-04">
+        <input type="hidden" name="date" value="2026-09-05">
+        <label>Водитель
+          <select name="master" onchange="this.form.submit()">
+            <option value="">Все водители</option>
+<option value="12" >Монтажник Демо</option>          </select></label>
+        <label>Бригада
+          <select name="brigade" onchange="this.form.submit()">
+            <option value="">Все бригады</option>
+<option value="Бригада Демо" >Бригада Демо</option>          </select></label>
         <label>Статус
           <select name="status" onchange="this.form.submit()">
             <option value="">Все статусы</option>
@@ -233,7 +244,7 @@
             <option value="">Все направления</option>
 <option value="25" >Ростовские окна розница</option><option value="26" >Ростовские окна опт</option><option value="27" >Росток</option>          </select></label>
         <noscript><button class="btn secondary" type="submit">Показать</button></noscript>
-      </form><a class="btn secondary" target="_blank" href="#" data-screen="/calendar/deliveries/print?date=2026-09-04">Печать</a>
+      </form><a class="btn secondary" target="_blank" href="#" data-screen="/calendar/deliveries/print?date=2026-09-05">Печать</a>
       <a class="btn secondary" href="deliveries.html">Реестр</a>
     </aside>
 
@@ -242,115 +253,188 @@
 <a class="btn mini" href="calendar__deliveries.html">Сегодня</a>
 <a class="btn mini" href="calendar__deliveries.html" title="Следующий день">&rsaquo;</a>
 
-        <h2 class="cal-dayhead">4 сентября 2026 г. <span class="cal-count">доставок: 0</span></h2>
-        
+        <h2 class="cal-dayhead">5 сентября 2026 г. <span class="cal-count">доставок: 1</span></h2>
+        <form class="cal-pager" method="get" action="/calendar/deliveries" aria-label="Водители: показ по группам"><input type="hidden" name="date" value="2026-09-05"><span class="cal-pg is-off" aria-hidden="true" title="Это первая группа">&lsaquo;</span>  <span class="cal-pg-t">Водители (2)</span><span class="cal-pg is-off" aria-hidden="true" title="Это последняя группа">&rsaquo;</span></form>
       </div><div class="mgrid-scroll">
   <table class="mgrid">
     <thead>
-      <tr><th class="mgrid-th-time"></th><th></th></tr>
+      <tr><th class="mgrid-th-time"></th><th title="Монтажник Демо">Монтажник Демо</th><th title="Бригада Демо">Бригада Демо</th></tr>
     </thead>
     <tbody>
       <tr class="mgrid-hour">
         <td class="mgrid-time">07:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">08:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">09:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">10:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">11:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">12:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell mgrid-busy" title="Это время занято"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">13:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell mgrid-busy" title="Это время занято"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell mgrid-busy" title="Это время занято"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">14:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell" rowspan="4">
+          <div class="mgrid-cellwrap"><a class="mgrid-ev ev-gray" href="incoming__1__card.html"
+   title="Назначен · 14:00 · Монтажник Демо · Демидов Демо Демидович · 79000000101 · г. Демоград, ул. Образцовая, д. 12, кв. 34 · Договор Д-000001 · Офис Демо · Изделий: 3">
+  <span class="hd">
+    <span class="t">14:00</span><span class="mgr">Монтажник Демо</span>
+    <span class="ico"><span title="Изделий: 3">3</span>    </span>
+  </span>
+  <span class="bd">
+    <span class="adr">г. Демоград, ул. Образцовая, д. 12, кв. 34</span>
+    <span class="fio">Демидов Демо Демидович</span>
+  </span>
+</a>
+</div>
+        </td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">15:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">16:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">17:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">18:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">19:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">20:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">21:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="mgrid-hour">
         <td class="mgrid-time">22:00</td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
       <tr class="">
         <td class="mgrid-time"></td>
-<td class="mgrid-cell"></td>      </tr>
+        <td class="mgrid-cell"></td>
+        <td class="mgrid-cell"></td>
+      </tr>
     </tbody>
   </table>
 </div>
 
-<div class="cal-empty">Назначенных доставок нет: водители и бригады-перевозчики в вашей области ещё не заводились — назначьте доставку из карточки договора, и столбец исполнителя появится.</div>
     </main>
   </div>
 </div>
@@ -365,7 +449,7 @@
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 21</span>
+    <span>Обращения · 24</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -385,13 +469,13 @@
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 21</span><small>Продажи</small>      </a>
+        <span>Обращения · 24</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 20</span><small>Продажи</small>      </a>
+        <span>Замер · 23</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
-        <span>Доставка</span><small>Продажи</small>      </a>
+        <span>Доставка · 1</span><small>Продажи</small>      </a>
       <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted">
         <span>Неразобранные · 2</span><small>Продажи</small>      </a>
       <a href="claims.html" data-nav-prefixes="/claims">
@@ -400,6 +484,8 @@
         <span>Координатор</span>      </a>
       <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
         <span>Задачи</span>      </a>
+      <a href="#" data-screen="/messenger" data-nav-prefixes="/messenger">
+        <span>Мессенджер</span>      </a>
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
         <span>Договор · 13</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
@@ -451,6 +537,26 @@
     </div>
   </section>
 </div><script>
+  /* Глобальный поиск с клавиатуры (P2-02): Ctrl/Cmd+K ставит курсор в поле шапки
+     с любого экрана, Esc из поля возвращает к работе. Своего оверлея у поиска нет
+     — фокус уходит в существующее поле, поэтому вести себя одинаково на всех
+     страницах ничего дополнительно не требует.
+     `preventDefault` обязателен: в Firefox Ctrl+K — поиск браузера. */
+  (function(){
+    var field = document.querySelector('.top .search input[name="q"]');
+    if(!field){ return; }
+    document.addEventListener('keydown', function(e){
+      if((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){
+        e.preventDefault();
+        field.focus();
+        field.select();
+      }
+    });
+    field.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ field.blur(); }
+    });
+  })();
+
   /* Groups are real menu controls; every leaf is a working route. */
   (function(){
     document.querySelectorAll('[data-nav-menu]').forEach(function(wrap){

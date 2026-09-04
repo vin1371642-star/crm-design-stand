@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Задачи · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788478221">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788478221">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788478221">
+<link rel="stylesheet" href="static/design-system.css?v=1788563571">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788563571">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788563571">
 </head>
 <body>
 <div class="app">
@@ -25,11 +25,11 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 21</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 20</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 24</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 23</b></a>
           <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 13</b></a>
           <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 2</b></a>
-          <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
+          <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка · 1</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
           <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive"><b>Архив</b></a>
           <a href="claims.html" data-nav-prefixes="/claims"><b>Рекламация · 1</b></a>
@@ -74,6 +74,9 @@
       </div>
       <a href="tasks.html" class="ri" data-nav-prefixes="/tasks|/me/tasks">
         <svg viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/></svg><span>Задачи</span>
+      </a>
+      <a href="#" data-screen="/messenger" class="ri" data-nav-prefixes="/messenger">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.8L3 21l1.9-5.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg><span>Мессенджер</span>
       </a>
       <div class="nav-wrap" data-nav-menu>
         <button class="ri nav-toggle" type="button" aria-expanded="false"
@@ -134,12 +137,12 @@
   </div>
 </nav>  <div class="main">
 <header class="top">
-  <span class="brand">РОСТОВСКИЕ ОКНА</span>
-  <form class="search" method="get" action="/crm2/incoming" role="search">
-    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <input type="search" name="q" aria-label="Поиск по обращениям" placeholder="№ обращения, клиент, телефон">
+  <span class="brand">РОСТОВСКИЕ ОКНА</span><form class="search" method="get" action="/crm2/search" role="search">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="search" name="q" value=""
+           aria-label="Поиск по системе"
+           placeholder="Клиент, телефон, адрес, № обращения или договора">
   </form>
-  <a class="icon-btn search-mobile" href="crm2__incoming.html" aria-label="Поиск по обращениям">
+  <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
   <div class="spacer"></div>  <form class="dirsel" method="get" action="/direction/switch">
@@ -160,13 +163,6 @@
 </header>    <div class="work">
 <style>
   /* Экран без своих размеров: всё — шкала Reference V2 из design-system.css. */
-  .mt-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-3);margin:0 0 var(--rhythm)}
-  .mt-cards.two{grid-template-columns:repeat(2,1fr);max-width:640px}
-  @media(max-width:820px){.mt-cards{grid-template-columns:repeat(2,1fr)}}
-  .mt-card{background:var(--panel);border-radius:var(--r2-radius-10);padding:var(--sp-4)}
-  .mt-card .v{font:600 var(--r2-page-title)/var(--r2-page-title-lh) var(--display);color:var(--ink)}
-  .mt-card.over .v{color:var(--over)}
-  .mt-card .l{color:var(--muted2);font-size:var(--r2-label);line-height:var(--r2-label-lh);font-weight:600;margin-top:var(--sp-1)}
   .mt-sec{margin:0 0 var(--rhythm)}
   /* D-260: заголовок раздела — на общей шкале и того же цвета, что заголовки везде. */
   .mt-sec h2{font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display);color:var(--ink);
@@ -191,28 +187,33 @@
   .done-list{display:flex;flex-direction:column;gap:var(--sp-2);max-width:760px}
   .done-list .tcard{border-left-color:var(--ok-dot)}
 
-  /* ── Доска задач: три колонки Просроченные/Сегодня/Будущие ── */
+  /* ── Доска задач: Просроченные/Сегодня/Будущие (+ «Без срока», когда такие есть) ── */
   .board{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);align-items:start;margin:0 0 var(--rhythm)}
-  @media(max-width:900px){.board{grid-template-columns:1fr}}
+  .board.cols-4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:900px){.board,.board.cols-4{grid-template-columns:1fr}}
   /* Колонка отделена заголовком и паузой; цвет несёт статус, рамки-коробки нет. */
   .col-head{display:flex;align-items:center;gap:var(--sp-2);padding:0 0 var(--sp-2);margin:0 0 var(--sp-3);
     font:var(--fw-sub) var(--fs-sub)/var(--lh-sub) var(--display);color:var(--ink)}
-  .col.over .col-head{color:var(--over)}
+  .col.overdue .col-head{color:var(--over)}
   .col.today .col-head{color:var(--info-ink)}
   .col.future .col-head{color:var(--ok-ink)}
+  /* «Без срока» — не тревога и не план: нейтральный цвет, как у подписи. */
+  .col.undated .col-head{color:var(--muted2)}
   .col-head .cnt{display:inline-flex;align-items:center;justify-content:center;height:var(--r2-space-5);min-width:var(--r2-space-5);
     padding:0 var(--sp-2);border-radius:var(--r2-radius-10);background:var(--field);color:var(--muted);
     font:600 var(--r2-label)/var(--r2-label-lh) var(--font)}
-  .col.over .col-head .cnt{background:var(--over);color:#fff}
+  .col.overdue .col-head .cnt{background:var(--over);color:#fff}
   .col.today .col-head .cnt{background:var(--info-dot);color:#fff}
   .col.future .col-head .cnt{background:var(--ok-dot);color:#fff}
+  .col.undated .col-head .cnt{background:var(--muted2);color:#fff}
   .col-list{max-height:calc(100vh - 250px);overflow-y:auto;display:flex;flex-direction:column;gap:var(--sp-2);padding-right:var(--sp-2)}
   .col-list::-webkit-scrollbar{width:6px}.col-list::-webkit-scrollbar-thumb{background:var(--line);border-radius:var(--r2-radius-6)}
   .tcard{background:var(--panel);border-left:3px solid var(--muted2);border-radius:var(--r2-radius-8);
     padding:var(--sp-3) var(--sp-4);position:relative}
-  .col.over .tcard{border-left-color:var(--over)}
+  .col.overdue .tcard{border-left-color:var(--over)}
   .col.today .tcard{border-left-color:var(--info-ink)}
   .col.future .tcard{border-left-color:var(--ok-dot)}
+  .col.undated .tcard{border-left-color:var(--muted2)}
   .tcard .meta{display:flex;align-items:center;gap:var(--sp-1);color:var(--muted2);
     font-size:var(--r2-label);line-height:var(--r2-label-lh);font-weight:500;margin:0 0 var(--sp-1)}
   .tcard .meta svg{width:var(--sp-3);height:var(--sp-3);stroke:currentColor;stroke-width:1.8;fill:none;flex:none}
@@ -226,29 +227,36 @@
   /* Действие строки ВИДНО ВСЕГДА. Прежде кнопка имела `opacity:0` и появлялась только
      при наведении мышью: единственное действие задачи было спрятано, а на планшете
      недоступно вовсе. Скрытая кнопка защитой не является и подсказкой тоже. */
-  .tcard .b-done{position:absolute;top:var(--sp-2);right:var(--sp-2);height:var(--action);padding:0 var(--sp-3);
+  /* Действий у строки теперь два (закрыть задачу и перенести срок). Прежде кнопка была
+     одна и висела абсолютом в углу карточки; для двух это место кончилось, поэтому
+     действия стоят строкой под текстом, оба одного размера и оба контурные: равные по
+     весу действия обязаны и выглядеть одинаково (стандарт интерфейса).
+     Названий действий в комментарии НЕТ намеренно: комментарий уезжает в разметку, и
+     сторож «на закрытой задаче нет кнопки закрытия» ловил его как саму кнопку. */
+  .tacts{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-2);margin-top:var(--sp-2)}
+  .tcard .b-done{height:var(--action);padding:0 var(--sp-3);
     border:1px solid var(--line-input);border-radius:var(--r2-radius-8);background:var(--panel);color:var(--ink);
     font:600 var(--r2-label)/var(--r2-label-lh) var(--font);cursor:pointer}
   .tcard .b-done:hover{background:var(--field)}
   .tcard-done{display:inline}
+  /* Поля переноса — те же подчёркнутые полосы, что в форме постановки задачи. */
+  .tpost{display:flex;align-items:center;gap:var(--sp-2);flex-wrap:wrap}
+  /* Авторский `display` СИЛЬНЕЕ браузерного `[hidden]{display:none}`, поэтому без
+     этой строки атрибут `hidden` не действует и поля даты висят в КАЖДОЙ строке
+     очереди, а кнопка их раскрытия ничего не делает. Грабля в проекте уже
+     документирована (`crm2-deal-card.css`, лента событий) — и повторена здесь. */
+  .tpost[hidden]{display:none}
+  .tpost input{height:var(--action);border:0;border-bottom:1px solid var(--line-input);border-radius:0;
+    background:transparent;color:var(--ink);font-size:var(--r2-label);padding:0 2px}
   .col-empty{color:var(--muted2);font-size:var(--r2-label);line-height:var(--r2-label-lh);padding:var(--sp-2) 0}
 
-  /* D-309 (вопрос 13): «Не запущено» — компактный список, не таблица, тот же
-     принцип, что у тревог кассы v3 (ранжированный список важнее сетки плиток). */
-  .ul-list{display:flex;flex-direction:column;gap:var(--sp-2)}
-  .ul-row{display:flex;align-items:center;gap:var(--sp-3);background:var(--panel);
-    border-radius:var(--r2-radius-8);padding:var(--sp-2) var(--sp-4);text-decoration:none;color:var(--ink)}
-  .ul-row:hover{background:var(--field)}
-  .ul-num{font:600 var(--r2-body)/var(--r2-body-lh) var(--font)}
-  .ul-fio{color:var(--muted2);font-size:var(--r2-label)}
-  /* Дата договора — реквизит, а не проблема. Класс назывался `reason` и красил её
-     красным жирным у КАЖДОЙ строки: красный горел всегда и потому не значил ничего
-     (правило кассы v3 — «пункт, который горит всегда, — не тревога»). */
-  .ul-date{margin-left:auto;color:var(--muted2);font-size:var(--r2-label);white-space:nowrap}
   /* Форма постановки задачи: поля-полосы, две колонки, действие внизу слева. */
   .mt-add{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:var(--sp-3);
     background:var(--panel);padding:var(--r2-panel-padding);border-radius:var(--r2-radius-8);
     margin-bottom:var(--sp-4);max-width:760px}
+  /* Та же грабля, что и у полей переноса: без этой строки форма «Новая задача» с
+     атрибутом `hidden` раскрыта ВСЕГДА, а кнопка вверху ничего не сворачивает. */
+  .mt-add[hidden]{display:none}
   .mt-add label{display:flex;flex-direction:column;gap:4px;font-size:var(--r2-label);
     line-height:var(--r2-label-lh);color:var(--muted)}
   .mt-add label.wide{grid-column:1 / -1}
@@ -266,7 +274,7 @@
     <input name="title" required placeholder="Например: собрать документы по договору 21391"></label><label>По обращению
     <select name="request_id" required>
       <option value="">выберите обращение</option>
-<option value="21">№21 · Сорвалов Демо Игоревич</option><option value="18">№18 · Расторгов Демо Демидович</option><option value="17">№17 · Доработов Демо Демидович</option><option value="16">№16 · Отсрочев Демо Демидович</option><option value="15">№15 · Переносов Демо Демидович</option><option value="14">№14 · Закрывов Демо Демидович</option><option value="13">№13 · Готовов Демо Демидович</option><option value="12">№12 · Монтажов Демо Демидович</option><option value="11">№11 · Складов Демо Демидович</option><option value="10">№10 · Производов Демо Демидович</option><option value="9">№9 · Отправов Демо Демидович</option><option value="8">№8 · Подписов Демо Демидович</option><option value="7">№7 · Договоров Демо Демидович</option><option value="6">№6 · Обмеров Демо Демидович</option><option value="5">№5 · Замеров Демо Демидович</option><option value="4">№4 · Перезвонов Демо Демидович</option><option value="3">№3 · Задержкин Демо Олегович</option><option value="2">№2 · Пробникова Демо Ивановна</option><option value="1">№1 · Демидов Демо Демидович</option>    </select></label>
+<option value="24">№24 · Сорвалов Демо Игоревич</option><option value="23">№23 · Вечеров Демо Демидович</option><option value="22">№22 · Полуднев Демо Демидович</option><option value="21">№21 · Селиванов Демо Демидович</option><option value="18">№18 · Расторгов Демо Демидович</option><option value="17">№17 · Доработов Демо Демидович</option><option value="16">№16 · Отсрочев Демо Демидович</option><option value="15">№15 · Переносов Демо Демидович</option><option value="14">№14 · Закрывов Демо Демидович</option><option value="13">№13 · Готовов Демо Демидович</option><option value="12">№12 · Монтажов Демо Демидович</option><option value="11">№11 · Складов Демо Демидович</option><option value="10">№10 · Производов Демо Демидович</option><option value="9">№9 · Отправов Демо Демидович</option><option value="8">№8 · Подписов Демо Демидович</option><option value="7">№7 · Договоров Демо Демидович</option><option value="6">№6 · Обмеров Демо Демидович</option><option value="5">№5 · Замеров Демо Демидович</option><option value="4">№4 · Перезвонов Демо Демидович</option><option value="3">№3 · Задержкин Демо Олегович</option><option value="2">№2 · Пробникова Демо Ивановна</option><option value="1">№1 · Демидов Демо Демидович</option>    </select></label>
   <label>Кому
     <select name="assignee_id">
       <option value="">себе</option>
@@ -279,23 +287,6 @@
     <button class="btn" type="button" onclick="document.getElementById('taskAdd').hidden=true">Отмена</button>
   </div>
 </form>
-
-
-<div class="mt-cards two">
-  <div class="mt-card over"><div class="v">1</div><div class="l">Просроченные перезвоны</div></div><div class="mt-card"><div class="v">1</div><div class="l">На сегодня</div></div>
-</div>
-
-
-<section class="mt-sec">
-  <h2>Не запущено в производство <span class="cnt" style="background:var(--over);color:#fff;border-radius:var(--r2-radius-10);padding:0 var(--sp-2);font-size:var(--r2-label)">1</span></h2>
-  <div class="ul-list">
-    <a class="ul-row" href="incoming__3__card.html">
-      <span class="ul-num">Д-000003</span>
-      <span class="ul-fio">Задержкин Демо Олегович</span>
-      <span class="ul-date">27.08.2026</span>
-    </a>
-  </div>
-</section>
 
 <section class="mt-sec">
   <h2>Доска задач</h2><nav class="crm-tabs">
@@ -412,16 +403,24 @@
 
   </form>
 
-  <div class="board">
-    <div class="col over">
+  <div class="board cols-3">
+    <div class="col overdue">
       <div class="col-head">Просроченные <span class="cnt">1</span></div>
       <div class="col-list">
 <div class="tcard">
     <div class="meta">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>01.09.2026 02:19 · перезвон
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>02.09.2026 02:13 · перезвон
     </div>
     <div class="ttl">
-<a href="incoming__1__card.html">Согласовать перенос монтажа с клиентом</a>    </div><div class="tnote">Клиент просил перенести на выходные, ответа нет третий день.</div>    <form method="post" action="/tasks/4/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form>
+<a href="incoming__1__card.html">Согласовать перенос монтажа с клиентом</a>    </div><div class="tnote">Клиент просил перенести на выходные, ответа нет третий день.</div><div class="tnote">Офис-менеджер Демо</div>    <div class="tacts">
+      <form method="post" action="/tasks/4/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form><button class="b-done" type="button" title="Перенести срок задачи"
+              onclick="var f=this.nextElementSibling; f.hidden=!f.hidden; if(!f.hidden){f.querySelector('input[type=date]').focus();}">Отложить</button>
+      <form method="post" action="/tasks/4/postpone" class="tpost" hidden>
+        <input type="date" name="due_date" required>
+        <input type="time" name="due_time" value="09:00">
+        <button class="b-done" type="submit">Перенести</button>
+      </form>
+    </div>
   </div>      </div>
     </div>
     <div class="col today">
@@ -429,10 +428,18 @@
       <div class="col-list">
 <div class="tcard">
     <div class="meta">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>04.09.2026 08:19 · перезвон
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>05.09.2026 08:13 · перезвон
     </div>
     <div class="ttl">
-<a href="incoming__1__card.html">Перезвонить и согласовать доставку</a>    </div><div class="tnote">Клиент просил после 18:00.</div>    <form method="post" action="/tasks/1/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form>
+<a href="incoming__1__card.html">Перезвонить и согласовать доставку</a>    </div><div class="tnote">Клиент просил после 18:00.</div><div class="tnote">Офис-менеджер Демо</div>    <div class="tacts">
+      <form method="post" action="/tasks/1/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form><button class="b-done" type="button" title="Перенести срок задачи"
+              onclick="var f=this.nextElementSibling; f.hidden=!f.hidden; if(!f.hidden){f.querySelector('input[type=date]').focus();}">Отложить</button>
+      <form method="post" action="/tasks/1/postpone" class="tpost" hidden>
+        <input type="date" name="due_date" required>
+        <input type="time" name="due_time" value="09:00">
+        <button class="b-done" type="submit">Перенести</button>
+      </form>
+    </div>
   </div>      </div>
     </div>
     <div class="col future">
@@ -440,10 +447,18 @@
       <div class="col-list">
 <div class="tcard">
     <div class="meta">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>05.09.2026 02:19 · задача
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>06.09.2026 02:13 · задача
     </div>
     <div class="ttl">
-<a href="incoming__1__card.html">Проверить результат замера</a>    </div><div class="tnote">Сверить проёмы с расчётом ПТО.</div>    <form method="post" action="/tasks/2/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form>
+<a href="incoming__1__card.html">Проверить результат замера</a>    </div><div class="tnote">Сверить проёмы с расчётом ПТО.</div><div class="tnote">Сотрудник ПТО Демо</div>    <div class="tacts">
+      <form method="post" action="/tasks/2/done" class="tcard-done"><button class="b-done" type="submit">Выполнить</button></form><button class="b-done" type="button" title="Перенести срок задачи"
+              onclick="var f=this.nextElementSibling; f.hidden=!f.hidden; if(!f.hidden){f.querySelector('input[type=date]').focus();}">Отложить</button>
+      <form method="post" action="/tasks/2/postpone" class="tpost" hidden>
+        <input type="date" name="due_date" required>
+        <input type="time" name="due_time" value="09:00">
+        <button class="b-done" type="submit">Перенести</button>
+      </form>
+    </div>
   </div>      </div>
     </div>
   </div>
@@ -459,7 +474,7 @@
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 21</span>
+    <span>Обращения · 24</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -479,13 +494,13 @@
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 21</span><small>Продажи</small>      </a>
+        <span>Обращения · 24</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 20</span><small>Продажи</small>      </a>
+        <span>Замер · 23</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
-        <span>Доставка</span><small>Продажи</small>      </a>
+        <span>Доставка · 1</span><small>Продажи</small>      </a>
       <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted">
         <span>Неразобранные · 2</span><small>Продажи</small>      </a>
       <a href="claims.html" data-nav-prefixes="/claims">
@@ -494,6 +509,8 @@
         <span>Координатор</span>      </a>
       <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
         <span>Задачи</span>      </a>
+      <a href="#" data-screen="/messenger" data-nav-prefixes="/messenger">
+        <span>Мессенджер</span>      </a>
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
         <span>Договор · 13</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
@@ -545,6 +562,26 @@
     </div>
   </section>
 </div><script>
+  /* Глобальный поиск с клавиатуры (P2-02): Ctrl/Cmd+K ставит курсор в поле шапки
+     с любого экрана, Esc из поля возвращает к работе. Своего оверлея у поиска нет
+     — фокус уходит в существующее поле, поэтому вести себя одинаково на всех
+     страницах ничего дополнительно не требует.
+     `preventDefault` обязателен: в Firefox Ctrl+K — поиск браузера. */
+  (function(){
+    var field = document.querySelector('.top .search input[name="q"]');
+    if(!field){ return; }
+    document.addEventListener('keydown', function(e){
+      if((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){
+        e.preventDefault();
+        field.focus();
+        field.select();
+      }
+    });
+    field.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ field.blur(); }
+    });
+  })();
+
   /* Groups are real menu controls; every leaf is a working route. */
   (function(){
     document.querySelectorAll('[data-nav-menu]').forEach(function(wrap){

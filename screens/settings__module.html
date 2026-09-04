@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Настройки · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788478221">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788478221">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788478221">
+<link rel="stylesheet" href="static/design-system.css?v=1788563571">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788563571">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788563571">
 </head>
 <body>
 <div class="app">
@@ -25,11 +25,11 @@
         </button>
         <div class="fly" aria-label="Продажи">
           <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted"><b>Неразобранные · 2</b></a>
-          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 21</b></a>
-          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 20</b></a>
+          <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming"><b>Обращения · 24</b></a>
+          <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements"><b>Замер · 23</b></a>
           <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts"><b>Договор · 13</b></a>
           <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders"><b>Заказ · 2</b></a>
-          <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка</b></a>
+          <a href="deliveries.html" data-nav-prefixes="/deliveries"><b>Доставка · 1</b></a>
           <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations"><b>Монтаж</b></a>
           <a href="crm2__archive.html" data-nav-prefixes="/crm2/archive"><b>Архив</b></a>
           <a href="claims.html" data-nav-prefixes="/claims"><b>Рекламация · 1</b></a>
@@ -74,6 +74,9 @@
       </div>
       <a href="tasks.html" class="ri" data-nav-prefixes="/tasks|/me/tasks">
         <svg viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/></svg><span>Задачи</span>
+      </a>
+      <a href="#" data-screen="/messenger" class="ri" data-nav-prefixes="/messenger">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.8L3 21l1.9-5.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg><span>Мессенджер</span>
       </a>
       <div class="nav-wrap" data-nav-menu>
         <button class="ri nav-toggle" type="button" aria-expanded="false"
@@ -134,12 +137,12 @@
   </div>
 </nav>  <div class="main">
 <header class="top">
-  <span class="brand">РОСТОВСКИЕ ОКНА</span>
-  <form class="search" method="get" action="/crm2/incoming" role="search">
-    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <input type="search" name="q" aria-label="Поиск по обращениям" placeholder="№ обращения, клиент, телефон">
+  <span class="brand">РОСТОВСКИЕ ОКНА</span><form class="search" method="get" action="/crm2/search" role="search">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="search" name="q" value=""
+           aria-label="Поиск по системе"
+           placeholder="Клиент, телефон, адрес, № обращения или договора">
   </form>
-  <a class="icon-btn search-mobile" href="crm2__incoming.html" aria-label="Поиск по обращениям">
+  <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
   <div class="spacer"></div>  <form class="dirsel" method="get" action="/direction/switch">
@@ -178,7 +181,7 @@
     <span>Касса</span>
   </a>
   <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-    <span>Обращения · 21</span>
+    <span>Обращения · 24</span>
   </a>
   <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="crm2MobileSheet">
     <span>Ещё</span>
@@ -198,13 +201,13 @@
       <a href="cashbox.html" data-nav-prefixes="/cashbox|/me/cashbox">
         <span>Касса</span>      </a>
       <a href="crm2__incoming.html" data-nav-prefixes="/crm2/incoming|/incoming">
-        <span>Обращения · 21</span><small>Продажи</small>      </a>
+        <span>Обращения · 24</span><small>Продажи</small>      </a>
       <a href="crm2__measurements.html" data-nav-prefixes="/crm2/measurements|/measurements">
-        <span>Замер · 20</span><small>Продажи</small>      </a>
+        <span>Замер · 23</span><small>Продажи</small>      </a>
       <a href="#" data-screen="/installations/waiting" data-nav-prefixes="/installations">
         <span>Монтаж</span><small>Продажи</small>      </a>
       <a href="deliveries.html" data-nav-prefixes="/deliveries">
-        <span>Доставка</span><small>Продажи</small>      </a>
+        <span>Доставка · 1</span><small>Продажи</small>      </a>
       <a href="calls__unsorted.html" data-nav-prefixes="/calls/unsorted">
         <span>Неразобранные · 2</span><small>Продажи</small>      </a>
       <a href="claims.html" data-nav-prefixes="/claims">
@@ -213,6 +216,8 @@
         <span>Координатор</span>      </a>
       <a href="tasks.html" data-nav-prefixes="/tasks|/me/tasks">
         <span>Задачи</span>      </a>
+      <a href="#" data-screen="/messenger" data-nav-prefixes="/messenger">
+        <span>Мессенджер</span>      </a>
       <a href="crm2__contracts.html" data-nav-prefixes="/crm2/contracts">
         <span>Договор · 13</span><small>Продажи</small>      </a>
       <a href="crm2__orders.html" data-nav-prefixes="/crm2/orders">
@@ -264,6 +269,26 @@
     </div>
   </section>
 </div><script>
+  /* Глобальный поиск с клавиатуры (P2-02): Ctrl/Cmd+K ставит курсор в поле шапки
+     с любого экрана, Esc из поля возвращает к работе. Своего оверлея у поиска нет
+     — фокус уходит в существующее поле, поэтому вести себя одинаково на всех
+     страницах ничего дополнительно не требует.
+     `preventDefault` обязателен: в Firefox Ctrl+K — поиск браузера. */
+  (function(){
+    var field = document.querySelector('.top .search input[name="q"]');
+    if(!field){ return; }
+    document.addEventListener('keydown', function(e){
+      if((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')){
+        e.preventDefault();
+        field.focus();
+        field.select();
+      }
+    });
+    field.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ field.blur(); }
+    });
+  })();
+
   /* Groups are real menu controls; every leaf is a working route. */
   (function(){
     document.querySelectorAll('[data-nav-menu]').forEach(function(wrap){
