@@ -545,7 +545,9 @@ tr:hover td { background: var(--surface); }
 .process-bar span {
   display: block;
   height: 100%;
-  width: 0;
+  /* Доля выполнения приходит ДАННЫМИ через `--pct`; запасной 0 оставлен, чтобы
+     полоса без данных не рисовалась. Раньше ширина стояла инлайном. */
+  width: var(--pct, 0);
   border-radius: inherit;
   background: var(--red);
   transition: width .25s ease;
@@ -1716,6 +1718,7 @@ a.training-module-row:hover { background: var(--surface); text-decoration: none;
 .ce-prog-fill {
   display: block;
   height: 100%;
+  width: var(--pct, 0);
   background: var(--red);
   border-radius: 999px;
   transition: width .3s ease;

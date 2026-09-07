@@ -650,7 +650,8 @@
   /* Цвет сегмента — КЛАССОМ, а не именем CSS-переменной, собранным из данных:
      подстановка имени токена из шаблона при неизвестном значении молча давала
      прозрачный сегмент вместо ошибки. */
-  .cx-bar>i{display:block;height:100%;min-width:var(--sp-1)}
+  /* Доля сегмента приходит ДАННЫМИ через `--pct`: правило здесь, значение в разметке. */
+  .cx-bar>i{display:block;height:100%;width:var(--pct,0%);min-width:var(--sp-1)}
   .cx-bar>i.is-ok{background:var(--ok-dot)}
   .cx-bar>i.is-info{background:var(--info-dot)}
   .cx-bar>i.is-warn{background:var(--warn-dot)}
@@ -797,7 +798,10 @@ table.dc-qtbl td{padding:var(--sp-2) var(--sp-2);border-bottom:1px solid var(--l
 .pl-item td{color:var(--ink)}
 .pl-result td{background:var(--th);color:var(--ink); font:var(--fw-sub) var(--fs-sub)/var(--lh-sub) var(--display)}
 .pl-neg{color:var(--accent-ink)}
-.rep-share{height:var(--sp-1);background:var(--accent);border-radius:var(--r2-radius-6)}
+/* Ширина доли приходит ДАННЫМИ через `--pct` (отчёты о выручке и обращениях).
+   Само правило живёт здесь: до 07.09.2026 оно стояло инлайном и из общего CSS
+   не правилось вовсе. Запасное 0% — полоса без данных не рисуется. */
+.rep-share{height:var(--sp-1);width:var(--pct,0%);background:var(--accent);border-radius:var(--r2-radius-6)}
 .sc-grid{display:grid;grid-template-columns:1fr 340px;gap:var(--r2-space-5);align-items:start}
 .res-row{display:flex;justify-content:space-between;gap:var(--sp-2);padding:var(--sp-1) 0;font-size:var(--r2-body);border-bottom:1px solid var(--line-soft)}
 .res-row .v{font-variant-numeric:tabular-nums}

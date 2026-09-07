@@ -624,7 +624,7 @@ details.pc-tech .pc-fields{margin-top:var(--sp-2)}
 .rep-chart{display:flex;align-items:stretch;gap:var(--sp-2);height:calc(var(--sp-6) * 4); padding:var(--sp-4);background:var(--panel);border-radius:var(--r2-radius-8); margin:0 0 var(--sp-2);overflow-x:auto}
 .rep-col{flex:1 0 auto;min-width:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-1)}
 .rep-bars{flex:1;display:flex;align-items:flex-end;justify-content:center;gap:var(--sp-1)}
-.rep-bar{width:var(--sp-2);border-radius:var(--r2-radius-6) var(--r2-radius-6) 0 0}
+.rep-bar{width:var(--sp-2);height:var(--pct,0%);border-radius:var(--r2-radius-6) var(--r2-radius-6) 0 0}
 .rep-bar.is-in{background:var(--ok-dot)}
 .rep-bar.is-out{background:var(--accent)}
 .rep-x{text-align:center;font-size:var(--fs-caption);line-height:var(--lh-caption); color:var(--muted2);white-space:nowrap}
@@ -649,7 +649,7 @@ details.pc-tech .pc-fields{margin-top:var(--sp-2)}
 .funnel-count{font:var(--fw-screen) var(--fs-screen)/var(--lh-screen) var(--display);color:var(--ink)}
 .funnel-sum{width:180px;text-align:right;font:500 var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--muted)}
 .funnel-conv{align-self:center;font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted2)}
-.funnel-bar{height:var(--sp-1);background:var(--accent);border-radius:var(--r2-radius-6);margin-top:var(--sp-2)}
+.funnel-bar{height:var(--sp-1);width:var(--pct,0%);background:var(--accent);border-radius:var(--r2-radius-6);margin-top:var(--sp-2)}
 @media (max-width:760px){
   .funnel-step{flex-wrap:wrap}
   .funnel-sum{width:auto;text-align:left}
@@ -1231,7 +1231,9 @@ table.wg th,table.wg td{border:1px solid var(--line);padding:0}
 table.wg thead th{position:sticky;top:0;text-align:center;min-width:28px}
 table.wg th.emp,table.wg td.emp{position:sticky;left:0;background:var(--panel);text-align:left;padding:var(--sp-1) var(--sp-1);min-width:250px;font-size:var(--r2-body);z-index:1}
 table.wg thead th.emp{z-index:2;background:var(--th)}
-table.wg input.cell{width:28px;height:28px;border:0;outline:0;text-align:center;font-size:var(--r2-body);font-weight:600;background:transparent;color:var(--ink);padding:0}
+/* Цвет статусного дня НАСТРАИВАЕТ владелец, поэтому он приходит данными через
+   `--cell-bg`; правило живёт здесь. Рабочий день заливки не имеет. */
+table.wg input.cell{width:28px;height:28px;border:0;outline:0;text-align:center;font-size:var(--r2-body);font-weight:600;background:var(--cell-bg,transparent);color:var(--ink);padding:0}
 table.wg input.cell:focus{box-shadow:inset 0 0 0 2px var(--accent)}
 table.wg td.sum,table.wg th.sum{text-align:center;font-variant-numeric:tabular-nums;padding:var(--sp-1) var(--sp-2);background:var(--th);min-width:34px;font-weight:700;color:var(--ink)}
 table.wg th.sun{background:var(--line)}
@@ -1389,3 +1391,55 @@ table.measurements-table tr.unassigned td{background: var(--warn-bg) !important}
 .tp-block>summary .tp-title{flex:1 1 auto;min-width:0}
 .tp-block>summary .tp-score{color:var(--muted);font-weight:600}
 .tp-block .tp-body{padding:4px 16px 16px;border-top:1px solid var(--surface)}
+
+/* ── costs.html: состояние вместо цвета в разметке ── */
+/* До 07.09.2026 цвета жили СЛОВАРЯМИ В ШАБЛОНЕ ({'ok': 'var(--card)', 'warn': …})
+   и подставлялись в инлайн. Это дизайн, спрятанный в разметке: из общего CSS его
+   поправить нельзя было вовсе. Теперь шаблон отдаёт состояние, цвет — здесь. */
+.cst-bill{margin:14px 0;padding:16px 18px;background:var(--card);border:2px solid var(--line);border-radius:var(--r2-radius-10)}
+.cst-bill.is-warn{background:var(--warn-bg);border-color:var(--warn)}
+.cst-bill.is-crit{background:var(--danger-bg);border-color:var(--accent)}
+
+.cst-lvl.is-warn{background:var(--warn-bg)}
+.cst-lvl.is-crit{background:var(--danger-bg)}
+
+.cst-svc{border:1px solid var(--line);border-radius:var(--r2-radius-8);margin:6px 0;background:var(--card)}
+.cst-svc.is-warn{border-color:var(--warn);background:var(--warn-bg)}
+.cst-svc.is-crit{border-color:var(--accent);background:var(--danger-bg)}
+.cst-svc-body{padding:8px 14px 14px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px}
+.cst-svc.is-warn .cst-svc-body{border-top-color:var(--warn)}
+.cst-svc.is-crit .cst-svc-body{border-top-color:var(--accent)}
+
+.cst-budget{margin:18px 0;border-left:5px solid var(--ok)}
+.cst-budget.is-warn{border-left-color:var(--warn)}
+.cst-budget.is-over{border-left-color:var(--accent)}
+/* Ширина полосы приходит данными через `--pct`; само правило живёт здесь. */
+.cst-budget-bar{height:100%;width:var(--pct,0%);background:var(--ok)}
+.cst-budget.is-warn .cst-budget-bar{background:var(--warn)}
+.cst-budget.is-over .cst-budget-bar{background:var(--accent)}
+
+/* ── Последние стили, уехавшие из разметки 07.09.2026 ────────────────────────
+   Всё ниже стояло в атрибуте `style="…"` и вычислялось прямо в шаблоне: словарь
+   цветов, целая строка стиля в переменной `box`, ширина колонки через `{% if %}`.
+   Такое из общего CSS не правится вовсе — теперь шаблон отдаёт СОСТОЯНИЕ. */
+
+/* crm2/taxes.html: ширина колонки «Действия» зависит от режима учёта. */
+.tx-acts-col.is-simple{width:150px}
+.tx-acts-col.is-accrual{width:80px}
+
+/* crm2/work_schedule.html: подпись дня недели; воскресенье — акцентом. */
+.wg-wd{font-weight:700;font-size:var(--r2-label)}
+table.wg th.sun .wg-wd{color:var(--accent)}
+
+/* records_overview.html: цвет числа KPI — по смыслу показателя, а не по месту. */
+.rec-pane .card .val.is-ink{color:var(--ink)}
+.rec-pane .card .val.is-muted{color:var(--muted)}
+.rec-pane .card .val.is-ok{color:var(--ok)}
+.rec-pane .card .val.is-red{color:var(--red)}
+.rec-pane .card .val.is-warn{color:var(--warn)}
+
+/* records_overview.html: плашка «требует внимания». Раньше её стиль лежал строкой
+   в переменной шаблона и повторялся три раза подряд. */
+.rec-box{min-width:0;padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
+.rec-box.is-danger{border-left:4px solid var(--red)}
+.rec-box.is-warn{border-left:4px solid var(--warn)}
