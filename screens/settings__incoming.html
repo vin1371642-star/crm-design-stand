@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Обращения и договоры · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,38 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  /* Локальные правила экрана — только раскладка; цвета/размеры/отступы токенами. */
-  .si-w180{width:180px} .si-w150{width:150px}
-  .si-num{color:var(--muted2);width:44px;text-align:center}
-  .si-center{text-align:center}
-  .si-off td{opacity:.55}
-  .si-x{width:var(--action);min-width:var(--action);height:var(--action);min-height:var(--action);
-    padding:0;border:0;background:none;color:var(--muted2);font-size:var(--r2-section-title);cursor:pointer;
-    display:inline-flex;align-items:center;justify-content:center}
-  .si-x:hover{background:var(--selected);color:var(--accent-ink);border-radius:var(--r2-radius-6)}
-  .si-numrow{display:flex;flex-wrap:wrap;gap:var(--sp-4);align-items:flex-end;max-width:640px;margin:0 0 var(--sp-4)}
-  .si-numhint{flex-basis:100%;margin:0}
-  .si-block{margin:0 0 var(--sp-6)}
-  .si-block:last-child{margin-bottom:0}
-  .si-controls-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:var(--sp-4);align-items:end;max-width:940px}
-  .si-controls-grid+.si-controls-grid{margin:0 0 var(--sp-4)}
-  .si-note{margin:0 0 var(--sp-3)}
-  .si-w52{width:52px} .si-w13{width:13%} .si-w18{width:18%} .si-w12{width:12%} .si-w8{width:8%} .si-w22{width:22%}
-  .si-inp-wide{width:100%;min-width:220px}
-  /* D-370 §5: технические имена (ключи) не показываются человеку — свёрнуты под
-     раскрывашку, а не отдельной колонкой на виду. */
-  .si-tech{margin:0}
-  .si-tech>summary{cursor:pointer;color:var(--muted2);white-space:nowrap;
-    font:500 var(--r2-label)/var(--r2-label-lh) var(--font)}
-  .si-tech>summary::-webkit-details-marker{display:none}
-  .si-tech label{display:flex;flex-direction:column;gap:var(--sp-1);margin-top:var(--sp-2);
-    font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted2)}
-</style>
 
 <div class="crm-page-head">
   <h1>Обращения и договоры</h1>

@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Транспортные средства · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-structure-vehicles-list">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,16 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-count{font-size:var(--r2-body);color:var(--muted2);margin:0 0 var(--sp-2)}
-  /* T1.2: таблица — единый компонент table.crm-table (crm2-components.css); свои правила сняты. */
-  .st-num{color:var(--muted2);width:44px}
-  .st-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Транспортные средства</h1>
@@ -171,13 +167,13 @@
 </div>
 
 <div class="st-body">
-  <form method="post" action="/settings/structure/vehicles/add" style="margin:0">
+  <form class="u-m-0" method="post" action="/settings/structure/vehicles/add">
     <button class="btn is-strong" type="submit">＋ Добавить транспортное средство</button>
   </form>
   <p class="st-count">Показаны 1-0 из 0 записей.</p>
-  <div style="overflow-x:auto">
-  <table class="crm-table" style="min-width:1100px">
-    <thead><tr><th class="st-num">#</th><th>Автотранспорт</th><th>Право пользования автотранспортом</th><th>Стоимость приобретения</th><th>Дата приобретения/аренды</th><th>Водитель</th><th>Страховка до</th><th style="width:90px">Статус</th><th style="width:120px">Действия</th></tr></thead>
+  <div class="u-ox-auto">
+  <table class="crm-table u-minw-1100px">
+    <thead><tr><th class="st-num">#</th><th>Автотранспорт</th><th>Право пользования автотранспортом</th><th>Стоимость приобретения</th><th>Дата приобретения/аренды</th><th>Водитель</th><th>Страховка до</th><th class="u-w-90px">Статус</th><th class="u-w-120px">Действия</th></tr></thead>
     <tbody>
       <tr><td colspan="9" class="muted">Транспортных средств пока нет. Нажмите «Добавить транспортное средство».</td></tr>
     </tbody>

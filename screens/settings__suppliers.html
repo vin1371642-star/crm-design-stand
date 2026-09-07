@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Поставщики изделий · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,32 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .sup-head{padding:var(--sp-3) var(--r2-space-5) 0}
-  /* Заголовок экрана — Page title 24/32 (уровень системы), а не свойства по месту. */
-  .sup-title{font:var(--fw-screen) var(--fs-screen)/var(--lh-screen) var(--display);color:var(--ink);margin:0}
-  .sup-tabs{display:flex;gap:var(--sp-1);border-bottom:1px solid var(--line);margin:var(--sp-2) 0 0;overflow-x:auto}
-  .sup-tabs a{padding:var(--sp-2) var(--sp-4);font:600 var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--muted2);text-decoration:none;
-    border-bottom:2px solid transparent;margin-bottom:var(--sp-1);white-space:nowrap}
-  .sup-tabs a:hover{color:var(--ink)}
-  .sup-tabs a.on{color:var(--accent-ink);border-bottom-color:var(--accent)}
-  .sup-body{padding:var(--sp-4) var(--r2-space-5)}
-  .sup-toolbar{display:flex;align-items:center;gap:var(--sp-3);margin:0 0 var(--sp-3)}
-  .sup-search{border:0;border-bottom:1px solid var(--line);background:transparent;padding:var(--sp-2) var(--sp-1);font-size:var(--r2-body);min-width:280px;color:var(--ink)}
-  .sup-search:focus{outline:none;border-bottom-color:var(--accent)}
-  /* T1.2: таблица — единый компонент table.crm-table (crm2-components.css); свои правила сняты. */
-  .sup-num{color:var(--muted2);width:44px}
-  .sup-active{color:var(--ok-ink);font-weight:var(--r2-fw-title)}
-  /* D-353 §3: выключенная запись остаётся в справочнике, но видно, что она не в выборе. */
-  .sup-off td{opacity:.55}
-  .sup-off-tag{font-size:var(--r2-label);color:var(--muted2)}
-  .sup-acts{display:flex;gap:var(--sp-2)}
-  .sup-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-</style>
 
 <div class="sup-head">
   <h1 class="sup-title">Поставщики изделий</h1>

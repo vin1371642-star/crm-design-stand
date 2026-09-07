@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Архив — Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,7 +147,7 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
@@ -309,11 +311,10 @@
   </select>
   <select class="fsel" name="responsible" onchange="this.form.submit()" aria-label="Ответственный">
     <option value="">Все ответственные</option>
-    <option value="20" >Вадим</option>
-    <option value="19" >Данил</option>
-    <option value="18" >Наташа</option>
-    <option value="17" >Нелли</option>
     <option value="1" >Сотрудник 01</option>
+    <option value="2" >Сотрудник 02</option>
+    <option value="3" >Сотрудник 03</option>
+    <option value="4" >Сотрудник 04</option>
   </select>
   <input class="fdate" type="date" name="date_from" value="" aria-label="Дата с">
   <input class="fdate" type="date" name="date_to" value="" aria-label="Дата по">
@@ -338,9 +339,9 @@
 <th class="col-w120"><a class="sortlink" href="?sort=responsible&dir=asc">Ответственный</a></th>
     </tr></thead>
     <tbody>
-      <tr><td class="num"><a class="rowlink" href="#" data-screen="/incoming/25/card">25</a></td><td class="c m nowrap">27.08.26</td><td><span class="stt"><span class="sd tone-bad"></span>Отказ</span></td><td class="m2">—</td><td class="m2" title="">—</td><td class="c m nowrap">—</td><td class="m2">—</td><td class="m2">—</td><td class="cl-name">Отказов Демо Петрович</td><td class="m2 nowrap">+7 (900) 000-01-03</td><td class="c m2">Звонок</td><td class="m2">Вручную</td><td class="c m2">Офис-менеджер Демо</td></tr>
-      <tr><td class="num"><a class="rowlink" href="incoming__20__card.html">20</a></td><td class="c m nowrap">23.08.26</td><td><span class="stt"><span class="sd tone-neutral"></span>Передано в ОПТ</span></td><td class="m2">—</td><td class="m2" title="">—</td><td class="c m nowrap">—</td><td class="m2">—</td><td class="m2">—</td><td class="cl-name">Оптовов Демо Демидович</td><td class="m2 nowrap">+7 (900) 000-02-17</td><td class="c m2">Звонок</td><td class="m2">Вручную</td><td class="c m2">Офис-менеджер Демо</td></tr>
-      <tr><td class="num"><a class="rowlink" href="incoming__19__card.html">19</a></td><td class="c m nowrap">22.08.26</td><td><span class="stt"><span class="sd tone-bad"></span>Отказ</span></td><td class="m2">—</td><td class="m2" title="">—</td><td class="c m nowrap">—</td><td class="m2">—</td><td class="m2">—</td><td class="cl-name">Отказов Демо Демидович</td><td class="m2 nowrap">+7 (900) 000-02-16</td><td class="c m2">Звонок</td><td class="m2">Вручную</td><td class="c m2">Офис-менеджер Демо</td></tr>
+      <tr><td class="num"><a class="rowlink" href="#" data-screen="/incoming/25/card">25</a></td><td class="c m nowrap">29.08.26</td><td><span class="stt"><span class="sd tone-bad"></span>Отказ</span></td><td class="m2">—</td><td class="m2" title="">—</td><td class="c m nowrap">—</td><td class="m2">—</td><td class="m2">—</td><td class="cl-name">Отказов Демо Петрович</td><td class="m2 nowrap">+7 (900) 000-01-03</td><td class="c m2">Звонок</td><td class="m2">Вручную</td><td class="c m2">Офис-менеджер Демо</td></tr>
+      <tr><td class="num"><a class="rowlink" href="incoming__20__card.html">20</a></td><td class="c m nowrap">25.08.26</td><td><span class="stt"><span class="sd tone-neutral"></span>Передано в ОПТ</span></td><td class="m2">—</td><td class="m2" title="">—</td><td class="c m nowrap">—</td><td class="m2">—</td><td class="m2">—</td><td class="cl-name">Оптовов Демо Демидович</td><td class="m2 nowrap">+7 (900) 000-02-17</td><td class="c m2">Звонок</td><td class="m2">Вручную</td><td class="c m2">Офис-менеджер Демо</td></tr>
+      <tr><td class="num"><a class="rowlink" href="incoming__19__card.html">19</a></td><td class="c m nowrap">24.08.26</td><td><span class="stt"><span class="sd tone-bad"></span>Отказ</span></td><td class="m2">—</td><td class="m2" title="">—</td><td class="c m nowrap">—</td><td class="m2">—</td><td class="m2">—</td><td class="cl-name">Отказов Демо Демидович</td><td class="m2 nowrap">+7 (900) 000-02-16</td><td class="c m2">Звонок</td><td class="m2">Вручную</td><td class="c m2">Офис-менеджер Демо</td></tr>
     </tbody>
   </table>
 </div>

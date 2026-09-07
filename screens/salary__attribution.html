@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Замеры по сотрудникам · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-salary-attribution">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,27 +147,14 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-  .flow{color:var(--muted2);font-size:var(--r2-label);margin:var(--sp-1) 0 var(--sp-3);line-height:1.6}
-  .sc-top{display:flex;gap:var(--sp-3);align-items:flex-end;flex-wrap:wrap;margin:0 0 var(--sp-4)}
-  .inp{border:1px solid var(--line);border-radius:var(--r2-radius-8);padding:var(--sp-2) var(--sp-2);font-size:var(--r2-body);background:var(--panel)}
-  .lbl{font-size:var(--r2-label);color:var(--muted)}
-  table.at{width:100%;border-collapse:collapse;font-size:var(--r2-body)}
-  table.at th{text-align:left;border-bottom:1px solid var(--line)}
-  table.at td{padding:var(--sp-2);border-bottom:1px solid var(--line-soft)}
-  table.at td.n,table.at th.n{text-align:right;font-variant-numeric:tabular-nums}
-  tfoot td{font-weight:700;border-top:2px solid var(--line)}
-  .muted{color:var(--muted2)}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Замеры по <b>сотрудникам</b></h1>
-  <div style="font-size:var(--r2-body)"><a href="salary__calc.html" style="color:var(--accent-ink);text-decoration:none">Калькулятор ЗП</a></div>
+  <div class="u-fs-r2-body"><a class="u-c-accent-ink u-td-none" href="salary__calc.html">Калькулятор ЗП</a></div>
 </div>
 
 <div class="st-body">
@@ -176,9 +165,9 @@
   <table class="at">
     <thead><tr><th>Сотрудник</th><th class="n">Записей на замер</th><th class="n">Новых клиентов</th></tr></thead>
     <tbody>
-      <tr><td>Офис-менеджер Демо</td><td class="n">0</td><td class="n">1</td></tr>
+      <tr><td>Офис-менеджер Демо</td><td class="n">0</td><td class="n">9</td></tr>
     </tbody>
-<tfoot><tr><td>Итого</td><td class="n">0</td><td class="n">1</td></tr></tfoot>  </table>
+<tfoot><tr><td>Итого</td><td class="n">0</td><td class="n">9</td></tr></tfoot>  </table>
 </div>
     </div>
   </div>

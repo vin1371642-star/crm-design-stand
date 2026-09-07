@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Календарь замеров</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-calendar.css?v=1788784554"></head>
-<body>
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-calendar.css?v=1788790702"><link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
+</head>
+<body class="">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,11 +147,11 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<link rel="stylesheet" href="static/crm2-calendar.css?v=1788784554">
+<link rel="stylesheet" href="static/crm2-calendar.css?v=1788790702">
 <div class="crm-page cal-m fill">
 
 
@@ -165,17 +167,17 @@
   <table>
     <thead><tr><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th></tr></thead>
     <tbody>
-<tr class="">        <td><a href="calendar__measurements.html" class="out has">31</a></td>
-        <td><a href="calendar__measurements.html" class=" has">1</a></td>
+<tr class="">        <td><a href="calendar__measurements.html" class="out">31</a></td>
+        <td><a href="calendar__measurements.html" class="">1</a></td>
         <td><a href="calendar__measurements.html" class=" has">2</a></td>
-        <td><a href="calendar__measurements.html" class="">3</a></td>
-        <td><a href="calendar__measurements.html" class="">4</a></td>
-        <td><a href="calendar__measurements.html" class=" has">5</a></td>
+        <td><a href="calendar__measurements.html" class=" has">3</a></td>
+        <td><a href="calendar__measurements.html" class=" has">4</a></td>
+        <td><a href="calendar__measurements.html" class="">5</a></td>
         <td><a href="calendar__measurements.html" class="">6</a></td>
 </tr>
 <tr class="wk-sel">        <td><a href="calendar__measurements.html" class=" today sel has">7</a></td>
         <td><a href="calendar__measurements.html" class="">8</a></td>
-        <td><a href="calendar__measurements.html" class="">9</a></td>
+        <td><a href="calendar__measurements.html" class=" has">9</a></td>
         <td><a href="calendar__measurements.html" class="">10</a></td>
         <td><a href="calendar__measurements.html" class="">11</a></td>
         <td><a href="calendar__measurements.html" class="">12</a></td>
@@ -236,7 +238,7 @@
         <button class="btn mini" type="button" onclick="calNav(-1)" title="Предыдущий день">‹</button>
         <button class="btn mini" type="button" onclick="calToday()">Сегодня</button>
         <button class="btn mini" type="button" onclick="calNav(1)" title="Следующий день">›</button>
-        <h2 class="cal-dayhead">7 сентября 2026 г. <span class="cal-count">замеров: 1</span></h2><form class="cal-pager" method="get" action="/calendar/measurements" aria-label="Сотрудники: показ по группам"><input type="hidden" name="date" value="2026-09-07"><span class="cal-pg is-off" aria-hidden="true" title="Это первая группа">&lsaquo;</span>  <span class="cal-pg-t">Сотрудники (2)</span><span class="cal-pg is-off" aria-hidden="true" title="Это последняя группа">&rsaquo;</span></form>
+        <h2 class="cal-dayhead">7 сентября 2026 г. <span class="cal-count">замеров: 3</span></h2><form class="cal-pager" method="get" action="/calendar/measurements" aria-label="Сотрудники: показ по группам"><input type="hidden" name="date" value="2026-09-07"><span class="cal-pg is-off" aria-hidden="true" title="Это первая группа">&lsaquo;</span>  <span class="cal-pg-t">Сотрудники (1)</span><span class="cal-pg is-off" aria-hidden="true" title="Это последняя группа">&rsaquo;</span></form>
       </div><div class="mgrid-scroll"><form id="calMoveForm" method="post" action="/calendar/measurements/move" hidden>
           <input type="hidden" name="measurement_id" id="calMoveId">
           <input type="hidden" name="target_date" value="2026-09-07">
@@ -250,135 +252,79 @@
         </form>
         <table class="mgrid">
           <thead>
-            <tr><th class="mgrid-th-time"></th><th title="Замерщик Демо">Замерщик Демо</th><th title="Не назначен">Не назначен</th></tr>
+            <tr><th class="mgrid-th-time"></th><th title="Замерщик Демо">Замерщик Демо</th></tr>
           </thead>
           <tbody>
-            <tr class="mgrid-offgrid">
-              <td class="mgrid-time" title="Без времени / вне графика">б/вр</td>
-              <td class="mgrid-cell">
-              </td>
-              <td class="mgrid-cell">
-                <div class="mgrid-offwrap">
-                  <a class="mgrid-ev ev-scheduled" href="incoming__2__card.html"
-                     onclick="return calDlgOpen(2, 'info', this.href);"
-                     title="scheduled · 00:41 · Замерщик Демо · Пробникова Демо Ивановна · г. Демоград, пр. Примерный, д. 5, кв. 2">
-                    <span class="hd"><span class="t">00:41</span><span class="mgr">Замерщик Демо</span></span>
-                    <span class="bd"><span class="fio">Пробникова Демо Ивановна</span><span class="adr">г. Демоград, пр. Примерный, д. 5, кв. 2</span></span>
-                  </a>
-                </div>
-              </td>
-            </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">07:00</td>
 <td class="mgrid-cell"
                   title="07:00 — Замерщик Демо: перетащите замер сюда"
                   ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
                   ondrop="calDrop(event,'11','07:00','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
-<td class="mgrid-cell"
-                  title="07:30 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','07:30','field')"></td>
-              <td class="mgrid-cell"></td>
+<td class="mgrid-cell mgrid-busy" title="Это время занято (замер длится 2 часа)"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">08:00</td>
-<td class="mgrid-cell"
-                  title="08:00 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','08:00','field')"></td>
-              <td class="mgrid-cell"></td>
+<td class="mgrid-cell mgrid-busy" title="Это время занято (замер длится 2 часа)"></td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
-<td class="mgrid-cell"
-                  title="08:30 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','08:30','field')"></td>
-              <td class="mgrid-cell"></td>
+<td class="mgrid-cell mgrid-busy" title="Это время занято (замер длится 2 часа)"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">09:00</td>
-<td class="mgrid-cell"
-                  title="09:00 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','09:00','field')"></td>
-              <td class="mgrid-cell"></td>
+              <td class="mgrid-cell" rowspan="4">
+                <div class="mgrid-cellwrap">
+                  <a class="mgrid-ev ev-scheduled" href="#" data-screen="/incoming/21/card"
+draggable="true" ondragstart="calDragStart(event,20)" ondragend="calDragEnd(event)"                     onclick="return calDlgOpen(20, 'info', this.href);"
+                     title="scheduled · 09:00 · Замерщик Демо · Селиванов Демо Демидович · г. Демоград, ул. Дневная, д. 1 · Замер стенда на сегодня.">
+                    <span class="hd"><span class="t">09:00</span><span class="mgr">Замерщик Демо</span></span>
+                    <span class="bd"><span class="fio">Селиванов Демо Демидович</span><span class="adr">г. Демоград, ул. Дневная, д. 1</span><span class="adr">Замер стенда на сегодня.</span></span>
+                  </a>
+                </div>
+              </td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
-<td class="mgrid-cell"
-                  title="09:30 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','09:30','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">10:00</td>
-<td class="mgrid-cell"
-                  title="10:00 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','10:00','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
-<td class="mgrid-cell"
-                  title="10:30 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','10:30','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">11:00</td>
-<td class="mgrid-cell"
-                  title="11:00 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','11:00','field')"></td>
-              <td class="mgrid-cell"></td>
+<td class="mgrid-cell mgrid-busy" title="Это время занято (замер длится 2 часа)"></td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
-<td class="mgrid-cell"
-                  title="11:30 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','11:30','field')"></td>
-              <td class="mgrid-cell"></td>
+<td class="mgrid-cell mgrid-busy" title="Это время занято (замер длится 2 часа)"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">12:00</td>
-<td class="mgrid-cell"
-                  title="12:00 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','12:00','field')"></td>
-              <td class="mgrid-cell"></td>
+              <td class="mgrid-cell" rowspan="4">
+                <div class="mgrid-cellwrap">
+                  <a class="mgrid-ev ev-scheduled" href="#" data-screen="/incoming/22/card"
+draggable="true" ondragstart="calDragStart(event,21)" ondragend="calDragEnd(event)"                     onclick="return calDlgOpen(21, 'info', this.href);"
+                     title="scheduled · 12:00 · Замерщик Демо · Полуднев Демо Демидович · г. Демоград, ул. Дневная, д. 2 · Замер стенда на сегодня.">
+                    <span class="hd"><span class="t">12:00</span><span class="mgr">Замерщик Демо</span></span>
+                    <span class="bd"><span class="fio">Полуднев Демо Демидович</span><span class="adr">г. Демоград, ул. Дневная, д. 2</span><span class="adr">Замер стенда на сегодня.</span></span>
+                  </a>
+                </div>
+              </td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
-<td class="mgrid-cell"
-                  title="12:30 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','12:30','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">13:00</td>
-<td class="mgrid-cell"
-                  title="13:00 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','13:00','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
-<td class="mgrid-cell"
-                  title="13:30 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','13:30','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">14:00</td>
@@ -386,63 +332,40 @@
                   title="14:00 — Замерщик Демо: перетащите замер сюда"
                   ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
                   ondrop="calDrop(event,'11','14:00','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
-<td class="mgrid-cell"
-                  title="14:30 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','14:30','field')"></td>
-              <td class="mgrid-cell"></td>
+<td class="mgrid-cell mgrid-busy" title="Это время занято (замер длится 2 часа)"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">15:00</td>
-<td class="mgrid-cell"
-                  title="15:00 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','15:00','field')"></td>
-              <td class="mgrid-cell"></td>
+<td class="mgrid-cell mgrid-busy" title="Это время занято (замер длится 2 часа)"></td>
             </tr>
-            <tr class=" mgrid-now">
+            <tr class="">
               <td class="mgrid-time"></td>
-<td class="mgrid-cell"
-                  title="15:30 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','15:30','field')"></td>
-              <td class="mgrid-cell"></td>
+<td class="mgrid-cell mgrid-busy" title="Это время занято (замер длится 2 часа)"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">16:00</td>
-<td class="mgrid-cell"
-                  title="16:00 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','16:00','field')"></td>
-              <td class="mgrid-cell"></td>
+              <td class="mgrid-cell" rowspan="4">
+                <div class="mgrid-cellwrap">
+                  <a class="mgrid-ev ev-scheduled" href="#" data-screen="/incoming/23/card"
+draggable="true" ondragstart="calDragStart(event,22)" ondragend="calDragEnd(event)"                     onclick="return calDlgOpen(22, 'info', this.href);"
+                     title="scheduled · 16:00 · Замерщик Демо · Вечеров Демо Демидович · г. Демоград, ул. Дневная, д. 3 · Замер стенда на сегодня.">
+                    <span class="hd"><span class="t">16:00</span><span class="mgr">Замерщик Демо</span></span>
+                    <span class="bd"><span class="fio">Вечеров Демо Демидович</span><span class="adr">г. Демоград, ул. Дневная, д. 3</span><span class="adr">Замер стенда на сегодня.</span></span>
+                  </a>
+                </div>
+              </td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
-<td class="mgrid-cell"
-                  title="16:30 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','16:30','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">17:00</td>
-<td class="mgrid-cell"
-                  title="17:00 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','17:00','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
-<td class="mgrid-cell"
-                  title="17:30 — Замерщик Демо: перетащите замер сюда"
-                  ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
-                  ondrop="calDrop(event,'11','17:30','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">18:00</td>
@@ -450,7 +373,6 @@
                   title="18:00 — Замерщик Демо: перетащите замер сюда"
                   ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
                   ondrop="calDrop(event,'11','18:00','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
@@ -458,7 +380,6 @@
                   title="18:30 — Замерщик Демо: перетащите замер сюда"
                   ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
                   ondrop="calDrop(event,'11','18:30','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">19:00</td>
@@ -466,7 +387,6 @@
                   title="19:00 — Замерщик Демо: перетащите замер сюда"
                   ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
                   ondrop="calDrop(event,'11','19:00','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
@@ -474,7 +394,6 @@
                   title="19:30 — Замерщик Демо: перетащите замер сюда"
                   ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
                   ondrop="calDrop(event,'11','19:30','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">20:00</td>
@@ -482,15 +401,13 @@
                   title="20:00 — Замерщик Демо: перетащите замер сюда"
                   ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
                   ondrop="calDrop(event,'11','20:00','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
-            <tr class="">
+            <tr class=" mgrid-now">
               <td class="mgrid-time"></td>
 <td class="mgrid-cell"
                   title="20:30 — Замерщик Демо: перетащите замер сюда"
                   ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
                   ondrop="calDrop(event,'11','20:30','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">21:00</td>
@@ -498,7 +415,6 @@
                   title="21:00 — Замерщик Демо: перетащите замер сюда"
                   ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
                   ondrop="calDrop(event,'11','21:00','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
@@ -506,7 +422,6 @@
                   title="21:30 — Замерщик Демо: перетащите замер сюда"
                   ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
                   ondrop="calDrop(event,'11','21:30','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="mgrid-hour">
               <td class="mgrid-time">22:00</td>
@@ -514,7 +429,6 @@
                   title="22:00 — Замерщик Демо: перетащите замер сюда"
                   ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
                   ondrop="calDrop(event,'11','22:00','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
             <tr class="">
               <td class="mgrid-time"></td>
@@ -522,7 +436,6 @@
                   title="22:30 — Замерщик Демо: перетащите замер сюда"
                   ondragover="calDragOver(event)" ondragleave="calDragLeave(event)"
                   ondrop="calDrop(event,'11','22:30','field')"></td>
-              <td class="mgrid-cell"></td>
             </tr>
           </tbody>
         </table>

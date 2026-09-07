@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Анализ расходов · Отчёты · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-report-liabilities">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,40 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-
-  .lb-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:var(--sp-3);margin:0 0 var(--rhythm)}
-  .lb-tile{background:var(--panel);border-radius:var(--r2-radius-8);padding:var(--sp-4);
-    display:flex;flex-direction:column;gap:var(--sp-1)}
-  .lb-tile-name{font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted)}
-  .lb-tile-value{font:var(--r2-fw-title) var(--r2-metric)/var(--r2-metric-lh) var(--display);
-    color:var(--ink);font-variant-numeric:tabular-nums}
-  /* Выделены две главные плитки — «Мы должны» и «Нам должны», как в оригинале.
-     Заливка бренд-subtle, а не второй контрастный цвет: контрастная плоскость одна. */
-  .lb-tile.is-lead{background:var(--brand-subtle)}
-  .lb-tile.is-lead .lb-tile-value{color:var(--accent-ink)}
-  .lb-tile.is-empty .lb-tile-value{color:var(--muted2)}
-
-  .lb-block-title{font:var(--fw-sub) var(--fs-sub)/var(--lh-sub) var(--display);color:var(--ink);
-    margin:0 0 var(--sp-2)}
-  .lb-name{text-align:left;min-width:280px}
-  /* В `crm2/base.html` у таблицы стоит `min-width:1500px` — это ширина
-     РЕЕСТРА обращений на полтора десятка колонок. Здесь столбцов мало (два столбца: наименование статьи и долг),
-     и унаследованная ширина уводила единственную числовую колонку за правый
-     край на обычном мониторе 1440: сумм не видно, пока не прокрутишь вправо.
-     Тот же приём, что в `crm2/calls_unsorted.html`. */
-  .tablewrap table{min-width:560px}
-  .tablewrap tbody tr{cursor:default}
-  .tablewrap tbody tr:hover{background:transparent}
-  .lb-total td{background:var(--th);font-weight:var(--r2-fw-title)}
-  .lb-empty{padding:var(--sp-6) 0;text-align:center;color:var(--muted)}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Отчёт <b>анализ расходов</b></h1>

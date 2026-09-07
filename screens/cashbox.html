@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Журнал кассы · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,7 +147,7 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
@@ -225,12 +227,12 @@
     </div>
     <div class="sec-body sec-body--table">
       <table class="crm-table"><thead><tr>
-          <th style="width:64px">Время</th>
+          <th class="u-w-64px">Время</th>
           <th>Операция</th>
           <th class="money col-w130">Приход</th>
           <th class="money col-w130">Расход</th>
           <th class="money col-w140">Остаток</th>
-          <th style="width:96px"></th>
+          <th class="u-w-96px"></th>
         </tr></thead>
         <tbody>
 <tr><td colspan="6" class="muted">За этот день движений нет.</td></tr>
@@ -292,7 +294,7 @@
         <label class="dlg-lbl" for="cbInEmp" id="cbInEmpLbl">Сотрудник</label>
         <select name="employee_id" id="cbInEmp">
           <option value="">не выбрано</option>
-<option value="24">Александр</option><option value="21">Андрей</option><option value="20">Вадим</option><option value="23">Валерий</option><option value="19">Данил</option><option value="22">Дима</option><option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="18">Наташа</option><option value="17">Нелли</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник01 Демо</option><option value="15">Сотрудник ПТО Демо</option>        </select>
+<option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник01 Демо</option><option value="2">Сотрудник02 Демо</option><option value="3">Сотрудник03 Демо</option><option value="4">Сотрудник04 Демо</option><option value="5">Сотрудник05 Демо</option><option value="6">Сотрудник06 Демо</option><option value="7">Сотрудник07 Демо</option><option value="8">Сотрудник08 Демо</option><option value="15">Сотрудник ПТО Демо</option>        </select>
         <label class="dlg-lbl" for="cbInAmount">Сумма, руб.</label>
         <input id="cbInAmount" name="amount" value="0.00" inputmode="decimal">
 
@@ -546,7 +548,7 @@
         <label class="dlg-lbl" for="cbOutEmp" id="cbOutEmpLbl">Сотрудник</label>
         <select name="employee_id" id="cbOutEmp">
           <option value="">не выбрано</option>
-<option value="24">Александр</option><option value="21">Андрей</option><option value="20">Вадим</option><option value="23">Валерий</option><option value="19">Данил</option><option value="22">Дима</option><option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="18">Наташа</option><option value="17">Нелли</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник01 Демо</option><option value="15">Сотрудник ПТО Демо</option>        </select>
+<option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник01 Демо</option><option value="2">Сотрудник02 Демо</option><option value="3">Сотрудник03 Демо</option><option value="4">Сотрудник04 Демо</option><option value="5">Сотрудник05 Демо</option><option value="6">Сотрудник06 Демо</option><option value="7">Сотрудник07 Демо</option><option value="8">Сотрудник08 Демо</option><option value="15">Сотрудник ПТО Демо</option>        </select>
 
         <label class="dlg-lbl" for="cbOutAmount">Сумма, руб.</label>
         <input id="cbOutAmount" name="amount" value="0.00" inputmode="decimal">
@@ -583,7 +585,7 @@
         <label class="dlg-lbl" for="cbIncVia">Через сотрудника</label>
         <select name="via_employee_id" id="cbIncVia">
           <option value="">не выбрано</option>
-<option value="24">Александр</option><option value="21">Андрей</option><option value="20">Вадим</option><option value="23">Валерий</option><option value="19">Данил</option><option value="22">Дима</option><option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="18">Наташа</option><option value="17">Нелли</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник01 Демо</option><option value="15">Сотрудник ПТО Демо</option>        </select>
+<option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник01 Демо</option><option value="2">Сотрудник02 Демо</option><option value="3">Сотрудник03 Демо</option><option value="4">Сотрудник04 Демо</option><option value="5">Сотрудник05 Демо</option><option value="6">Сотрудник06 Демо</option><option value="7">Сотрудник07 Демо</option><option value="8">Сотрудник08 Демо</option><option value="15">Сотрудник ПТО Демо</option>        </select>
 
         <label class="dlg-lbl" for="cbIncNote">Примечание</label>
         <input id="cbIncNote" name="note">

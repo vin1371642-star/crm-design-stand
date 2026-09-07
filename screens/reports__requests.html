@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Обращения · Отчёты · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-report-requests">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,25 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-
-  .rep-kpi{display:flex;gap:var(--sp-4);flex-wrap:wrap;margin:0 0 var(--rhythm)}
-  .rep-kpi-cell{flex:1;min-width:180px;background:var(--panel);border-radius:var(--r2-radius-8);
-    padding:var(--sp-4);display:flex;flex-direction:column;gap:var(--sp-1)}
-  .rep-kpi-label{font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted)}
-  .rep-kpi-value{font:var(--fw-screen) var(--fs-screen)/var(--lh-screen) var(--display);color:var(--ink)}
-  .rep-kpi-sub{font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted2)}
-  /* Карточка «Всего» — первый уровень: она итог, остальные её разбивка. */
-  .rep-kpi-cell.on{background:var(--th)}
-
-  .rep-cuts{display:flex;gap:var(--sp-2);margin:0 0 var(--rhythm);flex-wrap:wrap}
-  .rep-share{height:var(--sp-1);background:var(--accent);border-radius:var(--r2-radius-6)}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Отчёт <b>по обращениям</b></h1><details class="colpick">
@@ -220,36 +207,6 @@
   <div class="colpick-pop">
     <div class="colpick-list">
       <label class="colpick-item">
-        <input type="checkbox" name="employee" value="24"
-               onchange="this.form.submit()">
-        <span>Александр</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="21"
-               onchange="this.form.submit()">
-        <span>Андрей</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="20"
-               onchange="this.form.submit()">
-        <span>Вадим</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="23"
-               onchange="this.form.submit()">
-        <span>Валерий</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="19"
-               onchange="this.form.submit()">
-        <span>Данил</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="22"
-               onchange="this.form.submit()">
-        <span>Дима</span>
-      </label>
-      <label class="colpick-item">
         <input type="checkbox" name="employee" value="16"
                onchange="this.form.submit()">
         <span>Директор Демо</span>
@@ -275,16 +232,6 @@
         <span>Монтажник Демо</span>
       </label>
       <label class="colpick-item">
-        <input type="checkbox" name="employee" value="18"
-               onchange="this.form.submit()">
-        <span>Наташа</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="17"
-               onchange="this.form.submit()">
-        <span>Нелли</span>
-      </label>
-      <label class="colpick-item">
         <input type="checkbox" name="employee" value="9"
                onchange="this.form.submit()">
         <span>Оператор КЦ Демо</span>
@@ -298,6 +245,41 @@
         <input type="checkbox" name="employee" value="1"
                onchange="this.form.submit()">
         <span>Сотрудник 01</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="2"
+               onchange="this.form.submit()">
+        <span>Сотрудник 02</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="3"
+               onchange="this.form.submit()">
+        <span>Сотрудник 03</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="4"
+               onchange="this.form.submit()">
+        <span>Сотрудник 04</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="5"
+               onchange="this.form.submit()">
+        <span>Сотрудник 05</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="6"
+               onchange="this.form.submit()">
+        <span>Сотрудник 06</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="7"
+               onchange="this.form.submit()">
+        <span>Сотрудник 07</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="8"
+               onchange="this.form.submit()">
+        <span>Сотрудник 08</span>
       </label>
       <label class="colpick-item">
         <input type="checkbox" name="employee" value="15"
@@ -348,14 +330,20 @@
 <div class="st-body"><div class="rep-kpi">
     <div class="rep-kpi-cell on">
       <span class="rep-kpi-label">Всего обращений</span>
-      <b class="rep-kpi-value">3</b>
-      <span class="rep-kpi-sub">0 ₽ · договоров 0 · отказов 0
+      <b class="rep-kpi-value">5</b>
+      <span class="rep-kpi-sub">138 000 ₽ · договоров 1 · отказов 0
       </span>
     </div>
     <div class="rep-kpi-cell">
       <span class="rep-kpi-label">Звонок</span>
-      <b class="rep-kpi-value">3</b>
-      <span class="rep-kpi-sub">0 ₽ · 100.0 %
+      <b class="rep-kpi-value">4</b>
+      <span class="rep-kpi-sub">0 ₽ · 80.0 %
+      </span>
+    </div>
+    <div class="rep-kpi-cell">
+      <span class="rep-kpi-label">— не указан —</span>
+      <b class="rep-kpi-value">1</b>
+      <span class="rep-kpi-sub">138 000 ₽ · 20.0 %
       </span>
     </div>
   </div>
@@ -387,28 +375,27 @@
         <th class="num">Отказы</th>
         <th class="num">Конверсия</th>
 <th class="num">Сумма</th>        <th class="num">Изделия</th>
-      </tr></thead>
-      <tbody>
+      </tr></thead><tbody>
         <tr>
           <td>— не указан —</td>
-          <td class="num">3</td>
+          <td class="num">5</td>
           <td class="num">100.0 %<div class="rep-share" style="width:100.0%"></div></td>
           <td class="num">0</td>
+          <td class="num">1</td>
           <td class="num">0</td>
-          <td class="num">0</td>
-          <td class="num">0.0 %</td>
-<td class="num money">0 ₽</td>          <td class="num">&lt;built-in method items of dict object at 0x00000247A8C46140&gt;</td>
+          <td class="num">20.0 %</td>
+<td class="num money">138 000 ₽</td>          <td class="num">3</td>
         </tr>
       </tbody>
 <tfoot><tr>
         <td>Итого</td>
-        <td class="num">3</td>
+        <td class="num">5</td>
         <td class="num">100 %</td>
         <td class="num">0</td>
+        <td class="num">1</td>
         <td class="num">0</td>
-        <td class="num">0</td>
-        <td class="num">0.0 %</td>
-<td class="num money">0 ₽</td>        <td class="num">&lt;built-in method items of dict object at 0x00000247A8CDBC40&gt;</td>
+        <td class="num">20.0 %</td>
+<td class="num money">138 000 ₽</td>        <td class="num">3</td>
       </tr></tfoot>
     </table>
   </div>
@@ -427,11 +414,11 @@
       <tbody>
         <tr>
           <td>31.08 – 06.09.2026</td>
-          <td class="num">3</td>
+          <td class="num">5</td>
           <td class="num">0</td>
+          <td class="num">1</td>
           <td class="num">0</td>
-          <td class="num">0</td>
-<td class="num money">0 ₽</td>          <td class="num">&lt;built-in method items of dict object at 0x00000247A8CCED80&gt;</td>
+<td class="num money">138 000 ₽</td>          <td class="num">3</td>
         </tr>
       </tbody>
     </table>

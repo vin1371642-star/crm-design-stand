@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Бригады · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-structure-brigades-list">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,23 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-btabs{display:flex;gap:var(--sp-1);border-bottom:1px solid var(--line);margin:0 0 var(--sp-3)}
-  .st-btabs a{padding:var(--sp-2) var(--sp-4);font:600 var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--muted2);text-decoration:none;border-bottom:2px solid transparent;margin-bottom:var(--sp-1)}
-  .st-btabs a.on{color:var(--accent-ink);border-bottom-color:var(--accent)}
-  .st-count{font-size:var(--r2-body);color:var(--muted2);margin:0 0 var(--sp-2)}
-  /* T1.2: таблица — единый компонент table.crm-table (crm2-components.css); свои правила сняты. */
-  .st-num{color:var(--muted2);width:44px}
-  .st-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-  /* D-353 §3: выключенная запись остаётся в справочнике, но видно, что она не в выборе. */
-  .st-off td{opacity:.55}
-  .st-off-tag{font-size:var(--r2-label);color:var(--muted2)}
-  .st-acts{display:flex;gap:var(--sp-2)}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Бригады</h1>
@@ -185,7 +174,7 @@
   </form>
   <p class="st-count">Показаны 1-1 из 1 запись.</p>
   <div class="table-scroll">
-  <table class="crm-table" style="min-width:760px">
+  <table class="crm-table u-minw-760px">
     <thead><tr><th class="st-num">#</th><th class="col-w260">Название</th><th>ФИО</th><th class="col-w90">Активен</th><th class="col-w220">Действия</th></tr></thead>
     <tbody>
       <tr class="">

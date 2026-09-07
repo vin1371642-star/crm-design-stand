@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Рекламации</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-claims-list">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,36 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  /* ── Реестр рекламаций: детали поверх дизайн-контракта (.crm-page/.crm-card/.crm-table) ── */
-  /* Фильтры — строка полей без рамки: блок отделён паузой, а не обводкой (D-260 §2).
-     Высоты, радиусы и рамки полей приходят из static/crm2-components.css. */
-  .cl-filters { display:flex; gap:var(--sp-3); flex-wrap:wrap; align-items:flex-end;
-    margin:0 0 var(--rhythm); }
-  .cl-filters label { display:flex; flex-direction:column; gap:var(--sp-1);
-    font-size:var(--r2-label); line-height:var(--r2-label-lh); color:var(--muted); }
-  .cl-filters select, .cl-filters input { min-width:150px; }
-  .cl-new { display:none; }
-  .cl-new.is-open { display:block; }
-  .cl-form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--sp-3) var(--sp-4); }
-  .cl-form-grid label { display:block; font-size:var(--r2-label); line-height:var(--r2-label-lh); color:var(--muted); }
-  .cl-form-grid .span-2 { grid-column:span 2; }
-  .cl-form-grid input, .cl-form-grid select, .cl-form-grid textarea {
-    width:100%; box-sizing:border-box; margin-top:var(--sp-1); }
-  .cl-actions { display:flex; gap:var(--sp-2); margin:var(--sp-4) 0 0; }
-  .cl-table-scroll { overflow-x:auto; }
-  .cl-table-scroll table { min-width:900px; }
-  .claims-reg td.num { color:var(--muted2); white-space:nowrap; }
-  .claims-reg td.client { font-weight:600; }
-  .claims-reg td.nowrap { white-space:nowrap; }
-  .claims-reg th.num { text-align:right; }
-  .claims-reg td.sum { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
-  .cl-empty { padding:var(--sp-6) var(--sp-4); text-align:center; color:var(--muted2); }
-</style>
 
 <div class="crm-page claims-reg fill">
 
@@ -332,7 +308,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr data-href="claims__1.html" onclick="location.href=this.dataset.href">          <td class="num">Р-1</td>          <td class="nowrap">2026-09-02</td>          <td class="client">Демидов Демо Демидович</td>          <td>г. Демоград, ул. Образцовая, д. 12, кв. 34</td>          <td>Регулировка</td>          <td><span class="crm-badge is-new">Новая</span></td>          <td class="sum">0</td>          <td class="nowrap"><a href="claims__1.html">Открыть →</a></td>
+        <tr data-href="claims__1.html" onclick="location.href=this.dataset.href">          <td class="num">Р-1</td>          <td class="nowrap">2026-09-04</td>          <td class="client">Демидов Демо Демидович</td>          <td>г. Демоград, ул. Образцовая, д. 12, кв. 34</td>          <td>Регулировка</td>          <td><span class="crm-badge is-new">Новая</span></td>          <td class="sum">0</td>          <td class="nowrap"><a href="claims__1.html">Открыть →</a></td>
         </tr>
       </tbody>
     </table>

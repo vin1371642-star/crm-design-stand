@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Мотивация · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-motivation-settings">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,42 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-  .st-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-
-  .fl{display:flex;flex-direction:column;gap:var(--sp-1);font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted)}
-
-  .unconf{background:var(--field);border-radius:var(--r2-radius-10);padding:var(--sp-3) var(--sp-4);margin:0 0 var(--rhythm)}
-  .unconf .chips{display:flex;gap:var(--sp-1);flex-wrap:wrap}
-  .chip{font:600 var(--r2-label)/var(--r2-label-lh) var(--font);padding:var(--sp-1) var(--sp-2);
-    border-radius:var(--r2-radius-10);background:var(--panel);color:var(--muted2)}
-
-  .newind{display:flex;gap:var(--sp-3);align-items:flex-end;flex-wrap:wrap;margin:0 0 var(--rhythm)}
-  .newind .fl{width:220px}
-  .newind .fl.wide{width:260px}
-
-  .mot-row{display:flex;align-items:center;gap:var(--sp-3);padding:var(--sp-3) var(--sp-4);
-    background:var(--panel);border-radius:var(--r2-radius-8);margin:0 0 var(--sp-2);
-    text-decoration:none;color:var(--ink)}
-  .mot-row:hover{background:var(--field)}
-  .mot-row .nm{flex:1;font:600 var(--r2-body)/var(--r2-body-lh) var(--font)}
-  .mot-row .kd{font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted2);width:150px}
-  .mot-row .sm{font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted);flex:1}
-  .mot-row .off{font:600 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted2)}
-  .mot-row.is-off{opacity:.6}
-
-  @media (max-width:760px){
-    .newind .fl,.newind .fl.wide{width:100%}
-    .mot-row{flex-wrap:wrap}
-    .mot-row .kd,.mot-row .sm{width:auto}
-  }
-</style>
-
 <div class="st-head">
   <h1 class="st-title">Настройки <b>мотивации</b></h1>
 </div>

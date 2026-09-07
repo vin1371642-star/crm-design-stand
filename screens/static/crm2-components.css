@@ -760,3 +760,71 @@
   .cx table.crm-table tbody td{border-bottom-color:var(--cx-line)}
   .cx table.crm-table thead th{border-bottom-color:var(--cx-line);color:var(--muted)}
   .cx table.crm-table tbody tr:last-child td{border-bottom:0}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   Перенесено из `<style>` шаблонов 07.09.2026. Сюда попало ТОЛЬКО то, что
+   встречалось больше чем на одном экране С ОДИНАКОВЫМ значением и чьё имя
+   класса не встречается на страницах без такого правила. Всё остальное —
+   в crm2-pages.css. Значения не менялись: перенос визуально нейтрален.
+   ═══════════════════════════════════════════════════════════════ */
+.crm-hr{max-width: none}
+.crm-hr .crm-card{padding: 20px 22px}
+.st-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
+.dc-head{padding:var(--sp-3) var(--r2-space-5) 0}
+.dc-title{font:var(--fw-screen) var(--fs-screen)/var(--lh-screen) var(--display);color:var(--ink);margin:0 0 var(--sp-2)}
+.dc-lbl b{display:block;font-weight:600;color:var(--ink);margin:0 0 var(--sp-1)}
+.dc-inp{width:100%;box-sizing:border-box;border:0;border-bottom:1px solid var(--line);background:transparent;padding:var(--sp-2) var(--sp-1);font-size:var(--r2-body);color:var(--ink)}
+.dc-inp:focus{outline:none;border-bottom-color:var(--accent)}
+.dc-check{display:inline-flex;align-items:center;gap:var(--sp-2);font-size:var(--r2-body);cursor:pointer;margin:var(--sp-1) 0}
+.dc-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
+.dc-num{color:var(--muted2);width:44px}
+table.dc-qtbl th{text-align:left;border-bottom:1px solid var(--line)}
+table.dc-qtbl td{padding:var(--sp-2) var(--sp-2);border-bottom:1px solid var(--line-soft);vertical-align:top}
+.si-num{color:var(--muted2);width:44px;text-align:center}
+.si-center{text-align:center}
+.si-off td{opacity:.55}
+.si-inp-wide{width:100%;min-width:220px}
+.si-x{width:var(--action);min-width:var(--action);height:var(--action);min-height:var(--action); padding:0;border:0;background:none;color:var(--muted2);font-size:var(--r2-section-title);cursor:pointer; display:inline-flex;align-items:center;justify-content:center}
+.si-x:hover{background:var(--selected);color:var(--accent-ink);border-radius:var(--r2-radius-6)}
+.crm-tabs .tcnt{display:inline-flex;align-items:center;justify-content:center;height:var(--r2-space-5); min-width:var(--r2-space-5);padding:0 var(--sp-2);border-radius:var(--r2-radius-10); background:var(--field);color:var(--muted);font:600 var(--r2-label)/var(--r2-label-lh) var(--font)}
+.crm-tabs a.active .tcnt{background:var(--accent);color:#fff}
+.tab-empty{background:var(--panel);border-radius:var(--r2-radius-8);padding:var(--r2-panel-padding); color:var(--muted);font:var(--r2-fw-body) var(--r2-body)/var(--r2-body-lh) var(--font);max-width:760px}
+.st-err{background:var(--danger-bg);color:var(--danger-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
+.pl-name{position:sticky;left:0;z-index:2;background:var(--panel);text-align:left;min-width:280px}
+.tablewrap thead th.pl-name{z-index:3;background:var(--th);text-align:left}
+.pl-head td.pl-name{background:var(--panel)}
+.pl-item td{color:var(--ink)}
+.pl-result td{background:var(--th);color:var(--ink); font:var(--fw-sub) var(--fs-sub)/var(--lh-sub) var(--display)}
+.pl-neg{color:var(--accent-ink)}
+.rep-share{height:var(--sp-1);background:var(--accent);border-radius:var(--r2-radius-6)}
+.sc-grid{display:grid;grid-template-columns:1fr 340px;gap:var(--r2-space-5);align-items:start}
+.res-row{display:flex;justify-content:space-between;gap:var(--sp-2);padding:var(--sp-1) 0;font-size:var(--r2-body);border-bottom:1px solid var(--line-soft)}
+.res-row .v{font-variant-numeric:tabular-nums}
+.st-sub{display:flex;gap:var(--sp-1);justify-content:flex-end;margin:0 0 var(--sp-4)}
+.st-sub a{padding:var(--sp-2) var(--sp-3);border:1px solid var(--line);font:600 var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--muted2);text-decoration:none}
+.st-sub a:first-child{border-radius:var(--r2-radius-8) 0 0 var(--r2-radius-8)}
+.st-sub a:last-child{border-radius:0 var(--r2-radius-8) var(--r2-radius-8) 0}
+.st-sub a+a{border-left:0}
+.st-sub a.on{background:var(--field);color:var(--accent-ink)}
+.st-inp{width:100%}
+.st-check{display:inline-flex;align-items:center;gap:var(--sp-2);font-size:var(--r2-body);cursor:pointer;margin:var(--sp-1) 0}
+.st-off td{opacity:.55}
+.st-off-tag{font-size:var(--r2-label);color:var(--muted2)}
+.st-acts{display:flex;gap:var(--sp-2)}
+.st-row>.st-narrow{flex:none;width:150px}
+.st-acc>summary::-webkit-details-marker{display:none}
+.st-acc>summary::after{content:"⌄";margin-left:auto;color:var(--muted2)}
+.st-acc[open]>summary::after{content:"⌃"}
+.st-plus{flex:none;width:38px;height:var(--control-h);align-self:flex-end;margin-bottom:var(--sp-1);border:1px solid var(--line);border-radius:var(--r2-radius-8);background:var(--panel);color:var(--ink);font-size:var(--r2-section-title);cursor:pointer}
+.st-modal{position:fixed;inset:0;background:rgba(20,22,28,.45);display:none;align-items:flex-start;justify-content:center;z-index:60}
+.st-modal.open{display:flex}
+.st-dlg{background:var(--panel);margin-top:var(--sp-6);width:520px;max-width:94vw;border-radius:var(--r2-radius-10);box-shadow:0 20px 60px rgba(0,0,0,.28);overflow:hidden}
+.st-dlg-head{display:flex;align-items:center;padding:var(--sp-3) var(--r2-space-5);border-bottom:1px solid var(--line);font:700 var(--r2-body)/var(--r2-body-lh) var(--display);color:var(--ink)}
+.st-dlg-head .x{margin-left:auto;border:0;background:none;font-size:var(--r2-section-title);color:var(--muted2);cursor:pointer}
+.st-dlg-foot{display:flex;justify-content:flex-end;gap:var(--sp-2);padding:0 var(--r2-space-5) var(--sp-4)}
+.st-btn{height:var(--control-h);padding:0 var(--sp-4);border:1px solid var(--line);border-radius:var(--r2-radius-6);background:transparent;font:600 var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--muted);cursor:pointer}
+.st-btn.p{border:0;background:var(--ink);color:var(--panel)}
+@media(max-width:820px){
+  .sc-grid{grid-template-columns:1fr}
+}

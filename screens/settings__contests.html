@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Конкурсы · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-contests-settings">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,52 +147,41 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-  .st-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-  .flow{color:var(--muted2);font-size:var(--r2-label);margin:var(--sp-1) 0 var(--sp-3);line-height:1.6}
-  table.ct{width:100%;border-collapse:collapse;font-size:var(--r2-body)}
-  table.ct th{text-align:left;border-bottom:1px solid var(--line)}
-  table.ct td{padding:var(--sp-2) var(--sp-2);border-bottom:1px solid var(--line-soft);vertical-align:middle}
-  .inp{border:1px solid var(--line);border-radius:var(--r2-radius-6);padding:var(--sp-1) var(--sp-2);font-size:var(--r2-body);color:var(--ink);background:var(--panel)}
-  table.ct td:last-child{white-space:nowrap}
-  .ct-off{opacity:.5}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Конкурсы <b>мотивации</b></h1>
-  <div style="font-size:var(--r2-body)"><a href="settings__motivation.html" style="color:var(--accent-ink);text-decoration:none">→ Мотивация</a> · <a href="settings__plans.html" style="color:var(--accent-ink);text-decoration:none">Планы</a></div>
+  <div class="u-fs-r2-body"><a class="u-c-accent-ink u-td-none" href="settings__motivation.html">→ Мотивация</a> · <a class="u-c-accent-ink u-td-none" href="settings__plans.html">Планы</a></div>
 </div>
 
 <div class="st-body">
-  <form method="post" action="/settings/contests/add" style="display:flex;gap:var(--sp-2);align-items:flex-end;flex-wrap:wrap;margin:0 0 var(--rhythm)">
-    <div><div class="flow" style="margin:0 0 var(--sp-1)">Название</div><input class="inp" name="title" placeholder="Напр. План по всем допам" style="width:220px"></div>
-    <div><div class="flow" style="margin:0 0 var(--sp-1)">Роль</div><select class="inp" name="role" style="width:180px"><option value="field" selected>Выездной менеджер</option><option value="trainee" >Выездной менеджер (стажёр)</option><option value="office_calc" >Офис-менеджер (расчётчик)</option><option value="office_consult" >Офис-менеджер (консультант)</option><option value="rop" >Руководитель отдела продаж</option><option value="kc_operator" >Оператор КЦ</option><option value="kc_senior" >Старший оператор КЦ</option><option value="measurer" >Замерщик</option></select></div>
-    <div><div class="flow" style="margin:0 0 var(--sp-1)">Условие</div><select class="inp" name="condition_key" style="width:230px"><option value="all_dops" title="Все показатели-допы роли достигли своей нормы объёма (порога премии) за период.">Выполнен план по всем допам</option></select></div>
-    <div><div class="flow" style="margin:0 0 var(--sp-1)">Премия, ₽</div><input class="inp" name="premium" value="5000" inputmode="decimal" style="width:110px;text-align:right"></div>
+  <form class="u-d-flex u-gap-sp-2 u-ai-flex-end u-fw-wrap-wrap u-m-0-0-rhythm" method="post" action="/settings/contests/add">
+    <div><div class="flow u-m-0-0-sp-1">Название</div><input class="inp u-w-220px" name="title" placeholder="Напр. План по всем допам"></div>
+    <div><div class="flow u-m-0-0-sp-1">Роль</div><select class="inp u-w-180px" name="role"><option value="field" selected>Выездной менеджер</option><option value="trainee" >Выездной менеджер (стажёр)</option><option value="office_calc" >Офис-менеджер (расчётчик)</option><option value="office_consult" >Офис-менеджер (консультант)</option><option value="rop" >Руководитель отдела продаж</option><option value="kc_operator" >Оператор КЦ</option><option value="kc_senior" >Старший оператор КЦ</option><option value="measurer" >Замерщик</option></select></div>
+    <div><div class="flow u-m-0-0-sp-1">Условие</div><select class="inp u-w-230px" name="condition_key"><option value="all_dops" title="Все показатели-допы роли достигли своей нормы объёма (порога премии) за период.">Выполнен план по всем допам</option></select></div>
+    <div><div class="flow u-m-0-0-sp-1">Премия, ₽</div><input class="inp u-w-110px u-ta-right" name="premium" value="5000" inputmode="decimal"></div>
     <button class="btn is-strong" type="submit">＋ Добавить конкурс</button>
   </form>
 
   <table class="ct">
     <thead><tr>
-      <th style="width:34px" title="Порядок">№</th><th>Название</th><th style="width:170px">Роль</th>
-      <th>Условие</th><th style="width:120px">Премия, ₽</th><th style="width:60px">Вкл</th><th style="width:190px">Действия</th>
+      <th class="u-w-34px" title="Порядок">№</th><th>Название</th><th class="u-w-170px">Роль</th>
+      <th>Условие</th><th class="u-w-120px">Премия, ₽</th><th class="u-w-60px">Вкл</th><th class="u-w-190px">Действия</th>
     </tr></thead>
     <tbody>
       <tr class="">
-        <td><input class="inp" form="cf1" name="sort_order" value="0" style="width:44px"></td>
-        <td><input class="inp" form="cf1" name="title" value="План по всем допам" style="width:100%"></td>
-        <td><select class="inp" form="cf1" name="role" style="width:100%"><option value="field" selected>Выездной менеджер</option><option value="trainee" >Выездной менеджер (стажёр)</option><option value="office_calc" >Офис-менеджер (расчётчик)</option><option value="office_consult" >Офис-менеджер (консультант)</option><option value="rop" >Руководитель отдела продаж</option><option value="kc_operator" >Оператор КЦ</option><option value="kc_senior" >Старший оператор КЦ</option><option value="measurer" >Замерщик</option></select></td>
-        <td><select class="inp" form="cf1" name="condition_key" style="width:100%"><option value="all_dops" selected title="Все показатели-допы роли достигли своей нормы объёма (порога премии) за период.">Выполнен план по всем допам</option></select></td>
-        <td><input class="inp" form="cf1" name="premium" value="5000" inputmode="decimal" style="width:100px;text-align:right"></td>
-        <td style="text-align:center"><input type="checkbox" form="cf1" name="active" value="1" checked></td>
+        <td><input class="inp u-w-44px" form="cf1" name="sort_order" value="0"></td>
+        <td><input class="inp u-w-100pct" form="cf1" name="title" value="План по всем допам"></td>
+        <td><select class="inp u-w-100pct" form="cf1" name="role"><option value="field" selected>Выездной менеджер</option><option value="trainee" >Выездной менеджер (стажёр)</option><option value="office_calc" >Офис-менеджер (расчётчик)</option><option value="office_consult" >Офис-менеджер (консультант)</option><option value="rop" >Руководитель отдела продаж</option><option value="kc_operator" >Оператор КЦ</option><option value="kc_senior" >Старший оператор КЦ</option><option value="measurer" >Замерщик</option></select></td>
+        <td><select class="inp u-w-100pct" form="cf1" name="condition_key"><option value="all_dops" selected title="Все показатели-допы роли достигли своей нормы объёма (порога премии) за период.">Выполнен план по всем допам</option></select></td>
+        <td><input class="inp u-w-100px u-ta-right" form="cf1" name="premium" value="5000" inputmode="decimal"></td>
+        <td class="u-ta-center"><input type="checkbox" form="cf1" name="active" value="1" checked></td>
         <td>
-          <form method="post" action="/settings/contests/1/save" id="cf1" style="display:inline"><button class="btn mini" type="submit">Сохранить</button></form>
-          <form method="post" action="/settings/contests/1/delete" style="display:inline;margin-left:var(--sp-1)" onsubmit="return confirm('Удалить конкурс?')"><button class="btn danger mini" type="submit">Удалить</button></form>
+          <form class="u-d-inline" method="post" action="/settings/contests/1/save" id="cf1"><button class="btn mini" type="submit">Сохранить</button></form>
+          <form class="u-d-inline u-ml-sp-1" method="post" action="/settings/contests/1/delete" onsubmit="return confirm('Удалить конкурс?')"><button class="btn danger mini" type="submit">Удалить</button></form>
         </td>
       </tr>
     </tbody>

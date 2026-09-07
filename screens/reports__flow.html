@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Доходы и расходы · Отчёты · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-report-flow">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,34 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-
-  /* Первая колонка — название строки: она читается вместе с любым месяцем, поэтому
-     не уезжает при горизонтальной прокрутке таблицы на 12 колонок. */
-  .pl-name{position:sticky;left:0;z-index:2;background:var(--panel);text-align:left;min-width:280px}
-  .tablewrap thead th.pl-name{z-index:3;background:var(--th);text-align:left}
-  .tablewrap tfoot td.pl-name{z-index:3}
-  .tablewrap tbody tr{cursor:default}
-  .tablewrap tbody tr:hover{background:transparent}
-
-  /* Четыре уровня строки вместо рамок: заголовок раздела, слагаемое, итог, прибыль. */
-  .pl-head td{font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display);
-    color:var(--ink);padding-top:var(--sp-4)}
-  .pl-head td.pl-name{background:var(--panel)}
-  .pl-item td{color:var(--ink)}
-  .pl-total td{background:var(--th);font-weight:var(--r2-fw-title)}
-  .pl-total td.pl-name{background:var(--th)}
-  .pl-result td{background:var(--th);color:var(--ink);
-    font:var(--fw-sub) var(--fs-sub)/var(--lh-sub) var(--display)}
-  .pl-result td.pl-name{background:var(--th)}
-  /* Убыток виден цифрой, а не только знаком минуса. */
-  .pl-neg{color:var(--accent-ink)}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Отчёт <b>доходы и расходы</b></h1>
@@ -476,8 +454,8 @@
               <td class="num money "></td>
               <td class="num money "></td>
               <td class="num money "></td>
-              <td class="num money ">9 500 ₽</td>
-              <td class="num money ">3 200 ₽</td>
+              <td class="num money "></td>
+              <td class="num money ">12 700 ₽</td>
               <td class="num money "></td>
               <td class="num money "></td>
               <td class="num money "></td>
@@ -492,8 +470,8 @@
               <td class="num money "></td>
               <td class="num money "></td>
               <td class="num money "></td>
-              <td class="num money ">136 900 ₽</td>
-              <td class="num money ">3 200 ₽</td>
+              <td class="num money ">127 400 ₽</td>
+              <td class="num money ">12 700 ₽</td>
               <td class="num money "></td>
               <td class="num money "></td>
               <td class="num money "></td>
@@ -524,8 +502,8 @@
               <td class="num money "></td>
               <td class="num money "></td>
               <td class="num money "></td>
-              <td class="num money ">1 693 600 ₽</td>
-              <td class="num money pl-neg">-3 200 ₽</td>
+              <td class="num money ">1 703 100 ₽</td>
+              <td class="num money pl-neg">-12 700 ₽</td>
               <td class="num money "></td>
               <td class="num money "></td>
               <td class="num money "></td>

@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Рабочий график · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-work-schedule">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,50 +147,14 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-  .st-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-  .flow{color:var(--muted2);font-size:var(--r2-body);margin:var(--sp-1) 0 var(--sp-3);line-height:1.6}
-  .bar{display:flex;gap:var(--sp-3);align-items:center;flex-wrap:wrap;margin:0 0 var(--sp-3)}
-  .inp{border:1px solid var(--line);border-radius:var(--r2-radius-8);padding:var(--sp-2) var(--sp-2);font-size:var(--r2-body);background:var(--panel)}
-  .lbl{font-size:var(--r2-label);color:var(--muted)}
-  .colorbar{display:flex;gap:var(--sp-3);flex-wrap:wrap;align-items:center;margin:0 0 var(--rhythm)}
-  .colorbar label{display:inline-flex;gap:var(--sp-1);align-items:center;font-size:var(--r2-body);color:var(--ink)}
-  .colorbar input[type=color]{width:30px;height:var(--action);border:1px solid var(--line);border-radius:var(--r2-radius-6);padding:0;background:none;cursor:pointer}
-  .wgwrap{overflow-x:auto;border:0;border-radius:var(--r2-radius-8);background:var(--panel)}
-  table.wg{border-collapse:collapse;font-size:var(--r2-body);white-space:nowrap;background:var(--panel)}
-  table.wg th,table.wg td{border:1px solid var(--line);padding:0}
-  table.wg thead th{position:sticky;top:0;text-align:center;min-width:28px}
-  table.wg th.emp,table.wg td.emp{position:sticky;left:0;background:var(--panel);text-align:left;padding:var(--sp-1) var(--sp-1);min-width:250px;font-size:var(--r2-body);z-index:1}
-  table.wg thead th.emp{z-index:2;background:var(--th)}
-  table.wg input.cell{width:28px;height:28px;border:0;outline:0;text-align:center;font-size:var(--r2-body);font-weight:600;background:transparent;color:var(--ink);padding:0}
-  table.wg input.cell:focus{box-shadow:inset 0 0 0 2px var(--accent)}
-  table.wg td.sum,table.wg th.sum{text-align:center;font-variant-numeric:tabular-nums;padding:var(--sp-1) var(--sp-2);background:var(--th);min-width:34px;font-weight:700;color:var(--ink)}
-  table.wg th.sun{background:var(--line)}
-  table.wg td.sun{background:var(--th)}
-  tr.wg-row.drag{opacity:.4}
-  tr.wg-row.over td{border-top:2px solid var(--accent)}
-  td.divider{background:var(--line-soft)}
-  .grip{cursor:grab;color:var(--muted2);font-size:var(--r2-body);padding:0 var(--sp-1)}
-  .rm{border:1px solid var(--line);background:var(--panel);color:var(--muted2);border-radius:var(--r2-radius-6);width:20px;height:20px;font-size:var(--r2-body);line-height:1;cursor:pointer;padding:0}
-  .rm:hover{color:var(--over);border-color:var(--over)}
-  /* D-371: список ВСЕХ сотрудников убран из каждой строки — один выбор
-     «Добавить сотрудника» над таблицей (ограничен 4 группами), в строке
-     остаётся только имя + кнопка «заменить», открывающая тот же выбор. */
-  .picker{display:flex;gap:var(--sp-2);align-items:center;flex-wrap:wrap}
-  .picker select{border:1px solid var(--line);border-radius:var(--r2-radius-6);padding:var(--sp-1) var(--sp-1);font-size:var(--r2-body);background:var(--panel);max-width:220px}
-  .row-emp-line{display:inline-flex;gap:var(--sp-1);align-items:center;width:100%}
-  .emp-name{flex:1;overflow:hidden;text-overflow:ellipsis}
-  .emp-name .oos{color:var(--warn-ink);font-size:var(--r2-label);font-weight:600;margin-left:var(--sp-1)}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Рабочий <b>график</b></h1>
-  <div style="font-size:var(--r2-body)"><a href="salary__payroll.html" style="color:var(--accent-ink);text-decoration:none">Сводная ЗП</a></div>
+  <div class="u-fs-r2-body"><a class="u-c-accent-ink u-td-none" href="salary__payroll.html">Сводная ЗП</a></div>
 </div>
 
 <div class="st-body">  <details class="ds-acc"><summary>Цвета дней</summary>
@@ -210,34 +176,25 @@
       </select>
       <button type="button" class="btn" onclick="applyPick()">＋ Добавить</button>
     </div>
-    <span style="flex:1"></span>
+    <span class="u-flex-1"></span>
 <button class="btn is-strong" type="submit" form="wgForm">Сохранить график</button>
   </div>
 
-  <form id="rowSet" method="post" action="/settings/schedule/row/set" style="display:none"><input type="hidden" name="period" value="2026-09"><input type="hidden" name="index" id="setIdx"><input type="hidden" name="employee_id" id="setEmp"></form>
-  <form id="rowRemove" method="post" action="/settings/schedule/row/remove" style="display:none"><input type="hidden" name="period" value="2026-09"><input type="hidden" name="index" id="rmIdx"></form>
-  <form id="rowAdd" method="post" action="/settings/schedule/row/add" style="display:none"><input type="hidden" name="period" value="2026-09"><input type="hidden" name="employee_id" id="addEmpHidden"></form>
-  <form id="rowReorder" method="post" action="/settings/schedule/row/reorder" style="display:none"><input type="hidden" name="period" value="2026-09"><input type="hidden" name="order" id="reOrder"></form>
+  <form class="u-d-none" id="rowSet" method="post" action="/settings/schedule/row/set"><input type="hidden" name="period" value="2026-09"><input type="hidden" name="index" id="setIdx"><input type="hidden" name="employee_id" id="setEmp"></form>
+  <form class="u-d-none" id="rowRemove" method="post" action="/settings/schedule/row/remove"><input type="hidden" name="period" value="2026-09"><input type="hidden" name="index" id="rmIdx"></form>
+  <form class="u-d-none" id="rowAdd" method="post" action="/settings/schedule/row/add"><input type="hidden" name="period" value="2026-09"><input type="hidden" name="employee_id" id="addEmpHidden"></form>
+  <form class="u-d-none" id="rowReorder" method="post" action="/settings/schedule/row/reorder"><input type="hidden" name="period" value="2026-09"><input type="hidden" name="order" id="reOrder"></form>
 
-  <style>
-    /* Заголовок группы и итог смены — не клетки ввода: тон приглушённый,
-       чтобы не спорить с рабочими днями. Своих размеров нет — только токены. */
-    .wg .wg-group td{background:var(--field);font-weight:600;color:var(--ink);
-      font-size:var(--r2-label);line-height:var(--r2-label-lh)}
-    .wg .wg-shift td{background:var(--field);color:var(--muted);font-weight:600;
-      font-size:var(--r2-label);line-height:var(--r2-label-lh);text-align:center}
-    .wg .wg-shift td.emp{text-align:left}
-  </style>
   <form method="post" action="/settings/schedule/save" id="wgForm">
     <input type="hidden" name="period" value="2026-09">
     <div class="wgwrap">
       <table class="wg" id="wgTable">
         <thead><tr>
           <th class="emp">Сотрудник</th>
-<th title="Вт" class=""><span style="font-size:var(--r2-label)">1</span><br><span style="font-weight:700;font-size:var(--r2-label);">Вт</span></th><th title="Ср" class=""><span style="font-size:var(--r2-label)">2</span><br><span style="font-weight:700;font-size:var(--r2-label);">Ср</span></th><th title="Чт" class=""><span style="font-size:var(--r2-label)">3</span><br><span style="font-weight:700;font-size:var(--r2-label);">Чт</span></th><th title="Пт" class=""><span style="font-size:var(--r2-label)">4</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пт</span></th><th title="Сб" class=""><span style="font-size:var(--r2-label)">5</span><br><span style="font-weight:700;font-size:var(--r2-label);">Сб</span></th><th title="Вс" class="sun"><span style="font-size:var(--r2-label)">6</span><br><span style="font-weight:700;font-size:var(--r2-label);color:var(--accent)">Вс</span></th><th title="Пн" class=""><span style="font-size:var(--r2-label)">7</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пн</span></th><th title="Вт" class=""><span style="font-size:var(--r2-label)">8</span><br><span style="font-weight:700;font-size:var(--r2-label);">Вт</span></th><th title="Ср" class=""><span style="font-size:var(--r2-label)">9</span><br><span style="font-weight:700;font-size:var(--r2-label);">Ср</span></th><th title="Чт" class=""><span style="font-size:var(--r2-label)">10</span><br><span style="font-weight:700;font-size:var(--r2-label);">Чт</span></th><th title="Пт" class=""><span style="font-size:var(--r2-label)">11</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пт</span></th><th title="Сб" class=""><span style="font-size:var(--r2-label)">12</span><br><span style="font-weight:700;font-size:var(--r2-label);">Сб</span></th><th title="Вс" class="sun"><span style="font-size:var(--r2-label)">13</span><br><span style="font-weight:700;font-size:var(--r2-label);color:var(--accent)">Вс</span></th><th title="Пн" class=""><span style="font-size:var(--r2-label)">14</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пн</span></th><th title="Вт" class=""><span style="font-size:var(--r2-label)">15</span><br><span style="font-weight:700;font-size:var(--r2-label);">Вт</span></th><th title="Ср" class=""><span style="font-size:var(--r2-label)">16</span><br><span style="font-weight:700;font-size:var(--r2-label);">Ср</span></th><th title="Чт" class=""><span style="font-size:var(--r2-label)">17</span><br><span style="font-weight:700;font-size:var(--r2-label);">Чт</span></th><th title="Пт" class=""><span style="font-size:var(--r2-label)">18</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пт</span></th><th title="Сб" class=""><span style="font-size:var(--r2-label)">19</span><br><span style="font-weight:700;font-size:var(--r2-label);">Сб</span></th><th title="Вс" class="sun"><span style="font-size:var(--r2-label)">20</span><br><span style="font-weight:700;font-size:var(--r2-label);color:var(--accent)">Вс</span></th><th title="Пн" class=""><span style="font-size:var(--r2-label)">21</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пн</span></th><th title="Вт" class=""><span style="font-size:var(--r2-label)">22</span><br><span style="font-weight:700;font-size:var(--r2-label);">Вт</span></th><th title="Ср" class=""><span style="font-size:var(--r2-label)">23</span><br><span style="font-weight:700;font-size:var(--r2-label);">Ср</span></th><th title="Чт" class=""><span style="font-size:var(--r2-label)">24</span><br><span style="font-weight:700;font-size:var(--r2-label);">Чт</span></th><th title="Пт" class=""><span style="font-size:var(--r2-label)">25</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пт</span></th><th title="Сб" class=""><span style="font-size:var(--r2-label)">26</span><br><span style="font-weight:700;font-size:var(--r2-label);">Сб</span></th><th title="Вс" class="sun"><span style="font-size:var(--r2-label)">27</span><br><span style="font-weight:700;font-size:var(--r2-label);color:var(--accent)">Вс</span></th><th title="Пн" class=""><span style="font-size:var(--r2-label)">28</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пн</span></th><th title="Вт" class=""><span style="font-size:var(--r2-label)">29</span><br><span style="font-weight:700;font-size:var(--r2-label);">Вт</span></th><th title="Ср" class=""><span style="font-size:var(--r2-label)">30</span><br><span style="font-weight:700;font-size:var(--r2-label);">Ср</span></th>          <th class="sum">р/дн</th><th class="sum">отп</th><th class="sum">бол</th>
+<th title="Вт" class=""><span class="u-fs-r2-label">1</span><br><span style="font-weight:700;font-size:var(--r2-label);">Вт</span></th><th title="Ср" class=""><span class="u-fs-r2-label">2</span><br><span style="font-weight:700;font-size:var(--r2-label);">Ср</span></th><th title="Чт" class=""><span class="u-fs-r2-label">3</span><br><span style="font-weight:700;font-size:var(--r2-label);">Чт</span></th><th title="Пт" class=""><span class="u-fs-r2-label">4</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пт</span></th><th title="Сб" class=""><span class="u-fs-r2-label">5</span><br><span style="font-weight:700;font-size:var(--r2-label);">Сб</span></th><th title="Вс" class="sun"><span class="u-fs-r2-label">6</span><br><span style="font-weight:700;font-size:var(--r2-label);color:var(--accent)">Вс</span></th><th title="Пн" class=""><span class="u-fs-r2-label">7</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пн</span></th><th title="Вт" class=""><span class="u-fs-r2-label">8</span><br><span style="font-weight:700;font-size:var(--r2-label);">Вт</span></th><th title="Ср" class=""><span class="u-fs-r2-label">9</span><br><span style="font-weight:700;font-size:var(--r2-label);">Ср</span></th><th title="Чт" class=""><span class="u-fs-r2-label">10</span><br><span style="font-weight:700;font-size:var(--r2-label);">Чт</span></th><th title="Пт" class=""><span class="u-fs-r2-label">11</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пт</span></th><th title="Сб" class=""><span class="u-fs-r2-label">12</span><br><span style="font-weight:700;font-size:var(--r2-label);">Сб</span></th><th title="Вс" class="sun"><span class="u-fs-r2-label">13</span><br><span style="font-weight:700;font-size:var(--r2-label);color:var(--accent)">Вс</span></th><th title="Пн" class=""><span class="u-fs-r2-label">14</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пн</span></th><th title="Вт" class=""><span class="u-fs-r2-label">15</span><br><span style="font-weight:700;font-size:var(--r2-label);">Вт</span></th><th title="Ср" class=""><span class="u-fs-r2-label">16</span><br><span style="font-weight:700;font-size:var(--r2-label);">Ср</span></th><th title="Чт" class=""><span class="u-fs-r2-label">17</span><br><span style="font-weight:700;font-size:var(--r2-label);">Чт</span></th><th title="Пт" class=""><span class="u-fs-r2-label">18</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пт</span></th><th title="Сб" class=""><span class="u-fs-r2-label">19</span><br><span style="font-weight:700;font-size:var(--r2-label);">Сб</span></th><th title="Вс" class="sun"><span class="u-fs-r2-label">20</span><br><span style="font-weight:700;font-size:var(--r2-label);color:var(--accent)">Вс</span></th><th title="Пн" class=""><span class="u-fs-r2-label">21</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пн</span></th><th title="Вт" class=""><span class="u-fs-r2-label">22</span><br><span style="font-weight:700;font-size:var(--r2-label);">Вт</span></th><th title="Ср" class=""><span class="u-fs-r2-label">23</span><br><span style="font-weight:700;font-size:var(--r2-label);">Ср</span></th><th title="Чт" class=""><span class="u-fs-r2-label">24</span><br><span style="font-weight:700;font-size:var(--r2-label);">Чт</span></th><th title="Пт" class=""><span class="u-fs-r2-label">25</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пт</span></th><th title="Сб" class=""><span class="u-fs-r2-label">26</span><br><span style="font-weight:700;font-size:var(--r2-label);">Сб</span></th><th title="Вс" class="sun"><span class="u-fs-r2-label">27</span><br><span style="font-weight:700;font-size:var(--r2-label);color:var(--accent)">Вс</span></th><th title="Пн" class=""><span class="u-fs-r2-label">28</span><br><span style="font-weight:700;font-size:var(--r2-label);">Пн</span></th><th title="Вт" class=""><span class="u-fs-r2-label">29</span><br><span style="font-weight:700;font-size:var(--r2-label);">Вт</span></th><th title="Ср" class=""><span class="u-fs-r2-label">30</span><br><span style="font-weight:700;font-size:var(--r2-label);">Ср</span></th>          <th class="sum">р/дн</th><th class="sum">отп</th><th class="sum">бол</th>
         </tr></thead>
         <tbody id="wgBody">
-          <tr><td class="emp" colspan="34" style="color:var(--muted2)">Строк нет. Выберите сотрудника вверху и нажмите «＋ Добавить».</td></tr>
+          <tr><td class="emp u-c-muted2" colspan="34">Строк нет. Выберите сотрудника вверху и нажмите «＋ Добавить».</td></tr>
         </tbody>
       </table>
     </div>

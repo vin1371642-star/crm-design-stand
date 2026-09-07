@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Касса · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,7 +147,7 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
@@ -224,11 +226,11 @@
           <h3 class="cx-card-title">Оборот
             <span class="cx-card-note">текущий месяц</span></h3>
           <div class="cx-kv">
-            <div><span class="cx-kv-n">Приход</span><span class="cx-val"><span class="n money-in">0</span><span class="u">₽</span>
+            <div><span class="cx-kv-n">Приход</span><span class="cx-val"><span class="n money-in">54 000</span><span class="u">₽</span>
 </span></div>
-            <div><span class="cx-kv-n">Расход</span><span class="cx-val"><span class="n money-out">3 200</span><span class="u">₽</span>
+            <div><span class="cx-kv-n">Расход</span><span class="cx-val"><span class="n money-out">12 700</span><span class="u">₽</span>
 </span></div>
-            <div><span class="cx-kv-n">Нетто</span><span class="cx-val"><span class="n">-3 200</span><span class="u">₽</span>
+            <div><span class="cx-kv-n">Нетто</span><span class="cx-val"><span class="n">41 300</span><span class="u">₽</span>
 </span></div>
           </div>
         </div>
@@ -319,7 +321,7 @@
                   <td>Демидов Демо Демидович</td>
                   <td class="m">Д-000001</td>
                   <td class="muted">bank</td>
-                  <td class="m nowrap">04.09.2026</td>
+                  <td class="m nowrap">06.09.2026</td>
                   <td class="money">54 000 ₽</td>
                 </tr>
               </tbody>
@@ -389,7 +391,7 @@
             <th class="col-w140">Способ</th><th class="money col-w140">Сумма</th></tr></thead>
           <tbody>
             <tr><td>Демидов Демо Демидович</td><td>Д-000001</td>
-              <td>04.09.2026</td><td>bank</td>
+              <td>06.09.2026</td><td>bank</td>
               <td class="money t-warn">54 000.00 ₽</td></tr>
           </tbody>
         </table>
@@ -434,16 +436,18 @@
         <div class="sec-body">
           <h3 class="cx-card-title">Поступления по способам</h3>
           <div class="cx-kv">
-            <div><span class="cx-kv-n">Наличные (касса)</span><span class="cx-val"><span class="n">0</span><span class="u">₽</span>
+            <div><span class="cx-kv-n">Наличные (касса)</span><span class="cx-val"><span class="n">54 000</span><span class="u">₽</span>
 </span></div>
             <div><span class="cx-kv-n">QR</span><span class="cx-val"><span class="n">0</span><span class="u">₽</span>
 </span></div>
             <div><span class="cx-kv-n">Счёт (безнал)</span><span class="cx-val"><span class="n">0</span><span class="u">₽</span>
 </span></div>
           </div>
-          <h3 class="cx-card-title" style="margin-top:var(--sp-5)">Налоги через кассу</h3>
+          <h3 class="cx-card-title u-mt-sp-5">Налоги через кассу</h3>
           <div class="cx-kv">
-            <div><span class="cx-kv-m">За период налоги через кассу не проводились.</span></div>
+            <div><span class="cx-kv-n">— без юрлица —
+              <span class="cx-kv-m">—</span></span><span class="cx-val"><span class="n">9 500</span><span class="u">₽</span>
+</span></div>
           </div>
         </div>
       </div>

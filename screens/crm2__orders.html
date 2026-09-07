@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Заказы поставщикам — Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,7 +147,7 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
@@ -314,8 +316,8 @@
     </tr></thead>
     <tbody>
 <tr onclick="if(!event.target.closest('form')&&!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/1/card?tab=zak'">
-<td class="cl-name"><a class="rowlink" href="incoming__1__card.html">Д-000001</a></td><td class="cl-name">Демидов Демо Демидович</td><td>Поставщик Демо</td><td class="addr">Профиль А · Стеклопакет 32</td><td class="c tsk">3</td><td class="m nowrap">Р-1</td><td class="m nowrap">ЗК-000001</td><td class="c m nowrap">2026-08-27</td><td class="c nowrap">
-<span class="m">2026-09-10</span></td><td class="money">68 400</td><td>
+<td class="cl-name"><a class="rowlink" href="incoming__1__card.html">Д-000001</a></td><td class="cl-name">Демидов Демо Демидович</td><td>Поставщик Демо</td><td class="addr">Профиль А · Стеклопакет 32</td><td class="c tsk">3</td><td class="m nowrap">Р-1</td><td class="m nowrap">ЗК-000001</td><td class="c m nowrap">2026-08-29</td><td class="c nowrap">
+<span class="m">2026-09-12</span></td><td class="money">68 400</td><td>
 <form class="form-flat" method="post" action="/crm2/orders/line/2/readiness">
     <input type="hidden" name="back" value="">
     <select name="ready_status" onchange="this.form.submit()" aria-label="Готовность позиции"><option value="" >—</option><option value="launched" >Запущено в работу</option><option value="production" >На производстве</option><option value="ready" >Готово</option><option value="stock" >На складе</option></select>

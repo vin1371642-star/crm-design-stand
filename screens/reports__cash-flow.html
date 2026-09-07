@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Анализ РКО · Отчёты · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-report-cash-flow">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,41 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-
-  /* График прихода и расхода. Высота — четыре шага шкалы отступов, своих чисел
-     нет; сами столбики рисуются долей от пика, посчитанной в расчёте. */
-  .rep-chart{display:flex;align-items:stretch;gap:var(--sp-2);height:calc(var(--sp-6) * 4);
-    padding:var(--sp-4);background:var(--panel);border-radius:var(--r2-radius-8);
-    margin:0 0 var(--sp-2);overflow-x:auto}
-  .rep-col{flex:1 0 auto;min-width:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-1)}
-  .rep-bars{flex:1;display:flex;align-items:flex-end;justify-content:center;gap:var(--sp-1)}
-  .rep-bar{width:var(--sp-2);border-radius:var(--r2-radius-6) var(--r2-radius-6) 0 0}
-  .rep-bar.is-in{background:var(--ok-dot)}
-  .rep-bar.is-out{background:var(--accent)}
-  .rep-x{text-align:center;font-size:var(--fs-caption);line-height:var(--lh-caption);
-    color:var(--muted2);white-space:nowrap}
-  .rep-legend{display:flex;gap:var(--sp-4);margin:0 0 var(--rhythm);
-    font-size:var(--fs-caption);line-height:var(--lh-caption);color:var(--muted2)}
-  .rep-legend i{display:inline-block;width:var(--sp-2);height:var(--sp-2);
-    border-radius:var(--r2-radius-6);margin-right:var(--sp-1)}
-  .rep-legend i.is-in{background:var(--ok-dot)}
-  .rep-legend i.is-out{background:var(--accent)}
-
-  /* Приход подсвечен, как в оригинале: направление денег видно до чтения колонки. */
-  .tablewrap tbody tr.is-in{background:var(--ok-bg)}
-  /* Снятая сторно строка остаётся следом операции, но в оборот не идёт. */
-  .tablewrap tbody tr.is-off td{color:var(--muted2);text-decoration:line-through}
-  /* Перемещение между кассами и инкассация — строка есть, в итоге её нет. */
-  .tablewrap tbody tr.is-internal td{color:var(--muted2)}
-  .rep-note{margin:var(--sp-3) 0 0;font-size:var(--fs-caption);line-height:var(--lh-caption);
-    color:var(--muted2)}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Отчёт <b>анализ РКО</b></h1><details class="colpick">
@@ -402,94 +373,9 @@
   <div class="colpick-pop">
     <div class="colpick-list">
       <label class="colpick-item">
-        <input type="checkbox" name="user" value="18"
-               onchange="this.form.submit()">
-        <span>aleksandr</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="15"
-               onchange="this.form.submit()">
-        <span>andrey</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="13"
-               onchange="this.form.submit()">
-        <span>danil</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="16"
-               onchange="this.form.submit()">
-        <span>dima</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="2"
-               onchange="this.form.submit()">
-        <span>director</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="10"
-               onchange="this.form.submit()">
-        <span>direktordemo</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="8"
-               onchange="this.form.submit()">
-        <span>kladovschikdemo</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="7"
-               onchange="this.form.submit()">
-        <span>koordinatordemo</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="6"
-               onchange="this.form.submit()">
-        <span>montazhnikdemo</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="12"
-               onchange="this.form.submit()">
-        <span>natasha</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="11"
-               onchange="this.form.submit()">
-        <span>nelli</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="4"
-               onchange="this.form.submit()">
-        <span>operatorkcdemo</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="3"
-               onchange="this.form.submit()">
-        <span>sotrudnik01</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="9"
-               onchange="this.form.submit()">
-        <span>sotrudnikptodemo</span>
-      </label>
-      <label class="colpick-item">
         <input type="checkbox" name="user" value="1"
                onchange="this.form.submit()">
         <span>stand</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="14"
-               onchange="this.form.submit()">
-        <span>vadim</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="17"
-               onchange="this.form.submit()">
-        <span>valeriy</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="user" value="5"
-               onchange="this.form.submit()">
-        <span>zamerschikdemo</span>
       </label>
     </div>
   </div>
@@ -501,11 +387,11 @@
 <div class="kpis">
     <div class="kpi is-lead">
       <p class="kpi-lab">Приход по кассам</p>
-      <p class="kpi-val money-in">0 ₽</p>
+      <p class="kpi-val money-in">54 000 ₽</p>
     </div>
     <div class="kpi is-lead">
       <p class="kpi-lab">Расход по кассам</p>
-      <p class="kpi-val money-out">3 200 ₽</p>
+      <p class="kpi-val money-out">12 700 ₽</p>
     </div>
     <div class="kpi is-lead">
       <p class="kpi-lab">Остаток в кассах</p>
@@ -518,11 +404,29 @@
     <div class="rep-col">
       <div class="rep-bars">
         <span class="rep-bar is-in" style="height:0.0%"
-              title="Приход 03.09: 0 ₽"></span>
-        <span class="rep-bar is-out" style="height:100.0%"
-              title="Расход 03.09: 3 200 ₽"></span>
+              title="Приход 01.09: 0 ₽"></span>
+        <span class="rep-bar is-out" style="height:17.6%"
+              title="Расход 01.09: 9 500 ₽"></span>
       </div>
-      <span class="rep-x">03.09</span>
+      <span class="rep-x">01.09</span>
+    </div>
+    <div class="rep-col">
+      <div class="rep-bars">
+        <span class="rep-bar is-in" style="height:100.0%"
+              title="Приход 02.09: 54 000 ₽"></span>
+        <span class="rep-bar is-out" style="height:0.0%"
+              title="Расход 02.09: 0 ₽"></span>
+      </div>
+      <span class="rep-x">02.09</span>
+    </div>
+    <div class="rep-col">
+      <div class="rep-bars">
+        <span class="rep-bar is-in" style="height:0.0%"
+              title="Приход 05.09: 0 ₽"></span>
+        <span class="rep-bar is-out" style="height:5.9%"
+              title="Расход 05.09: 3 200 ₽"></span>
+      </div>
+      <span class="rep-x">05.09</span>
     </div>
   </div>
   <div class="rep-legend">
@@ -544,7 +448,27 @@
       </tr></thead>
       <tbody>
         <tr class="  ">
-          <td>03.09.2026 <span class="muted">21:41</span></td>
+          <td>01.09.2026 <span class="muted">14:33</span></td>
+          <td>Касса офиса Демо</td>
+          <td>Расход</td>
+          <td>Налоги</td>
+          <td class="money money-out">9 500 ₽</td>
+          <td>Офис-менеджер Демо</td>
+          <td class="muted">Движение стенда. Сумма условная.</td>
+          <td class="muted">stand</td>
+        </tr>
+        <tr class="is-in  ">
+          <td>02.09.2026 <span class="muted">14:33</span></td>
+          <td>Касса офиса Демо</td>
+          <td>Приход</td>
+          <td>Оплата клиента</td>
+          <td class="money money-in">54 000 ₽</td>
+          <td><a href="incoming__1__card.html">Д-000001</a><span class="muted"> Демидов Демо Демидович, долг: 53 000 ₽</span></td>
+          <td class="muted">Движение стенда. Сумма условная.</td>
+          <td class="muted">stand</td>
+        </tr>
+        <tr class="  ">
+          <td>05.09.2026 <span class="muted">14:33</span></td>
           <td>Касса офиса Демо</td>
           <td>Расход</td>
           <td>Выдача подотчёт</td>
@@ -555,8 +479,8 @@
         </tr>
       </tbody>
 <tfoot><tr>
-        <td colspan="4">Итого движений: 1</td>
-        <td class="money money-strong">0 ₽ / 3 200 ₽</td>
+        <td colspan="4">Итого движений: 3</td>
+        <td class="money money-strong">54 000 ₽ / 12 700 ₽</td>
         <td colspan="3" class="muted">приход / расход, без перемещений и сторно</td>
       </tr></tfoot>
     </table>

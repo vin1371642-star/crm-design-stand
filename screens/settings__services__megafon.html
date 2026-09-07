@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Телефония — МегаФон · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,34 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .ig-body{padding:0 0 var(--sp-6);max-width:960px}
-  .ig-f{margin:0 0 var(--sp-4)}
-  .ig-f:last-child{margin-bottom:0}
-  .ig-f > b{display:block;font-weight:600;color:var(--ink);font-size:var(--r2-body);margin:0 0 var(--sp-1)}
-  .ig-note{display:block;color:var(--muted2);font-size:var(--r2-label);margin:var(--sp-1) 0 0;line-height:1.5}
-  .ig-inp{width:100%;box-sizing:border-box;border:0;border-bottom:1px solid var(--line);background:transparent;padding:var(--sp-2) var(--sp-1);font-size:var(--r2-body);color:var(--ink)}
-  .ig-inp:focus{outline:none;border-bottom-color:var(--accent)}
-  select.ig-inp{border-bottom:1px solid var(--line)}
-  .ig-check{display:flex;align-items:flex-start;gap:var(--sp-2);font-size:var(--r2-body);color:var(--ink);cursor:pointer;margin:0 0 var(--sp-3)}
-  .ig-check:last-child{margin-bottom:0}
-  .ig-check input{margin-top:var(--sp-1)}
-  .ig-url{display:block;font:12px/1.5 ui-monospace,monospace;color:var(--accent-ink);background:var(--field);border:0;border-radius:var(--r2-radius-8);padding:var(--sp-2) var(--sp-3);word-break:break-all}
-  .ig-token{font:600 var(--r2-body)/var(--r2-body-lh) ui-monospace,monospace;color:var(--accent-ink);word-break:break-all}
-  .ig-stub{padding:var(--sp-6) var(--sp-2);color:var(--muted2);font-size:var(--r2-body)}
-  .ig-numrow{display:flex;gap:var(--sp-2);align-items:flex-end;flex-wrap:wrap;margin-top:var(--sp-1)}
-  .ig-numrow > div{flex:1;min-width:180px}
-  /* Кнопка в строке ввода не тянется: своя ширина по содержимому. */
-  .ig-numrow > div.ig-act{flex:0 0 auto;min-width:0}
-  .ig-tbl{margin-top:var(--sp-3)}
-  .ig-tbl .ig-num{width:44px}
-  .ig-card{margin-top:var(--sp-4)}
-  form.ig-inline{margin:0}
-</style>
 
 <div class="crm-page-head"><h1>Телефония — МегаФон</h1></div>
 <nav class="crm-tabs">
@@ -193,7 +171,7 @@
     <div class="ig-f"><b>Ответственный за пропущенные</b>
       <select class="ig-inp" name="missed_responsible">
         <option value="">— не выбрано —</option>
-<option value="24" >Александр</option><option value="21" >Андрей</option><option value="20" >Вадим</option><option value="23" >Валерий</option><option value="19" >Данил</option><option value="22" >Дима</option><option value="16" >Директор Демо</option><option value="11" >Замерщик Демо</option><option value="14" >Кладовщик Демо</option><option value="13" >Координатор Демо</option><option value="12" >Монтажник Демо</option><option value="18" >Наташа</option><option value="17" >Нелли</option><option value="9" >Оператор КЦ Демо</option><option value="10" >Офис-менеджер Демо</option><option value="1" >Сотрудник01 Демо</option><option value="15" >Сотрудник ПТО Демо</option>      </select></div>
+<option value="16" >Директор Демо</option><option value="11" >Замерщик Демо</option><option value="14" >Кладовщик Демо</option><option value="13" >Координатор Демо</option><option value="12" >Монтажник Демо</option><option value="9" >Оператор КЦ Демо</option><option value="10" >Офис-менеджер Демо</option><option value="1" >Сотрудник01 Демо</option><option value="2" >Сотрудник02 Демо</option><option value="3" >Сотрудник03 Демо</option><option value="4" >Сотрудник04 Демо</option><option value="5" >Сотрудник05 Демо</option><option value="6" >Сотрудник06 Демо</option><option value="7" >Сотрудник07 Демо</option><option value="8" >Сотрудник08 Демо</option><option value="15" >Сотрудник ПТО Демо</option>      </select></div>
 <div class="ig-f"><b>Адрес для webhook (вставить в личном кабинете МегаФон)</b>
       <span class="ig-url">http://127.0.0.1:8251/api/telephony/megafon/webhook?token=</span>
       <span class="ig-note">Если панель провайдера умеет заголовки, лучше передавать ключ
@@ -252,14 +230,14 @@
             <td class="muted">1</td>
             <td>101</td>
             <td class="muted">4</td>
-            <td class="muted nowrap">05.09.2026 00:21</td>
+            <td class="muted nowrap">07.09.2026 17:13</td>
 <td class="muted">Оператор КЦ Демо</td>            <td>
               <form method="post" action="/settings/services/megafon/phone/add" class="ig-numrow ig-inline">
                 <input type="hidden" name="number" value="101">
                 <div>
                   <select class="ig-inp" name="employee_id">
                     <option value="">— не выбрано —</option>
-<option value="24" >Александр</option><option value="21" >Андрей</option><option value="20" >Вадим</option><option value="23" >Валерий</option><option value="19" >Данил</option><option value="22" >Дима</option><option value="16" >Директор Демо</option><option value="11" >Замерщик Демо</option><option value="14" >Кладовщик Демо</option><option value="13" >Координатор Демо</option><option value="12" >Монтажник Демо</option><option value="18" >Наташа</option><option value="17" >Нелли</option><option value="9" selected>Оператор КЦ Демо</option><option value="10" >Офис-менеджер Демо</option><option value="1" >Сотрудник01 Демо</option><option value="15" >Сотрудник ПТО Демо</option>                  </select></div>
+<option value="16" >Директор Демо</option><option value="11" >Замерщик Демо</option><option value="14" >Кладовщик Демо</option><option value="13" >Координатор Демо</option><option value="12" >Монтажник Демо</option><option value="9" selected>Оператор КЦ Демо</option><option value="10" >Офис-менеджер Демо</option><option value="1" >Сотрудник01 Демо</option><option value="2" >Сотрудник02 Демо</option><option value="3" >Сотрудник03 Демо</option><option value="4" >Сотрудник04 Демо</option><option value="5" >Сотрудник05 Демо</option><option value="6" >Сотрудник06 Демо</option><option value="7" >Сотрудник07 Демо</option><option value="8" >Сотрудник08 Демо</option><option value="15" >Сотрудник ПТО Демо</option>                  </select></div>
                 <div class="ig-act"><button class="btn mini" type="submit">Привязать</button></div>
               </form>
             </td>
@@ -275,7 +253,7 @@
           <div><b class="lbl">Сотрудник</b>
             <select class="ig-inp" name="employee_id">
               <option value="">— не выбрано —</option>
-<option value="24">Александр</option><option value="21">Андрей</option><option value="20">Вадим</option><option value="23">Валерий</option><option value="19">Данил</option><option value="22">Дима</option><option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="18">Наташа</option><option value="17">Нелли</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник01 Демо</option><option value="15">Сотрудник ПТО Демо</option>            </select></div>
+<option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник01 Демо</option><option value="2">Сотрудник02 Демо</option><option value="3">Сотрудник03 Демо</option><option value="4">Сотрудник04 Демо</option><option value="5">Сотрудник05 Демо</option><option value="6">Сотрудник06 Демо</option><option value="7">Сотрудник07 Демо</option><option value="8">Сотрудник08 Демо</option><option value="15">Сотрудник ПТО Демо</option>            </select></div>
           <div><b class="lbl">Добавочный (внутренний номер АТС)</b>
             <input class="ig-inp" name="number" placeholder="напр. 201" maxlength="5"
                    title="Короткий внутренний номер сотрудника на АТС (201, 203, 700), а не мобильный телефон."></div>

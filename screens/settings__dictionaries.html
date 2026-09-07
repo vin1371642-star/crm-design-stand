@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Опросник · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-dictionary-questionnaire-list">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,28 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .dc-head{padding:var(--sp-3) var(--r2-space-5) 0}
-  .dc-title{font:var(--fw-screen) var(--fs-screen)/var(--lh-screen) var(--display);color:var(--ink);margin:0 0 var(--sp-2)}
-  .dc-body{padding:var(--sp-5) var(--r2-space-5) var(--sp-5)}
-  table.dc-tbl{width:100%;border-collapse:collapse;font-size:var(--r2-body)}
-  table.dc-tbl th{text-align:left;border-bottom:1px solid var(--line)}
-  table.dc-tbl td{padding:var(--sp-2) var(--sp-3);border-bottom:1px solid var(--line-soft);color:var(--ink)}
-  .dc-exp{border:0;background:none;color:var(--accent-ink);cursor:pointer;font-size:var(--r2-body);line-height:1}
-  .dc-blk-link{color:var(--accent-ink);text-decoration:none;font-weight:600}
-  .dc-sub td{background:var(--th)!important;padding:0 var(--sp-3) var(--sp-2)}
-  table.dc-qtbl{width:100%;border-collapse:collapse;font-size:var(--r2-body);margin:var(--sp-1) 0}
-  table.dc-qtbl th{text-align:left;border-bottom:1px solid var(--line)}
-  table.dc-qtbl td{padding:var(--sp-2) var(--sp-2);border-bottom:1px solid var(--line-soft);vertical-align:top}
-  .dc-qnum{color:var(--muted2);width:44px;font-weight:600}
-  .dc-edit{color:var(--accent-ink);text-decoration:none;font-weight:600;white-space:nowrap}
-  .dc-mini{display:inline-flex;height:var(--control-h);align-items:center;padding:0 var(--sp-3);border:1px solid var(--line);border-radius:var(--r2-radius-6);background:var(--panel);color:var(--ink);font:600 var(--r2-body)/var(--r2-body-lh) var(--font);cursor:pointer;text-decoration:none;margin:var(--sp-1) var(--sp-2) var(--sp-1) 0}
-  .dc-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-</style>
 
 <div class="dc-head">
   <h1 class="dc-title">Опросник</h1>
@@ -175,12 +159,12 @@
 </div>
 
 <div class="dc-body">
-  <form method="post" action="/settings/dictionaries/questionnaire/block/add" style="margin:0">
+  <form class="u-m-0" method="post" action="/settings/dictionaries/questionnaire/block/add">
     <button class="btn is-strong" type="submit">＋ Добавить блок вопросов</button>
   </form>
-  <div style="overflow-x:auto">
-  <table class="dc-tbl" style="min-width:720px">
-    <thead><tr><th>Блок вопросов</th><th style="width:200px">Дата добавления</th><th style="width:90px">Активен</th><th style="width:44px"></th></tr></thead>
+  <div class="u-ox-auto">
+  <table class="dc-tbl u-minw-720px">
+    <thead><tr><th>Блок вопросов</th><th class="u-w-200px">Дата добавления</th><th class="u-w-90px">Активен</th><th class="u-w-44px"></th></tr></thead>
     <tbody>
       <tr><td colspan="4" class="muted">Блоков вопросов пока нет. Нажмите «Добавить блок вопрос».</td></tr>
     </tbody>

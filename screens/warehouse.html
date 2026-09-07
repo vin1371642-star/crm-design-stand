@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Склад — Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,31 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  /* Счётчик на вкладке — та же «пилюля», что на «Моих задачах»; вид вкладок общий. */
-  .crm-tabs .tcnt{display:inline-flex;align-items:center;justify-content:center;height:var(--r2-space-5);
-    min-width:var(--r2-space-5);padding:0 var(--sp-2);border-radius:var(--r2-radius-10);
-    background:var(--field);color:var(--muted);font:600 var(--r2-label)/var(--r2-label-lh) var(--font)}
-  .crm-tabs a.active .tcnt{background:var(--accent);color:#fff}
-  /* Пустая вкладка ОБЪЯСНЯЕТ СЕБЯ: пустой экран человек читает как поломку системы,
-     а не как «ждать нечего». */
-  .tab-empty{background:var(--panel);border-radius:var(--r2-radius-8);padding:var(--r2-panel-padding);
-    color:var(--muted);font:var(--r2-fw-body) var(--r2-body)/var(--r2-body-lh) var(--font);max-width:760px}
-  /* «Получено X из Y» — главное число вкладки, поэтому крупнее подписи рядом. */
-  .wh-got{font:600 var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--ink);white-space:nowrap}
-  .wh-got.part{color:var(--warn-ink)}
-  .wh-got.full{color:var(--ok-ink)}
-  .wh-note{display:block;color:var(--muted2);font-size:var(--r2-label);line-height:var(--r2-label-lh)}
-  /* Приёмка вводится прямо в строке: уносить кладовщика в карточку ради одного
-     числа значит потерять его у машины с товаром. */
-  .wh-take{display:flex;align-items:center;gap:var(--sp-2)}
-  .wh-take .qty{width:72px}
-  .wh-take .why{width:180px}
-</style>
 
 <div class="rhead">
   <h1>Склад</h1>
@@ -213,7 +194,7 @@
         <td class="c">
           <span class="wh-got part">0 из 3</span><span class="wh-note">осталось 3</span>        </td>
         <td class="c nowrap">
-<span class="m">2026-09-10</span>        </td>
+<span class="m">2026-09-12</span>        </td>
         <td>
 <form class="form-flat" method="post" action="/warehouse/line/2/readiness">
             <input type="hidden" name="back" value="tab=wait">

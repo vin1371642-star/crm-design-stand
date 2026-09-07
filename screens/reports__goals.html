@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Цели · Отчёты · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-report-goals">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,43 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-
-  .gl-name{position:sticky;left:0;z-index:2;background:var(--panel);text-align:left;min-width:240px}
-  .tablewrap thead th.gl-name{z-index:3;background:var(--th);text-align:left}
-  /* В `crm2/base.html` у таблицы стоит `min-width:1500px` — это ширина
-     РЕЕСТРА обращений на полтора десятка колонок. Здесь столбцов мало (пять столбцов: сущность, три месяца и «Итого»),
-     и унаследованная ширина уводила единственную числовую колонку за правый
-     край на обычном мониторе 1440: сумм не видно, пока не прокрутишь вправо.
-     Тот же приём, что в `crm2/calls_unsorted.html`. */
-  .tablewrap table{min-width:980px}
-  .tablewrap tbody tr{cursor:default}
-  .tablewrap tbody tr:hover{background:transparent}
-  .gl-sum{background:var(--th)}
-  .gl-total td{background:var(--th);font-weight:var(--r2-fw-title)}
-
-  /* Ячейка — два значения в столбик: выручка и договоров. Подпись мельче значения:
-     на экране обязаны различаться уровни, а не только строки. */
-  .gl-cell{display:flex;flex-direction:column;gap:var(--sp-1);align-items:flex-end}
-  .gl-val{font-variant-numeric:tabular-nums;color:var(--ink)}
-  .gl-sub{font:var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted);
-    font-variant-numeric:tabular-nums}
-  /* Поле — подчёркнутая полоса, а не бокс (стандарт интерфейса). */
-  .gl-inp{width:100%;max-width:160px;height:var(--r2-control);text-align:right;
-    border:0;border-bottom:1px solid var(--line-input);border-radius:0;
-    background:transparent;color:var(--ink);
-    font:var(--fs-body)/var(--lh-body) var(--font);font-variant-numeric:tabular-nums}
-  .gl-inp:focus{outline:none;border-bottom-color:var(--accent-ink)}
-  .gl-done{font:var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted)}
-  .gl-done.is-hit{color:var(--accent-ink)}
-  .gl-empty{padding:var(--sp-6) 0;text-align:center;color:var(--muted)}
-  .gl-saved{font:var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted)}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Цели <b>по выручке</b></h1>

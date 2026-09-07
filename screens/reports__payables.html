@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Анализ платежей · Отчёты · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-report-payables">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,37 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-
-  .pay-articles{display:flex;gap:var(--sp-2);flex-wrap:wrap;margin:0 0 var(--rhythm)}
-  .pay-year{display:flex;align-items:center;gap:var(--sp-2);margin:0 0 var(--rhythm)}
-  .pay-year b{font:var(--fw-sub) var(--fs-sub)/var(--lh-sub) var(--display);color:var(--ink)}
-
-  /* Строки месяцев: сетка вместо таблицы — ради родного раскрытия `<details>`.
-     Колонки те же пять, что в оригинале, и шапка выровнена по той же сетке. */
-  .pay-grid{--pay-cols:var(--sp-6) 1fr 1fr 1fr 1fr;background:var(--panel);
-    border-radius:var(--r2-radius-8);overflow:hidden}
-  .pay-line{display:grid;grid-template-columns:var(--pay-cols);gap:var(--sp-3);
-    align-items:center;padding:0 var(--sp-4);min-height:var(--row-h)}
-  .pay-head{background:var(--th);color:var(--muted);
-    font:var(--r2-fw-medium) var(--fs-secondary)/var(--lh-secondary) var(--font)}
-  .pay-row > summary{list-style:none;cursor:pointer}
-  .pay-row > summary::-webkit-details-marker{display:none}
-  .pay-row > summary:hover{background:var(--hover)}
-  .pay-row[open] > summary{background:var(--hover)}
-  .pay-body{padding:0 var(--sp-4) var(--sp-3)}
-  .pay-total{background:var(--th);font-weight:var(--r2-fw-title)}
-  .pay-empty{padding:var(--sp-4);color:var(--muted2)}
-  /* Таблица раскрытия — четыре колонки, а `.tablewrap table` задаёт ширину
-     реестра (min-width 1500). Без сброса каждый раскрытый месяц получал
-     горизонтальную прокрутку на 1440 px. */
-  .pay-body .tablewrap table{min-width:0}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Отчёт <b>анализ платежей</b></h1>
@@ -435,12 +410,6 @@ title="Реестра начислений у этой статьи нет — �
             </tr></thead>
             <tbody>
               <tr>
-                <td>Налоги</td>
-                <td class="money">—</td>
-                <td class="money money-in">9 500 ₽</td>
-                <td class="money money-out">—</td>
-              </tr>
-              <tr>
                 <td>Оплата поставщикам</td>
                 <td class="money">—</td>
                 <td class="money money-in">61 000 ₽</td>
@@ -449,7 +418,7 @@ title="Реестра начислений у этой статьи нет — �
             </tbody>
           </table>
         </div>
-        <p class="pay-empty">В «Оплачено» месяца не входит 70 500 ₽:
+        <p class="pay-empty">В «Оплачено» месяца не входит 61 000 ₽:
           это статьи, по которым реестра начислений нет, и долг по ним неизвестен.</p>
       </div>
     </details>
@@ -477,10 +446,16 @@ title="Реестра начислений у этой статьи нет — �
                 <td class="money money-in">3 200 ₽</td>
                 <td class="money money-out">—</td>
               </tr>
+              <tr>
+                <td>Налоги</td>
+                <td class="money">—</td>
+                <td class="money money-in">9 500 ₽</td>
+                <td class="money money-out">—</td>
+              </tr>
             </tbody>
           </table>
         </div>
-        <p class="pay-empty">В «Оплачено» месяца не входит 3 200 ₽:
+        <p class="pay-empty">В «Оплачено» месяца не входит 12 700 ₽:
           это статьи, по которым реестра начислений нет, и долг по ним неизвестен.</p>
       </div>
     </details>

@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Правила контроля · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-control-settings">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,43 +147,14 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-  .st-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-  /* D-260 §1: разделы без обводок — фон и пауза. */
-  details.pc{border:0;border-radius:var(--r2-radius-10);margin:0 0 var(--rhythm);overflow:hidden;background:var(--panel)}
-  details.pc>summary{list-style:none;cursor:pointer;padding:var(--sp-3) var(--sp-4);background:var(--th);display:flex;align-items:center;gap:var(--sp-2);flex-wrap:wrap;
-    font:600 var(--r2-card-title)/var(--r2-card-title-lh) var(--display);color:var(--ink)}
-  details.pc>summary::-webkit-details-marker{display:none}
-  details.pc>summary::before{content:'▸';color:var(--accent-ink)}
-  details.pc[open]>summary::before{content:'▾'}
-  .pc-body{padding:var(--sp-3) var(--sp-4)}
-  .pc-off{opacity:.55}
-  /* Сводка в свёрнутом заголовке: сколько веток и включена ли проверка. */
-  .pc-sum{font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted2);margin-left:auto}
-  .pc-sum b{color:var(--ink);font-weight:600}
-  table.br{width:100%;border-collapse:collapse;font-size:var(--r2-body)}
-  table.br th{text-align:left;border-bottom:1px solid var(--line);font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted);padding:0 var(--sp-2) var(--sp-1)}
-  table.br td{padding:var(--sp-1) var(--sp-2);border-bottom:1px solid var(--line-soft);vertical-align:middle}
-  /* Поля-полосы: подчёркнутая линия, без бокса (стандарт интерфейса). */
-  .inp{border:0;border-bottom:1px solid var(--line-input);border-radius:0;background:transparent;
-    padding:var(--sp-1) 0;font-size:var(--r2-body);color:var(--ink);width:100%}
-  .inp:focus{outline:0;border-bottom-color:var(--accent)}
-  .b-del{border:0;background:none;color:var(--muted2);font:600 var(--r2-body)/1 var(--font);cursor:pointer;padding:var(--sp-1) var(--sp-2)}
-  .b-del:hover{color:var(--over)}
-  .flow{color:var(--muted2);font-size:var(--r2-label);margin:var(--sp-1) 0 var(--sp-3)}
-  /* размер и форма — из общего компонента .dot, локально только модификаторы статусов */
-  .dot{vertical-align:middle}
-  .dot.y{background:var(--warn-dot)}.dot.r{background:var(--danger-dot)}.dot.g{background:var(--ok-dot)}.dot.muted{background:var(--neutral-dot)}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Правила <b>контроля</b></h1>
-  <div style="font-size:var(--r2-body)"><a href="cashbox__overview.html" style="color:var(--accent-ink);text-decoration:none">Сводка</a></div>
+  <div class="u-fs-r2-body"><a class="u-c-accent-ink u-td-none" href="cashbox__overview.html">Сводка</a></div>
 </div>
 <nav class="st-tabs">
 <a href="control__settings.html" class="on">Агент-1 · Контроль оплат/производства</a><a href="control__settings.html" class="">Касса-контроль</a></nav>
@@ -190,13 +163,13 @@
     <button class="btn is-strong" type="submit" form="ctlForm">Сохранить</button>
   </div>
 
-  <p class="flow">Ветки проверяются сверху вниз, срабатывает первая. <a href="#" onclick="document.getElementById('cHelp').open=true;return false" style="color:var(--accent-ink)">Как настраивать?</a></p>
+  <p class="flow">Ветки проверяются сверху вниз, срабатывает первая. <a class="u-c-accent-ink" href="#" onclick="document.getElementById('cHelp').open=true;return false">Как настраивать?</a></p>
   <details id="cHelp" class="pc">
-    <summary style="background:var(--field)">Подсказка: условия и «иначе»</summary>
-    <div class="pc-body" style="font-size:var(--r2-body);color:var(--ink);line-height:1.65">
+    <summary class="u-bg-field">Подсказка: условия и «иначе»</summary>
+    <div class="pc-body u-fs-r2-body u-c-ink u-lh-1p65">
       <b>Как читается правило.</b> Движок берёт договор/движение и идёт по веткам сверху вниз (по колонке «№»). Первая ветка, чьё <b>условие истинно</b>, ставит свой статус — и проверка останавливается. Порядок = приоритет.<br><br>
       <b>Колонка «Условие»</b> — выбор из готового списка (свой код писать нельзя, это безопасно):
-      <ul style="margin:var(--sp-1) 0 0;padding-left:var(--r2-space-5)">
+      <ul class="u-m-sp-1-0-0 u-pl-r2-space-5">
         <li><b>Висит подтверждение оплаты</b> — есть неподтверждённый приход (клиент заявил, кассир/руководитель ещё не принял).</li>
         <li><b>Оплаты нет совсем</b> — по договору ноль (ни подтверждённого, ни ожидающего).</li>
         <li><b>Не внесён платёж по рассрочке</b> — оплачено меньше <b>Порога, %</b> (порог задаёте справа, напр. 50).</li>
@@ -207,7 +180,7 @@
       </ul>
       <br>
       <b>Галочка «Иначе»</b> — это ветка «во всех остальных случаях». Она срабатывает <b>всегда</b>, если ни одна ветка выше не подошла (её собственное условие при этом не важно). Правила:
-      <ul style="margin:var(--sp-1) 0 0;padding-left:var(--r2-space-5)">
+      <ul class="u-m-sp-1-0-0 u-pl-r2-space-5">
         <li>Ставьте «Иначе» <b>ровно одной</b> ветке и <b>последней</b> (наибольший №) — она ловит остаток.</li>
         <li>Если «Иначе» поставить в середине — она перекроет всё, что ниже (те ветки не сработают).</li>
         <li>Если «Иначе» нет и ни одно условие не подошло — статус не ставится (проверка «промолчит»).</li>
@@ -228,25 +201,25 @@
       </summary>
       <div class="pc-body">
         <input type="hidden" name="p1_present" value="1">
-        <div style="display:flex;gap:var(--sp-4);align-items:flex-end;flex-wrap:wrap;margin:0 0 var(--sp-3);padding:0 0 var(--sp-2);border-bottom:1px solid var(--line-soft)">
-          <label style="font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted);flex:1;min-width:240px">Название проверки<br>
+        <div class="u-d-flex u-gap-sp-4 u-ai-flex-end u-fw-wrap-wrap u-m-0-0-sp-3 u-p-0-0-sp-2 u-bb-1px-solid-line-soft">
+          <label class="u-font-500-r2-label-r2-label-lh-font u-c-muted u-flex-1 u-minw-240px">Название проверки<br>
             <input class="inp" name="p1_title" value="Не запущен в производство"></label>
-          <label style="display:inline-flex;gap:var(--sp-1);align-items:center;font-size:var(--r2-body)">
+          <label class="u-d-inline-flex u-gap-sp-1 u-ai-center u-fs-r2-body">
             <input type="checkbox" name="p1_enabled" value="1" checked> проверка включена</label>
-          <label style="display:inline-flex;gap:var(--sp-1);align-items:center;font-size:var(--r2-body)">
+          <label class="u-d-inline-flex u-gap-sp-1 u-ai-center u-fs-r2-body">
             <input type="checkbox" name="p1_needs_review" value="1" > поднимать «на ручную проверку»</label>
         </div>
 
         <table class="br">
           <thead><tr>
-            <th style="width:44px" title="Порядок проверки: меньше число — проверяется раньше">№</th>
+            <th class="u-w-44px" title="Порядок проверки: меньше число — проверяется раньше">№</th>
             <th title="Что проверяем — выбор из готового списка условий">Условие</th>
-            <th style="width:80px" title="Порог, % — только для условия «Не внесён платёж по рассрочке»">Порог</th>
+            <th class="u-w-80px" title="Порог, % — только для условия «Не внесён платёж по рассрочке»">Порог</th>
             <th title="Надпись статуса, которая появится">Статус</th>
-            <th style="width:110px" title="Цвет бейджа статуса">Цвет</th>
-            <th style="width:60px" title="Ветка «во всех остальных случаях» — срабатывает всегда, ставьте её ПОСЛЕДНЕЙ и только одну">Иначе</th>
-            <th style="width:50px" title="Временно включить/выключить эту ветку">Вкл</th>
-            <th style="width:36px"></th>
+            <th class="u-w-110px" title="Цвет бейджа статуса">Цвет</th>
+            <th class="u-w-60px" title="Ветка «во всех остальных случаях» — срабатывает всегда, ставьте её ПОСЛЕДНЕЙ и только одну">Иначе</th>
+            <th class="u-w-50px" title="Временно включить/выключить эту ветку">Вкл</th>
+            <th class="u-w-36px"></th>
           </tr></thead>
           <tbody>
             <tr>
@@ -255,10 +228,10 @@
               <td><select class="inp" name="b1_predicate_key"><option value="has_pending" selected>Висит подтверждение оплаты</option><option value="no_payment" >Оплаты нет совсем</option><option value="installment_unpaid" >Не внесён платёж по рассрочке</option><option value="launch_ok" >Все оплаты есть (гейт пройден)</option><option value="declared_gt_paid" >Предоплата в договоре не совпадает с кассой</option><option value="calc_error" >Расчёт с ошибкой (заводская &gt; расчётной)</option><option value="receipt_missing" >Чек не пробит / нет № ФД</option></select></td>
               <td><input class="inp" name="b1_min_pct" value="" placeholder="%" title="порог, % (для рассрочки)"></td>
               <td><input class="inp" name="b1_status_label" value="Поступление ожидает фиксации"></td>
-              <td><span class="dot y"></span><select class="inp" name="b1_status_class" style="width:76px" onchange="this.previousElementSibling.className='dot '+this.value"><option value="y" selected>🟡 жёлтый</option><option value="r" >🔴 красный</option><option value="g" >🟢 зелёный</option><option value="muted" >серый</option></select></td>
-              <td style="text-align:center"><input type="checkbox" name="b1_is_default" value="1"  title="ветка-иначе"></td>
-              <td style="text-align:center"><input type="checkbox" name="b1_active" value="1" checked></td>
-              <td style="text-align:center"><button class="b-del" type="submit" title="Удалить ветку"
+              <td><span class="dot y"></span><select class="inp u-w-76px" name="b1_status_class" onchange="this.previousElementSibling.className='dot '+this.value"><option value="y" selected>🟡 жёлтый</option><option value="r" >🔴 красный</option><option value="g" >🟢 зелёный</option><option value="muted" >серый</option></select></td>
+              <td class="u-ta-center"><input type="checkbox" name="b1_is_default" value="1"  title="ветка-иначе"></td>
+              <td class="u-ta-center"><input type="checkbox" name="b1_active" value="1" checked></td>
+              <td class="u-ta-center"><button class="b-del" type="submit" title="Удалить ветку"
                     formaction="/control/branch/1/delete" formnovalidate
                     onclick="return confirm('Удалить ветку? Несохранённые правки на странице пропадут.')">✕</button></td>
             </tr>
@@ -268,10 +241,10 @@
               <td><select class="inp" name="b2_predicate_key"><option value="has_pending" >Висит подтверждение оплаты</option><option value="no_payment" selected>Оплаты нет совсем</option><option value="installment_unpaid" >Не внесён платёж по рассрочке</option><option value="launch_ok" >Все оплаты есть (гейт пройден)</option><option value="declared_gt_paid" >Предоплата в договоре не совпадает с кассой</option><option value="calc_error" >Расчёт с ошибкой (заводская &gt; расчётной)</option><option value="receipt_missing" >Чек не пробит / нет № ФД</option></select></td>
               <td><input class="inp" name="b2_min_pct" value="" placeholder="%" title="порог, % (для рассрочки)"></td>
               <td><input class="inp" name="b2_status_label" value="Не оплачен"></td>
-              <td><span class="dot r"></span><select class="inp" name="b2_status_class" style="width:76px" onchange="this.previousElementSibling.className='dot '+this.value"><option value="y" >🟡 жёлтый</option><option value="r" selected>🔴 красный</option><option value="g" >🟢 зелёный</option><option value="muted" >серый</option></select></td>
-              <td style="text-align:center"><input type="checkbox" name="b2_is_default" value="1"  title="ветка-иначе"></td>
-              <td style="text-align:center"><input type="checkbox" name="b2_active" value="1" checked></td>
-              <td style="text-align:center"><button class="b-del" type="submit" title="Удалить ветку"
+              <td><span class="dot r"></span><select class="inp u-w-76px" name="b2_status_class" onchange="this.previousElementSibling.className='dot '+this.value"><option value="y" >🟡 жёлтый</option><option value="r" selected>🔴 красный</option><option value="g" >🟢 зелёный</option><option value="muted" >серый</option></select></td>
+              <td class="u-ta-center"><input type="checkbox" name="b2_is_default" value="1"  title="ветка-иначе"></td>
+              <td class="u-ta-center"><input type="checkbox" name="b2_active" value="1" checked></td>
+              <td class="u-ta-center"><button class="b-del" type="submit" title="Удалить ветку"
                     formaction="/control/branch/2/delete" formnovalidate
                     onclick="return confirm('Удалить ветку? Несохранённые правки на странице пропадут.')">✕</button></td>
             </tr>
@@ -281,10 +254,10 @@
               <td><select class="inp" name="b3_predicate_key"><option value="has_pending" >Висит подтверждение оплаты</option><option value="no_payment" >Оплаты нет совсем</option><option value="installment_unpaid" selected>Не внесён платёж по рассрочке</option><option value="launch_ok" >Все оплаты есть (гейт пройден)</option><option value="declared_gt_paid" >Предоплата в договоре не совпадает с кассой</option><option value="calc_error" >Расчёт с ошибкой (заводская &gt; расчётной)</option><option value="receipt_missing" >Чек не пробит / нет № ФД</option></select></td>
               <td><input class="inp" name="b3_min_pct" value="50" placeholder="%" title="порог, % (для рассрочки)"></td>
               <td><input class="inp" name="b3_status_label" value="Нет оплаты по рассрочке"></td>
-              <td><span class="dot r"></span><select class="inp" name="b3_status_class" style="width:76px" onchange="this.previousElementSibling.className='dot '+this.value"><option value="y" >🟡 жёлтый</option><option value="r" selected>🔴 красный</option><option value="g" >🟢 зелёный</option><option value="muted" >серый</option></select></td>
-              <td style="text-align:center"><input type="checkbox" name="b3_is_default" value="1"  title="ветка-иначе"></td>
-              <td style="text-align:center"><input type="checkbox" name="b3_active" value="1" checked></td>
-              <td style="text-align:center"><button class="b-del" type="submit" title="Удалить ветку"
+              <td><span class="dot r"></span><select class="inp u-w-76px" name="b3_status_class" onchange="this.previousElementSibling.className='dot '+this.value"><option value="y" >🟡 жёлтый</option><option value="r" selected>🔴 красный</option><option value="g" >🟢 зелёный</option><option value="muted" >серый</option></select></td>
+              <td class="u-ta-center"><input type="checkbox" name="b3_is_default" value="1"  title="ветка-иначе"></td>
+              <td class="u-ta-center"><input type="checkbox" name="b3_active" value="1" checked></td>
+              <td class="u-ta-center"><button class="b-del" type="submit" title="Удалить ветку"
                     formaction="/control/branch/3/delete" formnovalidate
                     onclick="return confirm('Удалить ветку? Несохранённые правки на странице пропадут.')">✕</button></td>
             </tr>
@@ -294,24 +267,24 @@
               <td><select class="inp" name="b4_predicate_key"><option value="has_pending" >Висит подтверждение оплаты</option><option value="no_payment" >Оплаты нет совсем</option><option value="installment_unpaid" >Не внесён платёж по рассрочке</option><option value="launch_ok" selected>Все оплаты есть (гейт пройден)</option><option value="declared_gt_paid" >Предоплата в договоре не совпадает с кассой</option><option value="calc_error" >Расчёт с ошибкой (заводская &gt; расчётной)</option><option value="receipt_missing" >Чек не пробит / нет № ФД</option></select></td>
               <td><input class="inp" name="b4_min_pct" value="" placeholder="%" title="порог, % (для рассрочки)"></td>
               <td><input class="inp" name="b4_status_label" value="Контроль ПТО"></td>
-              <td><span class="dot g"></span><select class="inp" name="b4_status_class" style="width:76px" onchange="this.previousElementSibling.className='dot '+this.value"><option value="y" >🟡 жёлтый</option><option value="r" >🔴 красный</option><option value="g" selected>🟢 зелёный</option><option value="muted" >серый</option></select></td>
-              <td style="text-align:center"><input type="checkbox" name="b4_is_default" value="1" checked title="ветка-иначе"></td>
-              <td style="text-align:center"><input type="checkbox" name="b4_active" value="1" checked></td>
-              <td style="text-align:center"><button class="b-del" type="submit" title="Удалить ветку"
+              <td><span class="dot g"></span><select class="inp u-w-76px" name="b4_status_class" onchange="this.previousElementSibling.className='dot '+this.value"><option value="y" >🟡 жёлтый</option><option value="r" >🔴 красный</option><option value="g" selected>🟢 зелёный</option><option value="muted" >серый</option></select></td>
+              <td class="u-ta-center"><input type="checkbox" name="b4_is_default" value="1" checked title="ветка-иначе"></td>
+              <td class="u-ta-center"><input type="checkbox" name="b4_active" value="1" checked></td>
+              <td class="u-ta-center"><button class="b-del" type="submit" title="Удалить ветку"
                     formaction="/control/branch/4/delete" formnovalidate
                     onclick="return confirm('Удалить ветку? Несохранённые правки на странице пропадут.')">✕</button></td>
             </tr>
           </tbody>
         </table>
 
-        <div style="display:flex;align-items:center;gap:var(--sp-4);flex-wrap:wrap">
+        <div class="u-d-flex u-ai-center u-gap-sp-4 u-fw-wrap-wrap">
           <button class="ds-plus" type="submit" formaction="/control/param/1/branch/add" formnovalidate>＋ Добавить ветку</button>
-          <span style="flex:1"></span>
+          <span class="u-flex-1"></span>
           <button class="b-del" type="submit" formaction="/control/param/1/delete" formnovalidate
                   onclick="return confirm('Удалить проверку целиком вместе с ветками?')">Удалить проверку</button>
-        </div><details style="margin-top:var(--sp-3)">
-          <summary style="cursor:pointer;font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted2)">Технические поля</summary>
-          <p class="flow" style="margin:var(--sp-2) 0 0">движок: cashbox_payment · область: contract</p>
+        </div><details class="u-mt-sp-3">
+          <summary class="u-cur-pointer u-font-500-r2-label-r2-label-lh-font u-c-muted2">Технические поля</summary>
+          <p class="flow u-m-sp-2-0-0">движок: cashbox_payment · область: contract</p>
         </details>
       </div>
     </details>
@@ -324,25 +297,25 @@
       </summary>
       <div class="pc-body">
         <input type="hidden" name="p3_present" value="1">
-        <div style="display:flex;gap:var(--sp-4);align-items:flex-end;flex-wrap:wrap;margin:0 0 var(--sp-3);padding:0 0 var(--sp-2);border-bottom:1px solid var(--line-soft)">
-          <label style="font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted);flex:1;min-width:240px">Название проверки<br>
+        <div class="u-d-flex u-gap-sp-4 u-ai-flex-end u-fw-wrap-wrap u-m-0-0-sp-3 u-p-0-0-sp-2 u-bb-1px-solid-line-soft">
+          <label class="u-font-500-r2-label-r2-label-lh-font u-c-muted u-flex-1 u-minw-240px">Название проверки<br>
             <input class="inp" name="p3_title" value="Сверка предоплаты с кассой"></label>
-          <label style="display:inline-flex;gap:var(--sp-1);align-items:center;font-size:var(--r2-body)">
+          <label class="u-d-inline-flex u-gap-sp-1 u-ai-center u-fs-r2-body">
             <input type="checkbox" name="p3_enabled" value="1" checked> проверка включена</label>
-          <label style="display:inline-flex;gap:var(--sp-1);align-items:center;font-size:var(--r2-body)">
+          <label class="u-d-inline-flex u-gap-sp-1 u-ai-center u-fs-r2-body">
             <input type="checkbox" name="p3_needs_review" value="1" > поднимать «на ручную проверку»</label>
         </div>
 
         <table class="br">
           <thead><tr>
-            <th style="width:44px" title="Порядок проверки: меньше число — проверяется раньше">№</th>
+            <th class="u-w-44px" title="Порядок проверки: меньше число — проверяется раньше">№</th>
             <th title="Что проверяем — выбор из готового списка условий">Условие</th>
-            <th style="width:80px" title="Порог, % — только для условия «Не внесён платёж по рассрочке»">Порог</th>
+            <th class="u-w-80px" title="Порог, % — только для условия «Не внесён платёж по рассрочке»">Порог</th>
             <th title="Надпись статуса, которая появится">Статус</th>
-            <th style="width:110px" title="Цвет бейджа статуса">Цвет</th>
-            <th style="width:60px" title="Ветка «во всех остальных случаях» — срабатывает всегда, ставьте её ПОСЛЕДНЕЙ и только одну">Иначе</th>
-            <th style="width:50px" title="Временно включить/выключить эту ветку">Вкл</th>
-            <th style="width:36px"></th>
+            <th class="u-w-110px" title="Цвет бейджа статуса">Цвет</th>
+            <th class="u-w-60px" title="Ветка «во всех остальных случаях» — срабатывает всегда, ставьте её ПОСЛЕДНЕЙ и только одну">Иначе</th>
+            <th class="u-w-50px" title="Временно включить/выключить эту ветку">Вкл</th>
+            <th class="u-w-36px"></th>
           </tr></thead>
           <tbody>
             <tr>
@@ -351,36 +324,36 @@
               <td><select class="inp" name="b6_predicate_key"><option value="has_pending" >Висит подтверждение оплаты</option><option value="no_payment" >Оплаты нет совсем</option><option value="installment_unpaid" >Не внесён платёж по рассрочке</option><option value="launch_ok" >Все оплаты есть (гейт пройден)</option><option value="declared_gt_paid" selected>Предоплата в договоре не совпадает с кассой</option><option value="calc_error" >Расчёт с ошибкой (заводская &gt; расчётной)</option><option value="receipt_missing" >Чек не пробит / нет № ФД</option></select></td>
               <td><input class="inp" name="b6_min_pct" value="" placeholder="%" title="порог, % (для рассрочки)"></td>
               <td><input class="inp" name="b6_status_label" value="Предоплата не совпадает с кассой"></td>
-              <td><span class="dot r"></span><select class="inp" name="b6_status_class" style="width:76px" onchange="this.previousElementSibling.className='dot '+this.value"><option value="y" >🟡 жёлтый</option><option value="r" selected>🔴 красный</option><option value="g" >🟢 зелёный</option><option value="muted" >серый</option></select></td>
-              <td style="text-align:center"><input type="checkbox" name="b6_is_default" value="1"  title="ветка-иначе"></td>
-              <td style="text-align:center"><input type="checkbox" name="b6_active" value="1" checked></td>
-              <td style="text-align:center"><button class="b-del" type="submit" title="Удалить ветку"
+              <td><span class="dot r"></span><select class="inp u-w-76px" name="b6_status_class" onchange="this.previousElementSibling.className='dot '+this.value"><option value="y" >🟡 жёлтый</option><option value="r" selected>🔴 красный</option><option value="g" >🟢 зелёный</option><option value="muted" >серый</option></select></td>
+              <td class="u-ta-center"><input type="checkbox" name="b6_is_default" value="1"  title="ветка-иначе"></td>
+              <td class="u-ta-center"><input type="checkbox" name="b6_active" value="1" checked></td>
+              <td class="u-ta-center"><button class="b-del" type="submit" title="Удалить ветку"
                     formaction="/control/branch/6/delete" formnovalidate
                     onclick="return confirm('Удалить ветку? Несохранённые правки на странице пропадут.')">✕</button></td>
             </tr>
           </tbody>
         </table>
 
-        <div style="display:flex;align-items:center;gap:var(--sp-4);flex-wrap:wrap">
+        <div class="u-d-flex u-ai-center u-gap-sp-4 u-fw-wrap-wrap">
           <button class="ds-plus" type="submit" formaction="/control/param/3/branch/add" formnovalidate>＋ Добавить ветку</button>
-          <span style="flex:1"></span>
+          <span class="u-flex-1"></span>
           <button class="b-del" type="submit" formaction="/control/param/3/delete" formnovalidate
                   onclick="return confirm('Удалить проверку целиком вместе с ветками?')">Удалить проверку</button>
-        </div><details style="margin-top:var(--sp-3)">
-          <summary style="cursor:pointer;font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted2)">Технические поля</summary>
-          <p class="flow" style="margin:var(--sp-2) 0 0">движок: cashbox_payment · область: contract</p>
+        </div><details class="u-mt-sp-3">
+          <summary class="u-cur-pointer u-font-500-r2-label-r2-label-lh-font u-c-muted2">Технические поля</summary>
+          <p class="flow u-m-sp-2-0-0">движок: cashbox_payment · область: contract</p>
         </details>
       </div>
     </details>
   </form>
 
-  <form method="post" action="/control/param/add" style="display:flex;gap:var(--sp-4);align-items:flex-end;flex-wrap:wrap;margin:var(--rhythm) 0 0">
+  <form class="u-d-flex u-gap-sp-4 u-ai-flex-end u-fw-wrap-wrap u-m-rhythm-0-0" method="post" action="/control/param/add">
     <input type="hidden" name="agent" value="agent1">
-    <label style="font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted)">Новая проверка<br>
-      <input class="inp" name="title" placeholder="Название проверки" style="width:240px"></label>
-    <label style="font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted)">Движок<br>
-      <select class="inp" name="engine_key" style="width:230px"><option value="cashbox_payment">Оплата по кассам (договор)</option><option value="order_calc">Расчёт заказа (ошибка себестоимости)</option><option value="fiscal_receipt">Фискальный чек</option></select></label>
-    <button class="ds-plus" type="submit" style="margin:0">＋ Добавить проверку</button>
+    <label class="u-font-500-r2-label-r2-label-lh-font u-c-muted">Новая проверка<br>
+      <input class="inp u-w-240px" name="title" placeholder="Название проверки"></label>
+    <label class="u-font-500-r2-label-r2-label-lh-font u-c-muted">Движок<br>
+      <select class="inp u-w-230px" name="engine_key"><option value="cashbox_payment">Оплата по кассам (договор)</option><option value="order_calc">Расчёт заказа (ошибка себестоимости)</option><option value="fiscal_receipt">Фискальный чек</option></select></label>
+    <button class="ds-plus u-m-0" type="submit">＋ Добавить проверку</button>
   </form>
 </div>
     </div>

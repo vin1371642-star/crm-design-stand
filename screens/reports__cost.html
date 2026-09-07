@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Себестоимость · Отчёты · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-report-cost">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,34 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-
-  /* Первая колонка — название показателя: оно читается вместе с любым офисом и
-     поэтому не уезжает при горизонтальной прокрутке. */
-  .pl-name{position:sticky;left:0;z-index:2;background:var(--panel);text-align:left;min-width:280px}
-  .tablewrap thead th.pl-name{z-index:3;background:var(--th);text-align:left}
-  .tablewrap tbody tr{cursor:default}
-  .tablewrap tbody tr:hover{background:transparent}
-  /* Колонка «Итого» — тот же уровень, что итоговая строка: фон, а не рамка. */
-  .pl-sum{background:var(--th)}
-
-  /* Четыре уровня строки вместо рамок: заголовок блока, слагаемое, итог, результат. */
-  .pl-head td{font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display);
-    color:var(--ink);padding-top:var(--sp-4)}
-  .pl-head td.pl-name{background:var(--panel)}
-  .pl-item td{color:var(--ink)}
-  .pl-total td{background:var(--th);font-weight:var(--r2-fw-title)}
-  .pl-result td{background:var(--th);color:var(--ink);
-    font:var(--fw-sub) var(--fs-sub)/var(--lh-sub) var(--display)}
-  /* Убыток виден цифрой, а не только знаком минуса. */
-  .pl-neg{color:var(--accent-ink)}
-  .pl-empty{padding:var(--sp-6) 0;text-align:center;color:var(--muted)}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Отчёт <b>себестоимость</b></h1>

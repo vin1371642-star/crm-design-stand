@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Должность: Директор · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788563571">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788563571">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788563571">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-structure-position-card">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,68 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form class="dirsel" method="get" action="/direction/switch">
-    <input type="hidden" name="next" value="/crm2/incoming">
-    <select name="to" aria-label="Направление деятельности"
-            onchange="this.form.next.value=location.pathname+location.search;this.form.submit()">
-      <option value="25" selected>Ростовские окна розница</option>
-      <option value="26" >Ростовские окна опт</option>
-      <option value="27" >Росток</option>
-    </select>
-  </form>
-  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
-  <a class="icon-btn" href="notifications.html" title="Уведомления" aria-label="Уведомления: непрочитанных 2">
-    <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="pip">2</span>  </a>
-  <div class="avatar" title="Офис-менеджер Демо · Директор">ОФ</div>
 </header>    <div class="work">
-<style>
-  .st-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-  .st-err{background:var(--danger-bg);color:var(--danger-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-  .pc-top{display:flex;align-items:center;gap:var(--sp-4);flex-wrap:wrap;margin:0 0 var(--sp-5)}
-  .pc-sum{flex:1;min-width:0;font-size:var(--fs-secondary);line-height:var(--lh-secondary);color:var(--muted);margin:0}
-  .pc-sum b{color:var(--ink);font-weight:var(--r2-fw-medium)}
-  .pc-name{display:flex;gap:var(--sp-2);align-items:center;flex-wrap:wrap;margin:0 0 var(--sp-6)}
-  .pc-name input{min-width:260px}
-  .pc-sec{font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display);color:var(--ink);margin:var(--rhythm) 0 var(--rhythm-head)}
-  .pc-grp{border-bottom:1px solid var(--line-soft)}
-  .pc-grp>summary{display:flex;align-items:center;gap:var(--sp-3);min-height:var(--r2-table-row);
-    cursor:pointer;list-style:none;font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink)}
-  .pc-grp>summary::-webkit-details-marker{display:none}
-  .pc-grp>summary::before{content:"\203A";display:inline-block;width:var(--sp-3);color:var(--muted2);transition:transform .12s}
-  .pc-grp[open]>summary::before{transform:rotate(90deg)}
-  .pc-grp-n{flex:1;min-width:0;font-weight:var(--r2-fw-medium)}
-  .pc-grp-s{font-size:var(--fs-secondary);line-height:var(--lh-secondary);color:var(--muted2);white-space:nowrap}
-  .pc-grp-s.is-on{color:var(--ink)}
-  .pc-rows{padding:0 0 var(--sp-3) var(--sp-5)}
-  /* Ширины двух правых колонок — те же ступени, что у закрытого набора `.col-w150`
-     и `.col-w180` в crm2-components.css: ширина колонки — раскладка конкретного
-     списка, в шкале Reference V2 её нет, и новых ступеней здесь не заводится. */
-  .pc-row{display:grid;grid-template-columns:1fr 150px 180px;align-items:center;gap:var(--sp-3);
-    min-height:var(--r2-action);padding:var(--sp-1) 0;font-size:var(--fs-body);line-height:var(--lh-body)}
-  .pc-row-n{min-width:0;color:var(--ink)}
-  .pc-row-d{font-size:var(--fs-secondary);line-height:var(--lh-secondary);color:var(--muted2);white-space:nowrap}
-  /* Высоту полю не задаём: поле-полоса системы само даёт 40 (padding 8/2 + 24).
-     Принудительные 32 обрезали текст в списке. */
-  .pc-row select{width:100%}
-  .pc-check{display:flex;align-items:center;gap:var(--sp-3);min-height:var(--r2-action);
-    padding:var(--sp-1) 0;font-size:var(--fs-body);line-height:var(--lh-body);cursor:pointer}
-  .pc-note{font-size:var(--fs-secondary);line-height:var(--lh-secondary);color:var(--muted2);margin:0 0 var(--sp-2)}
-  /* Итог должности — справка, а не настройка: отделён от матрицы паузой, но живёт в
-     той же раскладке `.pc-grp`, чтобы на экране не появился второй вид свёртки. */
-  .pc-total{margin:0 0 var(--sp-6)}
-  .pc-total .pc-note b{color:var(--ink);font-weight:var(--r2-fw-medium)}
-  .pc-del{margin:var(--sp-6) 0 0}
-  /* `.btn.danger` в системе идёт ПОСЛЕ `.btn:disabled` и перекрывает его: занятая
-     должность рисовалась активной красной кнопкой, хотя нажать её нельзя. */
-  .pc-del .btn[disabled]{background:var(--disabled-bg);border-color:var(--line);color:var(--muted2)}
-  @media (max-width:640px){
-    .pc-row{grid-template-columns:1fr;gap:var(--sp-1)}
-    .pc-rows{padding-left:var(--sp-3)}
-  }
-</style>
-
 <div class="st-head">
   <h1 class="st-title">Директор</h1>
   <nav class="st-tabs">
@@ -1070,8 +1014,6 @@
         <span>Цели</span><small>Отчёты</small>      </a>
       <a href="settings.html" data-nav-prefixes="/settings|/salary">
         <span>Настройки</span>      </a>
-      <a href="#" data-screen="/account/password"><span>Пароль</span></a>
-      <a class="danger" href="#" data-screen="/logout"><span>Выйти</span></a>
     </div>
   </section>
 </div><script>

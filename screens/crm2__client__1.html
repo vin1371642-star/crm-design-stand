@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Демидов Демо Демидович — Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-client-card">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,7 +147,7 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
@@ -269,7 +271,7 @@
     </tr></thead>
     <tbody>      <tr class="grp"><td colspan="11">Действующие · 1</td></tr>
       <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/1/card'">
-        <td class="num"><a class="rowlink" href="incoming__1__card.html">1</a></td><td class="c m nowrap">15.08.26 00:41</td>
+        <td class="num"><a class="rowlink" href="incoming__1__card.html">1</a></td><td class="c m nowrap">17.08.26 17:33</td>
         <td class="m">—</td>
         <td class="addr">г. Демоград, ул. Образцовая, д. 12, кв. 34</td>
         <td class="c m nowrap">Д-000001</td>
@@ -302,7 +304,7 @@
     </tr></thead>
     <tbody>
       <tr>
-        <td class="c m nowrap">04.09.26 22:41</td>
+        <td class="c m nowrap">07.09.26 15:33</td>
         <td><span class="stt">Состоялся</span></td>
         <td class="c m nowrap">1:36</td>
         <td class="m">Офис-менеджер Демо</td>
@@ -314,7 +316,7 @@
         </td>
       </tr>
       <tr>
-        <td class="c m nowrap">04.09.26 21:41</td>
+        <td class="c m nowrap">07.09.26 14:33</td>
         <td><span class="stt">Состоялся</span></td>
         <td class="c m nowrap">3:34</td>
         <td class="m">Оператор КЦ Демо</td>
@@ -328,119 +330,6 @@
     </tbody>
   </table>
 </div>
-
-<style>
-  /* ИСТОРИЯ КЛИЕНТА ДОЛЖНА БЫТЬ ВИДНА. Владелец 05.09.2026, глядя на карту клиента:
-     «не видна история» — счётчик писал «всего 1 · закрытых 1 · договоров 1», итог
-     показывал 6 900 ₽, а строки под шапкой не было ни одной.
-
-     Данные и разметка были в порядке: в HTML строка лежала целиком, и на высоком окне
-     (2200 px) она видна. Виновата высота. Общее правило `.tablewrap` в
-     `crm2-shell.css` написано ДЛЯ РЕЕСТРОВ — там таблица единственная на экране и
-     обязана занять остаток высоты: `flex:1; min-height:0; overflow:auto`. В карточке
-     клиента таблиц четыре, и каждая — секция длинной страницы: остатка высоты им не
-     достаётся, тело схлопывается в ноль, и между шапкой и строкой «Итого» остаётся
-     пустота с крошечной полосой прокрутки.
-
-     Здесь таблицы растут ПО СОДЕРЖИМОМУ, а прокручивается страница. `flex:none`
-     снимает растягивание, `min-height:auto` — сжатие; `overflow:auto` оставлен, чтобы
-     широкая таблица (11 колонок, min-width 1500) по-прежнему прокручивалась вбок.
-
-     Правка сделана в стилях СТРАНИЦЫ, а не в общих файлах, намеренно: по общим
-     `crm2-*.css` сейчас идёт работа агента по стилям, и лезть туда — значит устроить
-     столкновение. Место этого правила — в дизайн-системе, перенести после его работы. */
-  .tablewrap{flex:none;min-height:auto}
-
-  /* Факты клиента — те же строки «подпись → значение», что в карточке обращения. */
-  .cl-facts{max-width:760px;margin:0 0 var(--sp-5)}
-  .cl-facts .ic-kv{display:flex;justify-content:space-between;gap:var(--sp-3);
-    padding:var(--sp-2) 0;border-bottom:1px solid var(--line-soft)}
-  .cl-facts .ic-kv:last-child{border-bottom:0}
-  .cl-facts .ic-kv span{color:var(--muted2);font-size:var(--r2-label);line-height:var(--r2-label-lh)}
-  .cl-facts .ic-kv b{color:var(--ink);font-weight:var(--r2-fw-body);text-align:right}
-  /* Форма правки. Поля — ПОДЧЁРКНУТЫЕ ПОЛОСЫ (стандарт интерфейса). Блоки на этом
-     экране делятся отступом и заголовком, без белых карточек: карточки — приём
-     карточки обращения (`CLAUDE.md`). Числа только токенами. */
-  .cl-tabs{margin:0 0 var(--sp-4)}
-  /* Второй ряд вкладок («Карточка» / «Контактные лица»). Правило `[hidden]`
-     обязано быть парным к `display:flex` общего `.crm-tabs`: атрибут `hidden`
-     работает правилом БРАУЗЕРА, и любое авторское `display` его перебивает —
-     без этой строки ряд оставался бы на экране у физлица. */
-  .cl-subtabs[hidden]{display:none}
-  /* Контактные лица: поля прямо в ячейках таблицы, поэтому у ячейки свой
-     вертикальный отступ, а полосу и высоту по-прежнему задаёт общее правило поля. */
-  table.cl-ct td{padding-top:var(--sp-1);padding-bottom:var(--sp-1)}
-  table.cl-ct td .ic-inp{width:100%;min-width:0}
-  .sec-body[hidden]{display:none}
-  .cl-edit{max-width:760px;margin:0 0 var(--sp-4)}
-  .cl-f{display:flex;align-items:center;gap:var(--sp-3);padding:var(--sp-1) 0}
-  .cl-f > span{flex:0 0 var(--dlg-label-col);color:var(--muted2);
-    font-size:var(--r2-label);line-height:var(--r2-label-lh)}
-  /* Полосу, высоту и фокус задаёт ОБЩЕЕ правило поля (`crm2-components.css`,
-     `input:not(…):not(.raw-field)` — пять `:not` дают специфичность выше любого
-     здешнего селектора), поэтому свои border/height/padding у input были мёртвым
-     кодом. У `textarea` наоборот: локальное правило было СИЛЬНЕЕ общего и
-     обнуляло вертикальный отступ — текст примечания прижимался к линии.
-     Снято getComputedStyle в Edge 25.08.2026: border 0/0/0/1, радиус 0, фон
-     прозрачный, padding 8/2. Локально остаётся только раскладка. */
-  .cl-f .ic-inp{flex:1 1 auto;min-width:0}
-  /* Подпись НАД полосой — для полей, стоящих в ряд: рядом с полосой шириной в
-     треть строки подпись съедает само поле. */
-  .cl-f--top{flex-direction:column;align-items:stretch;gap:0}
-  .cl-f--top > span{flex:none}
-  /* Ряды: ФИО тремя равными колонками, телефон с почтой — двумя. */
-  .cl-row{display:grid;grid-template-columns:1fr;gap:var(--sp-3);align-items:start}
-  /* Атрибут `hidden` прячет элемент правилом БРАУЗЕРА, а любое авторское
-     `display` перебивает его независимо от специфичности. Поэтому у каждого
-     класса со своим `display` обязано быть парное правило: без него вкладка
-     «Физ. лицо» перекрашивалась, а блок организации оставался на экране —
-     снято в браузере 25.08.2026. Аккордеоны прятались лишь потому, что у
-     `.ds-acc` своего `display` нет. */
-  .cl-row[hidden],.cl-call[hidden]{display:none}
-  .cl-row--2{grid-template-columns:1fr 1fr}
-  .cl-row--3{grid-template-columns:1fr 1fr 1fr}
-  /* Примечание — во всю ширину формы, высотой в несколько строк. */
-  .cl-wide{display:block}
-  .cl-area{width:100%;min-height:calc(var(--r2-control) * 3);resize:vertical}
-  /* Телефон: полоса + звонок в строку, добавление номера — символом «+». */
-  .cl-phones{display:flex;flex-direction:column;gap:var(--sp-1)}
-  .cl-phone{display:flex;align-items:center;gap:var(--sp-2)}
-  .cl-call{display:inline-flex;align-items:center;justify-content:center;
-    width:var(--r2-action);height:var(--r2-action);flex:none;color:var(--muted2);
-    border-radius:var(--r2-radius-8);text-decoration:none}
-  .cl-call:hover{background:var(--hover);color:var(--ink)}
-  .cl-call svg{width:var(--r2-icon);height:var(--r2-icon);fill:none;stroke:currentColor;
-    stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-  .cl-f > .ds-plus{align-self:flex-start}
-  /* Кнопки под формой, слева: полоса действий — общий `.card-actions`
-     (`design-system.css`), своей копии с другим переносом строк не заводим. */
-  .cl-actions{margin:0 0 var(--sp-5)}
-  /* Лояльность: иконка настроения + слово одной строкой. */
-  .cl-loyal{display:inline-flex;align-items:center;gap:var(--sp-1);white-space:nowrap}
-  .cl-mood{width:var(--r2-icon);height:var(--r2-icon);flex:none;fill:none;stroke:currentColor;
-    stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-  /* Разделитель «Действующие / Закрытые» — строка-заголовок внутри таблицы. */
-  table.crm-table tr.grp td{background:var(--th);color:var(--muted2);
-    font-size:var(--r2-label);line-height:var(--r2-label-lh);font-weight:var(--r2-fw-medium)}
-  table.crm-table tr.grp{cursor:default}
-  /* Итоговая строка таблицы истории. */
-  table.crm-table tfoot tr.tot td{background:var(--th);color:var(--ink);
-    font-weight:var(--r2-fw-medium)}
-  /* Узкий экран: строка «подпись → значение» встаёт в столбик. Во флексе с
-     `space-between` длинное значение (ФИО, почта) иначе сжимает подпись до
-     переносов по букве. Таблица истории уже в горизонтальном скролле
-     (`.sec-body--table`), поэтому её ширина страницу не растягивает. */
-  @media (max-width:560px){
-    .cl-facts .ic-kv{flex-direction:column;gap:0}
-    .cl-facts .ic-kv b{text-align:left}
-    .rhead{flex-wrap:wrap;gap:var(--sp-2)}
-    /* Поля правки — тем же приёмом: подпись над полосой, а не рядом с ней. */
-    .cl-f{flex-direction:column;align-items:stretch;gap:0}
-    .cl-f > span{flex:none}
-    /* Ряды на телефоне разбираются в столбик: три поля в строку там нечитаемы. */
-    .cl-row--2,.cl-row--3{grid-template-columns:1fr}
-  }
-</style>
 
 <script>
   // Физлицо ↔ организация: показываем то, что относится к выбранному типу. Скрытые

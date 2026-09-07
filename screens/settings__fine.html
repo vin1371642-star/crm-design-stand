@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Тонкие настройки · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,32 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .fs-head{padding:var(--sp-3) var(--r2-space-5) 0}
-  .fs-title{font:var(--fw-screen) var(--fs-screen)/var(--lh-screen) var(--display);color:var(--ink);margin:0 0 var(--sp-2)}
-  .fs-tabs{display:flex;gap:var(--sp-1);border-bottom:1px solid var(--line);overflow-x:auto}
-  .fs-tabs a{padding:var(--sp-2) var(--sp-4);font:600 var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--muted2);text-decoration:none;border-bottom:2px solid transparent;margin-bottom:var(--sp-1);white-space:nowrap}
-  .fs-tabs a.on{color:var(--accent-ink);border-bottom-color:var(--accent)}
-  .fs-body{padding:var(--sp-4) var(--sp-5) var(--sp-6);max-width:900px}
-  .fs-note{background:var(--th);color:var(--muted);border:1px solid var(--line);font-size:var(--r2-body);line-height:1.55;padding:var(--sp-2) var(--sp-3);border-radius:var(--r2-radius-8);margin:0 0 var(--sp-4)}
-  .fs-check{display:flex;align-items:flex-start;gap:var(--sp-2);font-size:var(--r2-body);color:var(--ink);cursor:pointer;margin:0 0 var(--sp-4);line-height:1.5}
-  .fs-check input{margin-top:var(--sp-1);flex:0 0 auto}
-  .fs-num{margin:0 0 var(--sp-4);max-width:520px}
-  .fs-num b{display:block;font-weight:600;color:var(--ink);font-size:var(--r2-body);margin:0 0 var(--sp-1)}
-  .fs-inp{width:100%;box-sizing:border-box;border:0;border-bottom:1px solid var(--line);background:transparent;padding:var(--sp-2) var(--sp-1);font-size:var(--r2-body);color:var(--ink)}
-  .fs-inp:focus{outline:none;border-bottom-color:var(--accent)}
-  .fs-sec{font:700 var(--r2-body)/var(--r2-body-lh) var(--display);color:var(--ink);margin:var(--sp-5) 0 var(--sp-2)}
-  .fs-row{display:flex;gap:var(--sp-2);align-items:flex-end;flex-wrap:wrap;margin:0 0 var(--sp-2)}
-  .fs-row > div{flex:1;min-width:220px}
-  table.fs-tbl{width:100%;border-collapse:collapse;font-size:var(--r2-body)}
-  table.fs-tbl th{text-align:left;border-bottom:1px solid var(--line)}
-  table.fs-tbl td{padding:var(--sp-2) var(--sp-2);border-bottom:1px solid var(--line-soft)}
-  .fs-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-</style>
 
 <div class="fs-head">
   <h1 class="fs-title">Тонкие настройки</h1>

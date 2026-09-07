@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Планы продаж · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-plans-settings">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,32 +147,14 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-  .st-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-  .st-err{background:var(--danger-bg);color:var(--danger-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-  .flow{color:var(--muted2);font-size:var(--r2-label);margin:var(--sp-1) 0 var(--sp-3);line-height:1.6}
-  .pl-card{background:var(--panel);border-radius:var(--r2-radius-10);padding:var(--sp-4) var(--r2-space-5);margin:0 0 var(--sp-4)}
-  .pl-month{display:flex;gap:var(--sp-2);align-items:flex-end;flex-wrap:wrap;margin:0 0 var(--sp-4)}
-  .pl-row{display:flex;gap:var(--sp-3);align-items:center;padding:var(--sp-3) 0;border-bottom:1px solid var(--line-soft)}
-  .pl-row:last-child{border-bottom:0}
-  .pl-row .lbl{flex:1;font-size:var(--r2-body);color:var(--ink)}
-  .pl-row .lbl small{display:block;color:var(--muted2);font-size:var(--r2-label);margin-top:var(--sp-1)}
-  .inp{border:1px solid var(--line);border-radius:var(--r2-radius-8);padding:var(--sp-2) var(--sp-2);font-size:var(--r2-body);color:var(--ink);background:var(--panel);text-align:right}
-  .fl{font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted)}
-  .unit{color:var(--muted2);font-size:var(--r2-body);width:18px}
-  .hist{margin:var(--r2-space-5) 0 0}
-  .hist a{display:inline-block;margin:0 var(--sp-1) var(--sp-1) 0;padding:var(--sp-1) var(--sp-2);border:1px solid var(--line);border-radius:var(--r2-radius-10);font-size:var(--r2-body);color:var(--accent-ink);text-decoration:none}
-  .hist a.on{background:var(--ink);color:var(--panel);border-color:var(--ink)}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Планы <b>продаж</b></h1>
-  <div style="font-size:var(--r2-body)"><a href="settings__motivation.html" style="color:var(--accent-ink);text-decoration:none">→ Мотивация</a></div>
+  <div class="u-fs-r2-body"><a class="u-c-accent-ink u-td-none" href="settings__motivation.html">→ Мотивация</a></div>
 </div>
 
 <div class="st-body">
@@ -178,43 +162,43 @@
     <div class="crm-subhead">План на месяц</div>
     <div class="pl-month">
       <label class="fl">Месяц<br>
-        <input class="inp" type="month" name="period" value="2026-09" style="text-align:left" onchange="location.href='/settings/plans?period='+this.value"></label>
+        <input class="inp u-ta-left" type="month" name="period" value="2026-09" onchange="location.href='/settings/plans?period='+this.value"></label>
     </div>
     <div class="pl-row">
       <div class="lbl">План на каждого выездного менеджера (одинаковый для всех)
       </div>
-      <input class="inp" name="field" inputmode="decimal"
+      <input class="inp u-w-150px" name="field" inputmode="decimal"
              value=""
-             placeholder="0" style="width:150px">
+             placeholder="0">
       <span class="unit">₽</span>
     </div>
     <div class="pl-row">
       <div class="lbl">План отдела (РОП, общий по отделу)
       </div>
-      <input class="inp" name="rop" inputmode="decimal"
+      <input class="inp u-w-150px" name="rop" inputmode="decimal"
              value=""
-             placeholder="0" style="width:150px">
+             placeholder="0">
       <span class="unit">₽</span>
     </div>
     <div class="pl-row">
       <div class="lbl">Порог перевыполнения (оборот сверх плана → премия)
 <small>по умолчанию 300000 ₽ сверх плана</small>      </div>
-      <input class="inp" name="overperf_margin" inputmode="decimal"
+      <input class="inp u-w-150px" name="overperf_margin" inputmode="decimal"
              value=""
-             placeholder="300000" style="width:150px">
+             placeholder="300000">
       <span class="unit">₽</span>
     </div>
-    <div style="margin-top:var(--sp-4)"><button class="btn is-strong" type="submit">Сохранить план</button></div>
+    <div class="u-mt-sp-4"><button class="btn is-strong" type="submit">Сохранить план</button></div>
   </form>
 
   <div class="pl-card">
     <div class="crm-subhead">Индивидуальные планы (стажёры)</div>
-    <form method="post" action="/settings/plans/individual/save" style="display:flex;gap:var(--sp-2);align-items:flex-end;flex-wrap:wrap">
+    <form class="u-d-flex u-gap-sp-2 u-ai-flex-end u-fw-wrap-wrap" method="post" action="/settings/plans/individual/save">
       <input type="hidden" name="period" value="2026-09">
-      <div><div class="flow" style="margin:0 0 var(--sp-1)">Сотрудник (стажёр)</div>
-        <select class="inp" name="employee_id" style="width:240px" required><option value="">— выберите —</option><option value="24">Александр</option><option value="21">Андрей</option><option value="20">Вадим</option><option value="23">Валерий</option><option value="19">Данил</option><option value="22">Дима</option><option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="18">Наташа</option><option value="17">Нелли</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник 01</option><option value="15">Сотрудник ПТО Демо</option></select></div>
-      <div><div class="flow" style="margin:0 0 var(--sp-1)">План на 2026-09, ₽</div>
-        <input class="inp" name="value" inputmode="numeric" placeholder="1000000" required style="width:150px;text-align:right"></div>
+      <div><div class="flow u-m-0-0-sp-1">Сотрудник (стажёр)</div>
+        <select class="inp u-w-240px" name="employee_id" required><option value="">— выберите —</option><option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник 01</option><option value="2">Сотрудник 02</option><option value="3">Сотрудник 03</option><option value="4">Сотрудник 04</option><option value="5">Сотрудник 05</option><option value="6">Сотрудник 06</option><option value="7">Сотрудник 07</option><option value="8">Сотрудник 08</option><option value="15">Сотрудник ПТО Демо</option></select></div>
+      <div><div class="flow u-m-0-0-sp-1">План на 2026-09, ₽</div>
+        <input class="inp u-w-150px u-ta-right" name="value" inputmode="numeric" placeholder="1000000" required></div>
       <button class="btn" type="submit">＋ Задать план</button>
     </form>
   </div>

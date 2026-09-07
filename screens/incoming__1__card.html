@@ -4,12 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Обращение #1 — Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-deal-card.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-deal-card.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -146,7 +148,7 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header><nav class="crumbs" aria-label="Вы здесь"><a href="crm2__incoming.html">Обращения</a><span class="sep">/</span><span class="cur">Обращение #1</span></nav>    <div class="work">
@@ -205,13 +207,13 @@
 
       <div class="ic-sec">Договор</div>
       <div class="ic-kv"><span>Номер</span><b>Д-000001</b></div>
-      <div class="ic-kv"><span>Дата</span><b>22.08.2026</b></div>
+      <div class="ic-kv"><span>Дата</span><b>24.08.2026</b></div>
       <div class="ic-kv"><span>Дедлайн</span><b>—</b></div>
       <div class="ic-kv"><span>Срок изготовления</span><b>21</b></div>
       <div class="ic-kv"><span>Гарантия</span><b>60</b></div>
       <div class="ic-kv"><span>Категория</span><b>Окна</b></div>      <div class="ic-kv"><span>Итоговая стоимость</span><b>214000</b></div>
       <div class="ic-kv"><span>Предоплата</span><b>107000</b></div><div class="ic-kv"><span>Остаток за изделия</span><b>107 000 ₽</b></div>
-      <div class="ic-kv"><span>Подписан</span><b class="ok">✓ 22.08.2026</b></div>
+      <div class="ic-kv"><span>Подписан</span><b class="ok">✓ 24.08.2026</b></div>
     </aside>
 
     <nav class="ic-mseg" role="tablist" aria-label="Раздел карточки">
@@ -516,8 +518,8 @@
         <ul class="ic-mlist">
           <li class="ic-mrow">
             <div class="ic-mrow-head">              <a class="ic-mrow-who" href="calendar__measurements.html">Замерщик Демо</a>
-              <span class="ic-mrow-when">18.08.2026 в 00:41</span><span class="ic-mrow-done">
-<span class="ic-mrow-ok" title="Выезд состоялся">✓ 18.08.2026</span>
+              <span class="ic-mrow-when">20.08.2026 в 17:33</span><span class="ic-mrow-done">
+<span class="ic-mrow-ok" title="Выезд состоялся">✓ 20.08.2026</span>
               </span>              <form method="post" action="/incoming/1/measurement/1/complete"
                     class="ic-mrow-fact">
                 <input type="hidden" name="done" value="0">
@@ -559,7 +561,7 @@
           <div class="ic-block-head">Договор</div>
           <div class="ic-form-grid">
             <label>Номер<br><input type="text" value="Д-000001" readonly></label><label>Дата договора<br>
-<span class="ic-frozen">22.08.2026</span>
+<span class="ic-frozen">24.08.2026</span>
 </label><label>Категория<br>
 <span class="ic-frozen">Окна</span>
 </label>
@@ -793,25 +795,25 @@ title="База: изделия 154080 ₽ + допы 17120 ₽ = 171200 ₽; п
             </tr></thead>
             <tbody>
               <tr><td class="date"><span class="dot dot--green"
-                  title="Проведена"></span>22.08.2026</td><td class="num">107 000 ₽</td>
+                  title="Проведена"></span>24.08.2026</td><td class="num">107 000 ₽</td>
                 <td>Наличные (касса)</td>
                 <td>
 <span class="muted" title="Фискальный чек нужен только для безналичной оплаты физлица">не нужен</span>
                 </td>
-                <td class="act"><button type="button" class="ic-iconbtn" title="Принял: stand · Провёл: dima · 22.08.2026 00:41 · Способ: Наличные (касса) · Касса: Касса офиса Демо · Примечание: Движение стенда. Сумма условная." aria-label="Детали платежа"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.6"/></svg></button>
+                <td class="act"><button type="button" class="ic-iconbtn" title="Принял: stand · Не проведена кассой · Способ: Наличные (касса) · Касса: Касса офиса Демо · Примечание: Движение стенда. Сумма условная." aria-label="Детали платежа"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.6"/></svg></button>
 <form class="ic-cellform" method="post" action="/incoming/1/contract/payment/1/delete" onsubmit="return icAskReason(this)"><input type="hidden" name="reason" value=""><button class="ic-iconbtn del" type="submit" title="Сторнировать оплату"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button></form>                </td>
               </tr>
               <tr><td class="date"><span class="dot dot--green"
-                  title="Проведена"></span>31.08.2026</td><td class="num">54 000 ₽</td>
+                  title="Проведена"></span>02.09.2026</td><td class="num">54 000 ₽</td>
                 <td>Наличные (касса)</td>
                 <td>
 <span class="muted" title="Фискальный чек нужен только для безналичной оплаты физлица">не нужен</span>
                 </td>
-                <td class="act"><button type="button" class="ic-iconbtn" title="Принял: stand · Провёл: dima · 31.08.2026 00:41 · Способ: Наличные (касса) · Касса: Касса офиса Демо · Примечание: Движение стенда. Сумма условная." aria-label="Детали платежа"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.6"/></svg></button>
+                <td class="act"><button type="button" class="ic-iconbtn" title="Принял: stand · Не проведена кассой · Способ: Наличные (касса) · Касса: Касса офиса Демо · Примечание: Движение стенда. Сумма условная." aria-label="Детали платежа"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.6"/></svg></button>
 <form class="ic-cellform" method="post" action="/incoming/1/contract/payment/2/delete" onsubmit="return icAskReason(this)"><input type="hidden" name="reason" value=""><button class="ic-iconbtn del" type="submit" title="Сторнировать оплату"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button></form>                </td>
               </tr>
               <tr><td class="date"><span class="dot dot--amber"
-                  title="Ждёт подтверждения"></span>04.09.2026</td><td class="num">54 000 ₽</td>
+                  title="Ждёт подтверждения"></span>06.09.2026</td><td class="num">54 000 ₽</td>
                 <td>bank</td>
                 <td>
 <span class="muted" title="Фискальный чек нужен только для безналичной оплаты физлица">не нужен</span>
@@ -901,7 +903,7 @@ checked><i></i>
           <div class="ic-block-head">ПТО</div>
           <p><b>—</b></p>
           <form method="post" action="/incoming/1/order/assign-pto" class="ord-add">
-            <label>Менеджер<br><select name="pto_user_id" required><option value="">— выберите —</option><option value="9" >Сотрудник ПТО Демо</option></select></label>
+            <label>Менеджер<br><select name="pto_user_id" required><option value="">— выберите —</option></select></label>
             <button class="btn" type="submit">Назначить</button>
           </form>
         </div>        <div class="ic-block">
@@ -911,8 +913,8 @@ checked><i></i>
           <div class="ic-kv"><span>База договора</span><b>61000</b></div>
           <div class="ic-kv"><span>Количество</span><b>3</b></div>
           <div class="ic-kv"><span>№ заказа</span><b>ЗК-000001</b></div>
-          <div class="ic-kv"><span>Запущено в работу</span><b>2026-08-27</b></div>
-          <div class="ic-kv"><span>Плановая готовность</span><b>2026-09-10</b></div>
+          <div class="ic-kv"><span>Запущено в работу</span><b>2026-08-29</b></div>
+          <div class="ic-kv"><span>Плановая готовность</span><b>2026-09-12</b></div>
           <div class="ic-kv"><span>Закупка ПТО</span><b>68400</b></div>
           <div class="ic-kv"><span>Номер реестра</span><b>Р-1</b></div>
           <div class="ic-kv"><span>Готовность</span><b>
@@ -925,8 +927,8 @@ checked><i></i>
             <form method="post" action="/incoming/1/order/supplier/2/register" class="reg-form">
               <div class="reg-no">Реестр: <b>Р-1</b></div>
               <label>№ заказа<br><input type="text" name="order_no" value="ЗК-000001" placeholder="от поставщика"></label>
-              <label>Запуск<br><input type="date" name="launch_date" value="2026-08-27"></label>
-              <label>План готовности<br><input type="date" name="ready_plan_date" value="2026-09-10"></label>
+              <label>Запуск<br><input type="date" name="launch_date" value="2026-08-29"></label>
+              <label>План готовности<br><input type="date" name="ready_plan_date" value="2026-09-12"></label>
               <label>Закупка, ₽<br><input type="text" name="purchase_sum" value="68400"></label><label>Площадь, м²<br><input type="text" inputmode="decimal" name="area" value="8.4" placeholder="нужна для запуска"></label>
               <button class="btn" type="submit">Сохранить реестр</button>
             </form>
@@ -976,7 +978,7 @@ checked><i></i>
           <div class="ic-block-head">Монтаж
             <span class="badge">Назначен</span></div>
         <ul class="ic-list">
-          <li><b>Плановая дата монтажа:</b> 05.09.2026 10:00</li>
+          <li><b>Плановая дата монтажа:</b> 07.09.2026 10:00</li>
           <li><b>Бригада:</b> Бригада Демо</li>
           <li><b>ЗП бригады:</b> 12840 ₽ · <b>Оплата:</b> Касса организации</li>
           <li><b>Монтаж выполнен:</b> <span class="muted">не отмечено</span></li>
@@ -1054,7 +1056,7 @@ checked><i></i>
               <b><a class="ic-link" href="claims__1.html">Рекламация Р-1</a></b>
               <span class="badge">Новая</span>
             </div>
-            <div class="ic-sub">2026-09-02 · Регулировка</div>
+            <div class="ic-sub">2026-09-04 · Регулировка</div>
 <div class="crm-tl-note">Створка задевает раму после холодов. Нужна регулировка петель.</div>          </li>
         </ul>
         </div>
@@ -1112,21 +1114,20 @@ disabled aria-disabled="true" title="Сначала заполните: исто
           <label class="rp-lbl">Кому <span class="req">*</span>
             <select name="assigned_to_id" required>
               <option value="">— выберите сотрудника —</option>
-              <option value="24">Александр · старший замерщик</option>
-              <option value="21">Андрей · замерщик</option>
-              <option value="20">Вадим · менеджер</option>
-              <option value="23">Валерий · замерщик</option>
-              <option value="19">Данил · менеджер</option>
-              <option value="22">Дима · замерщик</option>
               <option value="16">Директор Демо · директор</option>
               <option value="11">Замерщик Демо · замерщик</option>
               <option value="14">Кладовщик Демо · storekeeper</option>
               <option value="13">Координатор Демо · координатор</option>
               <option value="12">Монтажник Демо · монтажник</option>
-              <option value="18">Наташа · менеджер</option>
-              <option value="17">Нелли · менеджер</option>
               <option value="9">Оператор КЦ Демо · call_center</option>
               <option value="1">Сотрудник 01 · менеджер</option>
+              <option value="2">Сотрудник 02 · менеджер</option>
+              <option value="3">Сотрудник 03 · менеджер</option>
+              <option value="4">Сотрудник 04 · менеджер</option>
+              <option value="5">Сотрудник 05 · замерщик</option>
+              <option value="6">Сотрудник 06 · замерщик</option>
+              <option value="7">Сотрудник 07 · замерщик</option>
+              <option value="8">Сотрудник 08 · старший замерщик</option>
               <option value="15">Сотрудник ПТО Демо · pto</option>
             </select>
           </label>
@@ -1288,17 +1289,17 @@ disabled aria-disabled="true" title="Сначала заполните: исто
 <option value="callback">Позвонить</option><option value="personal">Личное</option>            </select>
             <input type="date" name="due_date" title="Срок — дата">
             <input type="time" name="due_time" title="Срок — время">
-            <select name="assignee_id" class="ic-tk-assignee" required><option value="" selected>— исполнитель —</option><option value="24" >Александр</option><option value="21" >Андрей</option><option value="20" >Вадим</option><option value="23" >Валерий</option><option value="19" >Данил</option><option value="22" >Дима</option><option value="16" >Директор Демо</option><option value="11" >Замерщик Демо</option><option value="14" >Кладовщик Демо</option><option value="13" >Координатор Демо</option><option value="12" >Монтажник Демо</option><option value="18" >Наташа</option><option value="17" >Нелли</option><option value="9" >Оператор КЦ Демо</option><option value="10" >Офис-менеджер Демо</option><option value="1" >Сотрудник 01</option><option value="15" >Сотрудник ПТО Демо</option></select>
+            <select name="assignee_id" class="ic-tk-assignee" required><option value="" selected>— исполнитель —</option><option value="16" >Директор Демо</option><option value="11" >Замерщик Демо</option><option value="14" >Кладовщик Демо</option><option value="13" >Координатор Демо</option><option value="12" >Монтажник Демо</option><option value="9" >Оператор КЦ Демо</option><option value="10" >Офис-менеджер Демо</option><option value="1" >Сотрудник 01</option><option value="2" >Сотрудник 02</option><option value="3" >Сотрудник 03</option><option value="4" >Сотрудник 04</option><option value="5" >Сотрудник 05</option><option value="6" >Сотрудник 06</option><option value="7" >Сотрудник 07</option><option value="8" >Сотрудник 08</option><option value="15" >Сотрудник ПТО Демо</option></select>
             <button class="btn" type="submit">＋ Добавить</button>
           </div>
         </form>
-          <div class="tk-grp">Просроченные · 3</div>
+          <div class="tk-grp">Просроченные · 1</div>
           <div class="tk overdue">
             <form method="post" action="/incoming/1/task/4/done" class="ic-tk-done"><input type="hidden" name="done" value="1"><button type="submit" title="Отметить выполненной" class="ic-tk-box"></button></form>
             <div class="body">
               <div class="t-title">Согласовать перенос монтажа с клиентом</div><div class="t-sub">перезвон · Офис-менеджер Демо · Клиент просил перенести на выходные, ответа нет третий день.</div>
             </div>
-<div class="due">02.09.2026 00:41</div>            <button class="ic-tk-post" type="button" title="Перенести срок задачи"
+<div class="due">04.09.2026 17:33</div>            <button class="ic-tk-post" type="button" title="Перенести срок задачи"
                     onclick="var f=this.nextElementSibling; f.hidden=!f.hidden; if(!f.hidden){f.querySelector('input[type=date]').focus();}">Отложить</button>
             <form method="post" action="/incoming/1/task/4/postpone" class="ic-tk-postf" hidden>
               <input type="date" name="due_date" required>
@@ -1306,27 +1307,29 @@ disabled aria-disabled="true" title="Сначала заполните: исто
               <button type="submit">Перенести</button>
             </form>
           </div>
-          <div class="tk overdue">
-            <form method="post" action="/incoming/1/task/2/done" class="ic-tk-done"><input type="hidden" name="done" value="1"><button type="submit" title="Отметить выполненной" class="ic-tk-box"></button></form>
+          <div class="tk-grp">Сегодня · 1</div>
+          <div class="tk today">
+            <form method="post" action="/incoming/1/task/1/done" class="ic-tk-done"><input type="hidden" name="done" value="1"><button type="submit" title="Отметить выполненной" class="ic-tk-box"></button></form>
             <div class="body">
-              <div class="t-title">Проверить результат замера</div><div class="t-sub">задача · Сотрудник ПТО Демо · Сверить проёмы с расчётом ПТО.</div>
+              <div class="t-title">Перезвонить и согласовать доставку</div><div class="t-sub">перезвон · Офис-менеджер Демо · Клиент просил после 18:00.</div>
             </div>
-<div class="due">06.09.2026 00:41</div>            <button class="ic-tk-post" type="button" title="Перенести срок задачи"
+<div class="due">07.09.2026 23:33</div>            <button class="ic-tk-post" type="button" title="Перенести срок задачи"
                     onclick="var f=this.nextElementSibling; f.hidden=!f.hidden; if(!f.hidden){f.querySelector('input[type=date]').focus();}">Отложить</button>
-            <form method="post" action="/incoming/1/task/2/postpone" class="ic-tk-postf" hidden>
+            <form method="post" action="/incoming/1/task/1/postpone" class="ic-tk-postf" hidden>
               <input type="date" name="due_date" required>
               <input type="time" name="due_time" value="09:00">
               <button type="submit">Перенести</button>
             </form>
           </div>
-          <div class="tk overdue">
-            <form method="post" action="/incoming/1/task/1/done" class="ic-tk-done"><input type="hidden" name="done" value="1"><button type="submit" title="Отметить выполненной" class="ic-tk-box"></button></form>
+          <div class="tk-grp">Будущие · 1</div>
+          <div class="tk future">
+            <form method="post" action="/incoming/1/task/2/done" class="ic-tk-done"><input type="hidden" name="done" value="1"><button type="submit" title="Отметить выполненной" class="ic-tk-box"></button></form>
             <div class="body">
-              <div class="t-title">Перезвонить и согласовать доставку</div><div class="t-sub">перезвон · Офис-менеджер Демо · Клиент просил после 18:00.</div>
+              <div class="t-title">Проверить результат замера</div><div class="t-sub">задача · Сотрудник ПТО Демо · Сверить проёмы с расчётом ПТО.</div>
             </div>
-<div class="due">05.09.2026 06:41</div>            <button class="ic-tk-post" type="button" title="Перенести срок задачи"
+<div class="due">08.09.2026 17:33</div>            <button class="ic-tk-post" type="button" title="Перенести срок задачи"
                     onclick="var f=this.nextElementSibling; f.hidden=!f.hidden; if(!f.hidden){f.querySelector('input[type=date]').focus();}">Отложить</button>
-            <form method="post" action="/incoming/1/task/1/postpone" class="ic-tk-postf" hidden>
+            <form method="post" action="/incoming/1/task/2/postpone" class="ic-tk-postf" hidden>
               <input type="date" name="due_date" required>
               <input type="time" name="due_time" value="09:00">
               <button type="submit">Перенести</button>
@@ -1337,7 +1340,7 @@ disabled aria-disabled="true" title="Сначала заполните: исто
 <span class="t-ok">✔</span>            <div class="body">
               <div class="t-title">Отправить акт клиенту</div><div class="t-sub">задача · Координатор Демо</div>
             </div>
-<div class="due">04.09.2026 00:41</div>          </div>
+<div class="due">06.09.2026 17:33</div>          </div>
       </div>
       </div>    </aside>
 

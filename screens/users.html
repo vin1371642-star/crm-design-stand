@@ -14,9 +14,11 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="CRM">
-  <link rel="stylesheet" href="static/design-system.css?v=1788784554">
-  <link rel="stylesheet" href="static/style.css?v=1788784554"></head>
-<body>
+  <link rel="stylesheet" href="static/design-system.css?v=1788790702">
+  <link rel="stylesheet" href="static/style.css?v=1788790702">
+  <link rel="stylesheet" href="static/crm2-pages.css?v=1788790702"><link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
+</head>
+<body class="">
   <div class="crm-shell">
 <nav class="crm-sidebar" aria-label="Основная навигация">
   <div class="crm-sidebar-brand">
@@ -164,45 +166,27 @@
       <tbody>
         <tr>
           <td data-label="ФИО">
-            <strong>Директор</strong>
+            <strong>Директор Демо</strong>
           </td>
           <td data-label="Должность">Директор</td>
           <td data-label="Логин">
-director
-          </td>
+<span class="badge r">нет входа</span>          </td>
           <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
+<span class="muted">—</span>          </td>
           <td data-label="Доступ">
 <span class="badge g">активен</span>
           </td>
           <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/2/card">Просмотр</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Александр</strong>
-          </td>
-          <td data-label="Должность">Старший замерщик</td>
-          <td data-label="Логин">
-aleksandr
-          </td>
-          <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/18/card">Просмотр</a>
+              <form method="post" action="/users/employees/16/access" class="inline">
+                <button class="btn secondary" type="submit">Выдать логин</button>
+              </form>
           </td>
         </tr>
         <tr>
           <td data-label="ФИО">
             <strong>Офис-менеджер Демо</strong>
           </td>
-          <td data-label="Должность">Офис-менеджер</td>
+          <td data-label="Должность">Директор</td>
           <td data-label="Логин">
 stand
           </td>
@@ -218,164 +202,20 @@ stand
         </tr>
         <tr>
           <td data-label="ФИО">
-            <strong>Вадим</strong>
-          </td>
-          <td data-label="Должность">Менеджер</td>
-          <td data-label="Логин">
-vadim
-          </td>
-          <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/14/card">Просмотр</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Данил</strong>
-          </td>
-          <td data-label="Должность">Менеджер</td>
-          <td data-label="Логин">
-danil
-          </td>
-          <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/13/card">Просмотр</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Наташа</strong>
-          </td>
-          <td data-label="Должность">Менеджер</td>
-          <td data-label="Логин">
-natasha
-          </td>
-          <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/12/card">Просмотр</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Нелли</strong>
-          </td>
-          <td data-label="Должность">Менеджер</td>
-          <td data-label="Логин">
-nelli
-          </td>
-          <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/11/card">Просмотр</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
             <strong>Сотрудник 01</strong>
           </td>
           <td data-label="Должность">Менеджер</td>
           <td data-label="Логин">
-sotrudnik01
-          </td>
+<span class="badge r">нет входа</span>          </td>
           <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
+<span class="muted">—</span>          </td>
           <td data-label="Доступ">
 <span class="badge g">активен</span>
           </td>
           <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/3/card">Просмотр</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Андрей</strong>
-          </td>
-          <td data-label="Должность">Замерщик</td>
-          <td data-label="Логин">
-andrey
-          </td>
-          <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/15/card">Просмотр</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Валерий</strong>
-          </td>
-          <td data-label="Должность">Замерщик</td>
-          <td data-label="Логин">
-valeriy
-          </td>
-          <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/17/card">Просмотр</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Дима</strong>
-          </td>
-          <td data-label="Должность">Замерщик</td>
-          <td data-label="Логин">
-dima
-          </td>
-          <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/16/card">Просмотр</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Директор Демо</strong>
-          </td>
-          <td data-label="Должность">Замерщик</td>
-          <td data-label="Логин">
-direktordemo
-          </td>
-          <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/10/card">Просмотр</a>
+              <form method="post" action="/users/employees/1/access" class="inline">
+                <button class="btn secondary" type="submit">Выдать логин</button>
+              </form>
           </td>
         </tr>
         <tr>
@@ -384,70 +224,16 @@ direktordemo
           </td>
           <td data-label="Должность">Замерщик</td>
           <td data-label="Логин">
-zamerschikdemo
-          </td>
+<span class="badge r">нет входа</span>          </td>
           <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
+<span class="muted">—</span>          </td>
           <td data-label="Доступ">
 <span class="badge g">активен</span>
           </td>
           <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/5/card">Просмотр</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Кладовщик Демо</strong>
-          </td>
-          <td data-label="Должность">Замерщик</td>
-          <td data-label="Логин">
-kladovschikdemo
-          </td>
-          <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/8/card">Просмотр</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Оператор КЦ Демо</strong>
-          </td>
-          <td data-label="Должность">Замерщик</td>
-          <td data-label="Логин">
-operatorkcdemo
-          </td>
-          <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/4/card">Просмотр</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-label="ФИО">
-            <strong>Сотрудник ПТО Демо</strong>
-          </td>
-          <td data-label="Должность">Замерщик</td>
-          <td data-label="Логин">
-sotrudnikptodemo
-          </td>
-          <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
-          <td data-label="Доступ">
-<span class="badge g">активен</span>
-          </td>
-          <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/9/card">Просмотр</a>
+              <form method="post" action="/users/employees/11/access" class="inline">
+                <button class="btn secondary" type="submit">Выдать логин</button>
+              </form>
           </td>
         </tr>
         <tr>
@@ -456,16 +242,16 @@ sotrudnikptodemo
           </td>
           <td data-label="Должность">Координатор</td>
           <td data-label="Логин">
-koordinatordemo
-          </td>
+<span class="badge r">нет входа</span>          </td>
           <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
+<span class="muted">—</span>          </td>
           <td data-label="Доступ">
 <span class="badge g">активен</span>
           </td>
           <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/7/card">Просмотр</a>
+              <form method="post" action="/users/employees/13/access" class="inline">
+                <button class="btn secondary" type="submit">Выдать логин</button>
+              </form>
           </td>
         </tr>
         <tr>
@@ -474,16 +260,70 @@ koordinatordemo
           </td>
           <td data-label="Должность">Монтажник</td>
           <td data-label="Логин">
-montazhnikdemo
-          </td>
+<span class="badge r">нет входа</span>          </td>
           <td data-label="На сайте">
-<span class="muted">не входил</span>
-          </td>
+<span class="muted">—</span>          </td>
           <td data-label="Доступ">
 <span class="badge g">активен</span>
           </td>
           <td data-label="Просмотр" class="cell-action">
-              <a class="btn secondary" href="#" data-screen="/users/6/card">Просмотр</a>
+              <form method="post" action="/users/employees/12/access" class="inline">
+                <button class="btn secondary" type="submit">Выдать логин</button>
+              </form>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Кладовщик Демо</strong>
+          </td>
+          <td data-label="Должность">storekeeper</td>
+          <td data-label="Логин">
+<span class="badge r">нет входа</span>          </td>
+          <td data-label="На сайте">
+<span class="muted">—</span>          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <form method="post" action="/users/employees/14/access" class="inline">
+                <button class="btn secondary" type="submit">Выдать логин</button>
+              </form>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Оператор КЦ Демо</strong>
+          </td>
+          <td data-label="Должность">call_center</td>
+          <td data-label="Логин">
+<span class="badge r">нет входа</span>          </td>
+          <td data-label="На сайте">
+<span class="muted">—</span>          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <form method="post" action="/users/employees/9/access" class="inline">
+                <button class="btn secondary" type="submit">Выдать логин</button>
+              </form>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="ФИО">
+            <strong>Сотрудник ПТО Демо</strong>
+          </td>
+          <td data-label="Должность">pto</td>
+          <td data-label="Логин">
+<span class="badge r">нет входа</span>          </td>
+          <td data-label="На сайте">
+<span class="muted">—</span>          </td>
+          <td data-label="Доступ">
+<span class="badge g">активен</span>
+          </td>
+          <td data-label="Просмотр" class="cell-action">
+              <form method="post" action="/users/employees/15/access" class="inline">
+                <button class="btn secondary" type="submit">Выдать логин</button>
+              </form>
           </td>
         </tr>
       </tbody>

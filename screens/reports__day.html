@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>За день · Отчёты · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-report-day">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,75 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-
-  /* Навигация по дням — стрелки, как в оригинале: соседние сутки, а не период. */
-  .day-nav{display:flex;align-items:center;gap:var(--sp-2)}
-  .day-nav a{display:inline-flex;align-items:center;justify-content:center;
-    width:var(--r2-control);height:var(--r2-control);border-radius:var(--r2-radius-8);
-    border:1px solid var(--line);background:var(--panel);color:var(--ink);text-decoration:none}
-  .day-nav a:hover{background:var(--hover)}
-  .day-nav b{font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display);
-    color:var(--ink);min-width:180px;text-align:center}
-  .day-jump{height:var(--r2-control);border:0;border-bottom:1px solid var(--line-input);
-    border-radius:0;background:transparent;color:var(--muted);font:var(--fs-body)/var(--lh-body) var(--font)}
-
-  /* Верхний блок: слева карточки и офисы, справа колонка плиток. */
-  .day-top{display:flex;gap:var(--sp-4);align-items:flex-start;flex-wrap:wrap;margin:0 0 var(--rhythm)}
-  .day-left{flex:1 1 640px;min-width:0;display:flex;flex-direction:column;gap:var(--sp-4)}
-  .day-right{flex:0 1 320px;min-width:260px;display:flex;flex-direction:column;gap:var(--sp-2)}
-
-  .day-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--sp-3)}
-  .day-card{background:var(--panel);border-radius:var(--r2-radius-8);padding:var(--sp-4);
-    display:flex;flex-direction:column;gap:var(--sp-1)}
-  .day-card-name{font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted)}
-  .day-card-count{font:var(--r2-fw-title) var(--r2-metric)/var(--r2-metric-lh) var(--display);color:var(--ink)}
-  .day-card-sum{font:500 var(--fs-body)/var(--lh-body) var(--font);color:var(--muted)}
-  /* Выделена одна карточка — «Обращения», как в оригинале. Заливка бренд-subtle,
-     а не второй контрастный цвет: контрастная плоскость на странице одна. */
-  .day-card.is-lead{background:var(--brand-subtle)}
-  .day-card.is-lead .day-card-count{color:var(--accent-ink)}
-  /* «Отказы» в оригинале серая — у нас это тот же серый фона центра. */
-  .day-card.is-dim{background:var(--th)}
-  .day-card.is-dim .day-card-count{color:var(--muted)}
-
-  .day-offices{background:var(--panel);border-radius:var(--r2-radius-8);padding:var(--sp-4)}
-  .day-block-title{font:var(--fw-sub) var(--fs-sub)/var(--lh-sub) var(--display);color:var(--ink);
-    margin:0 0 var(--sp-2)}
-  .day-office{display:flex;align-items:center;gap:var(--sp-3);height:var(--r2-table-row);
-    font:var(--fs-body)/var(--lh-body) var(--font);color:var(--ink)}
-  .day-office + .day-office{border-top:1px solid var(--line)}
-  .day-office-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .day-office-num{color:var(--muted);font-variant-numeric:tabular-nums}
-  .day-office-sum{min-width:140px;text-align:right;font-variant-numeric:tabular-nums}
-
-  .day-tile{background:var(--panel);border-radius:var(--r2-radius-8);padding:var(--sp-3) var(--sp-4);
-    display:flex;align-items:baseline;gap:var(--sp-3)}
-  .day-tile-count{font:var(--r2-fw-title) var(--r2-metric)/var(--r2-metric-lh) var(--display);
-    color:var(--ink);min-width:56px;font-variant-numeric:tabular-nums}
-  .day-tile-body{flex:1;min-width:0}
-  .day-tile-name{font:500 var(--fs-body)/var(--lh-body) var(--font);color:var(--ink)}
-  .day-tile-sum{font:var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted)}
-  /* Срез накопленного, а не событие суток: подписан прямо на плитке. */
-  .day-tile.is-state .day-tile-count{color:var(--r2-overdue)}
-  .day-tile.is-empty .day-tile-count{color:var(--muted2)}
-
-  /* Первая колонка — название показателя, оно читается вместе с любой цифрой. */
-  .day-name{text-align:left;min-width:260px}
-  .tablewrap tbody tr{cursor:default}
-  .tablewrap tbody tr:hover{background:transparent}
-  /* Поле даты — подпись, а не текст таблицы: она нужна для проверки, а не для чтения. */
-  .day-field{font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted2)}
-  .day-field code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted)}
-  /* Транзит и срез отделены от событий дня фоном и подписью, а не рамкой. */
-  .day-transit td,.day-state td{background:var(--th)}
-  .day-closed{color:var(--muted2)}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Отчёт <b>за день</b></h1>
@@ -312,7 +249,7 @@
           </div>
           <div class="day-card">
             <span class="day-card-name">Записались на замер</span>
-            <b class="day-card-count">0</b>
+            <b class="day-card-count">23</b>
             <span class="day-card-sum"><span class="day-closed"
                       title="У этого показателя суммы нет">—</span></span>
           </div>

@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Координатор — Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-coordinator">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,40 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  /* Счётчик вкладки — тот же элемент, что в реестре монтажей. */
-
-  .co-table td{ height:var(--row-h); vertical-align:middle; }
-  .co-table td.addr{ max-width:260px; }
-  .co-table td.nowrap{ white-space:nowrap; }
-  /* Колонка назначения не сжимается: селект исполнителя — рабочий инструмент
-     страницы, а не приписка справа. */
-  .co-table td.act{ width:360px; }
-
-  /* Форма назначения в строке: контролы высотой действия (32) — как в очереди
-     «Неразобранные», где разбор тоже делается из строки. */
-  .co-assign{ display:flex; align-items:center; gap:var(--sp-2); justify-content:flex-end; }
-  .co-assign select,.co-assign input{ height:var(--action); background:transparent;
-    border:0; border-bottom:1px solid var(--line-input); border-radius:0;
-    padding:0 var(--sp-1); color:var(--ink);
-    font:var(--r2-fw-body) var(--r2-body)/var(--r2-body-lh) var(--font); }
-  .co-assign select{ min-width:170px; }
-  .co-assign input[type=date]{ width:140px; }
-  .co-assign select:focus,.co-assign input:focus{ outline:none; border-bottom-color:var(--accent); }
-  /* Единственное контрастное действие строки — само назначение: оно и есть цель экрана. */
-  .co-assign button{ height:var(--action); padding:0 var(--sp-3);
-    border-radius:var(--r2-radius-6); border:1px solid var(--accent);
-    background:var(--accent); color:#FFFFFF; cursor:pointer; white-space:nowrap;
-    font:var(--r2-fw-medium) var(--r2-label)/var(--r2-label-lh) var(--font); }
-  .co-assign button:hover{ background:var(--accent-press); border-color:var(--accent-press); }
-
-  /* Пустая очередь ОБЪЯСНЯЕТ СЕБЯ. Пустая таблица без слов читается как поломка, и
-     координатор идёт перепроверять то же самое руками в реестре. */
-</style>
 
 <div class="crm-page-head">
   <h1>Координатор</h1>

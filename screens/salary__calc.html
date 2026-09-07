@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Калькулятор ЗП · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-salary-calc">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,42 +147,23 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-  .flow{color:var(--muted2);font-size:var(--r2-label);margin:var(--sp-1) 0 var(--sp-3);line-height:1.6}
-  .sc-grid{display:grid;grid-template-columns:1fr 340px;gap:var(--r2-space-5);align-items:start}
-  @media(max-width:820px){.sc-grid{grid-template-columns:1fr}}
-  .card{background:var(--panel);border-radius:var(--r2-radius-10);padding:var(--sp-4) var(--sp-4)}
-  .sc-top{display:flex;gap:var(--sp-3);align-items:flex-end;flex-wrap:wrap;margin:0 0 var(--sp-4)}
-  .inp{border:1px solid var(--line);border-radius:var(--r2-radius-8);padding:var(--sp-2) var(--sp-2);font-size:var(--r2-body);color:var(--ink);background:var(--panel)}
-  .lbl{font-size:var(--r2-label);color:var(--muted)}
-  .fld{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-2);padding:var(--sp-2) 0;border-bottom:1px solid var(--line-soft)}
-  .fld label{font-size:var(--r2-body);color:var(--ink)}
-  .fld input{width:150px;text-align:right}
-  .b-go{height:var(--control-h);padding:0 var(--r2-space-5);border:0;border-radius:var(--r2-radius-8);background:var(--ink);color:var(--panel);font:600 var(--r2-body)/var(--r2-body-lh) var(--font);cursor:pointer}
-  .res-row{display:flex;justify-content:space-between;gap:var(--sp-2);padding:var(--sp-1) 0;font-size:var(--r2-body);border-bottom:1px solid var(--line-soft)}
-  .res-row .v{font-variant-numeric:tabular-nums}
-  .res-total{display:flex;justify-content:space-between;margin-top:var(--sp-2);padding-top:var(--sp-2);border-top:2px solid var(--line);font:700 var(--r2-card-title)/var(--r2-card-title-lh) var(--display)}
-  .res-total .v{color:var(--accent-ink);font-variant-numeric:tabular-nums}
-  .muted{color:var(--muted2)}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Калькулятор <b>ЗП</b></h1>
-  <div style="font-size:var(--r2-body)"><a href="settings__motivation.html" style="color:var(--accent-ink);text-decoration:none">Мотивация</a> · <a href="settings__plans.html" style="color:var(--accent-ink);text-decoration:none">Планы</a></div>
+  <div class="u-fs-r2-body"><a class="u-c-accent-ink u-td-none" href="settings__motivation.html">Мотивация</a> · <a class="u-c-accent-ink u-td-none" href="settings__plans.html">Планы</a></div>
 </div>
 
 <div class="st-body">
   <form method="post" action="/salary/calc">
     <div class="sc-top">
       <div><div class="lbl">Сотрудник</div>
-        <select class="inp" name="employee_id" style="width:260px" onchange="this.form.submit()">
+        <select class="inp u-w-260px" name="employee_id" onchange="this.form.submit()">
           <option value="">— выберите —</option>
-<option value="24" >Александр</option><option value="21" >Андрей</option><option value="20" >Вадим</option><option value="23" >Валерий</option><option value="19" >Данил</option><option value="22" >Дима</option><option value="16" >Директор Демо</option><option value="11" >Замерщик Демо</option><option value="14" >Кладовщик Демо</option><option value="13" >Координатор Демо</option><option value="12" >Монтажник Демо</option><option value="18" >Наташа</option><option value="17" >Нелли</option><option value="9" >Оператор КЦ Демо</option><option value="10" >Офис-менеджер Демо</option><option value="1" >Сотрудник 01</option><option value="15" >Сотрудник ПТО Демо</option>        </select></div>
+<option value="16" >Директор Демо</option><option value="11" >Замерщик Демо</option><option value="14" >Кладовщик Демо</option><option value="13" >Координатор Демо</option><option value="12" >Монтажник Демо</option><option value="9" >Оператор КЦ Демо</option><option value="10" >Офис-менеджер Демо</option><option value="1" >Сотрудник 01</option><option value="2" >Сотрудник 02</option><option value="3" >Сотрудник 03</option><option value="4" >Сотрудник 04</option><option value="5" >Сотрудник 05</option><option value="6" >Сотрудник 06</option><option value="7" >Сотрудник 07</option><option value="8" >Сотрудник 08</option><option value="15" >Сотрудник ПТО Демо</option>        </select></div>
       <div><div class="lbl">Месяц</div><input class="inp" type="month" name="period" value="2026-09" onchange="this.form.submit()"></div>
     </div>
 

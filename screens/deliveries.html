@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Доставка — Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,43 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-/* Экран использует токены дизайн-системы: своей палитры и своих высот нет. */
-.dlv-table-scroll{ overflow-x:auto; }
-.dlv-table-scroll table{ min-width:1100px; }
-.dlv td{ height:var(--row-h); }
-.dlv td.num{ color:var(--muted2); white-space:nowrap; }
-.dlv td.nowrap{ white-space:nowrap; }
-.dlv td.addr{ max-width:260px; }
-.dlv td.center{ text-align:center; }
-.dlv-table-card{ padding:0; }
-.dlv .tel{ color:inherit; white-space:nowrap; }
-
-/* иконка-комментарий с всплывающей подсказкой (без открытия карточки) */
-.dlv .cmt{ position:relative; display:inline-block; cursor:default; }
-.dlv .cmt .eye{ font-size:var(--r2-card-title); line-height:var(--r2-card-title-lh); opacity:.7; }
-.dlv .cmt.empty .eye{ opacity:.25; }
-.dlv .cmt .pop{ display:none; position:absolute; right:0; top:100%; z-index:20; min-width:220px; max-width:320px;
-  padding:var(--sp-3) var(--sp-4); background:var(--panel); border:1px solid var(--line); border-radius:var(--r2-radius-8);
-  box-shadow:0 6px 24px rgba(16,24,40,.18); font-size:var(--r2-label); line-height:var(--r2-label-lh);
-  text-align:left; white-space:normal; }
-.dlv .cmt:hover .pop{ display:block; }
-.dlv .cmt .pop b{ display:block; margin-bottom:var(--sp-1); color:var(--accent); }
-
-/* Страница — колонка на всю высоту (.fill): строка фильтров и пейджер не сжимаются. */
-.dlv > .rfilters, .dlv > .pager{ flex:none; }
-/* Сортировка по заголовку — те же правила, что в реестрах crm2. */
-.dlv thead th .sortlink{ display:inline-flex; align-items:center; gap:var(--sp-1); color:inherit;
-  text-decoration:none; cursor:pointer; }
-.dlv thead th .sortlink:hover{ color:var(--ink); }
-.dlv thead th.sorted{ color:var(--ink); }
-.dlv thead th .sarr{ font-size:var(--r2-label); line-height:1; color:var(--accent-ink); }
-</style>
-
 
 
 <div class="crm-page dlv fill">
@@ -377,7 +346,7 @@
     </thead>
     <tbody>
       <tr>
-<td class="nowrap">05.09.2026 14:00</td><td class="nowrap"><span class="st"><span class="dot dot--gray"></span>Назначен</span></td><td class="cl-name"><a class="rowlink" href="incoming__1__card.html">Демидов Демо Демидович</a></td><td class="nowrap"><a class="tel" href="tel:79000000101">79000000101</a></td><td class="addr">г. Демоград, ул. Образцовая, д. 12, кв. 34</td><td class="nowrap">Монтажник Демо</td><td class="nowrap">Офис Демо</td><td class="nowrap"><a href="incoming__1__card.html">Д-000001</a></td><td class="num center">3</td><td class="nowrap">—</td><td class="center">
+<td class="nowrap">07.09.2026 14:00</td><td class="nowrap"><span class="st"><span class="dot dot--gray"></span>Назначен</span></td><td class="cl-name"><a class="rowlink" href="incoming__1__card.html">Демидов Демо Демидович</a></td><td class="nowrap"><a class="tel" href="tel:79000000101">79000000101</a></td><td class="addr">г. Демоград, ул. Образцовая, д. 12, кв. 34</td><td class="nowrap">Монтажник Демо</td><td class="nowrap">Офис Демо</td><td class="nowrap"><a href="incoming__1__card.html">Д-000001</a></td><td class="num center">3</td><td class="nowrap">—</td><td class="center">
   <span class="cmt empty">
     <span class="eye" title="">👁</span>
   </span>

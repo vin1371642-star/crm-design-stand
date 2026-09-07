@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Мои задачи · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-me-tasks">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,113 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  /* Экран без своих размеров: всё — шкала Reference V2 из design-system.css. */
-  .mt-sec{margin:0 0 var(--rhythm)}
-  /* D-260: заголовок раздела — на общей шкале и того же цвета, что заголовки везде. */
-  .mt-sec h2{font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display);color:var(--ink);
-    margin:0 0 var(--rhythm-head);display:flex;align-items:center;gap:var(--sp-2)}
-  .flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--sp-4);border-radius:var(--r2-radius-8);
-    font:600 var(--r2-body)/var(--r2-body-lh) var(--font);margin:0 0 var(--rhythm)}
-  .flash.err{background:var(--danger-bg);color:var(--danger-ink)}
-
-  /* ── Вкладки по типу работы (состав Ramex) ──
-     Вид вкладок общий (`.crm-tabs` из crm2-components.css) — своих не заводим.
-     Счётчик на вкладке — та же «пилюля», что у колонок доски ниже. */
-  .crm-tabs .tcnt{display:inline-flex;align-items:center;justify-content:center;height:var(--r2-space-5);
-    min-width:var(--r2-space-5);padding:0 var(--sp-2);border-radius:var(--r2-radius-10);
-    background:var(--field);color:var(--muted);font:600 var(--r2-label)/var(--r2-label-lh) var(--font)}
-  .crm-tabs a.active .tcnt{background:var(--accent);color:#fff}
-  /* Пустая вкладка ОБЪЯСНЯЕТ СЕБЯ: пустой экран человек читает как поломку системы,
-     а не как «работы этого типа пока не ставили». */
-  .tab-empty{background:var(--panel);border-radius:var(--r2-radius-8);padding:var(--r2-panel-padding);
-    color:var(--muted);font:var(--r2-fw-body) var(--r2-body)/var(--r2-body-lh) var(--font);max-width:760px}
-  /* Выполненные — плоский список: раскладывать закрытую работу по
-     «просрочено/сегодня/будущее» бессмысленно, срок у неё уже позади. */
-  .done-list{display:flex;flex-direction:column;gap:var(--sp-2);max-width:760px}
-  .done-list .tcard{border-left-color:var(--ok-dot)}
-
-  /* ── Доска задач: Просроченные/Сегодня/Будущие (+ «Без срока», когда такие есть) ── */
-  .board{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);align-items:start;margin:0 0 var(--rhythm)}
-  .board.cols-4{grid-template-columns:repeat(4,1fr)}
-  @media(max-width:900px){.board,.board.cols-4{grid-template-columns:1fr}}
-  /* Колонка отделена заголовком и паузой; цвет несёт статус, рамки-коробки нет. */
-  .col-head{display:flex;align-items:center;gap:var(--sp-2);padding:0 0 var(--sp-2);margin:0 0 var(--sp-3);
-    font:var(--fw-sub) var(--fs-sub)/var(--lh-sub) var(--display);color:var(--ink)}
-  .col.overdue .col-head{color:var(--over)}
-  .col.today .col-head{color:var(--info-ink)}
-  .col.future .col-head{color:var(--ok-ink)}
-  /* «Без срока» — не тревога и не план: нейтральный цвет, как у подписи. */
-  .col.undated .col-head{color:var(--muted2)}
-  .col-head .cnt{display:inline-flex;align-items:center;justify-content:center;height:var(--r2-space-5);min-width:var(--r2-space-5);
-    padding:0 var(--sp-2);border-radius:var(--r2-radius-10);background:var(--field);color:var(--muted);
-    font:600 var(--r2-label)/var(--r2-label-lh) var(--font)}
-  .col.overdue .col-head .cnt{background:var(--over);color:#fff}
-  .col.today .col-head .cnt{background:var(--info-dot);color:#fff}
-  .col.future .col-head .cnt{background:var(--ok-dot);color:#fff}
-  .col.undated .col-head .cnt{background:var(--muted2);color:#fff}
-  .col-list{max-height:calc(100vh - 250px);overflow-y:auto;display:flex;flex-direction:column;gap:var(--sp-2);padding-right:var(--sp-2)}
-  .col-list::-webkit-scrollbar{width:6px}.col-list::-webkit-scrollbar-thumb{background:var(--line);border-radius:var(--r2-radius-6)}
-  .tcard{background:var(--panel);border-left:3px solid var(--muted2);border-radius:var(--r2-radius-8);
-    padding:var(--sp-3) var(--sp-4);position:relative}
-  .col.overdue .tcard{border-left-color:var(--over)}
-  .col.today .tcard{border-left-color:var(--info-ink)}
-  .col.future .tcard{border-left-color:var(--ok-dot)}
-  .col.undated .tcard{border-left-color:var(--muted2)}
-  .tcard .meta{display:flex;align-items:center;gap:var(--sp-1);color:var(--muted2);
-    font-size:var(--r2-label);line-height:var(--r2-label-lh);font-weight:500;margin:0 0 var(--sp-1)}
-  .tcard .meta svg{width:var(--sp-3);height:var(--sp-3);stroke:currentColor;stroke-width:1.8;fill:none;flex:none}
-  .tcard .ttl{font:600 var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--ink)}
-  .tcard .ttl a{color:var(--ink);text-decoration:none}
-  .tcard .ttl a:hover{color:var(--accent-ink)}
-  /* Комментарий менеджера — подпись 12/16, ниже заголовка: он объясняет задачу,
-     а не спорит с ней за внимание. */
-  .tcard .tnote{margin-top:var(--sp-1);color:var(--muted2);
-    font-size:var(--r2-label);line-height:var(--r2-label-lh)}
-  /* Действие строки ВИДНО ВСЕГДА. Прежде кнопка имела `opacity:0` и появлялась только
-     при наведении мышью: единственное действие задачи было спрятано, а на планшете
-     недоступно вовсе. Скрытая кнопка защитой не является и подсказкой тоже. */
-  /* Действий у строки теперь два (закрыть задачу и перенести срок). Прежде кнопка была
-     одна и висела абсолютом в углу карточки; для двух это место кончилось, поэтому
-     действия стоят строкой под текстом, оба одного размера и оба контурные: равные по
-     весу действия обязаны и выглядеть одинаково (стандарт интерфейса).
-     Названий действий в комментарии НЕТ намеренно: комментарий уезжает в разметку, и
-     сторож «на закрытой задаче нет кнопки закрытия» ловил его как саму кнопку. */
-  .tacts{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-2);margin-top:var(--sp-2)}
-  .tcard .b-done{height:var(--action);padding:0 var(--sp-3);
-    border:1px solid var(--line-input);border-radius:var(--r2-radius-8);background:var(--panel);color:var(--ink);
-    font:600 var(--r2-label)/var(--r2-label-lh) var(--font);cursor:pointer}
-  .tcard .b-done:hover{background:var(--field)}
-  .tcard-done{display:inline}
-  /* Поля переноса — те же подчёркнутые полосы, что в форме постановки задачи. */
-  .tpost{display:flex;align-items:center;gap:var(--sp-2);flex-wrap:wrap}
-  /* Авторский `display` СИЛЬНЕЕ браузерного `[hidden]{display:none}`, поэтому без
-     этой строки атрибут `hidden` не действует и поля даты висят в КАЖДОЙ строке
-     очереди, а кнопка их раскрытия ничего не делает. Грабля в проекте уже
-     документирована (`crm2-deal-card.css`, лента событий) — и повторена здесь. */
-  .tpost[hidden]{display:none}
-  .tpost input{height:var(--action);border:0;border-bottom:1px solid var(--line-input);border-radius:0;
-    background:transparent;color:var(--ink);font-size:var(--r2-label);padding:0 2px}
-  .col-empty{color:var(--muted2);font-size:var(--r2-label);line-height:var(--r2-label-lh);padding:var(--sp-2) 0}
-
-  /* Форма постановки задачи: поля-полосы, две колонки, действие внизу слева. */
-  .mt-add{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:var(--sp-3);
-    background:var(--panel);padding:var(--r2-panel-padding);border-radius:var(--r2-radius-8);
-    margin-bottom:var(--sp-4);max-width:760px}
-  /* Та же грабля, что и у полей переноса: без этой строки форма «Новая задача» с
-     атрибутом `hidden` раскрыта ВСЕГДА, а кнопка вверху ничего не сворачивает. */
-  .mt-add[hidden]{display:none}
-  .mt-add label{display:flex;flex-direction:column;gap:4px;font-size:var(--r2-label);
-    line-height:var(--r2-label-lh);color:var(--muted)}
-  .mt-add label.wide{grid-column:1 / -1}
-  .mt-add input,.mt-add select{height:var(--control-h);border:0;border-bottom:1px solid var(--line-input);
-    border-radius:0;background:transparent;font-size:var(--r2-body);color:var(--ink);padding:0 2px}
-  .mt-add-acts{grid-column:1 / -1;display:flex;gap:var(--sp-3)}
-</style>
 
 <div class="rhead">
   <h1>Мои задачи</h1>  <button class="btn" type="button" onclick="var f=document.getElementById('taskAdd'); f.hidden=!f.hidden; if(!f.hidden){f.querySelector('input[name=title]').focus();}">+ Новая задача</button>
@@ -266,7 +165,7 @@
   <label>Кому
     <select name="assignee_id">
       <option value="">себе</option>
-<option value="24">Александр</option><option value="21">Андрей</option><option value="20">Вадим</option><option value="23">Валерий</option><option value="19">Данил</option><option value="22">Дима</option><option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="18">Наташа</option><option value="17">Нелли</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник 01</option><option value="15">Сотрудник ПТО Демо</option>    </select></label>
+<option value="16">Директор Демо</option><option value="11">Замерщик Демо</option><option value="14">Кладовщик Демо</option><option value="13">Координатор Демо</option><option value="12">Монтажник Демо</option><option value="9">Оператор КЦ Демо</option><option value="10">Офис-менеджер Демо</option><option value="1">Сотрудник 01</option><option value="2">Сотрудник 02</option><option value="3">Сотрудник 03</option><option value="4">Сотрудник 04</option><option value="5">Сотрудник 05</option><option value="6">Сотрудник 06</option><option value="7">Сотрудник 07</option><option value="8">Сотрудник 08</option><option value="15">Сотрудник ПТО Демо</option>    </select></label>
   <label>Срок<input type="date" name="due_date"></label>
   <label>Время<input type="time" name="due_time" value="09:00"></label>
   <label class="wide">Подробности<input name="note" placeholder="Необязательно"></label>
@@ -301,36 +200,6 @@
   <div class="colpick-pop">
     <div class="colpick-list">
       <label class="colpick-item">
-        <input type="checkbox" name="assignee" value="24"
-               onchange="this.form.submit()">
-        <span>Александр</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="assignee" value="21"
-               onchange="this.form.submit()">
-        <span>Андрей</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="assignee" value="20"
-               onchange="this.form.submit()">
-        <span>Вадим</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="assignee" value="23"
-               onchange="this.form.submit()">
-        <span>Валерий</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="assignee" value="19"
-               onchange="this.form.submit()">
-        <span>Данил</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="assignee" value="22"
-               onchange="this.form.submit()">
-        <span>Дима</span>
-      </label>
-      <label class="colpick-item">
         <input type="checkbox" name="assignee" value="16"
                onchange="this.form.submit()">
         <span>Директор Демо</span>
@@ -356,16 +225,6 @@
         <span>Монтажник Демо</span>
       </label>
       <label class="colpick-item">
-        <input type="checkbox" name="assignee" value="18"
-               onchange="this.form.submit()">
-        <span>Наташа</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="assignee" value="17"
-               onchange="this.form.submit()">
-        <span>Нелли</span>
-      </label>
-      <label class="colpick-item">
         <input type="checkbox" name="assignee" value="9"
                onchange="this.form.submit()">
         <span>Оператор КЦ Демо</span>
@@ -381,6 +240,41 @@
         <span>Сотрудник 01</span>
       </label>
       <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="2"
+               onchange="this.form.submit()">
+        <span>Сотрудник 02</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="3"
+               onchange="this.form.submit()">
+        <span>Сотрудник 03</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="4"
+               onchange="this.form.submit()">
+        <span>Сотрудник 04</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="5"
+               onchange="this.form.submit()">
+        <span>Сотрудник 05</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="6"
+               onchange="this.form.submit()">
+        <span>Сотрудник 06</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="7"
+               onchange="this.form.submit()">
+        <span>Сотрудник 07</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="assignee" value="8"
+               onchange="this.form.submit()">
+        <span>Сотрудник 08</span>
+      </label>
+      <label class="colpick-item">
         <input type="checkbox" name="assignee" value="15"
                onchange="this.form.submit()">
         <span>Сотрудник ПТО Демо</span>
@@ -393,11 +287,11 @@
 
   <div class="board cols-3">
     <div class="col overdue">
-      <div class="col-head">Просроченные <span class="cnt">3</span></div>
+      <div class="col-head">Просроченные <span class="cnt">1</span></div>
       <div class="col-list">
 <div class="tcard">
     <div class="meta">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>02.09.2026 00:41 · перезвон
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>04.09.2026 17:33 · перезвон
     </div>
     <div class="ttl">
 <a href="incoming__1__card.html">Согласовать перенос монтажа с клиентом</a>    </div><div class="tnote">Клиент просил перенести на выходные, ответа нет третий день.</div><div class="tnote">Офис-менеджер Демо</div>    <div class="tacts">
@@ -409,9 +303,14 @@
         <button class="b-done" type="submit">Перенести</button>
       </form>
     </div>
-  </div><div class="tcard">
+  </div>      </div>
+    </div>
+    <div class="col today">
+      <div class="col-head">Сегодня <span class="cnt">1</span></div>
+      <div class="col-list">
+<div class="tcard">
     <div class="meta">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>05.09.2026 06:41 · перезвон
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>07.09.2026 23:33 · перезвон
     </div>
     <div class="ttl">
 <a href="incoming__1__card.html">Перезвонить и согласовать доставку</a>    </div><div class="tnote">Клиент просил после 18:00.</div><div class="tnote">Офис-менеджер Демо</div>    <div class="tacts">
@@ -423,9 +322,14 @@
         <button class="b-done" type="submit">Перенести</button>
       </form>
     </div>
-  </div><div class="tcard">
+  </div>      </div>
+    </div>
+    <div class="col future">
+      <div class="col-head">Будущие <span class="cnt">1</span></div>
+      <div class="col-list">
+<div class="tcard">
     <div class="meta">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>06.09.2026 00:41 · задача
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>08.09.2026 17:33 · задача
     </div>
     <div class="ttl">
 <a href="incoming__1__card.html">Проверить результат замера</a>    </div><div class="tnote">Сверить проёмы с расчётом ПТО.</div><div class="tnote">Сотрудник ПТО Демо</div>    <div class="tacts">
@@ -438,16 +342,6 @@
       </form>
     </div>
   </div>      </div>
-    </div>
-    <div class="col today">
-      <div class="col-head">Сегодня <span class="cnt">0</span></div>
-      <div class="col-list">
-<div class="col-empty">Нет</div>      </div>
-    </div>
-    <div class="col future">
-      <div class="col-head">Будущие <span class="cnt">0</span></div>
-      <div class="col-list">
-<div class="col-empty">Нет</div>      </div>
     </div>
   </div>
 </section>

@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Конверсия · Отчёты · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-report-conversion">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,33 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
-
-  .rep-kpi{display:flex;gap:var(--sp-4);flex-wrap:wrap;margin:0 0 var(--rhythm)}
-  .rep-kpi-cell{flex:1;min-width:200px;background:var(--panel);border-radius:var(--r2-radius-8);
-    padding:var(--sp-4);display:flex;flex-direction:column;gap:var(--sp-1)}
-  .rep-kpi-label{font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted)}
-  .rep-kpi-value{font:var(--fw-screen) var(--fs-screen)/var(--lh-screen) var(--display);color:var(--ink)}
-
-  .funnel{display:flex;flex-direction:column;gap:var(--sp-2);max-width:760px}
-  .funnel-step{background:var(--panel);border-radius:var(--r2-radius-8);padding:var(--sp-4);
-    display:flex;align-items:baseline;gap:var(--sp-3)}
-  .funnel-name{flex:1;font:600 var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--ink)}
-  .funnel-count{font:var(--fw-screen) var(--fs-screen)/var(--lh-screen) var(--display);color:var(--ink)}
-  .funnel-sum{width:180px;text-align:right;font:500 var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--muted)}
-  .funnel-conv{align-self:center;font:500 var(--r2-label)/var(--r2-label-lh) var(--font);color:var(--muted2)}
-  .funnel-bar{height:var(--sp-1);background:var(--accent);border-radius:var(--r2-radius-6);margin-top:var(--sp-2)}
-
-  @media (max-width:760px){
-    .funnel-step{flex-wrap:wrap}
-    .funnel-sum{width:auto;text-align:left}
-  }
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Отчёт <b>по конверсии</b></h1>
@@ -220,36 +199,6 @@
   <div class="colpick-pop">
     <div class="colpick-list">
       <label class="colpick-item">
-        <input type="checkbox" name="employee" value="24"
-               onchange="this.form.submit()">
-        <span>Александр</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="21"
-               onchange="this.form.submit()">
-        <span>Андрей</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="20"
-               onchange="this.form.submit()">
-        <span>Вадим</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="23"
-               onchange="this.form.submit()">
-        <span>Валерий</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="19"
-               onchange="this.form.submit()">
-        <span>Данил</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="22"
-               onchange="this.form.submit()">
-        <span>Дима</span>
-      </label>
-      <label class="colpick-item">
         <input type="checkbox" name="employee" value="16"
                onchange="this.form.submit()">
         <span>Директор Демо</span>
@@ -275,16 +224,6 @@
         <span>Монтажник Демо</span>
       </label>
       <label class="colpick-item">
-        <input type="checkbox" name="employee" value="18"
-               onchange="this.form.submit()">
-        <span>Наташа</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="17"
-               onchange="this.form.submit()">
-        <span>Нелли</span>
-      </label>
-      <label class="colpick-item">
         <input type="checkbox" name="employee" value="9"
                onchange="this.form.submit()">
         <span>Оператор КЦ Демо</span>
@@ -298,6 +237,41 @@
         <input type="checkbox" name="employee" value="1"
                onchange="this.form.submit()">
         <span>Сотрудник 01</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="2"
+               onchange="this.form.submit()">
+        <span>Сотрудник 02</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="3"
+               onchange="this.form.submit()">
+        <span>Сотрудник 03</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="4"
+               onchange="this.form.submit()">
+        <span>Сотрудник 04</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="5"
+               onchange="this.form.submit()">
+        <span>Сотрудник 05</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="6"
+               onchange="this.form.submit()">
+        <span>Сотрудник 06</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="7"
+               onchange="this.form.submit()">
+        <span>Сотрудник 07</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="8"
+               onchange="this.form.submit()">
+        <span>Сотрудник 08</span>
       </label>
       <label class="colpick-item">
         <input type="checkbox" name="employee" value="15"
@@ -360,14 +334,14 @@
   <div class="funnel">
     <div class="funnel-step">
       <span class="funnel-name">Целевые обращения</span>
-      <span class="funnel-count">3</span>
-      <span class="funnel-sum">0 ₽</span>
+      <span class="funnel-count">5</span>
+      <span class="funnel-sum">138 000 ₽</span>
     </div><div class="funnel-bar" style="width:100.0%"></div>
     <div class="funnel-conv">↓ конверсия 100.0 %</div>
     <div class="funnel-step">
       <span class="funnel-name">Замеры назначенные</span>
-      <span class="funnel-count">3</span>
-      <span class="funnel-sum">0 ₽</span>
+      <span class="funnel-count">5</span>
+      <span class="funnel-sum">138 000 ₽</span>
     </div><div class="funnel-bar" style="width:100.0%"></div>
     <div class="funnel-conv">↓ конверсия 0.0 %</div>
     <div class="funnel-step">
@@ -378,9 +352,9 @@
     <div class="funnel-conv">↓ конверсия 0.0 %</div>
     <div class="funnel-step">
       <span class="funnel-name">Договоры заключённые</span>
-      <span class="funnel-count">0</span>
-      <span class="funnel-sum">0 ₽</span>
-    </div><div class="funnel-bar" style="width:0.0%"></div>
+      <span class="funnel-count">1</span>
+      <span class="funnel-sum">138 000 ₽</span>
+    </div><div class="funnel-bar" style="width:20.0%"></div>
     <div class="funnel-conv">↓ конверсия 0.0 %</div>
     <div class="funnel-step">
       <span class="funnel-name">Договоры подписанные</span>

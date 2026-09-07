@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Сводный отчёт · Отчёты · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-report-summary">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,20 +147,11 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-title b{color:var(--accent-ink)}
 
-  .rep-cuts{display:flex;gap:var(--sp-2);margin:0 0 var(--rhythm);flex-wrap:wrap}
-  /* Итог — первая строка таблицы и первый уровень чтения: фон панели и полужирный. */
-  .sum-total td{background:var(--th);font-weight:600}
-  /* Группы колонок: количество, деньги, эффективность. Разделяются линией,
-     а не рамкой — обводок в системе нет. */
-  .sum-sep{box-shadow:inset 1px 0 0 var(--line)}
-</style>
 <div class="st-head">
   <h1 class="st-title">Сводный <b>отчёт</b></h1><details class="colpick">
   <summary class="tbtn" title="Выгрузить то, что отобрано на экране">
@@ -214,36 +207,6 @@
   <div class="colpick-pop">
     <div class="colpick-list">
       <label class="colpick-item">
-        <input type="checkbox" name="employee" value="24"
-               onchange="this.form.submit()">
-        <span>Александр</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="21"
-               onchange="this.form.submit()">
-        <span>Андрей</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="20"
-               onchange="this.form.submit()">
-        <span>Вадим</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="23"
-               onchange="this.form.submit()">
-        <span>Валерий</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="19"
-               onchange="this.form.submit()">
-        <span>Данил</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="22"
-               onchange="this.form.submit()">
-        <span>Дима</span>
-      </label>
-      <label class="colpick-item">
         <input type="checkbox" name="employee" value="16"
                onchange="this.form.submit()">
         <span>Директор Демо</span>
@@ -269,16 +232,6 @@
         <span>Монтажник Демо</span>
       </label>
       <label class="colpick-item">
-        <input type="checkbox" name="employee" value="18"
-               onchange="this.form.submit()">
-        <span>Наташа</span>
-      </label>
-      <label class="colpick-item">
-        <input type="checkbox" name="employee" value="17"
-               onchange="this.form.submit()">
-        <span>Нелли</span>
-      </label>
-      <label class="colpick-item">
         <input type="checkbox" name="employee" value="9"
                onchange="this.form.submit()">
         <span>Оператор КЦ Демо</span>
@@ -292,6 +245,41 @@
         <input type="checkbox" name="employee" value="1"
                onchange="this.form.submit()">
         <span>Сотрудник 01</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="2"
+               onchange="this.form.submit()">
+        <span>Сотрудник 02</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="3"
+               onchange="this.form.submit()">
+        <span>Сотрудник 03</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="4"
+               onchange="this.form.submit()">
+        <span>Сотрудник 04</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="5"
+               onchange="this.form.submit()">
+        <span>Сотрудник 05</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="6"
+               onchange="this.form.submit()">
+        <span>Сотрудник 06</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="7"
+               onchange="this.form.submit()">
+        <span>Сотрудник 07</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="employee" value="8"
+               onchange="this.form.submit()">
+        <span>Сотрудник 08</span>
       </label>
       <label class="colpick-item">
         <input type="checkbox" name="employee" value="15"
@@ -381,9 +369,9 @@
           <td class="num"></td><td><a class="rowlink" href="#" data-screen="/reports/summary/details?group=direction&amp;amp;metric=requests"
    title="Показать записи, из которых сложилась эта цифра">Всего</a></td>
           <td class="num"><a class="rowlink" href="#" data-screen="/reports/summary/details?group=direction&amp;amp;metric=requests"
-   title="Показать записи, из которых сложилась эта цифра">3</a></td>
+   title="Показать записи, из которых сложилась эта цифра">5</a></td>
           <td class="num"><a class="rowlink" href="#" data-screen="/reports/summary/details?group=direction&amp;amp;metric=measurements"
-   title="Показать записи, из которых сложилась эта цифра">3</a></td>
+   title="Показать записи, из которых сложилась эта цифра">5</a></td>
           <td class="num">0</td>
           <td class="num">0</td>
           <td class="num">0</td>
@@ -404,9 +392,9 @@
           <td><a class="rowlink" href="#" data-screen="/reports/summary/details?group=direction&amp;amp;metric=requests&amp;amp;key="
    title="Показать записи, из которых сложилась эта цифра">— не указано —</a></td>
           <td class="num"><a class="rowlink" href="#" data-screen="/reports/summary/details?group=direction&amp;amp;metric=requests&amp;amp;key="
-   title="Показать записи, из которых сложилась эта цифра">3</a></td>
+   title="Показать записи, из которых сложилась эта цифра">5</a></td>
           <td class="num"><a class="rowlink" href="#" data-screen="/reports/summary/details?group=direction&amp;amp;metric=measurements&amp;amp;key="
-   title="Показать записи, из которых сложилась эта цифра">3</a></td>
+   title="Показать записи, из которых сложилась эта цифра">5</a></td>
           <td class="num">0</td>
           <td class="num">0</td>
           <td class="num">0</td>

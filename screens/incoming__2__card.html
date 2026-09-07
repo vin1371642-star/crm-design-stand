@@ -4,12 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Обращение #2 — Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-deal-card.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-deal-card.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -146,7 +148,7 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header><nav class="crumbs" aria-label="Вы здесь"><a href="crm2__incoming.html">Обращения</a><span class="sep">/</span><span class="cur">Обращение #2</span></nav>    <div class="work">
@@ -205,7 +207,7 @@
 
       <div class="ic-sec">Договор</div>
       <div class="ic-kv"><span>Номер</span><b>Д-000002</b></div>
-      <div class="ic-kv"><span>Дата</span><b>04.09.2026</b></div>
+      <div class="ic-kv"><span>Дата</span><b>06.09.2026</b></div>
       <div class="ic-kv"><span>Дедлайн</span><b>—</b></div>
       <div class="ic-kv"><span>Срок изготовления</span><b>21</b></div>
       <div class="ic-kv"><span>Гарантия</span><b>60</b></div>
@@ -517,15 +519,8 @@ disabled aria-disabled="true" data-gate="order-required"
         <ul class="ic-mlist">
           <li class="ic-mrow">
             <div class="ic-mrow-head">              <a class="ic-mrow-who" href="calendar__measurements.html">Замерщик Демо</a>
-              <span class="ic-mrow-when">07.09.2026 в 00:41</span><span class="ic-mrow-done">
-scheduled              </span>              <form method="post" action="/incoming/2/measurement/2/complete"
-                    class="ic-mrow-fact">
-                <input type="hidden" name="done" value="1">
-                <label class="ic-chk" title="Отметить выполнение замера">
-                  <input type="checkbox" onchange="this.form.submit()"> Выполнен
-                </label>
-              </form>
-            </div>
+              <span class="ic-mrow-when">09.09.2026 в 17:33</span><span class="ic-mrow-done">
+scheduled              </span>            </div>
             <div class="ic-mrow-note">
               Замерщик: Замерщик Демо ·
               Офис-менеджер: Офис-менеджер Демо ·
@@ -559,7 +554,7 @@ scheduled              </span>              <form method="post" action="/incomin
           <div class="ic-block-head">Договор</div>
           <div class="ic-form-grid">
             <label>Номер<br><input type="text" value="Д-000002" readonly></label><label>Дата договора<br>
-<input type="date" name="date" form="contractForm" value="2026-09-04"></label><label>Категория<br>
+<input type="date" name="date" form="contractForm" value="2026-09-06"></label><label>Категория<br>
               <select name="category" form="contractForm">
                 <option value="">— выберите —</option>
 <option value="Окна" selected>Окна (текущее)</option><option value="VIP" >VIP</option><option value="Договор на дому" >Договор на дому</option><option value="Коттеджи" >Коттеджи</option><option value="Тендер" >Тендер</option>              </select></label>
@@ -971,21 +966,20 @@ disabled aria-disabled="true" title="Сначала заполните: исто
           <label class="rp-lbl">Кому <span class="req">*</span>
             <select name="assigned_to_id" required>
               <option value="">— выберите сотрудника —</option>
-              <option value="24">Александр · старший замерщик</option>
-              <option value="21">Андрей · замерщик</option>
-              <option value="20">Вадим · менеджер</option>
-              <option value="23">Валерий · замерщик</option>
-              <option value="19">Данил · менеджер</option>
-              <option value="22">Дима · замерщик</option>
               <option value="16">Директор Демо · директор</option>
               <option value="11">Замерщик Демо · замерщик</option>
               <option value="14">Кладовщик Демо · storekeeper</option>
               <option value="13">Координатор Демо · координатор</option>
               <option value="12">Монтажник Демо · монтажник</option>
-              <option value="18">Наташа · менеджер</option>
-              <option value="17">Нелли · менеджер</option>
               <option value="9">Оператор КЦ Демо · call_center</option>
               <option value="1">Сотрудник 01 · менеджер</option>
+              <option value="2">Сотрудник 02 · менеджер</option>
+              <option value="3">Сотрудник 03 · менеджер</option>
+              <option value="4">Сотрудник 04 · менеджер</option>
+              <option value="5">Сотрудник 05 · замерщик</option>
+              <option value="6">Сотрудник 06 · замерщик</option>
+              <option value="7">Сотрудник 07 · замерщик</option>
+              <option value="8">Сотрудник 08 · старший замерщик</option>
               <option value="15">Сотрудник ПТО Демо · pto</option>
             </select>
           </label>
@@ -1114,7 +1108,7 @@ disabled aria-disabled="true" title="Сначала заполните: исто
 <option value="callback">Позвонить</option><option value="personal">Личное</option>            </select>
             <input type="date" name="due_date" title="Срок — дата">
             <input type="time" name="due_time" title="Срок — время">
-            <select name="assignee_id" class="ic-tk-assignee" required><option value="" selected>— исполнитель —</option><option value="24" >Александр</option><option value="21" >Андрей</option><option value="20" >Вадим</option><option value="23" >Валерий</option><option value="19" >Данил</option><option value="22" >Дима</option><option value="16" >Директор Демо</option><option value="11" >Замерщик Демо</option><option value="14" >Кладовщик Демо</option><option value="13" >Координатор Демо</option><option value="12" >Монтажник Демо</option><option value="18" >Наташа</option><option value="17" >Нелли</option><option value="9" >Оператор КЦ Демо</option><option value="10" >Офис-менеджер Демо</option><option value="1" >Сотрудник 01</option><option value="15" >Сотрудник ПТО Демо</option></select>
+            <select name="assignee_id" class="ic-tk-assignee" required><option value="" selected>— исполнитель —</option><option value="16" >Директор Демо</option><option value="11" >Замерщик Демо</option><option value="14" >Кладовщик Демо</option><option value="13" >Координатор Демо</option><option value="12" >Монтажник Демо</option><option value="9" >Оператор КЦ Демо</option><option value="10" >Офис-менеджер Демо</option><option value="1" >Сотрудник 01</option><option value="2" >Сотрудник 02</option><option value="3" >Сотрудник 03</option><option value="4" >Сотрудник 04</option><option value="5" >Сотрудник 05</option><option value="6" >Сотрудник 06</option><option value="7" >Сотрудник 07</option><option value="8" >Сотрудник 08</option><option value="15" >Сотрудник ПТО Демо</option></select>
             <button class="btn" type="submit">＋ Добавить</button>
           </div>
         </form>

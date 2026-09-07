@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Сотрудники · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
+<link rel="stylesheet" href="static/design-system.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-pages.css?v=1788790702">
+<link rel="stylesheet" href="static/crm2-utilities.css?v=1788790702">
 </head>
-<body>
+<body class="p-structure-employees-list">
 <div class="app">
 <nav class="side" aria-label="Основная навигация">
   <div class="side-head" title="Ростовские окна">
@@ -145,18 +147,10 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form class="u-m-0" method="post" action="/incoming/new">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
 </header>    <div class="work">
-<style>
-  .st-count{font-size:var(--r2-body);color:var(--muted2);margin:0 0 var(--sp-2)}
-  .st-search{border:0;border-bottom:1px solid var(--line);background:transparent;padding:var(--sp-2) var(--sp-1);font-size:var(--r2-body);min-width:280px;color:var(--ink);margin:0 0 var(--sp-3)}
-  .st-search:focus{outline:none;border-bottom-color:var(--accent)}
-  /* T1.2: таблица — единый компонент table.crm-table (crm2-components.css); свои правила сняты. */
-  .st-num{color:var(--muted2);width:44px}
-  .st-flash{background:var(--ok-bg);color:var(--ok-ink);padding:var(--sp-2) var(--r2-space-5);font-size:var(--r2-body);font-weight:600}
-</style>
 
 <div class="st-head">
   <h1 class="st-title">Сотрудники</h1>
@@ -173,74 +167,20 @@
 </div>
 
 <div class="st-body">
-  <form method="post" action="/settings/structure/employees/add" style="margin:0">
+  <form class="u-m-0" method="post" action="/settings/structure/employees/add">
     <button class="btn is-strong" type="submit">＋ Добавить сотрудника</button>
   </form>
-  <form method="get" action="/settings/structure/employees" style="display:flex;gap:var(--sp-2);align-items:center;margin:0 0 var(--sp-3)">
-    <input class="st-search" id="empSearch" name="q" type="search" value="" placeholder="Поиск по ФИО / логину…" autocomplete="off" style="margin:0">
-    <button type="submit" class="btn" style="height:var(--control-h);padding:0 var(--sp-3)">Найти</button>
+  <form class="u-d-flex u-gap-sp-2 u-ai-center u-m-0-0-sp-3" method="get" action="/settings/structure/employees">
+    <input class="st-search u-m-0" id="empSearch" name="q" type="search" value="" placeholder="Поиск по ФИО / логину…" autocomplete="off">
+    <button type="submit" class="btn u-h-control-h u-p-0-sp-3">Найти</button>
   </form>
-  <p class="st-count">Показаны 1–17 из 17 записей.</p>
-  <div style="overflow-x:auto">
-  <table class="crm-table" style="min-width:900px">
-    <thead><tr><th class="st-num">#</th><th>ФИО</th><th>Должности</th><th style="width:180px">Логин</th><th style="width:160px">Последнее действие</th><th style="width:90px">Активен</th><th style="width:120px">Действия</th></tr></thead>
+  <p class="st-count">Показаны 1–16 из 16 записей.</p>
+  <div class="u-ox-auto">
+  <table class="crm-table u-minw-900px">
+    <thead><tr><th class="st-num">#</th><th>ФИО</th><th>Должности</th><th class="u-w-180px">Логин</th><th class="u-w-160px">Последнее действие</th><th class="u-w-90px">Активен</th><th class="u-w-120px">Действия</th></tr></thead>
     <tbody id="empRows">
-      <tr data-s="александр ">
-        <td class="st-num">1</td>
-        <td>Александр</td>
-        <td></td>
-        <td></td>
-        <td class="muted">Никогда</td>
-        <td><span class="t-ok">✔</span></td>
-        <td><a class="btn" href="#" data-screen="/settings/structure/employees/24">Просмотр</a></td>
-      </tr>
-      <tr data-s="андрей ">
-        <td class="st-num">2</td>
-        <td>Андрей</td>
-        <td></td>
-        <td></td>
-        <td class="muted">Никогда</td>
-        <td><span class="t-ok">✔</span></td>
-        <td><a class="btn" href="#" data-screen="/settings/structure/employees/21">Просмотр</a></td>
-      </tr>
-      <tr data-s="вадим ">
-        <td class="st-num">3</td>
-        <td>Вадим</td>
-        <td></td>
-        <td></td>
-        <td class="muted">Никогда</td>
-        <td><span class="t-ok">✔</span></td>
-        <td><a class="btn" href="#" data-screen="/settings/structure/employees/20">Просмотр</a></td>
-      </tr>
-      <tr data-s="валерий ">
-        <td class="st-num">4</td>
-        <td>Валерий</td>
-        <td></td>
-        <td></td>
-        <td class="muted">Никогда</td>
-        <td><span class="t-ok">✔</span></td>
-        <td><a class="btn" href="#" data-screen="/settings/structure/employees/23">Просмотр</a></td>
-      </tr>
-      <tr data-s="данил ">
-        <td class="st-num">5</td>
-        <td>Данил</td>
-        <td></td>
-        <td></td>
-        <td class="muted">Никогда</td>
-        <td><span class="t-ok">✔</span></td>
-        <td><a class="btn" href="#" data-screen="/settings/structure/employees/19">Просмотр</a></td>
-      </tr>
-      <tr data-s="дима ">
-        <td class="st-num">6</td>
-        <td>Дима</td>
-        <td></td>
-        <td></td>
-        <td class="muted">Никогда</td>
-        <td><span class="t-ok">✔</span></td>
-        <td><a class="btn" href="#" data-screen="/settings/structure/employees/22">Просмотр</a></td>
-      </tr>
       <tr data-s="директор демо ">
-        <td class="st-num">7</td>
+        <td class="st-num">1</td>
         <td>Директор Демо</td>
         <td>Руководитель</td>
         <td></td>
@@ -249,7 +189,7 @@
         <td><a class="btn" href="#" data-screen="/settings/structure/employees/16">Просмотр</a></td>
       </tr>
       <tr data-s="замерщик демо ">
-        <td class="st-num">8</td>
+        <td class="st-num">2</td>
         <td>Замерщик Демо</td>
         <td>Замерщик, Выездной менеджер</td>
         <td></td>
@@ -258,7 +198,7 @@
         <td><a class="btn" href="#" data-screen="/settings/structure/employees/11">Просмотр</a></td>
       </tr>
       <tr data-s="кладовщик демо ">
-        <td class="st-num">9</td>
+        <td class="st-num">3</td>
         <td>Кладовщик Демо</td>
         <td>Кладовщик</td>
         <td></td>
@@ -267,7 +207,7 @@
         <td><a class="btn" href="#" data-screen="/settings/structure/employees/14">Просмотр</a></td>
       </tr>
       <tr data-s="координатор демо ">
-        <td class="st-num">10</td>
+        <td class="st-num">4</td>
         <td>Координатор Демо</td>
         <td>Координатор монтажей и доставки, Водитель</td>
         <td></td>
@@ -276,7 +216,7 @@
         <td><a class="btn" href="#" data-screen="/settings/structure/employees/13">Просмотр</a></td>
       </tr>
       <tr data-s="монтажник демо ">
-        <td class="st-num">11</td>
+        <td class="st-num">5</td>
         <td>Монтажник Демо</td>
         <td>Монтажник</td>
         <td></td>
@@ -284,26 +224,8 @@
         <td><span class="t-ok">✔</span></td>
         <td><a class="btn" href="#" data-screen="/settings/structure/employees/12">Просмотр</a></td>
       </tr>
-      <tr data-s="наташа ">
-        <td class="st-num">12</td>
-        <td>Наташа</td>
-        <td></td>
-        <td></td>
-        <td class="muted">Никогда</td>
-        <td><span class="t-ok">✔</span></td>
-        <td><a class="btn" href="#" data-screen="/settings/structure/employees/18">Просмотр</a></td>
-      </tr>
-      <tr data-s="нелли ">
-        <td class="st-num">13</td>
-        <td>Нелли</td>
-        <td></td>
-        <td></td>
-        <td class="muted">Никогда</td>
-        <td><span class="t-ok">✔</span></td>
-        <td><a class="btn" href="#" data-screen="/settings/structure/employees/17">Просмотр</a></td>
-      </tr>
       <tr data-s="оператор кц демо ">
-        <td class="st-num">14</td>
+        <td class="st-num">6</td>
         <td>Оператор КЦ Демо</td>
         <td>Оператор КЦ</td>
         <td></td>
@@ -312,7 +234,7 @@
         <td><a class="btn" href="#" data-screen="/settings/structure/employees/9">Просмотр</a></td>
       </tr>
       <tr data-s="офис-менеджер демо ">
-        <td class="st-num">15</td>
+        <td class="st-num">7</td>
         <td>Офис-менеджер Демо</td>
         <td>Офис-менеджер (консультант)</td>
         <td></td>
@@ -321,7 +243,7 @@
         <td><a class="btn" href="#" data-screen="/settings/structure/employees/10">Просмотр</a></td>
       </tr>
       <tr data-s="сотрудник01 демо ">
-        <td class="st-num">16</td>
+        <td class="st-num">8</td>
         <td>Сотрудник01 Демо</td>
         <td></td>
         <td></td>
@@ -329,8 +251,71 @@
         <td><span class="t-ok">✔</span></td>
         <td><a class="btn" href="settings__structure__employees__1.html">Просмотр</a></td>
       </tr>
+      <tr data-s="сотрудник02 демо ">
+        <td class="st-num">9</td>
+        <td>Сотрудник02 Демо</td>
+        <td></td>
+        <td></td>
+        <td class="muted">Никогда</td>
+        <td><span class="t-ok">✔</span></td>
+        <td><a class="btn" href="#" data-screen="/settings/structure/employees/2">Просмотр</a></td>
+      </tr>
+      <tr data-s="сотрудник03 демо ">
+        <td class="st-num">10</td>
+        <td>Сотрудник03 Демо</td>
+        <td></td>
+        <td></td>
+        <td class="muted">Никогда</td>
+        <td><span class="t-ok">✔</span></td>
+        <td><a class="btn" href="#" data-screen="/settings/structure/employees/3">Просмотр</a></td>
+      </tr>
+      <tr data-s="сотрудник04 демо ">
+        <td class="st-num">11</td>
+        <td>Сотрудник04 Демо</td>
+        <td></td>
+        <td></td>
+        <td class="muted">Никогда</td>
+        <td><span class="t-ok">✔</span></td>
+        <td><a class="btn" href="#" data-screen="/settings/structure/employees/4">Просмотр</a></td>
+      </tr>
+      <tr data-s="сотрудник05 демо ">
+        <td class="st-num">12</td>
+        <td>Сотрудник05 Демо</td>
+        <td></td>
+        <td></td>
+        <td class="muted">Никогда</td>
+        <td><span class="t-ok">✔</span></td>
+        <td><a class="btn" href="#" data-screen="/settings/structure/employees/5">Просмотр</a></td>
+      </tr>
+      <tr data-s="сотрудник06 демо ">
+        <td class="st-num">13</td>
+        <td>Сотрудник06 Демо</td>
+        <td></td>
+        <td></td>
+        <td class="muted">Никогда</td>
+        <td><span class="t-ok">✔</span></td>
+        <td><a class="btn" href="#" data-screen="/settings/structure/employees/6">Просмотр</a></td>
+      </tr>
+      <tr data-s="сотрудник07 демо ">
+        <td class="st-num">14</td>
+        <td>Сотрудник07 Демо</td>
+        <td></td>
+        <td></td>
+        <td class="muted">Никогда</td>
+        <td><span class="t-ok">✔</span></td>
+        <td><a class="btn" href="#" data-screen="/settings/structure/employees/7">Просмотр</a></td>
+      </tr>
+      <tr data-s="сотрудник08 демо ">
+        <td class="st-num">15</td>
+        <td>Сотрудник08 Демо</td>
+        <td></td>
+        <td></td>
+        <td class="muted">Никогда</td>
+        <td><span class="t-ok">✔</span></td>
+        <td><a class="btn" href="#" data-screen="/settings/structure/employees/8">Просмотр</a></td>
+      </tr>
       <tr data-s="сотрудник пто демо ">
-        <td class="st-num">17</td>
+        <td class="st-num">16</td>
         <td>Сотрудник ПТО Демо</td>
         <td>Менеджер ПТО</td>
         <td></td>

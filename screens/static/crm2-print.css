@@ -1,0 +1,55 @@
+/* Печатные формы (планирование монтажей, замеров, план доставок).
+   Эти страницы standalone: они НЕ наследуют crm2/base.html, поэтому оболочки и
+   компонентного слоя у них нет — только токены design-system.css и этот файл.
+
+   До 07.09.2026 те же ~20 правил лежали в трёх `<style>` внутри шаблонов и разошлись:
+   две страницы объявляли СВОЙ :root с #E4E7EC/#1D2939/#667085/#F5F7FA и жёстким
+   шрифтом, третья уже перешла на токены. Локальный :root перебивал общие значения —
+   ровно тот «локальный вариант дизайна», которого в CRM быть не должно. Значения
+   сведены к общим токенам: --line, --ink, --muted2 (#667085 — это ровно он), --th, --font.
+
+   Подключать ПОСЛЕ design-system.css. Своего `<style>` печатные шаблоны не заводят. */
+
+*{box-sizing:border-box}
+
+body{
+  margin:24px;
+  font-family:var(--font);
+  font-size:var(--r2-body);
+  line-height:1.4;
+  color:var(--ink);
+}
+
+/* Шапка печатной страницы: заголовок, подпись, кнопка «Печать» справа. */
+.ph{display:flex;align-items:baseline;gap:var(--sp-4);margin:0 0 var(--sp-3);flex-wrap:wrap}
+.ph h1{font-size:var(--r2-page-title);line-height:var(--r2-page-title-lh);margin:0}
+.ph .sub{color:var(--muted2);font-size:var(--r2-label);line-height:var(--r2-label-lh)}
+.ph .btn{
+  margin-left:auto;
+  padding:var(--sp-2) var(--sp-4);
+  border:1px solid var(--line);
+  border-radius:var(--r2-radius-6);
+  background:var(--panel);
+  cursor:pointer;
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:var(--r2-body);
+  line-height:var(--r2-body-lh);
+}
+.ph .btn:hover{background:var(--th)}
+
+h2{font-size:var(--r2-card-title);line-height:var(--r2-card-title-lh);margin:var(--sp-4) 0 var(--sp-2)}
+
+/* Таблица плана: узкая, с рамкой — на бумаге границы нужны, в отличие от экранов. */
+table{width:100%;border-collapse:collapse;font-size:var(--r2-label);line-height:var(--r2-label-lh)}
+th,td{border:1px solid var(--line);padding:4px 6px;text-align:left;vertical-align:top}
+th{background:var(--th);font-weight:600;white-space:nowrap}
+td.n{text-align:center;color:var(--muted2)}
+
+.empty{color:var(--muted2);padding:var(--sp-5);text-align:center}
+
+@media print{
+  .btn{display:none}
+  body{margin:0}
+  @page{size:landscape;margin:10mm}
+}
