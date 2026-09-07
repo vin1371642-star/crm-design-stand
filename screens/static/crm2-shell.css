@@ -25,13 +25,26 @@
   .app{display:grid;grid-template-columns:var(--shell) 1fr;height:100vh;overflow:hidden}
 
   /* ── Узкий сайдбар-rail (клон Ramex, наши цвета) ── */
-  .side{width:var(--shell);display:flex;flex-direction:column;height:100vh;background:var(--rail);flex:none}
-  .side-head{height:var(--shell);display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(255,255,255,.08);flex:none}
-  .logo-badge{width:36px;height:36px;border-radius:var(--r2-radius-8);background:linear-gradient(135deg,#C1121F,#A80F1A);display:flex;align-items:center;justify-content:center}
+  /* Рельса СВЕТЛАЯ (D-501): полотно `--rail` теперь #FFFFFF, поэтому её край задаёт
+     граница, а не контраст фона — без неё рельса сливается с рабочей областью. */
+  .side{width:var(--shell);display:flex;flex-direction:column;height:100vh;background:var(--rail);
+    border-right:1px solid var(--line);flex:none}
+  /* Разделитель под логотипом снят: он был белым по прозрачности — приём для ТЁМНОЙ
+     рельсы, на белом полотне он невидим. Логотип отделяется отступом, как в эталоне. */
+  .side-head{height:64px;display:flex;align-items:center;justify-content:center;flex:none}
+  /* 32×32 и радиус контрола — как в эталоне; градиент из двух старых красных снят:
+     фирменный цвет теперь один и живёт в токене. */
+  .logo-badge{width:32px;height:32px;border-radius:var(--radius-control);background:var(--accent);
+    display:flex;align-items:center;justify-content:center}
   .logo-badge svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:1.8}
-  .rail{flex:1;min-height:0;overflow-y:auto;padding:var(--sp-1) 0 14px}
+  .rail{flex:1;min-height:0;overflow-y:auto;padding:var(--sp-3) 0;display:flex;
+    flex-direction:column;align-items:center;gap:2px}
   .rail::-webkit-scrollbar{width:6px}.rail::-webkit-scrollbar-thumb{background:var(--rail-3);border-radius:var(--r2-radius-6)}
-  .ri{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--sp-1);min-height:var(--row-h);padding:5px 1px;color:var(--rail-ink);text-decoration:none;cursor:pointer}
+  /* Плитка 84×56, радиус 8 — из эталона. Зазор там 5px; по D-501 промежуточные
+     отступы standalone не становятся ступенями системы и приводятся к шкале — 4. */
+  .ri{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:var(--sp-1);width:84px;min-height:56px;padding:6px 2px;border-radius:var(--r2-radius-8);
+    color:var(--rail-ink);text-decoration:none;cursor:pointer}
   .ri svg{width:var(--r2-icon);height:var(--r2-icon);flex:none;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
   /* Nav label 10/12: Regular 400, у текущего маршрута — Medium 500 (Figma 644:305). */
   /* Ширина подписи — по самому рельсу, а не 66px: рельс 64, и подпись была ШИРЕ
@@ -44,36 +57,36 @@
      ужать по букве, чем разорвать. */
   .ri span{font-size:var(--r2-nav-label);font-weight:var(--r2-fw-body);line-height:var(--r2-nav-label-lh);text-align:center;letter-spacing:0;max-width:100%;overflow-wrap:normal;word-break:keep-all}
   .ri.active span{font-weight:var(--r2-fw-medium)}
-    .ri:hover{background:var(--rail-2);color:#FFFFFF}
-  /* Активный пункт: светло-серая плитка из той же палитры, что выделение строк,
-     и красное подчёркивание снизу. */
+  .ri:hover{background:var(--rail-3);color:var(--rail-ink-2)}
+  /* Активный пункт: светлая плитка и красный индикатор СЛЕВА полоской 3px (эталон),
+     а не подчёркивание снизу — на светлой рельсе подчёркивание читалось как граница. */
   .ri.active{background:var(--nav-active-bg);color:var(--nav-active);
-    box-shadow:inset 0 -2px 0 var(--accent)}
+    box-shadow:inset 3px 0 0 var(--accent)}
   button.ri{width:100%;border:0;font-family:var(--font);background:transparent}
   button.ri.active{background:var(--nav-active-bg);color:var(--nav-active);
-    box-shadow:inset 0 -2px 0 var(--accent)}
+    box-shadow:inset 3px 0 0 var(--accent)}
   .nav-wrap{position:relative}
   .ri .bdg{position:absolute;top:5px;right:11px;min-width:15px;height:15px;padding:0 var(--sp-1);border-radius:var(--r2-radius-8);background:var(--accent);color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1}
   .ri .dotm{position:absolute;top:9px;right:var(--sp-4);width:7px;height:7px;border-radius:50%;background:var(--accent)}
 
   /* Флайаут стадий на «Продажи» (fixed — не режется скроллом) */
-  .fly{position:fixed;left:var(--shell);top:112px;z-index:60;min-width:196px;background:var(--rail-2);border:1px solid var(--rail-3);border-radius:var(--r2-radius-10);padding:6px;box-shadow:0 12px 34px rgba(16,24,40,.45);display:none;flex-direction:column;gap:1px}
+  .fly{position:fixed;left:var(--shell);top:112px;z-index:60;min-width:196px;background:var(--rail-2);border:1px solid var(--line);border-radius:var(--r2-radius-10);padding:6px;box-shadow:0 12px 34px rgba(16,24,40,.18);display:none;flex-direction:column;gap:1px}
   .fly.open{display:flex}
   .fly a{display:flex;align-items:center;gap:var(--sp-2);height:var(--action);padding:0 11px;border-radius:var(--r2-radius-6);color:var(--rail-ink-2);font-weight:500;font-size:12.5px;text-decoration:none;white-space:nowrap}
-  .fly a:hover{background:var(--rail-3);color:#FFFFFF}
-  .fly a.on{background:var(--rail-3);color:#FFFFFF;font-weight:600;box-shadow:inset 3px 0 0 var(--accent)}
+  .fly a:hover{background:var(--rail-3);color:var(--rail-ink-2)}
+  .fly a.on{background:var(--rail-3);color:var(--rail-ink-2);font-weight:600;box-shadow:inset 3px 0 0 var(--accent)}
   .fly a b{flex:1;font-weight:inherit}
   .fly .fn{min-width:20px;height:17px;padding:0 6px;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--r2-radius-8);background:var(--rail-3);color:var(--rail-ink-2);font-weight:600;font-size:10.5px}
   .fly a.on .fn{background:var(--accent);color:#fff}
   /* ── Двухуровневый флайаут «Настройки» (клон Ramex: наведение → разделы → подпункты) ── */
   .nav-wrap.has-set{position:relative}
-  .nav-wrap.has-set .set-fly{position:fixed;left:70px;top:56px;z-index:70;min-width:212px;background:var(--rail-2);
-    border:1px solid var(--rail-3);border-radius:var(--r2-radius-10);padding:6px;box-shadow:0 12px 34px rgba(16,24,40,.45);
+  .nav-wrap.has-set .set-fly{position:fixed;left:calc(var(--shell) + 6px);top:56px;z-index:70;min-width:212px;background:var(--rail-2);
+    border:1px solid var(--line);border-radius:var(--r2-radius-10);padding:6px;box-shadow:0 12px 34px rgba(16,24,40,.18);
     display:none;flex-direction:column;gap:1px}
   .nav-wrap.has-set:hover .set-fly, .set-fly.open{display:flex}
   .set-fly .sg{position:relative;display:flex;align-items:center;gap:var(--sp-2);height:var(--action);padding:0 11px;border-radius:var(--r2-radius-6);
     color:var(--rail-ink-2);font-size:12.5px;text-decoration:none;white-space:nowrap;cursor:pointer}
-  .set-fly .sg:hover, .set-fly .sg.open{background:var(--rail-3);color:#FFFFFF}
+  .set-fly .sg:hover, .set-fly .sg.open{background:var(--rail-3);color:var(--rail-ink-2)}
   .set-fly .sg b{flex:1;font-weight:500}
   .set-fly .sg .sg-arw{color:var(--rail-ink);font-style:normal;font-size:15px}
   /* Невидимый «мостик» через зазор к подменю. Владелец 02.09.2026: «меню не
@@ -85,11 +98,31 @@
   .set-fly .sg::after{content:'';position:absolute;left:100%;top:calc(var(--sp-5) * -1);width:var(--sp-4);height:calc(100% + var(--sp-6) * 2);display:none}
   .set-fly .sg:hover::after, .set-fly .sg.open::after{display:block}
   .set-fly2{display:none;position:absolute;left:100%;top:calc(var(--sp-2) * -1);min-width:224px;background:var(--rail-2);
-    border:1px solid var(--rail-3);border-radius:var(--r2-radius-10);padding:6px;box-shadow:0 12px 34px rgba(16,24,40,.45);flex-direction:column;gap:1px;z-index:2}
+    border:1px solid var(--line);border-radius:var(--r2-radius-10);padding:6px;box-shadow:0 12px 34px rgba(16,24,40,.18);flex-direction:column;gap:1px;z-index:2}
   .set-fly .sg:hover > .set-fly2, .set-fly .sg.open > .set-fly2{display:flex}
+  /* Второй уровень «Настроек» — той же значимости, что первый (утверждено дизайнером
+     06.09.2026, `APPROVED_DESIGN_HANDOFF.md` §3: «раскрытия sidebar — один уровень
+     значимости, одно оформление»). Раньше второй уровень шёл без веса и читался как
+     менее важный, чем `.fly a` и `.set-fly .sg b`, у которых `font-weight:500`.
+
+     ЦВЕТ ИЗ ПЕРЕДАЧИ НЕ ПЕРЕНЕСЁН, И ЭТО НЕ НЕДОСМОТР. Дизайнер просит `--ink`
+     (#101828) — почти чёрный: у него панель раскрытия СВЕТЛАЯ. У нас она тёмная
+     (`.set-fly2{background:var(--rail-2)}` = #344054), и чёрный текст на ней стал бы
+     нечитаемым. У нас цвет уже совпадает с первым уровнем — оба `--rail-ink-2`
+     (#EAECF0), — поэтому «привести к первому уровню» здесь означает ровно вес. */
   .set-fly2 a{display:flex;align-items:center;height:var(--action);padding:0 11px;border-radius:var(--r2-radius-6);color:var(--rail-ink-2);
-    font-size:12.5px;text-decoration:none;white-space:nowrap}
-  .set-fly2 a:hover{background:var(--rail-3);color:#FFFFFF}
+    font-weight:500;font-size:12.5px;text-decoration:none;white-space:nowrap}
+  .set-fly2 a:hover{background:var(--rail-3);color:var(--rail-ink-2)}
+
+  /* Хлебные крошки: отдельная строка под шапкой (APPROVED). Подпись приглушённая,
+     текущая страница — основным цветом и без ссылки: ссылка на саму себя бесполезна. */
+  .crumbs{display:flex;align-items:center;gap:var(--sp-2);flex:none;
+    padding:var(--sp-2) var(--sp-4);font-size:var(--r2-label);line-height:var(--r2-label-lh);
+    color:var(--muted)}
+  .crumbs a{color:var(--muted);text-decoration:none}
+  .crumbs a:hover{color:var(--ink)}
+  .crumbs .sep{color:var(--muted2)}
+  .crumbs .cur{color:var(--ink)}
 
   /* ── Топбар ── */
   .main{display:flex;flex-direction:column;min-width:0;height:100vh}

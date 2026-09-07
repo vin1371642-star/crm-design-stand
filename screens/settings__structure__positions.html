@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Должности · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788563571">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788563571">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788563571">
+<link rel="stylesheet" href="static/design-system.css?v=1788784554">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
 </head>
 <body>
 <div class="app">
@@ -145,21 +145,9 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form class="dirsel" method="get" action="/direction/switch">
-    <input type="hidden" name="next" value="/crm2/incoming">
-    <select name="to" aria-label="Направление деятельности"
-            onchange="this.form.next.value=location.pathname+location.search;this.form.submit()">
-      <option value="25" selected>Ростовские окна розница</option>
-      <option value="26" >Ростовские окна опт</option>
-      <option value="27" >Росток</option>
-    </select>
-  </form>
-  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
-  <a class="icon-btn" href="notifications.html" title="Уведомления" aria-label="Уведомления: непрочитанных 2">
-    <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="pip">2</span>  </a>
-  <div class="avatar" title="Офис-менеджер Демо · Директор">ОФ</div>
 </header>    <div class="work">
 <style>
   .st-count{font-size:var(--fs-secondary);line-height:var(--lh-secondary);color:var(--muted2);margin:0 0 var(--sp-2)}
@@ -199,9 +187,9 @@
     <thead><tr><th class="st-num">#</th><th>Должность</th><th class="col-w120">Сотрудников</th><th class="col-w180">Набор прав</th><th class="col-w180">Отступления</th><th class="col-w120"></th></tr></thead>
     <tbody>
       <tr>
-        <td class="st-num">1</td><td><a class="p-link" href="settings__structure__positions__1.html">Директор</a></td>
-        <td class="p-use">0</td><td class="p-sum">Директор</td><td class="p-sum">нет</td>
-        <td><a class="btn mini" href="settings__structure__positions__1.html">Настроить</a></td>
+        <td class="st-num">1</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/1">Директор</a></td>
+        <td class="p-use">0</td><td class="p-sum">Директор</td><td class="p-sum">разрешает 1 · запрещает 0 · область 0</td>
+        <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/1">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">2</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/2">Директор ПТО</a></td>
@@ -220,97 +208,97 @@
       </tr>
       <tr>
         <td class="st-num">5</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/5">Помощник руководителя</a></td>
-        <td class="p-use">0</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">0</td><td class="p-sum">Офис-менеджер</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/5">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">6</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/6">Маркетолог</a></td>
-        <td class="p-use">0</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">0</td><td class="p-sum">Менеджер</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/6">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">7</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/7">Руководитель отдела продаж</a></td>
-        <td class="p-use">0</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">0</td><td class="p-sum">РОП</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/7">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">8</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/8">Офис-менеджер (расчётчик)</a></td>
-        <td class="p-use">0</td><td class="p-sum">не задан</td><td class="p-sum">статусы 2</td>
+        <td class="p-use">0</td><td class="p-sum">Офис-менеджер</td><td class="p-sum">статусы 2</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/8">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">9</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/9">Офис-менеджер (консультант)</a></td>
-        <td class="p-use">1</td><td class="p-sum">не задан</td><td class="p-sum">статусы 2</td>
+        <td class="p-use">1</td><td class="p-sum">Офис-менеджер</td><td class="p-sum">статусы 2</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/9">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">10</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/10">Выездной менеджер</a></td>
-        <td class="p-use">1</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">1</td><td class="p-sum">Выездной менеджер</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/10">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">11</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/11">Старший оператор КЦ</a></td>
-        <td class="p-use">0</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">0</td><td class="p-sum">Старший оператор КЦ</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/11">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">12</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/12">Оператор КЦ</a></td>
-        <td class="p-use">1</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">1</td><td class="p-sum">Оператор КЦ</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/12">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">13</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/13">Координатор монтажей и доставки</a></td>
-        <td class="p-use">1</td><td class="p-sum">не задан</td><td class="p-sum">разрешает 1 · запрещает 0 · область 0</td>
+        <td class="p-use">1</td><td class="p-sum">Координатор</td><td class="p-sum">разрешает 1 · запрещает 0 · область 0</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/13">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">14</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/14">Менеджер ПТО</a></td>
-        <td class="p-use">1</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">1</td><td class="p-sum">Менеджер ПТО</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/14">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">15</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/15">Руководитель сервисной службы</a></td>
-        <td class="p-use">0</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">0</td><td class="p-sum">РОП</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/15">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">16</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/16">Мастер сервисной службы</a></td>
-        <td class="p-use">0</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">0</td><td class="p-sum">Монтажник</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/16">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">17</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/17">Мастер ТО</a></td>
-        <td class="p-use">0</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">0</td><td class="p-sum">Монтажник</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/17">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">18</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/18">Менеджер ТО</a></td>
-        <td class="p-use">0</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">0</td><td class="p-sum">Менеджер</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/18">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">19</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/19">Старший технический специалист</a></td>
-        <td class="p-use">0</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">0</td><td class="p-sum">Менеджер ПТО</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/19">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">20</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/20">Замерщик</a></td>
-        <td class="p-use">1</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">1</td><td class="p-sum">Замерщик</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/20">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">21</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/21">Монтажник</a></td>
-        <td class="p-use">1</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">1</td><td class="p-sum">Монтажник</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/21">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">22</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/22">Кладовщик</a></td>
-        <td class="p-use">1</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">1</td><td class="p-sum">Кладовщик</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/22">Настроить</a></td>
       </tr>
       <tr>
         <td class="st-num">23</td><td><a class="p-link" href="#" data-screen="/settings/structure/positions/23">Водитель</a></td>
-        <td class="p-use">1</td><td class="p-sum">не задан</td><td class="p-sum">нет</td>
+        <td class="p-use">1</td><td class="p-sum">Монтажник</td><td class="p-sum">нет</td>
         <td><a class="btn mini" href="#" data-screen="/settings/structure/positions/23">Настроить</a></td>
       </tr>
       <tr>
@@ -416,8 +404,6 @@
         <span>Цели</span><small>Отчёты</small>      </a>
       <a href="settings.html" data-nav-prefixes="/settings|/salary">
         <span>Настройки</span>      </a>
-      <a href="#" data-screen="/account/password"><span>Пароль</span></a>
-      <a class="danger" href="#" data-screen="/logout"><span>Выйти</span></a>
     </div>
   </section>
 </div><script>

@@ -1,0 +1,358 @@
+/* Встроенный мессенджер (D-004, фаза 9) — экранный слой.
+
+   Файл подключается ПОСЛЕДНИМ через `head_extra` шаблона, как это делает карточка
+   обращения (`crm2-deal-card.css`). Собственный `<style>` в разметке не заводится:
+   тогда каскад снова зависел бы от места блока в HTML (правило из `crm2/base.html`).
+
+   Своих чисел здесь нет ни одного: размеры, отступы, радиусы, шрифты и цвета —
+   токены `design-system.css` (набор Reference V2). Вид — привычный мессенджер:
+   слева список диалогов, справа переписка.
+
+   Рамок-коробок нет: панели разделены ФОНОМ и отступом (белые карточки `--panel`
+   на сером поле `--r2-canvas`) — тот же приём, что в карточке обращения. */
+
+.msg {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  /* Список фиксированной ширины, переписка занимает остальное — как в Telegram. */
+  grid-template-columns: 320px 1fr;
+  gap: var(--sp-4);
+}
+
+/* ── Левая колонка: список диалогов ───────────────────────────────────────── */
+.msg-list {
+  background: var(--panel);
+  border-radius: var(--r2-radius-10);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.msg-list-head {
+  flex: none;
+  padding: var(--sp-3) var(--sp-4);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.msg-list-head h2 {
+  margin: 0;
+  font: var(--fw-sub) var(--fs-sub) / var(--lh-sub) var(--display);
+  color: var(--ink);
+}
+
+/* Поиск по диалогам — подчёркнутая полоса, а не коробка (правило полей). */
+.msg-find {
+  flex: none;
+  margin: 0 var(--sp-4) var(--sp-2);
+  height: var(--r2-control);
+  border: 0;
+  border-bottom: 1px solid var(--line-input);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font: var(--r2-fw-body) var(--r2-body) / var(--r2-body-lh) var(--font);
+}
+
+.msg-find:focus { outline: none; border-bottom-color: var(--accent); }
+
+.msg-rows { flex: 1; min-height: 0; overflow-y: auto; }
+
+.msg-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: var(--r2-table-row);
+  padding: var(--sp-2) var(--sp-4);
+  text-decoration: none;
+  color: inherit;
+}
+
+.msg-row:hover { background: var(--field); }
+.msg-row.active { background: var(--selected); }
+
+/* Скрытие строки поиском. Без `!important` не работает: авторское `display:flex`
+   выше СИЛЬНЕЕ браузерного `[hidden]{display:none}`, и поле поиска не скрывало
+   бы ни одной строки. На эти же грабли проект уже наступал в ленте карточки
+   обращения — там стоит ровно такое правило (`crm2-deal-card.css`). */
+.msg-row[hidden] { display: none !important; }
+
+/* Аватар — две буквы, как в шапке приложения: свой компонент не заводим. */
+.msg-ava {
+  flex: none;
+  width: var(--r2-control);
+  height: var(--r2-control);
+  border-radius: var(--r2-radius-10);
+  background: var(--field);
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: var(--r2-fw-medium) var(--r2-label) / var(--r2-label-lh) var(--font);
+}
+
+.msg-row.group .msg-ava { background: var(--brand-subtle); color: var(--accent); }
+
+.msg-row-body { flex: 1; min-width: 0; }
+
+.msg-row-title {
+  display: block;
+  font: var(--r2-fw-medium) var(--r2-body) / var(--r2-body-lh) var(--font);
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Последняя реплика — подпись 12/16: на экране обязаны различаться уровни. */
+.msg-row-last {
+  display: block;
+  font: var(--r2-fw-body) var(--r2-label) / var(--r2-label-lh) var(--font);
+  color: var(--muted2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Непрочитанный диалог выделяется ЖИРНЫМ и числом — как везде в мессенджерах. */
+.msg-row.unread .msg-row-title { font-weight: 600; }
+.msg-row.unread .msg-row-last { color: var(--ink); }
+
+.msg-count {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--r2-space-5);
+  min-width: var(--r2-space-5);
+  padding: 0 var(--sp-2);
+  border-radius: var(--r2-radius-10);
+  background: var(--accent);
+  color: #fff;
+  font: 600 var(--r2-label) / var(--r2-label-lh) var(--font);
+}
+
+/* ── Правая колонка: переписка ────────────────────────────────────────────── */
+.msg-pane {
+  background: var(--panel);
+  border-radius: var(--r2-radius-10);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.msg-pane-head {
+  flex: none;
+  padding: var(--sp-3) var(--r2-panel-padding);
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+}
+
+.msg-pane-head h2 {
+  margin: 0;
+  font: var(--fw-sub) var(--fs-sub) / var(--lh-sub) var(--display);
+  color: var(--ink);
+}
+
+/* Разрушающее действие — без заливки и неярко: заливкой в системе помечают то,
+   что человек делает намеренно и часто, а выход из группы — ни то, ни другое. */
+/* Форма-обёртка кнопки выхода: без обнуления отступа она разъезжает шапку.
+   Правило живёт здесь, а не инлайном в разметке, — инлайн-стили в проекте
+   запрещены храповиком `tests/test_design_system_ratchet.py`. */
+.msg-leave-form { margin: 0; }
+
+.msg-leave {
+  height: var(--r2-action);
+  padding: 0 var(--sp-3);
+  border: 0;
+  border-radius: var(--r2-radius-6);
+  background: transparent;
+  color: var(--muted);
+  font: var(--r2-fw-medium) var(--r2-label) / var(--r2-label-lh) var(--font);
+  cursor: pointer;
+}
+
+.msg-leave:hover { background: var(--field); color: var(--ink); }
+
+.msg-pane-head .who {
+  font: var(--r2-fw-body) var(--r2-label) / var(--r2-label-lh) var(--font);
+  color: var(--muted2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.msg-feed {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--sp-2) var(--r2-panel-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.msg-bubble { max-width: 640px; }
+
+/* Своё — справа и тоном фирменной подложки; чужое — слева на сером поле.
+   Сторона и фон, а не подпись «вы»: в переписке автор узнаётся мгновенно. */
+.msg-bubble.mine { align-self: flex-end; }
+
+.msg-bubble-in {
+  background: var(--field);
+  border-radius: var(--r2-radius-8);
+  padding: var(--sp-2) var(--sp-3);
+}
+
+.msg-bubble.mine .msg-bubble-in { background: var(--brand-subtle); }
+
+.msg-bubble-head {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: baseline;
+  justify-content: space-between;
+  font: var(--r2-fw-body) var(--r2-label) / var(--r2-label-lh) var(--font);
+  color: var(--muted2);
+  margin-bottom: var(--sp-1);
+}
+
+.msg-bubble-text {
+  font: var(--r2-fw-body) var(--r2-body) / var(--r2-body-lh) var(--font);
+  color: var(--ink);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Композер: поле — подчёркнутая полоса, кнопка вторичная (контрастная на
+   странице одна и стоит вверху — это «Новый диалог»). */
+.msg-send {
+  flex: none;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--r2-panel-padding);
+}
+
+.msg-send textarea {
+  flex: 1;
+  min-width: 0;
+  min-height: var(--r2-control);
+  max-height: 120px;
+  resize: none;
+  border: 0;
+  border-bottom: 1px solid var(--line-input);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  padding: var(--sp-2) 0;
+  font: var(--r2-fw-body) var(--r2-body) / var(--r2-body-lh) var(--font);
+}
+
+.msg-send textarea:focus { outline: none; border-bottom-color: var(--accent); }
+
+/* Пустое состояние ОБЪЯСНЯЕТ СЕБЯ: пустой экран человек читает как поломку. */
+.msg-empty {
+  margin: auto;
+  padding: var(--r2-panel-padding);
+  color: var(--muted);
+  font: var(--r2-fw-body) var(--r2-body) / var(--r2-body-lh) var(--font);
+  text-align: center;
+}
+
+/* ── «Новый диалог»: раскрывающаяся панель у главной кнопки ───────────────────
+   Отдельного экрана и модального окна не заводим: начать переписку — действие на
+   один выбор, и ради него не уводят со списка диалогов. */
+.msg-new { position: relative; }
+
+/* Кнопка-раскрытие выглядит как обычная создающая кнопка системы: своего вида у
+   неё нет, маркер `<details>` убран. */
+.msg-new > summary { list-style: none; cursor: pointer; }
+.msg-new > summary::-webkit-details-marker { display: none; }
+.msg-new > summary::marker { content: ""; }
+
+.msg-new-body {
+  position: absolute;
+  right: 0;
+  top: calc(var(--r2-control) + var(--sp-2));
+  z-index: 40;
+  width: 320px;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--panel);
+  border-radius: var(--r2-radius-10);
+  padding: var(--sp-4);
+  box-shadow: var(--shadow-dropdown);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+/* Между двумя формами — пауза и подпись, а не рамка: разделение фоном и
+   отступом, как во всей системе. */
+.msg-new-body form { display: flex; flex-direction: column; gap: var(--sp-2); }
+
+.msg-new-lbl {
+  font: var(--r2-fw-medium) var(--r2-label) / var(--r2-label-lh) var(--font);
+  color: var(--muted2);
+}
+
+/* Поля — подчёркнутые полосы, не боксы. */
+.msg-new-body select,
+.msg-new-body input[type="text"] {
+  height: var(--r2-control);
+  border: 0;
+  border-bottom: 1px solid var(--line-input);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font: var(--r2-fw-body) var(--r2-body) / var(--r2-body-lh) var(--font);
+}
+
+.msg-new-body select:focus,
+.msg-new-body input[type="text"]:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+.msg-new-people {
+  max-height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  font: var(--r2-fw-body) var(--r2-body) / var(--r2-body-lh) var(--font);
+  color: var(--ink);
+}
+
+.msg-new-people label { display: flex; align-items: center; gap: var(--sp-2); }
+
+/* ── Телефон: две колонки не помещаются ───────────────────────────────────────
+   Открытый диалог занимает экран целиком, список остаётся отдельным экраном —
+   ровно так же ведёт себя мобильный мессенджер.
+
+   Порог 760 — тот же, на котором на мобильную раскладку переключается САМА
+   оболочка (`crm2-shell.css`). Своё значение (было 900) означало бы полосу
+   760–900, где каркас уже телефонный, а мессенджер ещё десктопный. */
+@media (max-width: 760px) {
+  .msg { grid-template-columns: 1fr; }
+  .msg.has-thread .msg-list { display: none; }
+  .msg:not(.has-thread) .msg-pane { display: none; }
+  /* Возврат к списку показывается только здесь: на десктопе список и так слева. */
+  .msg-back { display: inline-flex; }
+}
+
+/* Ссылка «к диалогам» — принадлежность мобильной раскладки, на десктопе её нет. */
+.msg-back {
+  display: none;
+  align-items: center;
+  height: var(--r2-action);
+  color: var(--muted);
+  text-decoration: none;
+  font: var(--r2-fw-medium) var(--r2-label) / var(--r2-label-lh) var(--font);
+}

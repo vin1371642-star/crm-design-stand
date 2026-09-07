@@ -92,7 +92,7 @@
   /* height=контрол 40: padding 9+9 + line 20 + border 2 = 40 (было 10/10 → 42, кнопки перерастали
      токен и «…»-меню на 40 казалось съехавшим/ниже). Теперь .btn и «…» одной высоты. */
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--r2-space-2);min-height:var(--control-h);
-    padding:9px var(--sp-4);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r2-radius-8);
+    padding:0 var(--sp-3);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius-control);
     font:var(--r2-fw-medium) var(--r2-body)/var(--r2-body-lh) var(--font);cursor:pointer;text-decoration:none;white-space:nowrap;
     transition:background .12s ease,border-color .12s ease,color .12s ease}
   .btn:hover{background:var(--hover);border-color:var(--line);color:var(--ink)}
@@ -201,7 +201,7 @@
     border-bottom:1px solid var(--line-input);color:var(--ink);
     justify-content:space-between;gap:var(--sp-2);white-space:nowrap;overflow:hidden;
     font:var(--r2-fw-body) var(--r2-body)/var(--r2-body-lh) var(--font)}
-  .rfilters .ffilter[open]>summary.fsel{border-bottom-color:var(--r2-blue)}
+  .rfilters .ffilter[open]>summary.fsel{border-bottom-color:var(--link-ink)}
   /* Флажок-фильтр («Просроченные», «Только незакрытые»): та же высота, что у
      остальных контролов строки, — иначе он выпадает из ряда и читается как чужой
      элемент. Своих чисел нет: высота из токена контрола, отступы из шкалы. */
@@ -256,13 +256,27 @@
      элемент выпадает из правила, а не борется с ним !important-ами. */
   input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=file]):not(.raw-field),
   select:not(.raw-field),textarea:not(.raw-field){
-    /* Поля-ПОЛОСЫ (underline) вместо боксов — весь интерфейс как Ramex (решение владельца 2026-07-23,
-       факт-съём эталона getComputedStyle). Контрол borderless/прозрачный, снизу линия --line-input.
-       padding 8/2 + line-height 24 ≈ 40px → сохраняем прежнюю высоту control-h, вёрстка не съезжает.
-       Body Regular 400, текст --ink. raw-field (плотные сетки) остаются вне правила. */
+    /* Поля — ПОЛОСЫ (underline), кроме тех, что в APPROVED действительно боксы.
+       Владелец 07.09.2026: «В APPROVED большинство полей — underline-fields, а не boxed
+       inputs… Boxed-control использовать только там, где он реально boxed в APPROVED,
+       например телефон».
+
+       ⚠️ РАСХОЖДЕНИЕ С ФАЙЛОМ ЭТАЛОНА, зафиксировано намеренно. В переданном архиве — и
+       в `source/Карточка обращения.dc.html`, и в standalone — у полей ФИО стоит
+       `border:1px solid #D3D7DC; border-radius:7px`, то есть бокс. Проверено дважды по
+       обоим файлам. Сделано по прямому указанию владельца, а не по файлу; если верх
+       должен взять файл — меняется это правило, одно.
+
+       Слоем 3 я перевела всё в боксы, опираясь на счёт по исходнику, и ошиблась в
+       главном: считать надо было не теги в файле, а спрашивать, что видит владелец. */
     font:var(--r2-fw-body) var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--ink);background:transparent;
     border:0;border-bottom:1px solid var(--line-input);border-radius:0;padding:var(--sp-2) 2px;height:auto;
     outline:none;transition:border-color .12s ease}
+  /* Телефон — БОКС: единственный контрол, который и в эталоне боксом (там он в рамке
+     вместе с иконкой звонка). */
+  input[type=tel]:not(.raw-field),.ic-card .ic-phone-inp{
+    height:var(--control-h);border:1px solid var(--line-input);border-radius:var(--radius-control);
+    background:var(--panel);padding:0 10px}
   /* Стрелка выпадающего списка — своя, одна на всё приложение. Нативную стрелку
      Chrome нельзя ни перекрасить, ни уменьшить, а рядом с ней в одной строке фильтров
      стоят мультифильтры на <summary>, которым нативная недоступна в принципе, — и ряд
@@ -290,7 +304,7 @@
      иначе контур остаётся серым и виден только слабый ореол тени. */
   input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=file]):not(.raw-field):focus,
   select:not(.raw-field):focus,textarea:not(.raw-field):focus{
-    border-bottom-color:var(--r2-blue);box-shadow:none}
+    border-bottom-color:var(--link-ink);box-shadow:none}
   /* Ошибка и disabled — та же оговорка о специфичности, что и у фокуса. */
   input:not(.raw-field)[aria-invalid="true"],select:not(.raw-field)[aria-invalid="true"],
   textarea:not(.raw-field)[aria-invalid="true"],
@@ -339,8 +353,8 @@
   textarea{resize:vertical}
   .lbl{display:block;font-size:var(--r2-label);line-height:var(--r2-label-lh);letter-spacing:0;color:var(--muted2);margin-bottom:var(--r2-space-1);font-weight:var(--r2-fw-medium)}
   .cl-inp,.ic-inp{width:100%;box-sizing:border-box;border:1px solid var(--line-input);background:var(--panel);
-    padding:0 var(--sp-3);font-size:var(--r2-body);line-height:var(--r2-body-lh);color:var(--muted);
-    height:var(--control-h);border-radius:var(--r2-radius-8)}
+    padding:0 10px;font-size:var(--r2-body);line-height:var(--r2-body-lh);color:var(--ink);
+    height:var(--control-h);border-radius:var(--radius-control)}
   .cl-inp:focus,.ic-inp:focus{outline:none;border-color:var(--accent)}
   .cl-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-1) var(--sp-3)}
   .incoming-edit-form{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
@@ -421,7 +435,7 @@
   .dlg-rows > dd,.dlg-rows > .dlg-v{margin:0;font-size:var(--r2-body);line-height:var(--r2-body-lh);color:var(--ink);
     min-width:0;overflow-wrap:anywhere}
   /* Ссылка на сущность внутри окна — синий акцент дизайн-системы, а не браузерный #00E. */
-  .dlg-body a{color:var(--r2-blue);text-decoration:none}
+  .dlg-body a{color:var(--link-ink);text-decoration:none}
   .dlg-body a:hover{text-decoration:underline}
   /* Пустое состояние и производная величина рядом с полем. */
   .dlg-empty{margin:0 0 var(--sp-4);font-size:var(--r2-label);line-height:var(--r2-label-lh);color:var(--muted2)}
@@ -483,6 +497,25 @@
   .sec-body--table{padding:0;overflow-x:auto}
   /* Вторая строка ячейки вместо ещё одной колонки. */
   .sec-note{display:block;font-size:var(--fs-caption);line-height:var(--lh-caption);color:var(--muted2)}
+  /* Поверхность-СПИСОК: строки подсвечиваются во всю ширину, поэтому внутренний
+     отступ отдан самим строкам, а поверхности оставлен только зазор по краю.
+     С обычным `--sp-5` подсветка обрывалась, не доходя до края карточки. */
+  .sec-body--list{padding:var(--sp-1)}
+
+  /* ── Строка результата глобального поиска (P2-02) ──────────────────────────
+     Две строки текста на РАЗНЫХ уровнях: что это (Body medium) и чем отличается
+     от соседей (Caption). Одинаковый кегль превращал бы список в сплошное полотно,
+     где номер договора неотличим от адреса. Разделителей между строками нет —
+     работают отступ и подсветка при наведении, как во всём остальном интерфейсе
+     (обводок нет, D-260 §1). */
+  .gsr{display:flex;flex-direction:column;gap:var(--sp-1);
+    padding:var(--sp-2) var(--sp-3);border-radius:var(--r2-radius-8);
+    color:var(--ink);text-decoration:none}
+  .gsr:hover{background:var(--hover)}
+  .gsr:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+  .gsr-title{font:var(--r2-fw-medium) var(--r2-body)/var(--r2-body-lh) var(--font);
+    color:var(--ink)}
+  .gsr-sub{font-size:var(--fs-caption);line-height:var(--lh-caption);color:var(--muted2)}
 
   /* ── Число-показатель ────────────────────────────────────────────────────
      Счётчик и деньги — РАЗНЫЕ уровни: одинаковый кегль заставлял читать
@@ -606,7 +639,7 @@
   /* Свёртка «ещё N»: блок обязан читаться целиком, дальше пятой строки глаз
      переключается со «схватить» на «читать». */
   .cx-task-more{display:block;padding:var(--sp-2) 0 0;font-size:var(--fs-body);
-    line-height:var(--lh-body);font-weight:var(--r2-fw-medium);color:var(--r2-blue);
+    line-height:var(--lh-body);font-weight:var(--r2-fw-medium);color:var(--link-ink);
     text-decoration:none;cursor:pointer;list-style:none}
   .cx-task-more::-webkit-details-marker{display:none}
 

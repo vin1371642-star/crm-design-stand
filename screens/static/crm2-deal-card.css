@@ -32,8 +32,11 @@
     font:var(--r2-fw-body) var(--r2-body)/var(--r2-body-lh) var(--font);color:var(--muted);
     border-bottom:2px solid transparent;white-space:nowrap}
   .ic-card .crm-tab:hover{color:var(--ink)}
-  .ic-card .crm-tab.active{background:none;color:var(--r2-blue);
-    font-weight:var(--r2-fw-medium);border-bottom-color:var(--r2-blue)}
+  /* Активная вкладка: подчёркивание УТВЕРЖДЁННЫМ акцентом (владелец 07.09.2026),
+     текст основным цветом. Общее правило вкладок — и для стадий, и для правой
+     панели: локального цвета карточки не заводим. */
+  .ic-card .crm-tab.active{background:none;color:var(--ink);
+    font-weight:var(--r2-fw-medium);border-bottom-color:var(--accent)}
 
   /* Поля центра и правой колонки НАСЛЕДУЮТ рамочный Reference V2 / Field из
      crm2-components.css (высота 40, радиус 8, рамка --line-input, текст 14/20,
@@ -58,7 +61,64 @@
   .ic-card .ic-sb-addr-line:empty{display:none}
   .ic-card .ic-sb-addr-line span:empty{display:none}
   .ic-card .ic-sb-addr-line.is-main{align-items:baseline}
-  .ic-card .ic-sb-tags{margin:0 0 var(--sp-2)}
+  /* Номер договора вверху сайдбара (владелец 04.09.2026, как в Ramex): подпись слева,
+     номер справа — та же пара «поле — значение», что и в сводке договора внизу, чтобы
+     наверху не появился второй способ показывать одно и то же. */
+  .ic-card .ic-sb-contract{display:flex;justify-content:space-between;align-items:baseline;
+    gap:var(--sp-2);margin:0 0 var(--sp-2);font-size:var(--fs-body);line-height:var(--lh-body)}
+  .ic-card .ic-sb-contract span{color:var(--muted)}
+  /* `--r2-fw-medium`, а не `--fw-medium`: второго токена не существует, и объявление
+     молча не применялось (сторож `test_design_system_ratchet` был красным). */
+  .ic-card .ic-sb-contract b{font-weight:var(--r2-fw-medium)}
+  /* «Добавьте теги» — ЕДИНСТВЕННОЕ поле-ПОЛОСА во всей карточке, и это не исключение
+     ради красоты, а буква эталона: полей-боксов там 21, полоса ровно одна — эта.
+     Владелец назвала её отдельно: «теги → underline "Добавьте теги"».
+
+     Здесь же ответ на её замечание «лишней линии после progress быть не должно»:
+     разделителя в разметке нет и не было, линией читалась ВЕРХНЯЯ РАМКА этого поля,
+     когда оно вместе со всеми стало боксом. Полоса — и линия исчезает. */
+  /* Левая колонка: поля клиента БЕЗ рамки и фона — в эталоне блок «Клиент» читается
+     парами «подпись — значение», а не формой. Но сделать их текстом нельзя: они
+     редактируемые и зеркалятся в центральную форму, а убрать действие запрещено
+     («бизнес-логику, данные, действия и маршруты не менять»).
+
+     В самом эталоне ровно этот приём и применён: поле там `border: 0; background:
+     transparent; padding: 0` — выглядит значением, остаётся полем. Берём его.
+     Рамка возвращается на наведении и фокусе, иначе поле нельзя найти курсором. */
+  /* Правая панель по APPROVED: поле комментария на ВСЮ ширину, а «Добавить» и фильтр
+     «Все события» — следующей строкой, слева и справа. Раньше кнопка стояла в одну
+     строку с полем и отбирала у него ширину, а фильтр висел третьей строкой сам по
+     себе — из трёх элементов получалось три уровня вместо двух. */
+  .ic-card .ic-comment-row{display:block;margin:0 0 var(--sp-2)}
+  .ic-card .ic-comment-row textarea{width:100%;display:block;margin:0 0 var(--sp-2)}
+  .ic-card .ic-comment-row .btn{float:left}
+  .ic-card #rpane-hist > .ic-hfilter{float:right}
+  .ic-card #rpane-hist > .ic-hfilter::after{content:'';display:block;clear:both}
+  /* Телефон — единственный бокс среди полей карточки (эталон): рамка вместе с
+     иконкой звонка. Правило висит на классе, а не на `type=tel`: у поля стоит
+     `raw-field`, который общее правило намеренно не трогает. */
+  .ic-card .ic-phone-inp{height:var(--control-h);border:1px solid var(--line-input);
+    border-radius:var(--radius-control);background:var(--panel);padding:0 10px}
+  /* Сводка клиента в сайдбаре: строка «подпись → значение» (APPROVED summary-pattern).
+     Подпись слева приглушённая, значение справа основным цветом и по правому краю —
+     так столбец значений читается сверху вниз одним взглядом.
+
+     Полей здесь больше нет: сводка ОТРАЖАЕТ центр, а не редактирует его. Правила
+     безрамочных инпутов удалены вместе с ними, чтобы не остаться мёртвым кодом,
+     который следующий примет за действующий. */
+  .ic-card .ic-sb-sum{display:flex;flex-direction:column;gap:var(--sp-1);margin:0 0 var(--sp-2)}
+  .ic-card .ic-sb-kv{display:flex;align-items:baseline;justify-content:space-between;gap:var(--sp-3);
+    min-height:22px}
+  .ic-card .ic-sb-k{flex:none;font-size:var(--r2-label);line-height:var(--r2-label-lh);color:var(--muted)}
+  .ic-card .ic-sb-v{flex:1;min-width:0;text-align:right;font-size:var(--r2-body);
+    line-height:var(--r2-body-lh);color:var(--ink);overflow-wrap:anywhere}
+  /* Пустое значение не оставляет строку-призрак: подпись без значения читается как
+     потерянные данные. */
+  .ic-card .ic-sb-kv:has(.ic-sb-v:empty){display:none}
+  .ic-card .ic-sb-tags{margin:0 0 var(--sp-2);height:auto;border:0;
+    border-bottom:1px solid var(--line-input);border-radius:0;background:transparent;
+    padding:var(--sp-2) 2px}
+  .ic-card .ic-sb-tags:focus{border-color:transparent;border-bottom-color:var(--accent)}
   .ic-card .ic-sb-email{margin:0 0 var(--sp-1)}
   /* В-1: ветвление Физ/Юр в сайдбаре — company-поле скрыто; при data-entity=company (ставит JS
      по радио «Юр. лицо» центра) показывается «Наименование организации», ФИО прячутся. */
@@ -66,7 +126,7 @@
   .ic-card[data-entity="company"] .ic-sb-person{display:none}
   .ic-card[data-entity="company"] .ic-sb-company{display:flex}
   .ic-card .ic-cl-cardlink{display:flex;align-items:center;gap:var(--sp-1);margin:var(--sp-1) 0 var(--sp-3);
-    font-size:var(--r2-label);line-height:var(--r2-label-lh);color:var(--r2-blue);text-decoration:none}
+    font-size:var(--r2-label);line-height:var(--r2-label-lh);color:var(--link-ink);text-decoration:none}
   .ic-card .ic-cl-cardlink svg{width:var(--r2-icon);height:var(--r2-icon);stroke:currentColor;stroke-width:1.8;fill:none;margin-left:auto;flex:none}
   .ic-card .ic-cl-cardlink:hover{text-decoration:underline}
   .ic-card .ic-sb-phrow{display:flex;align-items:center;gap:var(--sp-2)}
@@ -136,32 +196,61 @@
      блоки делятся заголовком и паузой между секциями (D-260). */
   /* Ramex: блок = белая карточка на сером центре, радиус, padding 16, зазор 16 (факт-съём
      .info-content: bg #fff, radius 2, padding 16, margin-bottom 16 — без жирной рамки/тени). */
-  .ic-card .ic-block{background:var(--panel);border:0;border-radius:var(--r2-radius-8);padding:var(--sp-4);margin:0 0 var(--sp-4);max-width:760px}
+  .ic-card .ic-block{background:var(--panel);border:0;border-radius:var(--radius-surface);padding:var(--sp-4);margin:0 0 var(--sp-4);max-width:760px}
   /* Поля клиента — сетка 2 в ряд (Фамилия|Имя, Отчество), как в макете. */
   /* Ramex: поля клиента стопкой по одному в строку (не 2 колонки). */
-  .ic-card .ent-person{display:grid;grid-template-columns:1fr;gap:var(--sp-2)}
+  /* ФИО одной строкой в ТРИ колонки (APPROVED). Стопкой из трёх полей блок читался
+     как длинная форма, хотя это одно имя. */
+  .ic-card .ent-person{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-2) var(--sp-3)}
   /* Поля центра — на всю ширину своей ячейки/блока (плоские input без класса иначе ~165px).
      Владелец: строки ввода Клиента должны быть по ширине блока. raw-field (плотные сетки) не трогаем. */
   .ic-card .ic-center-body input:not([type=checkbox]):not([type=radio]):not(.raw-field),
   .ic-card .ic-center-body select:not(.raw-field),
   .ic-card .ic-center-body textarea:not(.raw-field){width:100%;box-sizing:border-box}
   /* Центр «Адрес объекта»: Район/Метро и Адрес — на ОТДЕЛЬНЫХ строках (Адрес не рядом с Районом). */
+  /* Первая строка адреса — две колонки (Район/Метро + Индекс); сам адрес ниже во всю
+     ширину: он длиннее прочих и в половине колонки не читается. */
+  .ic-card .ic-addr-head{grid-template-columns:1fr 1fr}
+  .ic-card .ic-addr-head > label:nth-child(3){grid-column:1/-1}
   .ic-card .ic-addr-stack{grid-template-columns:1fr}
   .ic-card .ent-person > .ic-lbl-top{margin:0}
   .ic-card .ic-block-head{font:var(--fw-section) var(--fs-section)/var(--lh-section) var(--display);color:var(--ink);margin:0 0 var(--rhythm-head)}
   .ic-card .ic-sub2{font-size:var(--fs-secondary);line-height:var(--lh-secondary);color:var(--muted);margin:0 0 var(--sp-3)}
-  .ic-card .ic-seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:0 0 14px}
-  .ic-card .ic-seg label{padding:8px 16px;font-size:var(--r2-body);cursor:pointer;color:var(--muted);user-select:none}
-  .ic-card .ic-seg label input{position:absolute;opacity:0;width:0;height:0}
+  /* Физическое / Юридическое лицо — РАДИОКНОПКИ, а не сегментированная таблетка
+     (APPROVED, владелец 07.09.2026). Разметка уже была на `input[type=radio]` — их
+     прятал стиль и рисовал поверх таблетку. Теперь радио просто видно: 15×15,
+     `accent-color` фирменный, подпись рядом.
+
+     Таблетка была не только не по макету: два соседних сегмента с заливкой читаются
+     как две кнопки, и выбранное состояние приходилось угадывать по оттенку фона. */
+  /* Заголовок блока и переключатель — одной строкой, переключатель прижат вправо
+     (APPROVED). Нижний отступ переехал сюда с самого переключателя: иначе строка
+     заголовка и блок полей склеивались. */
+  .ic-card .ic-block-headrow{display:flex;align-items:center;justify-content:space-between;
+    gap:var(--sp-4);margin:0 0 var(--sp-3);flex-wrap:wrap}
+  .ic-card .ic-block-headrow > .ic-block-head{margin:0}
+  .ic-card .ic-block-headrow > .ic-seg{margin:0}
+  /* Email и Телефон — ДВЕ колонки (APPROVED). «+ Добавить» остаётся под телефоном:
+     он относится к телефону, а не к паре полей. */
+  .ic-card .ic-client-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:var(--sp-2) var(--sp-3);align-items:start}
+  .ic-card .ic-seg{display:inline-flex;align-items:center;gap:var(--sp-5);border:0;
+    border-radius:0;overflow:visible;margin:0 0 var(--sp-3)}
+  .ic-card .ic-seg label{display:inline-flex;align-items:center;gap:var(--sp-2);padding:0;
+    font-size:var(--r2-body);cursor:pointer;color:var(--ink);user-select:none}
+  .ic-card .ic-seg label input{position:static;opacity:1;width:15px;height:15px;
+    accent-color:var(--accent);cursor:pointer;margin:0}
   /* Активный сегмент — фоном+цветом, БЕЗ смены font-weight (иначе подпись плавает на ~1.2px). */
-  .ic-card .ic-seg label.on,.ic-card .ic-seg label:has(input:checked){background:var(--field);color:var(--ink)}
+  /* Выбранное состояние показывает сама радиокнопка — фоновой заливки у подписи
+     больше нет, иначе получилось бы два индикатора одного и того же. */
+  .ic-card .ic-seg label.on,.ic-card .ic-seg label:has(input:checked){background:none;color:var(--ink)}
   .ic-card .ic-lbl-top{display:block;margin:10px 0;font-size:var(--r2-label);line-height:var(--r2-label-lh);color:var(--muted)}
-  .ic-card .ic-add-phone{background:none;border:0;color:var(--r2-blue);font-size:var(--r2-body);cursor:pointer;padding:4px 0;margin-top:4px;display:block}
+  .ic-card .ic-add-phone{background:none;border:0;color:var(--link-ink);font-size:var(--r2-body);cursor:pointer;padding:4px 0;margin-top:4px;display:block}
   .ic-card .ic-add-phone:hover{text-decoration:underline}
   /* Единый фирменный focus-visible для не-.btn кликабельных (было разнобойное браузерное кольцо). */
   .ic-card .crm-tab:focus-visible,.ic-card .ic-iconbtn:focus-visible,.ic-card .ic-cl-cardlink:focus-visible,
   .ic-card .ic-add-phone:focus-visible,.ic-card .ic-block-add:focus-visible,.ic-card .ic-seg label:focus-within{
-    outline:2px solid var(--r2-blue);outline-offset:2px;border-radius:2px}
+    outline:2px solid var(--link-ink);outline-offset:2px;border-radius:2px}
   /* Сильнее hover иконок (звонок/удаление) — светлый --field на 26px почти не читался. */
   .ic-card .ic-iconbtn:hover{background:var(--nav-active-bg)}
   /* Уважение к prefers-reduced-motion: гасим переходы/анимации карточки (шеврон, прогресс,
@@ -179,7 +268,9 @@
   .ic-card .ic-contact{border-top:1px solid var(--line);margin-top:14px;padding-top:10px}
   .ic-card .ic-contact-head{font-weight:600;font-size:var(--r2-body);color:var(--ink);margin:2px 0 4px}
   .ic-card .ic-contact-del{background:none;border:0;color:var(--over);font-size:var(--r2-body);cursor:pointer;padding:6px 0;margin-top:2px}
-  .ic-card .ic-addr5{grid-template-columns:repeat(5,1fr)!important;margin-top:10px}
+  /* Квартира · Подъезд · Этаж · Код — ЧЕТЫРЕ поля: индекс уехал в первую строку к
+     «Район / Метро», как в APPROVED. Пятой колонки больше нет. */
+  .ic-card .ic-addr5{grid-template-columns:repeat(4,1fr)!important;margin-top:10px}
   /* Адрес: typeahead-подсказка ПОД полем (город→улица→дом), как в Ramex */
   .ic-card .ic-addr-typeahead{position:relative;display:block}
   .ic-card .ic-addr-typeahead input{width:100%;box-sizing:border-box}
@@ -187,15 +278,27 @@
     list-style:none;background:var(--panel);border:1px solid var(--line);border-radius:8px;
     box-shadow:0 8px 24px rgba(16, 24, 40,.14);max-height:280px;overflow-y:auto}
   .ic-card .ic-suggest-item{padding:8px 12px;font-size:var(--r2-body);color:var(--ink);cursor:pointer;line-height:1.35}
-  .ic-card .ic-suggest-item:hover,.ic-card .ic-suggest-item.on{background:var(--field);color:var(--r2-blue)}
-  .ic-card .ic-block--action{padding:0;max-width:760px}
+  .ic-card .ic-suggest-item:hover,.ic-card .ic-suggest-item.on{background:var(--field);color:var(--link-ink)}
+  /* «+ Добавить расчёт» — САМОСТОЯТЕЛЬНАЯ белая плашка того же композиционного уровня,
+     что «Количество изделий» (утверждено дизайнером 06.09.2026,
+     `APPROVED_DESIGN_HANDOFF.md` §3). Раньше действие читалось синей ссылкой внутри
+     чужого блока и терялось между карточками.
+
+     Скоуп УЗКИЙ намеренно, как и в передаче: правило висит на
+     `.ic-block--action > .ic-calc-add`, а не на общем `.ic-block-add`. Тот же класс
+     носят «+ поставщик» и «+ позиция» в аккордеонах договора, и их оформление
+     дизайнер не менял — перекрасив общий класс, мы тронули бы три места вместо одного. */
+  .ic-card .ic-block--action{padding:0;max-width:760px;border-radius:var(--r2-radius-10)}
+  .ic-card .ic-block--action > .ic-calc-add{padding:var(--sp-3) var(--sp-4);color:var(--ink);
+    font:var(--fw-sub) var(--fs-sub)/var(--lh-sub) var(--font);border-radius:var(--r2-radius-10)}
+  .ic-card .ic-block--action > .ic-calc-add:hover{background:var(--hover);border-radius:var(--r2-radius-10)}
   /* Блок с широкой таблицей: свой горизонтальный скролл и полная ширина колонки —
      иначе двенадцать колонок реестра тянут в скролл всю карточку. Парный к
      `.sec-body--table` на страницах-реестрах. */
   .ic-card .ic-block--table{max-width:none;overflow-x:auto}
   /* Класс висит на <button> («+ поставщик», «+ позиция», «Добавить расчёт»): без
      сброса рамки и фона кнопка рисуется серым боксом браузера вместо синей ссылки. */
-  .ic-card .ic-block-add{display:flex;align-items:center;gap:var(--sp-1);padding:14px 16px;color:var(--r2-blue);
+  .ic-card .ic-block-add{display:flex;align-items:center;gap:var(--sp-1);padding:14px 16px;color:var(--link-ink);
     font-weight:var(--r2-fw-title);font-size:var(--fs-body);line-height:var(--lh-body);text-decoration:none;
     border:0;background:none;cursor:pointer;font-family:var(--font)}
   .ic-card .ic-block-add:hover{background:var(--hover);border-radius:10px}
@@ -267,7 +370,7 @@
   .ic-card .ic-cellform input{max-width:90px}
   .ic-card .ic-cellform input.num{max-width:74px}
   /* Ссылка внутри ячейки: caption-размер, но остаётся ссылкой — синей. */
-  .ic-card .ic-celllink{font-size:var(--fs-caption);line-height:var(--lh-caption);color:var(--r2-blue)}
+  .ic-card .ic-celllink{font-size:var(--fs-caption);line-height:var(--lh-caption);color:var(--link-ink)}
   /* Рассрочка: ширины полей взноса — классом, разметка остаётся чистой. */
   .ic-card .ic-inst-form{display:flex;align-items:flex-end;gap:var(--sp-3);margin:var(--sp-3) 0 0}
   .ic-card .ic-inst-date{max-width:150px}
@@ -307,7 +410,7 @@
   .ic-card .ic-mt-4{margin-top:var(--sp-5)}
   /* «Принять оплату» — свёрнутая форма, чтобы реестр не тонул в полях ввода. */
   .ic-card .ic-pay-add{margin:var(--sp-3) 0 0}
-  .ic-card .ic-pay-add>summary{font:var(--r2-fw-title) var(--fs-body)/var(--lh-body) var(--font);color:var(--r2-blue)}
+  .ic-card .ic-pay-add>summary{font:var(--r2-fw-title) var(--fs-body)/var(--lh-body) var(--font);color:var(--link-ink)}
   /* Тумблер состава заказа (D-277 п.7): включён — синий, как в Ramex. */
   /* Ширины колонок реестра оплат задаёт колонка, а не содержимое: длинная соседняя
      ячейка сжимала дату до переноса (59px при нужных 79px). */
@@ -327,12 +430,12 @@
     font-weight:var(--r2-fw-medium);color:var(--ink);font-variant-numeric:tabular-nums}
   .ic-card .ic-sum-row.is-off>b{color:var(--danger-ink)}
   /* Прикрепление скана чека: системный «Выберите файл» заменён компактной ссылкой. */
-  .ic-card .ic-filepick{display:inline-flex;align-items:center;cursor:pointer;color:var(--r2-blue);
+  .ic-card .ic-filepick{display:inline-flex;align-items:center;cursor:pointer;color:var(--link-ink);
     font-size:var(--fs-caption);line-height:var(--lh-caption);white-space:nowrap}
   .ic-card .ic-filepick input[type=file]{position:absolute;width:0;height:0;opacity:0}
   .ic-card .ic-filepick span{text-decoration:underline}
   /* Пробитие чека — свёрнутое действие: три поля не помещаются в ячейку строкой. */
-  .ic-card .ic-recdet>summary{list-style:none;cursor:pointer;color:var(--r2-blue);
+  .ic-card .ic-recdet>summary{list-style:none;cursor:pointer;color:var(--link-ink);
     font-size:var(--fs-caption);line-height:var(--lh-caption)}
   .ic-card .ic-recdet>summary::-webkit-details-marker{display:none}
   .ic-card .ic-recdet form{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-1);
@@ -353,9 +456,9 @@
     position:relative;transition:background .12s ease}
   .ic-card .ic-switch i::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;
     border-radius:50%;background:var(--panel);transition:transform .12s ease}
-  .ic-card .ic-switch input:checked+i{background:var(--r2-blue)}
+  .ic-card .ic-switch input:checked+i{background:var(--link-ink)}
   .ic-card .ic-switch input:checked+i::after{transform:translateX(16px)}
-  .ic-card .ic-switch input:focus-visible+i{outline:2px solid var(--r2-blue);outline-offset:2px}
+  .ic-card .ic-switch input:focus-visible+i{outline:2px solid var(--link-ink);outline-offset:2px}
   .ic-card .ic-switch span{font-size:var(--r2-body);line-height:var(--r2-body-lh);color:var(--ink)}
   /* История графиков: свёрнутый список прошлых версий. */
   .ic-card .ic-hist{margin:var(--sp-3) 0 0}
@@ -395,24 +498,40 @@
      Ramex (снимок 02.09.2026): боковые колонки БЕЛЫЕ, серый — только центр, и на
      нём лежат белые карточки-блоки. До П2 боковые были почти-белые `--th`, а центр
      `--r2-canvas` — два разных серых на одном экране; остался один. */
-  .crm-page.ic-card { padding: 0 !important; background: var(--panel); display: flex;
+  /* ── Каркас карточки: ТРИ ОТДЕЛЬНЫЕ КАРТОЧКИ на сером поле (D-501, эталон 07.09.2026) ──
+     Было: колонки заподлицо, разделённые границами, серый только в центре.
+     Стало, как в утверждённом макете: `308px minmax(400px,1fr) minmax(400px,1fr)`,
+     зазор 16, выравнивание по верху; сами колонки — белые поверхности с радиусом 9 на
+     фоне рабочей области. Границ между колонками больше нет: их роль выполняет зазор. */
+  .crm-page.ic-card { padding: 0 !important; background: var(--page); display: flex;
     flex: 1 1 auto; flex-direction: column; min-height: 0; overflow: hidden; }
-  .ic-card .ic-work { flex: 1; min-height: 0; display: flex; background: inherit; }
+  .ic-card .ic-work { flex: 1; min-height: 0; display: grid;
+    grid-template-columns: 308px minmax(400px, 1fr) minmax(400px, 1fr);
+    gap: var(--sp-4); align-items: start; padding: var(--sp-4); background: var(--page);
+    overflow-y: auto; }
   /* зоны — цельные: убираем карточные border-radius/shadow/margin */
   .ic-card .crm-col-left, .ic-card .crm-col-center, .ic-card .crm-col-right {
-    border-radius: 0; box-shadow: none; margin: 0; }
-  .ic-card .crm-col-left  { width: 320px; flex: none; padding: 16px 20px 24px;
-    background: var(--panel); border: 0; border-right: 1px solid var(--line);
-    overflow-y: auto; overflow-x: hidden; }
-  .ic-card .crm-col-center { flex: 1; min-width: 0; padding: 0; background: transparent;
-    border: 0; display: flex; flex-direction: column; min-height: 0; }
-  .ic-card .crm-col-right { flex: 1; min-width: 0; padding: 0;
-    background: var(--panel); border: 0; border-left: 1px solid var(--line);
-    display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
-  .ic-card .crm-col-center > .crm-tabs { flex: none; padding: 0 20px; height: 52px;
-    border-bottom: 1px solid var(--line); margin: 0; }
-  .ic-card .crm-tab:disabled { opacity: .42; cursor: not-allowed; color: var(--muted2); }
-  .ic-card .crm-tab:disabled:hover { color: var(--muted2); border-bottom-color: transparent; }
+    box-shadow: none; margin: 0; min-width: 0; }
+  /* Левая и правая — самостоятельные белые поверхности. Ширину левой задаёт сетка
+     каркаса (308), поэтому своей ширины у колонки больше нет: два источника ширины
+     разъезжаются на первой же правке. */
+  .ic-card .crm-col-left  { padding: var(--sp-4); background: var(--panel); border: 0;
+    border-radius: var(--radius-surface); overflow-x: hidden; }
+  /* Центр — не карточка, а СТОПКА карточек: белые блоки лежат прямо на сером поле. */
+  .ic-card .crm-col-center { padding: 0; background: transparent; border: 0;
+    border-radius: 0; display: flex; flex-direction: column; }
+  .ic-card .crm-col-right { padding: var(--sp-4); background: var(--panel); border: 0;
+    border-radius: var(--radius-surface); display: flex; flex-direction: column; }
+  /* Вкладки — СВОЯ белая карточка сверху центральной колонки (эталон): высота 40,
+     паддинг 0 20, скругление поверхности. Нижняя граница снята: она отделяла вкладки
+     от содержимого, когда центр был одной колонкой; теперь их отделяет зазор сетки. */
+  .ic-card .crm-col-center > .crm-tabs { flex: none; padding: 0 var(--sp-5); height: 40px;
+    background: var(--panel); border-radius: var(--radius-surface); border: 0;
+    margin: 0 0 var(--sp-4); }
+  /* Выключенная вкладка — своим цветом #C4C9CF (эталон), а не прозрачностью:
+     opacity гасила и подчёркивание, и фон, из-за чего вкладка выглядела съехавшей. */
+  .ic-card .crm-tab:disabled { opacity: 1; cursor: not-allowed; color: var(--state-off); }
+  .ic-card .crm-tab:disabled:hover { color: var(--state-off); border-bottom-color: transparent; }
   .ic-card .ic-center-body { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden;
     padding: 16px; background: var(--r2-canvas); }
   .ic-card .crm-col-right > .crm-rtabs { flex: none; padding: 0 16px; height: 52px;
@@ -464,16 +583,20 @@
   /* компактные поля (левая колонка) */
   .ic-field { margin: 8px 0; }
   .ic-field > .lbl { display: block; font-size: var(--r2-nav-label); color: var(--muted2); margin-bottom: 3px; font-weight: 600; }
-  /* Поле карточки — подчёркнутая ПОЛОСА (решение владельца 23.07.2026, снято с Ramex
-     getComputedStyle): контрол прозрачный и безрамочный, снизу линия --line-input,
-     радиус 0. Класс висит и на `input`, и на `select` с `raw-field`, которые общее
-     правило поля из crm2-components.css намеренно не трогает. */
-  .ic-inp { width: 100%; box-sizing: border-box; border: 0;
-            border-bottom: 1px solid var(--line-input); border-radius: 0; background: transparent;
-            padding: var(--sp-2) 2px;
+  /* Поле карточки — БОКС с рамкой и радиусом (D-501, утверждённый Design Component
+     07.09.2026). Это ОТМЕНА прежнего решения владельца 23.07.2026 о подчёркнутых
+     полосах, снятого тогда с Ramex: в утверждённом макете полей-боксов 21, полос 1.
+     Владелец: «старые значения не считать приоритетными, если они противоречат
+     APPROVED-макету».
+
+     Значения из эталона: высота 32, рамка 1px `--line-input` (#D3D7DC), радиус 7
+     (`--radius-control`), паддинг 0 10, текст 14 основным цветом. */
+  .ic-inp { width: 100%; box-sizing: border-box; height: var(--control-h);
+            border: 1px solid var(--line-input); border-radius: var(--radius-control);
+            background: var(--panel); padding: 0 10px;
             font: var(--r2-fw-body) var(--r2-body)/var(--r2-body-lh) var(--font); color: var(--ink); }
   .ic-inp::placeholder { color: var(--muted2); }
-  .ic-inp:focus { outline: none; border-bottom-color: var(--r2-blue); }
+  .ic-inp:focus { outline: none; border-color: var(--accent); }
   .ic-inp:disabled { opacity: .75; }
   /* Ramex: Адрес + Индекс одной строкой, ниже четыре узких поля в ряд
      (Квартира · Подъезд · Этаж · Код). Было 1fr 1fr на пять полей — Код оставался
@@ -493,7 +616,7 @@
   .ic-visit-acts { display:flex; align-items:center; gap:var(--sp-2); }
   .ic-mrow-head { display: flex; align-items: baseline; gap: var(--sp-3); flex-wrap: wrap; }
   .ic-mrow-who { flex: 1 1 200px; color: var(--ink); text-decoration: none; }
-  .ic-mrow-who:hover { color: var(--r2-blue); }
+  .ic-mrow-who:hover { color: var(--link-ink); }
   .ic-mrow-when { color: var(--muted); font-variant-numeric: tabular-nums; }
   .ic-mrow-done { margin-left: auto; color: var(--muted); }
   /* Отметка факта выезда (D-334 §1) стоит справа в строке, сразу за статусом. */
@@ -514,9 +637,9 @@
   /* Инлайн-добавление строкой, как в Ramex («Добавить перезамер» + плюс справа). */
   .ic-add { display: flex; align-items: center; justify-content: space-between;
     padding: var(--sp-2) 0; margin-top: var(--sp-2); border-top: 1px solid var(--line-soft);
-    color: var(--r2-blue); text-decoration: none; }
-  .ic-add:hover { color: var(--r2-blue); text-decoration: underline; }
-  .ic-add-plus { color: var(--r2-blue); font-size: var(--r2-section-title); line-height: 1; }
+    color: var(--link-ink); text-decoration: none; }
+  .ic-add:hover { color: var(--link-ink); text-decoration: underline; }
+  .ic-add-plus { color: var(--link-ink); font-size: var(--r2-section-title); line-height: 1; }
   .ic-phone-row { display: flex; align-items: center; gap: 6px; }
   .ic-phone-row .ic-inp { flex: 1; }
   .ic-iconbtn { border: 1px solid var(--line); background: transparent; cursor: pointer; font-size: var(--r2-body); color: inherit;
@@ -591,9 +714,14 @@
   .ic-list li.is-active { box-shadow: inset 3px 0 0 var(--accent); padding-left: var(--sp-3); }
 
   /* закреплённая нижняя панель действий */
+  /* Нижняя панель действий — самостоятельная белая плашка, липнущая к низу (эталон
+     07.09.2026: `padding:12px 20px; border-radius:10px; box-shadow:0 -2px 10px`).
+     Верхняя граница снята: раньше панель была ПОДВАЛОМ единой колонки и линия отделяла
+     её от содержимого. Теперь колонки — отдельные карточки, панель тоже отдельная, и
+     линия читалась бы как оборванный край чужой карточки. Отделяет её зазор и тень. */
   .crm-actions { position: sticky; bottom: 0; z-index: 5; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
-                 padding: 12px 14px; margin-top: 14px; border-top: 1px solid var(--line); background: var(--panel);
-                 border-radius: 0 0 8px 8px; box-shadow: 0 -6px 18px rgba(16,24,40,.05); }
+                 padding: var(--sp-3) var(--sp-5); margin-top: var(--sp-4); background: var(--panel);
+                 border-radius: var(--r2-radius-10); box-shadow: 0 -2px 10px rgba(16,24,40,.06); }
   .crm-actions .spacer { flex: 1; }
 
   /* меню «…» — та же высота, что у кнопок дизайн-системы */
@@ -651,13 +779,20 @@
   /* Иконка типа события (Ramex: комментарии и системные записи одной лентой,
      различаются только иконкой). Кружок нейтральный — цвет в ленте означает
      просрочку, а не «тут событие»; до П2 КАЖДАЯ запись была розовой. */
-  .crm-tl-dot { width: var(--action); height: var(--action); border-radius: 50%;
-                background: var(--r2-canvas); color: var(--muted2);
-                display: flex; align-items: center; justify-content: center; flex: none; }
-  .crm-tl-dot svg { width: var(--r2-icon); height: var(--r2-icon);
-                    fill: none; stroke: currentColor; stroke-width: 1.6;
-                    stroke-linecap: round; stroke-linejoin: round; }
-  .crm-tl-item.is-overdue .crm-tl-dot { background: var(--danger-bg); color: var(--accent); }
+  /* Точка события и вертикальная линия (APPROVED): точка 8×8 своим цветом, под ней —
+     линия в 1px до следующего события. Раньше точка была плашкой 32×32 с иконкой: на
+     ленте из десяти записей получался столбец иконок, спорящий за внимание с текстом.
+
+     Линия рисуется псевдоэлементом от точки вниз и гасится у последнего события —
+     иначе она свисает в пустоту под лентой. */
+  .crm-tl-item { position: relative; }
+  .crm-tl-dot { position: relative; flex: none; width: 8px; height: 8px; border-radius: 50%;
+    margin: 6px 0 0; background: var(--muted2); }
+  .crm-tl-dot svg { display: none; }
+  .crm-tl-item:not(:last-child) .crm-tl-dot::after { content: ''; position: absolute;
+    left: 50%; top: 12px; width: 1px; height: calc(100% + 100%); transform: translateX(-50%);
+    background: var(--line); }
+  .crm-tl-item.is-overdue .crm-tl-dot { background: var(--accent); }
   .crm-tl-body { flex: 1; min-width: 0; }
   .crm-tl-head { display: flex; justify-content: space-between; gap: 8px; font-size: var(--r2-body); font-weight: 600; }
   .crm-tl-time { color: var(--muted2); font-size: var(--r2-label); font-weight: 500; }
@@ -810,6 +945,18 @@
           #rpane-tasks .tk .t-sub{font-size:var(--r2-label);color:var(--muted2);margin-top:2px}
           #rpane-tasks .tk.done .t-title{text-decoration:line-through;color:var(--muted2)}
           #rpane-tasks .tk .due{font-size:var(--r2-label);color:var(--muted);white-space:nowrap}
+          /* Перенос срока: контурное действие 32 и поля-полосы, как везде в карточке. */
+          #rpane-tasks .ic-tk-post{height:var(--action);padding:0 var(--sp-3);border:1px solid var(--line-input);
+            border-radius:var(--r2-radius-8);background:transparent;color:var(--ink);white-space:nowrap;
+            font:600 var(--r2-label)/var(--r2-label-lh) var(--font);cursor:pointer}
+          #rpane-tasks .ic-tk-post:hover{background:var(--field)}
+          #rpane-tasks .ic-tk-postf{display:flex;align-items:center;gap:var(--sp-2);flex-wrap:wrap}
+          /* Без этой строки `hidden` не действует: авторский `display` сильнее
+             браузерного `[hidden]{display:none}`, и поля переноса висят в каждой
+             строке задачи. Та же грабля, что у ленты событий выше. */
+          #rpane-tasks .ic-tk-postf[hidden]{display:none!important}
+          #rpane-tasks .ic-tk-postf input{height:var(--action);border:0;border-bottom:1px solid var(--line-input);
+            border-radius:0;background:transparent;color:var(--ink);font-size:var(--r2-label)}
         
 
 /* Звонки по обращению (02.09.2026). Плотная таблица без шапки: колонок пять, все

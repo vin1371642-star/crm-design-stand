@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>За день · Отчёты · Ростовские окна</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788563571">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788563571">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788563571">
+<link rel="stylesheet" href="static/design-system.css?v=1788784554">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
 </head>
 <body>
 <div class="app">
@@ -145,21 +145,9 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form class="dirsel" method="get" action="/direction/switch">
-    <input type="hidden" name="next" value="/crm2/incoming">
-    <select name="to" aria-label="Направление деятельности"
-            onchange="this.form.next.value=location.pathname+location.search;this.form.submit()">
-      <option value="25" selected>Ростовские окна розница</option>
-      <option value="26" >Ростовские окна опт</option>
-      <option value="27" >Росток</option>
-    </select>
-  </form>
-  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
-  <a class="icon-btn" href="notifications.html" title="Уведомления" aria-label="Уведомления: непрочитанных 2">
-    <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="pip">2</span>  </a>
-  <div class="avatar" title="Офис-менеджер Демо · Директор">ОФ</div>
 </header>    <div class="work">
 <style>
   .st-title b{color:var(--accent-ink)}
@@ -236,7 +224,7 @@
         <path d="M12.5 4.5 7 10l5.5 5.5" stroke="currentColor" stroke-width="1.6"
               stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-    <b>5 сентября 2026</b>
+    <b>7 сентября 2026</b>
     <a href="reports__day.html" title="Следующий день"
        aria-label="Следующий день">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -247,7 +235,7 @@
 </div>
 
 <form class="rfilters" method="get">
-  <input class="day-jump" type="date" name="day" value="2026-09-05"
+  <input class="day-jump" type="date" name="day" value="2026-09-07"
          onchange="this.form.submit()" title="Перейти к дню" aria-label="Перейти к дню">
   <details class="colpick ffilter">
   <summary class="fsel" title="Все офисы">Все офисы</summary>
@@ -436,127 +424,7 @@ title="Срез накопленного, а не событие этого дн
           </span>
         </div>
     </div>
-  </div>
-
-  <div class="tablewrap">
-    <table>
-      <thead><tr>
-        <th class="day-name">Показатель</th>
-        <th class="num">Количество</th>
-        <th class="num">Сумма</th>
-        <th>Дата события считается по</th>
-      </tr></thead>
-      <tbody>
-        <tr class="">
-          <td class="day-name">Обращения</td>
-          <td class="num">0</td>
-          <td class="num money"><span class="day-closed" title="У этого показателя суммы нет">—</span></td><td class="day-field" title="IncomingRequest.created_at">момент появления обращения</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Из них целевые</td>
-          <td class="num">0</td>
-          <td class="num money"><span class="day-closed" title="У этого показателя суммы нет">—</span></td><td class="day-field" title="IncomingRequest.created_at">за вычетом статусов «не считать обращением»</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Отказы</td>
-          <td class="num">0</td>
-          <td class="num money"><span class="day-closed" title="У этого показателя суммы нет">—</span></td><td class="day-field" title="IncomingRequest.outcome_at">момент, когда проставлен исход «отказ»</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Записались на замер</td>
-          <td class="num">0</td>
-          <td class="num money"><span class="day-closed" title="У этого показателя суммы нет">—</span></td><td class="day-field" title="ScheduledMeasurement.created_at">день, когда замер записали</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Выезды на замер в этот день</td>
-          <td class="num">3</td>
-          <td class="num money"><span class="day-closed" title="У этого показателя суммы нет">—</span></td><td class="day-field" title="ScheduledMeasurement.scheduled_at">день выезда, на который замер назначен</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Замеры выполнены</td>
-          <td class="num">0</td>
-          <td class="num money"><span class="day-closed" title="стоимости замера в модели нет">—</span></td><td class="day-field" title="ScheduledMeasurement.completed_at">галочка факта замера</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Договоры заключены</td>
-          <td class="num">0</td>
-          <td class="num money">0 ₽</td><td class="day-field" title="Contract.date">дата договора; без неё — день обращения</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Договоры подписаны</td>
-          <td class="num">0</td>
-          <td class="num money">0 ₽</td><td class="day-field" title="Contract.signature_confirmed_at">подтверждение подписи</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Принято в кассу</td>
-          <td class="num">0</td>
-          <td class="num money">0 ₽</td><td class="day-field" title="CashMovement.date">приход без инкассации и перемещений между кассами</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Доплаты</td>
-          <td class="num">0</td>
-          <td class="num money">0 ₽</td><td class="day-field" title="CashMovement.date">приход по договору, у которого платёж уже был (первый — предоплата)</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Подотчёты</td>
-          <td class="num">0</td>
-          <td class="num money">0 ₽</td><td class="day-field" title="CashMovement.date">статья с системным ключом «выдача в подотчёт»</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Оплачено поставщикам</td>
-          <td class="num">0</td>
-          <td class="num money">0 ₽</td><td class="day-field" title="CashMovement.date">статья «Оплата поставщикам»; аванс от окончательного расчёта не отличаем</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Монтажи выполнены</td>
-          <td class="num">0</td>
-          <td class="num money">0 ₽</td><td class="day-field" title="Installation.completed_at">отметка о завершении монтажа</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Доставки выполнены</td>
-          <td class="num">0</td>
-          <td class="num money">0 ₽</td><td class="day-field" title="Installation.completed_at">отметка о завершении доставки</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Рекламации</td>
-          <td class="num">0</td>
-          <td class="num money"><span class="day-closed" title="У этого показателя суммы нет">—</span></td><td class="day-field" title="Claim.date">дата рекламации; без неё — день заведения</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Расчётчик изделий</td>
-          <td class="num">0</td>
-          <td class="num money"><span class="day-closed" title="У этого показателя суммы нет">—</span></td><td class="day-field" title="DealCalculation.created_at">предварительный расчёт обращения («Добавить расчёт»)</td>
-        </tr>
-        <tr class="">
-          <td class="day-name">Расчётчик доп. материалов</td>
-          <td class="num">—</td>
-          <td class="num money"><span class="day-closed" title="У этого показателя суммы нет">—</span></td><td class="day-field" title="">предварительного расчёта доп. материалов на этапе обращения в базе нет: допматериалы появляются только в договоре и заказе</td>
-        </tr>
-        <tr class="day-state">
-          <td class="day-name">Заказы просрочены поставщиками изделий</td>
-          <td class="num">0</td>
-          <td class="num money">0 ₽</td><td class="day-field" title="OrderSupplierLine.ready_plan_date">плановая готовность прошла, изделий на складе нет</td>
-        </tr>
-        <tr class="day-state">
-          <td class="day-name">Недопоставки</td>
-          <td class="num">0</td>
-          <td class="num money"><span class="day-closed" title="У этого показателя суммы нет">—</span></td><td class="day-field" title="OrderLineReceipt.created_at">принято меньше заказанного по приёмкам на конец дня</td>
-        </tr>
-        <tr class="day-state">
-          <td class="day-name">Договоры закрыты без доплаты</td>
-          <td class="num">1</td>
-          <td class="num money">90 000 ₽</td><td class="day-field" title="Contract.status">срез на сейчас: даты закрытия договора в модели нет</td>
-        </tr>
-        <tr class="day-transit">
-          <td class="day-name">Выплачено монтажным бригадам</td>
-          <td class="num">0</td>
-          <td class="num money">0 ₽</td><td class="day-field" title="CashMovement.date">транзит бригаде: не выручка и не расход компании</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-</div>
+  </div></div>
     </div>
   </div>
 </div>
@@ -651,8 +519,6 @@ title="Срез накопленного, а не событие этого дн
         <span>Цели</span><small>Отчёты</small>      </a>
       <a href="settings.html" data-nav-prefixes="/settings|/salary">
         <span>Настройки</span>      </a>
-      <a href="#" data-screen="/account/password"><span>Пароль</span></a>
-      <a class="danger" href="#" data-screen="/logout"><span>Выйти</span></a>
     </div>
   </section>
 </div><script>

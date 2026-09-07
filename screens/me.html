@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Моя работа</title>
-<link rel="stylesheet" href="static/design-system.css?v=1788563571">
-<link rel="stylesheet" href="static/crm2-shell.css?v=1788563571">
-<link rel="stylesheet" href="static/crm2-components.css?v=1788563571">
+<title>Обращения — Ростовские окна</title>
+<link rel="stylesheet" href="static/design-system.css?v=1788784554">
+<link rel="stylesheet" href="static/crm2-shell.css?v=1788784554">
+<link rel="stylesheet" href="static/crm2-components.css?v=1788784554">
 </head>
 <body>
 <div class="app">
@@ -145,140 +145,329 @@
   <a class="icon-btn search-mobile" href="#" data-screen="/crm2/search" aria-label="Поиск по системе">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
   </a>
-  <div class="spacer"></div>  <form class="dirsel" method="get" action="/direction/switch">
-    <input type="hidden" name="next" value="/crm2/incoming">
-    <select name="to" aria-label="Направление деятельности"
-            onchange="this.form.next.value=location.pathname+location.search;this.form.submit()">
-      <option value="25" selected>Ростовские окна розница</option>
-      <option value="26" >Ростовские окна опт</option>
-      <option value="27" >Росток</option>
-    </select>
-  </form>
-  <form method="post" action="/incoming/new" style="margin:0">
+  <div class="spacer"></div>  <form method="post" action="/incoming/new" style="margin:0">
     <button class="btn-primary" type="submit" title="Новое обращение"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Новое обращение</span></button>
   </form>
-  <a class="icon-btn" href="notifications.html" title="Уведомления" aria-label="Уведомления: непрочитанных 2">
-    <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="pip">2</span>  </a>
-  <div class="avatar" title="Офис-менеджер Демо · Директор">ОФ</div>
 </header>    <div class="work">
 
-<div class="cx">
 
-  <div class="rhead">
-    <h1>Моя работа</h1><span class="rcount">Директор</span>  </div>
 
-<section class="sec">
-        <div class="sec-head">
-          <h2>Требует внимания</h2>
-          <span class="sec-count">10</span>
-        </div>
-        <div class="sec-body">
-<div class="sec"><h3 class="cx-card-title">Требуют внимания: деньги <span class="cx-card-note">1</span></h3><div class="cx-tasks">
-<a href="cashbox.html" class="cx-task is-danger"><span class="dot dot--red"></span>
-  <span>
-    <span class="cx-task-t">Оплаты не подтверждены — 54000 ₽</span>
-    <span class="cx-task-s"></span>
-  </span></a>
-</div>
-<a class="cx-task-more" href="cashbox__overview.html">Все</a></div><div class="sec"><h3 class="cx-card-title">Требуют разбора: монтажи <span class="cx-card-note">4</span></h3><div class="cx-tasks">
-<a href="incoming__1__card.html" class="cx-task is-danger"><span class="dot dot--red"></span>
-  <span>
-    <span class="cx-task-t">Монтаж выполнен, акты не подписаны — гарантия не начата</span>
-    <span class="cx-task-s"></span>
-  </span></a>
-<a href="#" data-screen="/incoming/12/card?tab=rab" class="cx-task is-danger"><span class="dot dot--red"></span>
-  <span>
-    <span class="cx-task-t">Договор Д-000909: монтаж от 03.09.2026 не закрыт и не перенесён — исполнитель уже на другом объекте</span>
-    <span class="cx-task-s"></span>
-  </span></a>
-<a href="incoming__13__card.html" class="cx-task is-danger"><span class="dot dot--red"></span>
-  <span>
-    <span class="cx-task-t">Монтаж выполнен, акты не подписаны — гарантия не начата</span>
-    <span class="cx-task-s"></span>
-  </span></a>
-<a href="incoming__1__card.html" class="cx-task is-danger"><span class="dot dot--red"></span>
-  <span>
-    <span class="cx-task-t">Договор Д-000001: монтаж от 05.09.2026 не закрыт и не перенесён — исполнитель уже на другом объекте</span>
-    <span class="cx-task-s"></span>
-  </span></a>
-</div>
-<a class="cx-task-more" href="#" data-screen="/installations/waiting?tab=exceptions">Все</a></div><div class="sec"><h3 class="cx-card-title">Контроль доездов <span class="cx-card-note">1</span></h3><div class="cx-tasks">
-<a href="#" data-screen="/incoming/24/card?tab=zam" class="cx-task is-danger"><span class="dot dot--red"></span>
-  <span>
-    <span class="cx-task-t">Сорвалов Демо Игоревич · Демоград · снят 02.09</span>
-    <span class="cx-task-s"></span>
-  </span></a>
-</div>
-<a class="cx-task-more" href="crm2__measurements.html">Все</a></div><div class="sec"><h3 class="cx-card-title">Требуют разбора: ошибка расчёта <span class="cx-card-note">1</span></h3><div class="cx-tasks">
-<a href="incoming__1__card.html" class="cx-task is-danger"><span class="dot dot--red"></span>
-  <span>
-    <span class="cx-task-t">Ошибка расчёта: договор Д-000001</span>
-    <span class="cx-task-s"></span>
-  </span></a>
-</div>
-<a class="cx-task-more" href="crm2__contracts.html">Все</a></div><div class="sec"><h3 class="cx-card-title">Возвращены на доработку <span class="cx-card-note">2</span></h3><div class="cx-tasks">
-<a href="#" data-screen="/incoming/17/card?tab=zak" class="cx-task"><span class="dot dot--amber"></span>
-  <span>
-    <span class="cx-task-t">Заказ по договору Д-000914 возвращён на доработку: Размер проёма не сходится с замером. — Сотрудник 01</span>
-    <span class="cx-task-s"></span>
-  </span></a>
-<a href="incoming__3__card.html" class="cx-task"><span class="dot dot--amber"></span>
-  <span>
-    <span class="cx-task-t">Заказ по договору Д-000003 возвращён на доработку: Не сходится размер проёма с замером — уточнить у замерщика. — Сотрудник 01</span>
-    <span class="cx-task-s"></span>
-  </span></a>
-</div>
-</div><div class="sec"><h3 class="cx-card-title">Просроченные перезвоны отдела <span class="cx-card-note">1</span></h3><div class="cx-tasks">
-<a href="incoming__1__card.html" class="cx-task"><span class="dot dot--amber"></span>
-  <span>
-    <span class="cx-task-t">Согласовать перенос монтажа с клиентом</span>
-    <span class="cx-task-s"></span>
-  </span></a>
-</div>
-<a class="cx-task-more" href="tasks.html">Все</a></div>        </div>
-      </section>
-      <section class="sec">
-        <div class="sec-head">
-          <h2>Очереди роли</h2>
-          <span class="sec-count">1</span>
-        </div>
-        <div class="cx-grid">
-  <div class="cx-c6"><div class="sec-body"><h3 class="cx-card-title">Незапущенные договоры <span class="cx-card-note">1</span></h3><div class="cx-tasks">
-<a href="incoming__3__card.html" class="cx-task"><span class="dot dot--gray"></span>
-  <span>
-    <span class="cx-task-t">Договор Д-000003 не запущен в производство</span>
-    <span class="cx-task-s"></span>
-  </span></a>
-</div>
-</div></div>
-</div>
 
-      </section>
-      <section class="sec">
-        <div class="sec-head">
-          <h2>Мои задачи</h2>
-          <span class="sec-count">2</span>
-        </div>
-        <div class="cx-grid">
-  <div class="cx-c6"><div class="sec-body"><h3 class="cx-card-title">Задачи <span class="cx-card-note">2</span></h3><div class="cx-tasks">
-<a href="incoming__1__card.html" class="cx-task"><span class="dot dot--amber"></span>
-  <span>
-    <span class="cx-task-t">Согласовать перенос монтажа с клиентом</span>
-    <span class="cx-task-s">просрочена — 02.09.2026 02:13</span>
-  </span></a>
-<a href="incoming__1__card.html" class="cx-task"><span class="dot dot--amber"></span>
-  <span>
-    <span class="cx-task-t">Перезвонить и согласовать доставку</span>
-    <span class="cx-task-s">сегодня 08:13</span>
-  </span></a>
-</div>
-<a class="cx-task-more" href="tasks.html">Все</a></div></div>
-</div>
-
-      </section>
-
-</div>
+<div class="rhead">
+  <h1>Обращения</h1>
+  <span class="rcount">24</span>
+  <div class="spacer"></div>
+  <details class="colpick">
+  <summary class="tbtn" title="Какие колонки показывать">
+    <svg viewBox="0 0 24 24"><path d="M3 5h18M3 12h18M3 19h18"/></svg>Колонки
+  </summary>
+  <form class="colpick-pop" method="post" action="/crm2/registry/columns">
+    <input type="hidden" name="registry" value="incoming">
+    <input type="hidden" name="back" value="/crm2/incoming"><div class="colpick-list" data-colsort>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="id" checked>
+        <span>#</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="created_at" checked>
+        <span>Дата обр.</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="request_status" checked>
+        <span>Статус</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="tags" checked>
+        <span>Теги</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="client" checked>
+        <span>Клиент</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="phone" checked>
+        <span>Телефон</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="type" checked>
+        <span>Тип обращения</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="source" checked>
+        <span>Источник</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="comment" checked>
+        <span>Коммент.</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="measurement_at" checked>
+        <span>Дата замера</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="responsible" checked>
+        <span>Менеджер</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="owner_manager" checked>
+        <span>Менеджер обращения</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="tasks" checked>
+        <span>Задачи</span>
+      </label>
+      <label class="colpick-item" draggable="true">
+        <span class="colpick-grip" aria-hidden="true">⠿</span>
+        <input type="checkbox" name="col" value="status">
+        <span>Дальнейшее действие</span>
+      </label>
     </div>
+    <div class="colpick-act">
+      <button class="pbtn on" type="submit">Применить</button>
+      <button class="pbtn" type="submit" name="reset" value="1">По умолчанию</button>
+    </div>
+  </form>
+</details>
+<script>
+/* Перетаскивание строк настройки колонок. Своей библиотеки не заводим: нативный
+   drag-and-drop делает ровно то, что нужно, и не тянет ни килобайта. Порядок
+   отправляется сам — галочки уходят в порядке DOM. */
+(function () {
+  document.querySelectorAll('[data-colsort]').forEach(function (list) {
+    if (list.dataset.colsortReady) { return; }
+    list.dataset.colsortReady = '1';
+    var dragged = null;
+    list.addEventListener('dragstart', function (e) {
+      dragged = e.target.closest('.colpick-item');
+      if (dragged) { dragged.classList.add('is-dragging'); }
+    });
+    list.addEventListener('dragend', function () {
+      if (dragged) { dragged.classList.remove('is-dragging'); }
+      dragged = null;
+    });
+    list.addEventListener('dragover', function (e) {
+      if (!dragged) { return; }
+      e.preventDefault();
+      var over = e.target.closest('.colpick-item');
+      if (!over || over === dragged) { return; }
+      var rect = over.getBoundingClientRect();
+      var after = (e.clientY - rect.top) > rect.height / 2;
+      list.insertBefore(dragged, after ? over.nextSibling : over);
+    });
+  });
+})();
+</script>
+  <details class="colpick">
+  <summary class="tbtn" title="Выгрузить то, что отобрано на экране">
+    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Экспорт
+  </summary>
+  <div class="colpick-pop">
+    <div class="colpick-list">
+      <a class="colpick-item" href="#" data-screen="/incoming/export.csv?fmt=xlsx">Excel (.xlsx)</a>
+      <a class="colpick-item" href="#" data-screen="/incoming/export.csv?fmt=csv">CSV</a>
+    </div>
+  </div>
+</details>
+
+</div>
+
+<form class="rfilters" method="get" action="/crm2/incoming">
+  <input class="finp fsearch" type="search" name="q" value="" placeholder="Клиент, телефон, адрес, № обращения"><select class="fsel" name="request_status" onchange="this.form.submit()" aria-label="Статус">
+    <option value="">Все статусы</option>
+<option value="callback" >Перезвонить</option><option value="measurement_scheduled" >Замер назначен</option><option value="measurement_done" >Замер выполнен</option><option value="contract_draft" >Заключение договора</option><option value="contract_signed" >Подписан</option><option value="sent_to_work" >Отправлено в работу</option><option value="in_production" >На производстве</option><option value="in_stock" >На складе</option><option value="installation_scheduled" >Монтаж назначен</option><option value="installation_done" >Монтаж выполнен</option><option value="closed" >Договор закрыт</option><option value="measurement_rescheduled" >Замер перенесён</option><option value="contract_terminated" >Договор расторгнут</option><option value="installation_rescheduled" >Монтаж перенесён</option><option value="revision" >На доработке</option><option value="refused" >Отказ</option><option value="wholesale" >Передано в ОПТ</option>  </select>
+  <select class="fsel" name="status" onchange="this.form.submit()" aria-label="Дальнейшее действие">
+    <option value="">Любое действие</option>
+<option value="callback" >Перезвонить</option><option value="transferred_service" >Передан в сервис</option><option value="outside_territory" >Не наша территория</option><option value="transferred_rom" >Передан РОП (орг/проекты)</option><option value="transferred_addons" >Переданы допы</option><option value="transferred_wholesale" >Передано в ОПТ</option><option value="non_target" >Нецелевой</option><option value="duplicate_card" >Повторная карта</option>  </select>
+  <select class="fsel" name="type" onchange="this.form.submit()" aria-label="Тип обращения">
+    <option value="">Все типы</option>
+<option value="website_request" >Заявка с сайта</option><option value="call" >Звонок</option><option value="lead" >Лид</option><option value="visit" >Посещение</option>  </select>
+  <select class="fsel" name="source" onchange="this.form.submit()" aria-label="Источник">
+    <option value="">Все источники</option>
+<option value="4" >Внутренние источники — Выездной менеджер</option><option value="1" >Внутренние источники — Наш клиент</option><option value="3" >Внутренние источники — Обзвон базы</option><option value="2" >Внутренние источники — Рекомендация</option>  </select><details class="colpick ffilter">
+  <summary class="fsel" title="Все теги">Все теги</summary>
+  <div class="colpick-pop">
+    <div class="colpick-list">
+      <label class="colpick-item">
+        <input type="checkbox" name="tag" value="ЧС"
+               onchange="this.form.submit()">
+        <span>ЧС</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="tag" value="рассрочка 1"
+               onchange="this.form.submit()">
+        <span>рассрочка 1</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="tag" value="рассрочка 2"
+               onchange="this.form.submit()">
+        <span>рассрочка 2</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="tag" value="рассрочка 3"
+               onchange="this.form.submit()">
+        <span>рассрочка 3</span>
+      </label>
+      <label class="colpick-item">
+        <input type="checkbox" name="tag" value="фиксация"
+               onchange="this.form.submit()">
+        <span>фиксация</span>
+      </label>
+    </div>
+  </div>
+</details>
+
+  <select class="fsel" name="responsible" onchange="this.form.submit()" aria-label="Ответственный">
+    <option value="">Все ответственные</option>
+<option value="20" >Вадим</option><option value="19" >Данил</option><option value="18" >Наташа</option><option value="17" >Нелли</option><option value="1" >Сотрудник 01</option>  </select>
+  <select class="fsel" name="owner_manager" onchange="this.form.submit()" aria-label="Менеджер обращения">
+    <option value="">Все менеджеры обр.</option>
+<option value="20" >Вадим</option><option value="19" >Данил</option><option value="18" >Наташа</option><option value="17" >Нелли</option><option value="1" >Сотрудник 01</option>  </select>
+  <input class="finp fdate" type="date" name="date_from" value="" onchange="this.form.submit()" title="Дата обращения с" aria-label="Дата обращения с">
+  <input class="finp fdate" type="date" name="date_to" value="" onchange="this.form.submit()" title="Дата обращения по" aria-label="Дата обращения по">
+<input type="hidden" name="sort" value="created_at"><input type="hidden" name="dir" value="desc"></form>
+
+<div class="tablewrap">
+  <table>
+    <thead><tr>
+<th class="l col-w80"><a class="sortlink" href="?sort=id&dir=asc">#</a></th>
+<th class="c col-w80 sorted"><a class="sortlink" href="?sort=created_at&dir=asc">Дата обр.<span class="sarr">↓</span></a></th>
+<th class="l col-w170"><a class="sortlink" href="?sort=request_status&dir=asc">Статус</a></th>
+<th class="l col-w110">Теги</th>
+<th class="l col-min240"><a class="sortlink" href="?sort=client&dir=asc">Клиент</a></th>
+<th class="l col-w150"><a class="sortlink" href="?sort=phone&dir=asc">Телефон</a></th>
+<th class="c col-w140"><a class="sortlink" href="?sort=type&dir=asc">Тип обращения</a></th>
+<th class="l col-w180"><a class="sortlink" href="?sort=source&dir=asc">Источник</a></th>
+<th class="c col-w80">Коммент.</th>
+<th class="c col-w90"><a class="sortlink" href="?sort=measurement_at&dir=asc">Дата замера</a></th>
+<th class="l col-w120"><a class="sortlink" href="?sort=responsible&dir=asc">Менеджер</a></th>
+<th class="l col-w130"><a class="sortlink" href="?sort=owner_manager&dir=asc">Менеджер обращения</a></th>
+<th class="c col-w80"><a class="sortlink" href="?sort=tasks&dir=asc">Задачи</a></th>
+    </tr></thead>
+    <tbody>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/23/card'">
+<td class="num l"><a class="rowlink" href="#" data-screen="/incoming/23/card">23</a></td><td class="c m nowrap">02.09.26</td><td><span class="stt"><span class="sd tone-info"></span>Замер назначен</span></td><td class="m2">рассрочка, повторный</td><td class="cl-name">Вечеров Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-03-03
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">05.09.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/22/card'">
+<td class="num l"><a class="rowlink" href="#" data-screen="/incoming/22/card">22</a></td><td class="c m nowrap">02.09.26</td><td><span class="stt"><span class="sd tone-info"></span>Замер назначен</span></td><td class="m2">—</td><td class="cl-name">Полуднев Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-03-02
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">05.09.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/21/card'">
+<td class="num l"><a class="rowlink" href="#" data-screen="/incoming/21/card">21</a></td><td class="c m nowrap">02.09.26</td><td><span class="stt"><span class="sd tone-info"></span>Замер назначен</span></td><td class="m2">—</td><td class="cl-name">Селиванов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-03-01
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">05.09.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/24/card'">
+<td class="num l"><a class="rowlink" href="#" data-screen="/incoming/24/card">24</a></td><td class="c m nowrap">30.08.26</td><td><span class="stt"><span class="sd tone-warn"></span>Перезвонить</span></td><td class="m2">—</td><td class="cl-name">Сорвалов Демо Игоревич</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-01-05
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">02.09.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/2/card'">
+<td class="num l"><a class="rowlink" href="incoming__2__card.html">2</a></td><td class="c m nowrap">30.08.26</td><td><span class="stt"><span class="sd tone-info"></span>Заключение договора</span></td><td class="m2">лоджия</td><td class="cl-name">Пробникова Демо Ивановна</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-01-02
+</td><td class="c m nowrap">site</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">07.09.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/3/card'">
+<td class="num l"><a class="rowlink" href="incoming__3__card.html">3</a></td><td class="c m nowrap">25.08.26</td><td><span class="stt"><span class="sd tone-warn"></span>На доработке</span></td><td class="m2">повторный</td><td class="cl-name">Задержкин Демо Олегович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-01-04
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">01.09.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/20/card'">
+<td class="num l"><a class="rowlink" href="incoming__20__card.html">20</a></td><td class="c m nowrap">23.08.26</td><td><span class="stt"><span class="sd tone-neutral"></span>Передано в ОПТ</span></td><td class="m2">—</td><td class="cl-name">Оптовов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-17
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">31.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/19/card'">
+<td class="num l"><a class="rowlink" href="incoming__19__card.html">19</a></td><td class="c m nowrap">22.08.26</td><td><span class="stt"><span class="sd tone-danger"></span>Отказ</span></td><td class="m2">—</td><td class="cl-name">Отказов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-16
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">31.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/18/card'">
+<td class="num l"><a class="rowlink" href="incoming__18__card.html">18</a></td><td class="c m nowrap">21.08.26</td><td><span class="stt"><span class="sd tone-danger"></span>Договор расторгнут</span></td><td class="m2">—</td><td class="cl-name">Расторгов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-15
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">31.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/17/card'">
+<td class="num l"><a class="rowlink" href="#" data-screen="/incoming/17/card">17</a></td><td class="c m nowrap">20.08.26</td><td><span class="stt"><span class="sd tone-warn"></span>На доработке</span></td><td class="m2">—</td><td class="cl-name">Доработов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-14
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">31.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/16/card'">
+<td class="num l"><a class="rowlink" href="incoming__16__card.html">16</a></td><td class="c m nowrap">19.08.26</td><td><span class="stt"><span class="sd tone-warn"></span>Монтаж перенесён</span></td><td class="m2">—</td><td class="cl-name">Отсрочев Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-13
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">31.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/15/card'">
+<td class="num l"><a class="rowlink" href="incoming__15__card.html">15</a></td><td class="c m nowrap">18.08.26</td><td><span class="stt"><span class="sd tone-warn"></span>Замер перенесён</span></td><td class="m2">—</td><td class="cl-name">Переносов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-12
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">31.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/14/card'">
+<td class="num l"><a class="rowlink" href="incoming__14__card.html">14</a></td><td class="c m nowrap">17.08.26</td><td><span class="stt"><span class="sd tone-neutral"></span>Договор закрыт</span></td><td class="m2">—</td><td class="cl-name">Закрывов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-11
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">31.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/13/card'">
+<td class="num l"><a class="rowlink" href="incoming__13__card.html">13</a></td><td class="c m nowrap">16.08.26</td><td><span class="stt"><span class="sd tone-ok"></span>Монтаж выполнен</span></td><td class="m2">—</td><td class="cl-name">Готовов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-10
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">31.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/12/card'">
+<td class="num l"><a class="rowlink" href="#" data-screen="/incoming/12/card">12</a></td><td class="c m nowrap">15.08.26</td><td><span class="stt"><span class="sd tone-info"></span>Монтаж назначен</span></td><td class="m2">—</td><td class="cl-name">Монтажов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-09
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">31.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/1/card'">
+<td class="num l"><a class="rowlink" href="incoming__1__card.html">1</a></td><td class="c m nowrap">15.08.26</td><td><span class="stt"><span class="sd tone-info"></span>Монтаж назначен</span></td><td class="m2">рассрочка, повторный</td><td class="cl-name">Демидов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-01-01
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">18.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">3</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/11/card'">
+<td class="num l"><a class="rowlink" href="incoming__11__card.html">11</a></td><td class="c m nowrap">14.08.26</td><td><span class="stt"><span class="sd tone-ok"></span>На складе</span></td><td class="m2">—</td><td class="cl-name">Складов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-08
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">31.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/10/card'">
+<td class="num l"><a class="rowlink" href="incoming__10__card.html">10</a></td><td class="c m nowrap">13.08.26</td><td><span class="stt"><span class="sd tone-info"></span>На производстве</span></td><td class="m2">—</td><td class="cl-name">Производов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-07
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">31.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/9/card'">
+<td class="num l"><a class="rowlink" href="incoming__9__card.html">9</a></td><td class="c m nowrap">12.08.26</td><td><span class="stt"><span class="sd tone-info"></span>Отправлено в работу</span></td><td class="m2">—</td><td class="cl-name">Отправов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-06
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">31.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+      <tr onclick="if(!getSelection().toString()&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey)location.href='/incoming/8/card'">
+<td class="num l"><a class="rowlink" href="incoming__8__card.html">8</a></td><td class="c m nowrap">11.08.26</td><td><span class="stt"><span class="sd tone-ok"></span>Подписан</span></td><td class="m2">—</td><td class="cl-name">Подписов Демо Демидович</td><td class="cell-ico nowrap">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>+7 (900) 000-02-05
+</td><td class="c m nowrap">Звонок</td><td class="m">Вручную</td><td class="c">
+<span class="m2">—</span></td><td class="c m2 nowrap">31.08.26</td><td class="m nowrap">Офис-менеджер Демо</td><td class="m nowrap">Оператор КЦ Демо</td><td class="c tsk">0</td>      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="pager">
+  <span class="pbtn is-off">«</span><span class="pbtn is-off">←</span>
+<span class="pbtn on">1</span>
+<a class="pbtn" href="?page=2">2</a>  <a class="pbtn" href="?page=2" title="Следующая">→</a>
+  <a class="pbtn" href="?page=2" title="В конец">»</a>
+  <span class="pinfo">Показаны <b>1–20</b> из <b>24</b> · стр. 1 из 2</span>
+</div>    </div>
   </div>
 </div>
 <nav class="crm2-mobile-nav" aria-label="Мобильная навигация">
@@ -372,8 +561,6 @@
         <span>Цели</span><small>Отчёты</small>      </a>
       <a href="settings.html" data-nav-prefixes="/settings|/salary">
         <span>Настройки</span>      </a>
-      <a href="#" data-screen="/account/password"><span>Пароль</span></a>
-      <a class="danger" href="#" data-screen="/logout"><span>Выйти</span></a>
     </div>
   </section>
 </div><script>
